@@ -16,6 +16,8 @@ export class VerticalLayout1Component implements OnInit, OnDestroy
     fuseConfig: any;
     navigation: any;
 
+    LoggedIn: boolean;
+
     // Private
     private _unsubscribeAll: Subject<any>;
 
@@ -33,6 +35,8 @@ export class VerticalLayout1Component implements OnInit, OnDestroy
 
         // Set the private defaults
         this._unsubscribeAll = new Subject();
+
+        this.LoggedIn = false;
     }
 
     // -----------------------------------------------------------------------------------------------------
