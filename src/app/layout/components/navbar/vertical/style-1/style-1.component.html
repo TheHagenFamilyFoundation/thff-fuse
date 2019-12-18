@@ -34,7 +34,7 @@
     fusePerfectScrollbar
     [fusePerfectScrollbarOptions]="{ suppressScrollX: true }"
 >
-    <div *ngIf="!LoggedIn">
+    <div *ngIf="LoggedIn">
         <div
             class="user"
             fxLayout="column"
@@ -54,7 +54,7 @@
             ></fuse-navigation>
         </div>
     </div>
-    <div *ngIf="!LoggedIn">
+    <div *ngIf="LoggedIn">
         <div
             class="user"
             fxLayout="column"
@@ -68,7 +68,7 @@
                     class="mat-elevation-z2 theme-options-button"
                     routerLink="/pages/auth/login"
                 >
-                    Login
+                    Login1
                 </button>
             </div>
         </div>
