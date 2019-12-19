@@ -1,28 +1,33 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgModule } from "@angular/core";
+import { BrowserModule } from "@angular/platform-browser";
+import { HttpClientModule } from "@angular/common/http";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 // import { RouterModule, Routes } from '@angular/router';
-import { MatMomentDateModule } from '@angular/material-moment-adapter';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
-import { TranslateModule } from '@ngx-translate/core';
-import 'hammerjs';
+import { MatMomentDateModule } from "@angular/material-moment-adapter";
+import { MatButtonModule } from "@angular/material/button";
+import { MatIconModule } from "@angular/material/icon";
 
-import { FuseModule } from '@fuse/fuse.module';
-import { FuseSharedModule } from '@fuse/shared.module';
-import { FuseProgressBarModule, FuseSidebarModule, FuseThemeOptionsModule } from '@fuse/components';
+import { TranslateModule } from "@ngx-translate/core";
+import "hammerjs";
 
-import { fuseConfig } from 'app/fuse-config';
+import { FuseModule } from "@fuse/fuse.module";
+import { FuseSharedModule } from "@fuse/shared.module";
+import {
+    FuseProgressBarModule,
+    FuseSidebarModule,
+    FuseThemeOptionsModule
+} from "@fuse/components";
 
-import { AppComponent } from 'app/app.component';
-import { LayoutModule } from 'app/layout/layout.module';
-import { SampleModule } from 'app/main/sample/sample.module';
-import { HomeModule } from 'app/main/home/home.module';
-import { UsersModule } from 'app/main/users/users.module';
-import { SettingsModule } from 'app/main/settings/settings.module';
+import { fuseConfig } from "app/fuse-config";
 
-import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from "app/app.component";
+import { LayoutModule } from "app/layout/layout.module";
+import { SampleModule } from "app/main/sample/sample.module";
+import { HomeModule } from "app/main/home/home.module";
+import { UsersModule } from "app/main/users/users.module";
+import { SettingsModule } from "app/main/settings/settings.module";
+
+import { AppRoutingModule } from "./app-routing.module";
 // import { SettingsComponent } from './main/settings/settings.component';
 
 // const appRoutes: Routes = [
@@ -37,7 +42,7 @@ import { AppRoutingModule } from './app-routing.module';
         AppComponent
         // SettingsComponent
     ],
-    imports     : [
+    imports: [
         BrowserModule,
         BrowserAnimationsModule,
         HttpClientModule,
@@ -67,10 +72,6 @@ import { AppRoutingModule } from './app-routing.module';
         UsersModule,
         SettingsModule
     ],
-    bootstrap   : [
-        AppComponent
-    ]
+    bootstrap: [AppComponent]
 })
-export class AppModule
-{
-}
+export class AppModule {}
