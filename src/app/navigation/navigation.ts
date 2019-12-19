@@ -248,7 +248,14 @@ export const navigation: FuseNavigation[] = [
                         type : 'item',
                         icon : 'import_contacts',
                         url  : '/pages/knowledge-base'
-                    }
+                    },
+                    {
+                        id   : 'user',
+                        title: 'User',
+                        type : 'item',
+                        icon : 'account_circle',
+                        url  : '/pages/user'
+                    },
                 ]
             },
         ]
