@@ -3,7 +3,8 @@
 // The list of file replacements can be found in `angular.json`.
 
 console.log(
-    "environment.ts environment = " + localStorage.getItem("backend_url")
+    "environment.ts environment = ",
+    localStorage.getItem("backend_url")
 );
 
 const environment = {
@@ -13,7 +14,7 @@ const environment = {
     hmr: false
 };
 
-console.log("environment.ts environment = " + environment);
+console.log("environment.ts environment = ", environment);
 
 export { environment };
 
