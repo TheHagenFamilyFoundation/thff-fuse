@@ -1,10 +1,9 @@
 {
-    "prettier": {
-        "singleQuote": true
-      },
-    // "prettier.singleQuote": true,
-    // "prettier.jsxSingleQuote": true,
     "typescript.preferences.quoteStyle": "single",
     "javascript.preferences.quoteStyle": "single",
-    "editor.wordWrapColumn": 120
+    "editor.wordWrapColumn": 120,
+    "eslint.format.enable": true,
+    "eslint.lintTask.enable": true,
+    "eslint.debug": true,
+    "eslint.alwaysShowStatus": true
 }
