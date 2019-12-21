@@ -1,17 +1,17 @@
-//can remove 
-//TODO
-console.log("environment.prod.ts - url = " + localStorage.getItem('backend_url'));
+// can remove
+// TODO
+console.log(`environment.prod.ts - url = ${localStorage.getItem('backend_url')}`);
 
 const environment = {
-    production: true,
-    envName: "prod",
-    API_URL: "https://thff-be-production.herokuapp.com/",
-    hmr: false
+  production: true,
+  envName: 'prod',
+  API_URL: 'https://thff-be-production.herokuapp.com/',
+  hmr: false,
 };
 
 export { environment };
 
-//OLD
+// OLD
 // console.log("url = " + localStorage.getItem('backend_url'));
 
 // const environment = {

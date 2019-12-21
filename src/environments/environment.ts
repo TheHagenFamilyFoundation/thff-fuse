@@ -3,18 +3,18 @@
 // The list of file replacements can be found in `angular.json`.
 
 console.log(
-    "environment.ts environment = ",
-    localStorage.getItem("backend_url")
+  'environment.ts environment = ',
+  localStorage.getItem('backend_url'),
 );
 
 const environment = {
-    production: false,
-    envName: "dev",
-    API_URL: "http://localhost:1337",
-    hmr: false
+  production: false,
+  envName: 'dev',
+  API_URL: 'http://localhost:1337',
+  hmr: false,
 };
 
-console.log("environment.ts environment = ", environment);
+console.log('environment.ts environment = ', environment);
 
 export { environment };
 
@@ -27,8 +27,8 @@ export { environment };
  */
 // import 'zone.js/dist/zone-error';  // Included with Angular CLI.
 
-//TODO can remove
-//old
+// TODO can remove
+// old
 // console.log("url = " + localStorage.getItem('backend_url'));
 
 // const environment = {
