@@ -1,33 +1,33 @@
-import { NgModule } from "@angular/core";
-import { BrowserModule } from "@angular/platform-browser";
-import { HttpClientModule } from "@angular/common/http";
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // import { RouterModule, Routes } from '@angular/router';
-import { MatMomentDateModule } from "@angular/material-moment-adapter";
-import { MatButtonModule } from "@angular/material/button";
-import { MatIconModule } from "@angular/material/icon";
+import { MatMomentDateModule } from '@angular/material-moment-adapter';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
-import { TranslateModule } from "@ngx-translate/core";
-import "hammerjs";
+import { TranslateModule } from '@ngx-translate/core';
+import 'hammerjs';
 
-import { FuseModule } from "@fuse/fuse.module";
-import { FuseSharedModule } from "@fuse/shared.module";
+import { FuseModule } from '@fuse/fuse.module';
+import { FuseSharedModule } from '@fuse/shared.module';
 import {
-    FuseProgressBarModule,
-    FuseSidebarModule,
-    FuseThemeOptionsModule
-} from "@fuse/components";
+  FuseProgressBarModule,
+  FuseSidebarModule,
+  FuseThemeOptionsModule,
+} from '@fuse/components';
 
-import { fuseConfig } from "app/fuse-config";
+import { fuseConfig } from 'app/fuse-config';
 
-import { AppComponent } from "app/app.component";
-import { LayoutModule } from "app/layout/layout.module";
-import { SampleModule } from "app/main/sample/sample.module";
-import { HomeModule } from "app/main/home/home.module";
-import { UsersModule } from "app/main/users/users.module";
-import { SettingsModule } from "app/main/settings/settings.module";
+import { AppComponent } from 'app/app.component';
+import { LayoutModule } from 'app/layout/layout.module';
+import { SampleModule } from 'app/main/sample/sample.module';
+import { HomeModule } from 'app/main/home/home.module';
+import { UsersModule } from 'app/main/users/users.module';
+import { SettingsModule } from 'app/main/settings/settings.module';
 
-import { AppRoutingModule } from "./app-routing.module";
+import { AppRoutingModule } from './app-routing.module';
 // import { SettingsComponent } from './main/settings/settings.component';
 
 // const appRoutes: Routes = [
@@ -38,40 +38,40 @@ import { AppRoutingModule } from "./app-routing.module";
 // ];
 
 @NgModule({
-    declarations: [
-        AppComponent
-        // SettingsComponent
-    ],
-    imports: [
-        BrowserModule,
-        BrowserAnimationsModule,
-        HttpClientModule,
-        AppRoutingModule,
-        //RouterModule.forRoot(appRoutes),
+  declarations: [
+    AppComponent,
+    // SettingsComponent
+  ],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+    AppRoutingModule,
+    // RouterModule.forRoot(appRoutes),
 
-        TranslateModule.forRoot(),
+    TranslateModule.forRoot(),
 
-        // Material moment date module
-        MatMomentDateModule,
+    // Material moment date module
+    MatMomentDateModule,
 
-        // Material
-        MatButtonModule,
-        MatIconModule,
+    // Material
+    MatButtonModule,
+    MatIconModule,
 
-        // Fuse modules
-        FuseModule.forRoot(fuseConfig),
-        FuseProgressBarModule,
-        FuseSharedModule,
-        FuseSidebarModule,
-        FuseThemeOptionsModule,
+    // Fuse modules
+    FuseModule.forRoot(fuseConfig),
+    FuseProgressBarModule,
+    FuseSharedModule,
+    FuseSidebarModule,
+    FuseThemeOptionsModule,
 
-        // App modules
-        LayoutModule,
-        SampleModule,
-        HomeModule,
-        UsersModule,
-        SettingsModule
-    ],
-    bootstrap: [AppComponent]
+    // App modules
+    LayoutModule,
+    SampleModule,
+    HomeModule,
+    UsersModule,
+    SettingsModule,
+  ],
+  bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
