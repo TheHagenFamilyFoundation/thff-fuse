@@ -14,42 +14,41 @@ import { fuseConfig } from 'app/fuse-config';
 
 import { FuseModule } from '@fuse/fuse.module';
 import { FuseSharedModule } from '@fuse/shared.module';
-import { FuseProgressBarModule, FuseSidebarModule, FuseThemeOptionsModule } from '@fuse/components';
+import { FuseSidebarModule, FuseThemeOptionsModule } from '@fuse/components';
 
 import { SettingsComponent } from './settings.component';
 
 const routes = [
-    {
-        path     : 'settings',
-        component: SettingsComponent
-    }
+  {
+    path: 'settings',
+    component: SettingsComponent,
+  },
 ];
 
 @NgModule({
-    declarations: [
-        SettingsComponent
-    ],
-    imports     : [
-        RouterModule.forChild(routes),
-        CommonModule,
-        FormsModule,ReactiveFormsModule,
+  declarations: [
+    SettingsComponent,
+  ],
+  imports: [
+    RouterModule.forChild(routes),
+    CommonModule,
+    FormsModule, ReactiveFormsModule,
 
-        TranslateModule,
+    TranslateModule,
 
-        FlexLayoutModule,
+    FlexLayoutModule,
 
-        MatRadioModule,
+    MatRadioModule,
 
-        FuseModule.forRoot(fuseConfig),
-        FuseSharedModule,
-        FuseSidebarModule,
-        FuseThemeOptionsModule
-    ],
-    exports     : [
-        SettingsComponent
-    ]
+    FuseModule.forRoot(fuseConfig),
+    FuseSharedModule,
+    FuseSidebarModule,
+    FuseThemeOptionsModule,
+  ],
+  exports: [
+    SettingsComponent,
+  ],
 })
 
-export class SettingsModule
-{
+export class SettingsModule {
 }
