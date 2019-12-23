@@ -6,21 +6,19 @@ import { locale as english } from './i18n/en';
 import { locale as turkish } from './i18n/tr';
 
 @Component({
-    selector   : 'user',
-    templateUrl: './user.component.html',
-    styleUrls  : ['./user.component.scss']
+  selector: 'user',
+  templateUrl: './user.component.html',
+  styleUrls: ['./user.component.scss'],
 })
-export class UserComponent
-{
-    /**
+export class UserComponent {
+  /**
      * Constructor
      *
-     * @param {FuseTranslationLoaderService} _fuseTranslationLoaderService
+     * @param {FuseTranslationLoaderService} fuseTranslationLoaderService
      */
-    constructor(
-        private _fuseTranslationLoaderService: FuseTranslationLoaderService
-    )
-    {
-        this._fuseTranslationLoaderService.loadTranslations(english, turkish);
-    }
+  constructor(
+        private fuseTranslationLoaderService: FuseTranslationLoaderService,
+  ) {
+    this.fuseTranslationLoaderService.loadTranslations(english, turkish);
+  }
 }

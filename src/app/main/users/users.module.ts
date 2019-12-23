@@ -7,28 +7,27 @@ import { FuseSharedModule } from '@fuse/shared.module';
 import { UsersComponent } from './users.component';
 
 const routes = [
-    {
-        path     : 'users',
-        component: UsersComponent
-    }
+  {
+    path: 'users',
+    component: UsersComponent,
+  },
 ];
 
 @NgModule({
-    declarations: [
-        UsersComponent
-    ],
-    imports     : [
-        RouterModule.forChild(routes),
+  declarations: [
+    UsersComponent,
+  ],
+  imports: [
+    RouterModule.forChild(routes),
 
-        TranslateModule,
+    TranslateModule,
 
-        FuseSharedModule
-    ],
-    exports     : [
-        UsersComponent
-    ]
+    FuseSharedModule,
+  ],
+  exports: [
+    UsersComponent,
+  ],
 })
 
-export class UsersModule
-{
+export class UsersModule {
 }
