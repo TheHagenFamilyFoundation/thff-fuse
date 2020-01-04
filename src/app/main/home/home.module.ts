@@ -6,6 +6,8 @@ import { TranslateModule } from '@ngx-translate/core';
 
 import { FuseSharedModule } from '@fuse/shared.module';
 
+import { SlideshowModule } from 'ng-simple-slideshow';
+
 import { HomeComponent } from './home.component';
 
 const routes = [
@@ -26,6 +28,9 @@ const routes = [
 
     FuseSharedModule,
     MatGridListModule,
+
+    SlideshowModule,
+
   ],
   exports: [
     HomeComponent,
