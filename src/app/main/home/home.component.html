@@ -16,16 +16,27 @@
         </button>
     </div>
 
-    <!-- Slideshow of all images-->
-    <div class="w3-row-padding w3-padding-64 w3-container middle">
+
+    <div class="slideshow">
+        <div class="col-xs-12">
+            <slideshow [height]="height"
+            [minHeight]="'525px'"
+            [autoPlay]="true"
+            [showArrows]="true"
+            [imageUrls]="imageUrlArray"
+            [lazyLoad]="imageUrlArray?.length > 1"
+            ></slideshow>
+        </div>
+    </div>
+
+
+    <!-- Grant Aggregate Data --> 
+    <div class="w3-row-padding w3-padding-64 w3-container">
         <div class="w3-content">
             <div align="center">
                 <div class="col-xs-12">
-                    <img [src]="fullImagePath2" width="200px" height="200px" />
                     <div align="center">
-                        The Christus Victor pre-school children are happy with
-                        their new buses. The Foundation was delighted to help
-                        with their purchase (2009).
+<h2><span>Grants Awarded : </span> Total Funds Awarded:  </h2>
                     </div>
                 </div>
             </div>
