@@ -42,7 +42,7 @@
 
 
         <!-- right side -->
-        <div *ngIf="LoggedIn">
+        <div *ngIf="!authService.isExpired()">
             <div
                 class=""
                 fxFlex="0 1 auto"
@@ -57,7 +57,7 @@
                     <div fxLayout="row" fxLayoutAlign="center center">
                         <!-- <img class="avatar mr-0 mr-sm-16" src="assets/images/avatars/Velazquez.jpg"> -->
                         <span class="username mr-12" fxHide fxShow.gt-sm
-                            >Charlie Adams</span
+                            >{{userName}}</span
                         >
                         <mat-icon class="s-16" fxHide.xs
                             >keyboard_arrow_down</mat-icon
@@ -88,7 +88,7 @@
 
                     <button mat-menu-item class="">
                         <mat-icon>exit_to_app</mat-icon>
-                        <span>Logout</span>
+                        <button mat-button (click)="authService.logout()">Logout</button>
                     </button>
                 </mat-menu>
             </div>
@@ -136,7 +136,7 @@
                 <mat-icon class="secondary-text">menu</mat-icon>
             </button> -->
         </div>
-        <div *ngIf="!LoggedIn">
+        <div *ngIf="authService.isExpired()">
             <button
                 mat-button
                 class="mat-elevation-z2 theme-options-button"
