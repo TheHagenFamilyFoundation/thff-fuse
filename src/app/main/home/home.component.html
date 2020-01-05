@@ -11,7 +11,7 @@
             not-for-profit organizations in the areas of the arts, education,
             environment, religion, and social services.
         </h5>
-        <button mat-button class="mat-elevation-z2 theme-options-button">
+        <button mat-raised-button class="mat-elevation-z2 theme-options-button">
             Get Started
         </button>
     </div>
@@ -19,24 +19,19 @@
 
     <div class="slideshow">
         <div class="col-xs-12">
-            <slideshow [height]="height"
-            [minHeight]="'525px'"
-            [autoPlay]="true"
-            [showArrows]="true"
-            [imageUrls]="imageUrlArray"
-            [lazyLoad]="imageUrlArray?.length > 1"
-            ></slideshow>
+            <slideshow [height]="height" [minHeight]="'525px'" [autoPlay]="true" [showArrows]="true"
+                [imageUrls]="imageUrlArray" [lazyLoad]="imageUrlArray?.length > 1"></slideshow>
         </div>
     </div>
 
 
-    <!-- Grant Aggregate Data --> 
-    <div class="w3-row-padding w3-padding-64 w3-container">
+    <!-- Grant Aggregate Data -->
+    <div class="w3-row-padding w3-padding-64 w3-container grants-awarded">
         <div class="w3-content">
             <div align="center">
                 <div class="col-xs-12">
                     <div align="center">
-<h2><span>Grants Awarded : </span> Total Funds Awarded:  </h2>
+                        <h2><span>Grants Awarded : </span> Total Funds Awarded: </h2>
                     </div>
                 </div>
             </div>
@@ -51,22 +46,18 @@
                         <a [routerLink]="['/about']">About Us</a>
                         <br />
                         Our Mission, Board of Directors, and Public Information
-                    </div></mat-grid-tile
-                >
+                    </div>
+                </mat-grid-tile>
                 <mat-grid-tile>
                     <div align="center">
-                        <a [routerLink]="['/application-timeline']"
-                            >Application Timeline</a
-                        >
-                    </div></mat-grid-tile
-                >
+                        <a [routerLink]="['/application-timeline']">Application Timeline</a>
+                    </div>
+                </mat-grid-tile>
                 <mat-grid-tile>
                     <div class="w3-content">
                         <div align="center">
                             <div class="padding-64">
-                                <a [routerLink]="['/inthenews']"
-                                    >THFF In The News</a
-                                >
+                                <a [routerLink]="['/inthenews']">THFF In The News</a>
                             </div>
                         </div>
                     </div>
@@ -74,25 +65,19 @@
                 <!-- <mat-grid-tile></mat-grid-tile> -->
                 <mat-grid-tile>
                     <div class="padding-64">
-                        <a [routerLink]="['/frequently-asked-questions']"
-                            >Frequently Asked Questions</a
-                        >
+                        <a [routerLink]="['/frequently-asked-questions']">Frequently Asked Questions</a>
                     </div>
                 </mat-grid-tile>
                 <mat-grid-tile>
                     <div class="padding-64">
                         <a [routerLink]="['/grants-awarded']">Grants Awarded</a>
-                    </div></mat-grid-tile
-                >
+                    </div>
+                </mat-grid-tile>
 
                 <mat-grid-tile>
                     <div align="center">
                         <td>
-                            <a
-                                href="mailto:support@hagen.foundation"
-                                target="_top"
-                                >Contact Us</a
-                            >
+                            <a href="mailto:support@hagen.foundation" target="_top">Contact Us</a>
                         </td>
                     </div>
                 </mat-grid-tile>
