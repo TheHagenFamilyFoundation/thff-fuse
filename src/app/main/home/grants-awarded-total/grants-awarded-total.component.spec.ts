@@ -8,9 +8,9 @@ describe('GrantsAwardedTotalComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ GrantsAwardedTotalComponent ]
+      declarations: [GrantsAwardedTotalComponent],
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
