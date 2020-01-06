@@ -64,7 +64,7 @@ export class ToolbarComponent implements OnInit, OnDestroy {
         private fuseConfigService: FuseConfigService,
         private fuseSidebarService: FuseSidebarService,
         private translateService: TranslateService,
-        private authService: AuthService,
+        public authService: AuthService,
     ) {
       this.LoggedIn = false;
 
