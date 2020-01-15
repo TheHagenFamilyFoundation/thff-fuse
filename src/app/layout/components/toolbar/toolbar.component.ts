@@ -11,6 +11,8 @@ import { FuseSidebarService } from '@fuse/components/sidebar/sidebar.service';
 
 import { navigation } from 'app/navigation/navigation';
 
+import { AuthService } from '../../../auth/auth.service';
+
 @Component({
   selector: 'toolbar',
   templateUrl: './toolbar.component.html',
@@ -34,6 +36,20 @@ export class ToolbarComponent implements OnInit, OnDestroy {
 
     LoggedIn: boolean;
 
+    currentUser: any;
+
+    userName: string;
+
+    accessLevel: number;
+
+    organizations: any;
+
+    InOrganization: boolean;
+
+    inOrgCheck: boolean;
+
+    IsDirector: boolean;
+
     // Private
     private unsubscribeAll: Subject<any>;
 
@@ -48,6 +64,7 @@ export class ToolbarComponent implements OnInit, OnDestroy {
         private fuseConfigService: FuseConfigService,
         private fuseSidebarService: FuseSidebarService,
         private translateService: TranslateService,
+        public authService: AuthService,
     ) {
       this.LoggedIn = false;
 
@@ -97,6 +114,8 @@ export class ToolbarComponent implements OnInit, OnDestroy {
 
       // Set the private defaults
       this.unsubscribeAll = new Subject();
+
+      // this.checkLoggedIn();
     }
 
     // --------------------------------------------------------------------------------------------
@@ -119,6 +138,39 @@ export class ToolbarComponent implements OnInit, OnDestroy {
       this.selectedLanguage = _.find(this.languages, {
         id: this.translateService.currentLang,
       });
+
+      this.checkLoggedIn();
+    }
+
+    checkLoggedIn() {
+      console.log('checkLoggedIn');
+
+      if (!this.authService.isExpired()) {
+        console.log('currentUser');
+        console.log(localStorage.getItem('currentUser'));
+
+        if (localStorage.getItem('currentUser')) {
+          this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+
+          console.log(this.currentUser.username);
+          this.userName = this.currentUser.username;
+          this.accessLevel = this.currentUser.accessLevel;
+
+          if (this.accessLevel > 1) {
+            this.IsDirector = true;
+
+          // this.directorService.changeMessage(this.IsDirector)
+          } else {
+            this.IsDirector = false;
+
+          // this.directorService.changeMessage(this.IsDirector)
+          }
+
+        // this.getOrganizations();
+        }
+
+        this.LoggedIn = true;
+      }
     }
 
     /**
@@ -164,9 +216,5 @@ export class ToolbarComponent implements OnInit, OnDestroy {
 
       // Use the selected language for translations
       this.translateService.use(lang.id);
-    }
-
-    login(): void {
-      this.LoggedIn = true;
     }
 }
