@@ -5,7 +5,7 @@ import { GetCSRFTokenService } from './get-csrf-token.service';
 describe('GetCSRFTokenService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [GetCSRFTokenService]
+      providers: [GetCSRFTokenService],
     });
   });
 
