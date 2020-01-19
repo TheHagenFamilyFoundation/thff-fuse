@@ -1,5 +1,85 @@
 <div class="page-layout blank p-24" fusePerfectScrollbar>
+    <!-- TODO -->
+    <!-- <div>{{ env }} - {{ API }} - {{ InOrganization }} - {{ accessLevel }}</div> -->
+    <!-- header -->
+    <div class="w3-center" style="padding:128px 16px">
+        <h1 class="w3-margin w3-jumbo">WELCOME</h1>
+        <!-- <h2>{{ "SAMPLE.HELLO" | translate }}</h2> -->
+        <p class="w3-xlarge">The Hagen Family Foundation</p>
+        <h5 class="w3-padding-32">
+            The Hagen Family Foundation provides financial grants to
+            not-for-profit organizations in the areas of the arts, education,
+            environment, religion, and social services.
+        </h5>
+        <button mat-raised-button class="mat-elevation-z2 theme-options-button">
+            Get Started
+        </button>
+    </div>
 
-    <h2>{{'SAMPLE.HELLO' | translate}}</h2>
 
+    <div class="slideshow">
+        <div class="col-xs-12">
+            <slideshow [height]="height" [minHeight]="'525px'" [autoPlay]="true" [showArrows]="true"
+                [imageUrls]="imageUrlArray" [lazyLoad]="imageUrlArray?.length > 1"></slideshow>
+        </div>
+    </div>
+
+
+    <!-- Grant Aggregate Data -->
+    <div class="w3-row-padding w3-padding-64 w3-container grants-awarded">
+        <div class="w3-content">
+            <div>
+                <app-grants-awarded-total>        
+                </app-grants-awarded-total>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
+        <div class="w3-content">
+            <mat-grid-list cols="3" rowHeight="50">
+                <mat-grid-tile [rowspan]="3">
+                    <div align="center">
+                        <a [routerLink]="['/about']">About Us</a>
+                        <br />
+                        Our Mission, Board of Directors, and Public Information
+                    </div>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                    <div align="center">
+                        <a [routerLink]="['/application-timeline']">Application Timeline</a>
+                    </div>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                    <div class="w3-content">
+                        <div align="center">
+                            <div class="padding-64">
+                                <a [routerLink]="['/inthenews']">THFF In The News</a>
+                            </div>
+                        </div>
+                    </div>
+                </mat-grid-tile>
+                <!-- <mat-grid-tile></mat-grid-tile> -->
+                <mat-grid-tile>
+                    <div class="padding-64">
+                        <a [routerLink]="['/frequently-asked-questions']">Frequently Asked Questions</a>
+                    </div>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                    <div class="padding-64">
+                        <a [routerLink]="['/grants-awarded']">Grants Awarded</a>
+                    </div>
+                </mat-grid-tile>
+
+                <mat-grid-tile>
+                    <div align="center">
+                        <td>
+                            <a href="mailto:support@hagen.foundation" target="_top">Contact Us</a>
+                        </td>
+                    </div>
+                </mat-grid-tile>
+            </mat-grid-list>
+        </div>
+    </div>
 </div>

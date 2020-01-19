@@ -6,12 +6,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+
 import { TranslateModule } from '@ngx-translate/core';
 import 'hammerjs';
 
 import { FuseModule } from '@fuse/fuse.module';
 import { FuseSharedModule } from '@fuse/shared.module';
-import { FuseProgressBarModule, FuseSidebarModule, FuseThemeOptionsModule } from '@fuse/components';
+import {
+  FuseProgressBarModule,
+  FuseSidebarModule,
+  FuseThemeOptionsModule,
+} from '@fuse/components';
 
 import { fuseConfig } from 'app/fuse-config';
 
@@ -33,44 +38,40 @@ import { AppRoutingModule } from './app-routing.module';
 // ];
 
 @NgModule({
-    declarations: [
-        AppComponent
-        // SettingsComponent
-    ],
-    imports     : [
-        BrowserModule,
-        BrowserAnimationsModule,
-        HttpClientModule,
-        AppRoutingModule,
-        //RouterModule.forRoot(appRoutes),
+  declarations: [
+    AppComponent,
+    // SettingsComponent
+  ],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+    AppRoutingModule,
+    // RouterModule.forRoot(appRoutes),
 
-        TranslateModule.forRoot(),
+    TranslateModule.forRoot(),
 
-        // Material moment date module
-        MatMomentDateModule,
+    // Material moment date module
+    MatMomentDateModule,
 
-        // Material
-        MatButtonModule,
-        MatIconModule,
+    // Material
+    MatButtonModule,
+    MatIconModule,
 
-        // Fuse modules
-        FuseModule.forRoot(fuseConfig),
-        FuseProgressBarModule,
-        FuseSharedModule,
-        FuseSidebarModule,
-        FuseThemeOptionsModule,
+    // Fuse modules
+    FuseModule.forRoot(fuseConfig),
+    FuseProgressBarModule,
+    FuseSharedModule,
+    FuseSidebarModule,
+    FuseThemeOptionsModule,
 
-        // App modules
-        LayoutModule,
-        SampleModule,
-        HomeModule,
-        UsersModule,
-        SettingsModule
-    ],
-    bootstrap   : [
-        AppComponent
-    ]
+    // App modules
+    LayoutModule,
+    SampleModule,
+    HomeModule,
+    UsersModule,
+    SettingsModule,
+  ],
+  bootstrap: [AppComponent],
 })
-export class AppModule
-{
-}
+export class AppModule { }

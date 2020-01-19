@@ -1,4 +1,23 @@
-export const environment = {
-    production: true,
-    hmr       : false
+// can remove
+// TODO
+console.log(`environment.prod.ts - url = ${localStorage.getItem('backend_url')}`);
+
+const environment = {
+  production: true,
+  envName: 'prod',
+  API_URL: 'https://thff-be-production.herokuapp.com/',
+  hmr: false,
 };
+
+export { environment };
+
+// OLD
+// console.log("url = " + localStorage.getItem('backend_url'));
+
+// const environment = {
+//   production: true,
+//   envName: 'prod',
+//   API_URL: 'https://thff-be-production.herokuapp.com/'
+// };
+
+// export { environment };
