@@ -14,7 +14,8 @@
         "test": "ng test",
         "lint": "ng lint",
         "e2e": "ng e2e",
-        "bundle-report": "webpack-bundle-analyzer dist/stats.json"
+        "bundle-report": "webpack-bundle-analyzer dist/stats.json",
+        "heroku-postbuild": "echo Skip build on Heroku"
     },
     "private": true,
     "dependencies": {
