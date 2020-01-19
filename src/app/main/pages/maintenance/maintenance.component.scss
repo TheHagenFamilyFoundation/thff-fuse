@@ -4,7 +4,8 @@ maintenance {
 
     #maintenance {
         width: 100%;
-        background: url('/assets/images/backgrounds/dark-material-bg.jpg') no-repeat;
+        // background: url('/assets/images/backgrounds/dark-material-bg.jpg') no-repeat;
+        background: #778A35;
         background-size: cover;
 
         #maintenance-form-wrapper {
@@ -18,7 +19,8 @@ maintenance {
             #maintenance-form {
                 max-width: 384px;
                 padding: 48px;
-                text-align: center;
+                text-align: center;                
+                background: #31352e;
                 @include mat-elevation(16);
 
                 @include media-breakpoint('xs') {
@@ -39,7 +41,7 @@ maintenance {
                 .subtitle {
                     margin: 16px 0;
                     max-width: 300px;
-                    color: rgba(0, 0, 0, 0.54);
+                    // color: rgba(0, 0, 0, 0.54);
                     font-size: 15px;
                 }
             }
