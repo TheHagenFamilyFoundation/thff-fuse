@@ -1,39 +1,47 @@
 <mat-toolbar class="p-0 mat-elevation-z1">
     <div fxFlex fxFill fxLayout="row" fxLayoutAlign="start center">
         <div fxFlex="1 0 auto" fxLayout="row" fxLayoutAlign="start center">
-            Left Side
+            <!-- Left Side Debug -->
             <!--- Hamburger -->
-            <!-- <div fxFlex="1 0 auto" fxLayout="row" fxLayoutAlign="start center">
-            <button
-                mat-icon-button
-                class="navbar-toggle-button"
-                *ngIf="!hiddenNavbar && !rightNavbar"
-                (click)="toggleSidebarOpen('navbar')"
-                fxHide.gt-md>
-                <mat-icon class="secondary-text">menu</mat-icon>
-            </button>
+            <div *ngIf="!authService.isExpired()">
+                <button
+                    mat-icon-button
+                    class="navbar-toggle-button"
+                    *ngIf="!hiddenNavbar && !rightNavbar"
+                    (click)="toggleSidebarOpen('navbar')"
+                    fxHide.gt-md
+                >
+                    <mat-icon class="secondary-text">menu</mat-icon>
+                </button>
 
-            <div
-                class="toolbar-separator"
-                *ngIf="!hiddenNavbar && !rightNavbar"
-                fxHide.gt-md
-            ></div>
+                <div
+                    class="toolbar-separator"
+                    *ngIf="!hiddenNavbar && !rightNavbar"
+                    fxHide.gt-md
+                ></div>
 
-            <div
-                fxLayout="row"
-                fxLayoutAlign="start center"
-                *ngIf="horizontalNavbar"
-            >
-                <div class="logo ml-16">
-                    <img
-                        class="logo-icon"
-                        src="assets/images/logos/square3.svg"
-                    />
+                <div
+                    fxLayout="row"
+                    fxLayoutAlign="start center"
+                    *ngIf="horizontalNavbar"
+                >
+                    <div class="logo ml-16">
+                        <img
+                            class="logo-icon"
+                            src="assets/images/logos/square3.svg"
+                        />
+                    </div>
                 </div>
             </div>
-        </div> -->
-
             <!--- End of Hamburger -->
+
+            <button
+                mat-button
+                class="mat-elevation-z2 theme-options-button"
+                routerLink="/pages/auth/login"
+            >
+                Login
+            </button>
         </div>
 
         <!-- right side -->
@@ -135,13 +143,6 @@
         </div>
         <div *ngIf="authService.isExpired()">
             <div fxFlex="1 0 auto" fxLayout="row" fxLayoutAlign="start center">
-                <button
-                    mat-button
-                    class="mat-elevation-z2 theme-options-button"
-                    routerLink="/pages/auth/login"
-                >
-                    Login
-                </button>
                 <button
                     mat-button
                     class="mat-elevation-z2 theme-options-button"
