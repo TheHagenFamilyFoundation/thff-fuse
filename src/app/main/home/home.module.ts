@@ -8,6 +8,10 @@ import { FuseSharedModule } from '@fuse/shared.module';
 
 import { SlideshowModule } from 'ng-simple-slideshow';
 
+import { GetUserService } from '../../services/user/get-user.service'; // used for getting organizations
+import { InOrgService } from '../../services/user/in-org.service';
+import { DirectorService } from '../../services/user/director.service';
+
 import { GrantService } from '../../services/grants/grant.service';
 import { GrantApiService } from '../../services/grants/grant-api.service';
 
@@ -42,7 +46,11 @@ const routes = [
 
   ],
   providers: [
+    GetUserService, InOrgService, DirectorService,
+
+
     GrantService, GrantApiService,
+
   ],
   exports: [
     HomeComponent,
