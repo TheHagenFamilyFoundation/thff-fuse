@@ -35,24 +35,30 @@
             <!-- </div> -->
 
             <!--- End of Hamburger -->
-            <div fxFlex="1 0 auto" fxLayout="row" fxLayoutAlign="center" fxHide fxShow.gt-md>
+            <div
+                fxFlex="1 0 auto"
+                fxLayout="row"
+                fxLayoutAlign="center"
+                fxHide
+                fxShow.gt-md
+            >
                 <button
                     mat-button
-                    class="mat-elevation-z2 theme-options-button"
+                    class="theme-options-button"
                     routerLink="/about"
                 >
                     About
                 </button>
                 <button
                     mat-button
-                    class="mat-elevation-z2 theme-options-button"
-                    routerLink="/pages/auth/login"
+                    class="theme-options-button"
+                    routerLink="/application"
                 >
                     Application
                 </button>
                 <button
                     mat-button
-                    class="mat-elevation-z2 theme-options-button"
+                    class="theme-options-button"
                     routerLink="/pages/auth/login"
                 >
                     Contact
@@ -158,10 +164,16 @@
             </button> -->
         </div>
         <div *ngIf="authService.isExpired()">
-            <div fxFlex="1 0 auto" fxLayout="row" fxLayoutAlign="start center" fxHide fxShow.gt-md>
+            <div
+                fxFlex="1 0 auto"
+                fxLayout="row"
+                fxLayoutAlign="start center"
+                fxHide
+                fxShow.gt-md
+            >
                 <button
                     mat-button
-                    class="mat-elevation-z2 theme-options-button"
+                    class="theme-options-button"
                     routerLink="/pages/auth/login"
                 >
                     Login
