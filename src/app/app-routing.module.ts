@@ -11,6 +11,10 @@ const routes: Routes = [
 
 
   { path: '', redirectTo: 'home', pathMatch: 'full' },
+
+  { path: 'about', redirectTo: 'about' },
+
+
   { path: 'users', redirectTo: 'users' },
   { path: 'settings', redirectTo: 'settings' },
   {
