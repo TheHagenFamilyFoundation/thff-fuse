@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatButtonModule } from '@angular/material/button';
+// used in about
+import { MatListModule } from '@angular/material/list';
 
 import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
@@ -45,7 +47,7 @@ const routes = [
 
     MatGridListModule,
     MatButtonModule,
-
+    MatListModule,
 
     SlideshowModule,
 
