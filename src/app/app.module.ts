@@ -22,10 +22,15 @@ import { fuseConfig } from 'app/fuse-config';
 
 import { AppComponent } from 'app/app.component';
 import { LayoutModule } from 'app/layout/layout.module';
+
+// sample - use for new modules
 import { SampleModule } from 'app/main/sample/sample.module';
+
 import { HomeModule } from 'app/main/home/home.module';
 import { UsersModule } from 'app/main/users/users.module';
 import { SettingsModule } from 'app/main/settings/settings.module';
+import { AboutModule } from 'app/main/about/about.module';
+import { ApplicationModule } from 'app/main/application/application.module';
 
 import { AppRoutingModule } from './app-routing.module';
 // import { SettingsComponent } from './main/settings/settings.component';
@@ -71,6 +76,8 @@ import { AppRoutingModule } from './app-routing.module';
     HomeModule,
     UsersModule,
     SettingsModule,
+    AboutModule,
+    ApplicationModule,
   ],
   bootstrap: [AppComponent],
 })

@@ -31,7 +31,8 @@ export class GrantsAwardedTotalComponent implements OnInit {
           // returning grant total
           console.log('gt', gt);
 
-          this.grantTotal = gt.grantTotal;
+          // round to the hundred thousand
+          this.grantTotal = (Math.round(gt.grantTotal / 100000) * 100000);
         },
       );
   }
