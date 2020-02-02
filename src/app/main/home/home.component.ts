@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
 
+import { environment } from '../../../environments/environment';
+
 import { FuseTranslationLoaderService } from '@fuse/services/translation-loader.service';
+
+import { AuthService } from '../../auth/auth.service';
 
 import { InterfaceImage } from './IImage';
 
@@ -13,6 +17,10 @@ import { locale as turkish } from './i18n/tr';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent {
+  env: any;
+
+  API: any;
+
   /*
     Images
   */
@@ -43,8 +51,28 @@ export class HomeComponent {
   * @param {FuseTranslationLoaderService} fuseTranslationLoaderService
   */
   constructor(
-        private fuseTranslationLoaderService: FuseTranslationLoaderService,
+    public authService: AuthService,
+    private fuseTranslationLoaderService: FuseTranslationLoaderService,
   ) {
     this.fuseTranslationLoaderService.loadTranslations(english, turkish);
+  }
+
+  getBackendURL() {
+    if (environment.production) {
+      this.authService.initializeBackendURL().subscribe(
+        (backendUrl) => {
+          console.log('backendUrl', backendUrl.url);
+
+          if (backendUrl) {
+            sessionStorage.setItem('backend_url', backendUrl.url);
+          } else {
+            console.log('Can´t find the backend URL, using a failover value');
+            sessionStorage.setItem('backend_url', 'https://failover-url.com');
+          }
+
+          this.API = backendUrl.url;
+        },
+      );
+    }
   }
 }
