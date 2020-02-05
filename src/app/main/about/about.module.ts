@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
-
+import { MatGridListModule } from '@angular/material/grid-list';
 import { FuseSharedModule } from '@fuse/shared.module';
 
 import { AboutComponent } from './about.component';
@@ -23,6 +23,8 @@ const routes = [
     TranslateModule,
 
     FuseSharedModule,
+
+    MatGridListModule,
   ],
   exports: [
     AboutComponent,

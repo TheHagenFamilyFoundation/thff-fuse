@@ -1,6 +1,10 @@
 import { NgModule } from '@angular/core';
 
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatButtonModule } from '@angular/material/button';
+// used in about
+import { MatListModule } from '@angular/material/list';
+
 import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 
@@ -19,6 +23,7 @@ import { HomeComponent } from './home.component';
 import { GrantsAwardedTotalComponent } from './grants-awarded-total/grants-awarded-total.component';
 import { GrantsSinceComponent } from './grants-since/grants-since.component';
 import { AboutComponent } from './about/about.component';
+import { AboutStatesComponent } from './about-states/about-states.component';
 
 const routes = [
   {
@@ -33,6 +38,7 @@ const routes = [
     GrantsAwardedTotalComponent,
     GrantsSinceComponent,
     AboutComponent,
+    AboutStatesComponent,
   ],
   imports: [
     RouterModule.forChild(routes),
@@ -40,7 +46,10 @@ const routes = [
     TranslateModule,
 
     FuseSharedModule,
+
     MatGridListModule,
+    MatButtonModule,
+    MatListModule,
 
     SlideshowModule,
 
