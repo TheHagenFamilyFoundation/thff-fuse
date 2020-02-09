@@ -6,7 +6,7 @@ register {
         width: 100%;
         // background: url('/assets/images/backgrounds/dark-material-bg.jpg') no-repeat;
         background-size: cover;
-        background: #778A35;
+        background: #008083;
 
         #register-form-wrapper {
             flex: 1 0 auto;
@@ -21,7 +21,7 @@ register {
                 max-width: 384px;
                 padding: 32px;
                 text-align: center;
-                background: #31352e;
+                background: #35363A;
                 @include mat-elevation(16);
 
                 @include media-breakpoint('xs') {
