@@ -1,7 +1,17 @@
 <div align="center">
-
-<p>
-        <!-- add back 4.2 for decimals-->
-    {{grantCount}} Grants Awarded        <span>Over {{grantTotal | currency:'USD':'symbol':'4.0-2' }} Total Funds Awarded</span>
-</p>
+    <mat-grid-list cols="2" rowHeight="2:1">
+        <mat-grid-tile>
+            <p>
+                {{ grantCount }}<br />
+                Grants Awarded
+            </p>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <p>
+                <!-- add back 4.2 for decimals-->
+                {{grantTotal | currency:'USD':'symbol':'1.0-2' }} Million <br />
+                Total Funds Awarded
+            </p>
+        </mat-grid-tile>
+    </mat-grid-list>
 </div>
