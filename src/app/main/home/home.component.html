@@ -2,24 +2,17 @@
     <!-- TODO -->
     <!-- <div>{{ env }} - {{ API }} - {{ InOrganization }} - {{ accessLevel }}</div> -->
     <!-- header -->
-    <div class="w3-center" style="padding:128px 16px">
+    <div class="w3-center">
         <h1 class="w3-margin w3-jumbo">WELCOME</h1>
         <!-- <h2>{{ "SAMPLE.HELLO" | translate }}</h2> -->
         <p class="w3-xlarge">The Hagen Family Foundation</p>
-        <h5 class="w3-padding-32">
+    </div>
+    <div align="center">
+        <p class="w3-padding-32">
             The Hagen Family Foundation provides financial grants to
             not-for-profit organizations in the areas of the arts, education,
             environment, religion, and social services.
-        </h5>
-        <!-- <button
-            mat-button
-            class="theme-options-button"
-            routerLink="/application">
-            Get Started
-        </button> -->
-        <button mat-raised-button color="primary" routerLink="/application">
-            Get Started
-        </button>
+        </p>
     </div>
 
     <!-- TODO: move to own component-->
@@ -32,6 +25,7 @@
                 [showArrows]="true"
                 [imageUrls]="imageUrlArray"
                 [lazyLoad]="imageUrlArray?.length > 1"
+                [autoPlayInterval]=10000
             ></slideshow>
         </div>
     </div>
@@ -53,15 +47,10 @@
             </div>
         </div>
     </div>
-
-    <div id="about" class="w3-row-padding w3-padding-64 w3-container about">
-        <div class="w3-content">
-            <div>
-                <app-about></app-about>
-            </div>
-        </div>
-    </div>
-    <div id="about" class="w3-row-padding w3-padding-64 w3-container about-states">
+    <div
+        id="about"
+        class="w3-row-padding w3-padding-64 w3-container about-states"
+    >
         <div class="w3-content">
             <div>
                 <app-about-states></app-about-states>
@@ -69,9 +58,11 @@
         </div>
     </div>
 
+    <!-- footer -->
+    <!-- TODO-->
     <div class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
         <div class="w3-content">
-            <mat-grid-list cols="3" rowHeight="50">
+            <!-- <mat-grid-list cols="3" rowHeight="50">
                 <mat-grid-tile [rowspan]="3">
                     <div align="center">
                         <a [routerLink]="['/about']">About Us</a>
@@ -97,7 +88,6 @@
                         </div>
                     </div>
                 </mat-grid-tile>
-                <!-- <mat-grid-tile></mat-grid-tile> -->
                 <mat-grid-tile>
                     <div class="padding-64">
                         <a [routerLink]="['/frequently-asked-questions']"
@@ -122,7 +112,7 @@
                         </td>
                     </div>
                 </mat-grid-tile>
-            </mat-grid-list>
+            </mat-grid-list> -->
         </div>
     </div>
 </div>
