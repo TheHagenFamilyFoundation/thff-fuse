@@ -56,11 +56,6 @@ export class HomeComponent implements OnInit {
 
   imageUrlArray: (string | InterfaceImage)[] = [
     {
-      url: this.fullImagePath3,
-      caption: 'Learn about our grant giving process and the requirements for submitting a grant request. Read More',
-      href: '/application', // test
-    },
-    {
       url: this.fullImagePath2,
       caption: 'The Christus Victor pre-school children are happy with their new buses. View Grants Awarded Click Here',
       //   `The Christus Victor pre-school children are happy with
@@ -68,6 +63,12 @@ export class HomeComponent implements OnInit {
       // with their purchase (2009).`,
       href: '/application', // test
     },
+    {
+      url: this.fullImagePath5,
+      caption: 'Learn about our grant giving process and the requirements for submitting a grant request. Read More',
+      href: '/application', // test
+    },
+
     {
       url: this.fullImagePath3,
       caption: 'Apply Now',
