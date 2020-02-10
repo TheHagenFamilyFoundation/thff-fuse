@@ -48,17 +48,42 @@ export class HomeComponent implements OnInit {
 
   fullImagePath2 = '../assets/images/cv_busses1.JPG';
 
+  fullImagePath3 = '../assets/images/southern_shakespeare.png';
+
+  fullImagePath4 = '../assets/images/family.png';
+
+  fullImagePath5 = '../assets/images/grant_review_timeline.png';
+
   imageUrlArray: (string | InterfaceImage)[] = [
     {
-      url: this.fullImagePath2,
-      caption: `The Christus Victor pre-school children are happy with
-    their new buses. The Foundation was delighted to help
-    with their purchase (2009).`,
-      href: '#config', // test
+      url: this.fullImagePath3,
+      caption: 'Learn about our grant giving process and the requirements for submitting a grant request. Read More',
+      href: '/application', // test
     },
-    { url: 'https://cdn.vox-cdn.com/uploads/chorus_asset/file/9278671/jbareham_170917_2000_0124.jpg', clickAction: () => alert('custom click function') },
-    { url: 'https://cdn.vox-cdn.com/uploads/chorus_image/image/56789263/akrales_170919_1976_0104.0.jpg', caption: 'Apple TV', href: 'https://www.apple.com/' },
-    'https://cdn.vox-cdn.com/uploads/chorus_image/image/56674755/mr_pb_is_the_best.0.jpg']
+    {
+      url: this.fullImagePath2,
+      caption: 'The Christus Victor pre-school children are happy with their new buses. View Grants Awarded Click Here',
+      //   `The Christus Victor pre-school children are happy with
+      // their new buses. The Foundation was delighted to help
+      // with their purchase (2009).`,
+      href: '/application', // test
+    },
+    {
+      url: this.fullImagePath3,
+      caption: 'Apply Now',
+      href: '/application', // test
+    },
+
+    {
+      url: this.fullImagePath4,
+      caption: 'The THFF Board of Directors contains two generations of family members. Learn more about us',
+      href: '/application', // test
+    },
+    // EXAMPLES
+    // { url: 'https://cdn.vox-cdn.com/uploads/chorus_asset/file/9278671/jbareham_170917_2000_0124.jpg', clickAction: () => alert('custom click function') },
+    // { url: 'https://cdn.vox-cdn.com/uploads/chorus_image/image/56789263/akrales_170919_1976_0104.0.jpg', caption: 'Apple TV', href: 'https://www.apple.com/' },
+    // 'https://cdn.vox-cdn.com/uploads/chorus_image/image/56674755/mr_pb_is_the_best.0.jpg'
+  ]
 
   // imageUrlArray = [this.fullImagePath2, this.fullImagePath2];
   // imageUrlArray = [this.fullImagePath2, this.fullImagePath2];
