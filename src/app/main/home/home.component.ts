@@ -77,7 +77,7 @@ export class HomeComponent implements OnInit {
     {
       url: this.fullImagePath4,
       caption: 'The THFF Board of Directors contains two generations of family members. Learn more about us',
-      href: '/application', // test
+      href: '/about', // test
     },
     // EXAMPLES
     // { url: 'https://cdn.vox-cdn.com/uploads/chorus_asset/file/9278671/jbareham_170917_2000_0124.jpg', clickAction: () => alert('custom click function') },
