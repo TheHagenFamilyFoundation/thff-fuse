@@ -1,6 +1,6 @@
 <div *ngIf="grants.length > 0">
   <div *ngFor="let grant of grants; let i = index">
-    <div style="color:black;font-size:14px;">
+    <div style="color:white;font-size:14px;">
       <!-- <strong> {{grant.Amount | currency:'USD':true:'4.2-2' }} </strong> to {{grant.Description}}, -->
       <div *ngIf="grant.City">
         <strong> {{grant.Amount | currency:'USD':'symbol':'4.2-2' }} </strong> to {{grant.Description}}, {{grant.City}}, {{grant.State}}</div>
