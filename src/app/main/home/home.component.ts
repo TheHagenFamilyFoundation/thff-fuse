@@ -61,7 +61,7 @@ export class HomeComponent implements OnInit {
       //   `The Christus Victor pre-school children are happy with
       // their new buses. The Foundation was delighted to help
       // with their purchase (2009).`,
-      href: '/application', // test
+      href: '/grants-awarded', // test
     },
     {
       url: this.fullImagePath5,
