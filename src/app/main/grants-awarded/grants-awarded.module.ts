@@ -5,6 +5,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { FuseSharedModule } from '@fuse/shared.module';
 
 import { GrantsAwardedComponent } from './grants-awarded.component';
+import { GrantsByYearComponent } from './grants-by-year/grants-by-year.component';
 
 const routes = [
   {
@@ -16,6 +17,7 @@ const routes = [
 @NgModule({
   declarations: [
     GrantsAwardedComponent,
+    GrantsByYearComponent,
   ],
   imports: [
     RouterModule.forChild(routes),
