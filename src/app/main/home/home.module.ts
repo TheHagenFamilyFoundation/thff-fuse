@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 
+import { CountUpModule } from 'ngx-countup';
+
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatButtonModule } from '@angular/material/button';
 // used in about
@@ -50,6 +52,8 @@ const routes = [
     MatListModule,
 
     SlideshowModule,
+
+    CountUpModule,
 
   ],
   providers: [
