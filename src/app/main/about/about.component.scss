@@ -67,7 +67,7 @@
     background-color: #f44336 !important;
 }
 .middle {
-    color: #35363A !important;
+    color: #35363a !important;
     background-color: #ebebe8 !important;
 }
 .slideshow {
@@ -85,15 +85,21 @@
     height: 300px;
 }
 p {
-    white-space: pre;
-    font-size: 18px;
-  }
+    // white-space: pre;
+    font-size: 20px;
+}
+
+ul {
+    // white-space: pre;
+    font-size: 20px;
+}
+
 .parts {
-    max-width:200px;
+    max-width: 135px;
 }
 .range {
-    max-width:800px;
+    max-width: 800px;
 }
 .about {
-    max-width:900px;
+    max-width: 900px;
 }
