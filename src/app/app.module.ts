@@ -31,6 +31,7 @@ import { UsersModule } from 'app/main/users/users.module';
 import { SettingsModule } from 'app/main/settings/settings.module';
 import { AboutModule } from 'app/main/about/about.module';
 import { ApplicationModule } from 'app/main/application/application.module';
+import { ContactModule } from 'app/main/contact/contact.module';
 import { GrantsAwardedModule } from 'app/main/grants-awarded/grants-awarded.module';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -80,6 +81,7 @@ import { AppRoutingModule } from './app-routing.module';
     AboutModule,
     ApplicationModule,
     GrantsAwardedModule,
+    ContactModule,
   ],
   bootstrap: [AppComponent],
 })

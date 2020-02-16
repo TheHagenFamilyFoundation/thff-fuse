@@ -12,9 +12,9 @@ const routes: Routes = [
 
   { path: '', redirectTo: 'home', pathMatch: 'full' },
 
+  { path: 'contact', redirectTo: 'contact' },
   { path: 'about', redirectTo: 'about' },
   { path: 'application', redirectTo: 'application' },
-
 
   { path: 'users', redirectTo: 'users' },
   { path: 'settings', redirectTo: 'settings' },
