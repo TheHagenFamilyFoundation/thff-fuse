@@ -25,7 +25,6 @@ import { HomeComponent } from './home.component';
 import { GrantsAwardedTotalComponent } from './grants-awarded-total/grants-awarded-total.component';
 import { GrantsSinceComponent } from './grants-since/grants-since.component';
 import { AboutStatesComponent } from './about-states/about-states.component';
-import { ContactComponent } from './contact/contact.component';
 
 const routes = [
   {
@@ -40,7 +39,6 @@ const routes = [
     GrantsAwardedTotalComponent,
     GrantsSinceComponent,
     AboutStatesComponent,
-    ContactComponent,
   ],
   imports: [
     RouterModule.forChild(routes),
