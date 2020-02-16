@@ -8,31 +8,35 @@ import { MatInputModule } from '@angular/material/input';
 
 import { FuseSharedModule } from '@fuse/shared.module';
 
+import { EmailService } from '../../../../services/user/email.service';
+
 import { RegisterComponent } from 'app/main/pages/authentication/register/register.component';
 
 const routes = [
-    {
-        path     : 'auth/register',
-        component: RegisterComponent
-    }
+  {
+    path: 'auth/register',
+    component: RegisterComponent,
+  },
 ];
 
 @NgModule({
-    declarations: [
-        RegisterComponent
-    ],
-    imports     : [
-        RouterModule.forChild(routes),
+  declarations: [
+    RegisterComponent,
+  ],
+  imports: [
+    RouterModule.forChild(routes),
 
-        MatButtonModule,
-        MatCheckboxModule,
-        MatFormFieldModule,
-        MatIconModule,
-        MatInputModule,
+    MatButtonModule,
+    MatCheckboxModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatInputModule,
 
-        FuseSharedModule
-    ]
+    FuseSharedModule,
+  ],
+  providers: [
+    EmailService,
+  ],
 })
-export class RegisterModule
-{
+export class RegisterModule {
 }
