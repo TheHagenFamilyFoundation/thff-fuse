@@ -31,5 +31,5 @@ const routes = [
   ],
 })
 
-export class AboutModule {
+export class ContactModule {
 }
