@@ -45,6 +45,7 @@ export class HomeComponent implements OnInit {
     Images
   */
   // fullImagePath = '../assets/images/thfflogo1.png'; // not working
+  fullImagePath = '../assets/images/logos/logo_2020_9.svg';
 
   fullImagePath2 = '../assets/images/cv_busses1.JPG';
 
@@ -65,6 +66,7 @@ export class HomeComponent implements OnInit {
     },
     {
       url: this.fullImagePath5,
+      // caption: 'Grant Process',
       caption: 'Learn about our grant giving process and the requirements for submitting a grant request. Read More',
       href: '/application', // test
     },
