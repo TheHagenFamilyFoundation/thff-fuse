@@ -1,18 +1,32 @@
-<div class="page-layout blank p-24" fusePerfectScrollbar align="center">
+<div class="page-layout blank p-24" fusePerfectScrollbar>
     <!-- TODO -->
     <!-- <div>{{ env }} - {{ API }} - {{ InOrganization }} - {{ accessLevel }}</div> -->
     <!-- header -->
-    <div>
+    <!-- <div>
         <h1 class="w3-margin w3-jumbo">WELCOME</h1>
-        <!-- <h2>{{ "SAMPLE.HELLO" | translate }}</h2> -->
-        <p class="w3-xlarge">The Hagen Family Foundation</p>
-    </div>
-    <div class="description">
+         <h2>{{ "SAMPLE.HELLO" | translate }}</h2> -->
+    <!-- <p class="w3-xlarge">The Hagen Family Foundation</p> -->
+    <!-- </div> -->
+    <!-- <div class="description">
         <p class="w3-padding-32">
             The Hagen Family Foundation provides financial grants to
             not-for-profit organizations in the areas of the arts, education,
             environment, religion, and social services.
         </p>
+    </div> -->
+    <div class="description" align="center">
+        <mat-grid-list cols="2">
+            <mat-grid-tile>
+                <img [src]="fullImagePath" width="300px" height="300px"
+            /></mat-grid-tile>
+            <mat-grid-tile>
+                <p class="w3-padding-32">
+                    The Hagen Family Foundation provides financial grants to
+                    not-for-profit organizations in the areas of the arts,
+                    education, environment, religion, and social services.
+                </p></mat-grid-tile
+            >
+        </mat-grid-list>
     </div>
 
     <!-- TODO: move to own component-->
@@ -30,31 +44,32 @@
             ></slideshow>
         </div>
     </div>
-
-    <!-- Grants Since -->
-    <div class="w3-padding-64 w3-container grants-since">
-        <div class="w3-content">
-            <div>
-                <app-grants-since></app-grants-since>
+    <div align="center">
+        <!-- Grants Since -->
+        <div class="w3-padding-64 w3-container grants-since">
+            <div class="w3-content">
+                <div>
+                    <app-grants-since></app-grants-since>
+                </div>
             </div>
         </div>
-    </div>
 
-    <!-- Grant Aggregate Data -->
-    <div class="w3-row-padding w3-padding-64 w3-container grants-awarded">
-        <div class="w3-content">
-            <div>
-                <app-grants-awarded-total></app-grants-awarded-total>
+        <!-- Grant Aggregate Data -->
+        <div class="w3-row-padding w3-padding-64 w3-container grants-awarded">
+            <div class="w3-content">
+                <div>
+                    <app-grants-awarded-total></app-grants-awarded-total>
+                </div>
             </div>
         </div>
-    </div>
-    <div
-        id="about"
-        class="w3-row-padding w3-padding-64 w3-container about-states"
-    >
-        <div class="w3-content">
-            <div>
-                <app-about-states></app-about-states>
+        <div
+            id="about"
+            class="w3-row-padding w3-padding-64 w3-container about-states"
+        >
+            <div class="w3-content">
+                <div>
+                    <app-about-states></app-about-states>
+                </div>
             </div>
         </div>
     </div>
