@@ -6,6 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { TranslateModule } from '@ngx-translate/core';
 import 'hammerjs';
@@ -64,6 +65,7 @@ import { AppRoutingModule } from './app-routing.module';
     // Material
     MatButtonModule,
     MatIconModule,
+    MatProgressSpinnerModule,
 
     // Fuse modules
     FuseModule.forRoot(fuseConfig),
