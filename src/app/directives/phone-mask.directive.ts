@@ -5,7 +5,9 @@ import { NgControl } from '@angular/forms';
   selector: '[formControlName][appPhoneMask]',
 })
 export class PhoneMaskDirective {
-  constructor(public ngControl: NgControl) { }
+  constructor(public ngControl: NgControl) {
+    console.log('inside phone mask directive constructor');
+  }
 
   @HostListener('ngModelChange', ['$event'])
   onModelChange(event) {
@@ -18,6 +20,9 @@ export class PhoneMaskDirective {
   }
 
   onInputChange(event, backspace) {
+    // debug
+    console.log(event);
+
     let newVal = event.replace(/\D/g, '');
     if (backspace && newVal.length <= 6) {
       newVal = newVal.substring(0, newVal.length - 1);
