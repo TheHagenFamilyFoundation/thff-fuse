@@ -14,6 +14,9 @@ import { InOrgService } from '../../../services/user/in-org.service';
   styleUrls: ['./user.component.scss'],
 })
 export class UserComponent implements OnInit {
+  // check basic row height
+  basicRowHeight = 500;
+
   user;
 
   inOrgCheck: boolean;
