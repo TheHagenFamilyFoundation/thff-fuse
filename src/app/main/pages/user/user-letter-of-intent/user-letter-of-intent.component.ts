@@ -173,7 +173,7 @@ export class UserLetterOfIntentComponent implements OnInit {
   createLOIFull() {
     // route to the full LOI
 
-    this.router.navigate(['/pages/create-loi-full']);
+    this.router.navigate(['/pages/create-letter-of-intent']);
   }
 
   openCreateLOIDialog(): void {
