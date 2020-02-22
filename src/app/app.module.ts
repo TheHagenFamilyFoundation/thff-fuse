@@ -21,6 +21,9 @@ import {
 
 import { fuseConfig } from 'app/fuse-config';
 
+// Directives
+// import { PhoneMaskDirective } from './directives/phone-mask.directive';
+
 import { AppComponent } from 'app/app.component';
 import { LayoutModule } from 'app/layout/layout.module';
 
@@ -48,6 +51,7 @@ import { AppRoutingModule } from './app-routing.module';
 @NgModule({
   declarations: [
     AppComponent,
+    // PhoneMaskDirective,
     // SettingsComponent
   ],
   imports: [
@@ -84,6 +88,9 @@ import { AppRoutingModule } from './app-routing.module';
     ApplicationModule,
     GrantsAwardedModule,
     ContactModule,
+  ],
+  exports: [
+    // PhoneMaskDirective
   ],
   bootstrap: [AppComponent],
 })
