@@ -1,22 +1,20 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
-import { environment } from '../../../../environments/environment';
+import { environment } from '../../../../../environments/environment';
 
-import { AuthService } from '../../../auth/auth.service';
+import { AuthService } from '../../../../auth/auth.service';
 
 // Services
-import { CreateLoiService } from '../../../services/loi/create-loi.service';
-import { GetUserService } from '../../../services/user/get-user.service'; // used for getting organizations
+import { CreateLoiService } from '../../../../services/loi/create-loi.service';
+import { GetUserService } from '../../../../services/user/get-user.service'; // used for getting organizations
 
 // debounce
 import { Subject } from 'rxjs';
 
-import {
-  map, takeUntil, tap, debounceTime, distinctUntilChanged,
-} from 'rxjs/operators';
+import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 
 @Component({
   selector: 'app-create-letter-of-intent',
