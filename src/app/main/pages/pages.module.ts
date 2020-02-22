@@ -23,6 +23,7 @@ import { SearchModernModule } from 'app/main/pages/search/modern/search-modern.m
 import { FaqModule } from 'app/main/pages/faq/faq.module';
 import { KnowledgeBaseModule } from 'app/main/pages/knowledge-base/knowledge-base.module';
 import { UserModule } from 'app/main/pages/user/user.module';
+import { OrganizationModule } from 'app/main/pages/organization/organization.module';
 
 @NgModule({
   imports: [
@@ -68,7 +69,12 @@ import { UserModule } from 'app/main/pages/user/user.module';
 
     // Knowledge base
     KnowledgeBaseModule,
+
+    OrganizationModule,
+    UserModule,
+
   ],
+  declarations: [],
 })
 export class PagesModule {
 
