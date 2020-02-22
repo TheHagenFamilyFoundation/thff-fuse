@@ -6,6 +6,11 @@ import { FuseSharedModule } from '@fuse/shared.module';
 
 import { MatFormFieldModule } from '@angular/material/form-field';
 
+// Organization
+import { GetOrganizationService } from '../../../services/organization/get-organization.service';
+import { CreateOrganizationService } from '../../../services/organization/create-organization.service';
+
+// Components
 import { OrganizationComponent } from './organization.component';
 import { CreateOrganizationComponent } from './create-organization/create-organization.component';
 import { CreateOrganizationFullComponent } from './create-organization-full/create-organization-full.component';
@@ -31,6 +36,9 @@ const routes = [
     FuseSharedModule,
 
     MatFormFieldModule,
+  ],
+  providers: [
+    CreateOrganizationService, GetOrganizationService,
   ],
   exports: [
     OrganizationComponent,
