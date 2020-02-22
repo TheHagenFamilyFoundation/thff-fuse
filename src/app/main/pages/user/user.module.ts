@@ -30,16 +30,10 @@ import { UserLetterOfIntentComponent } from './user-letter-of-intent/user-letter
 import { SelectedOrganizationComponent } from './user-organization/selected-organization/selected-organization.component';
 import { SelectedLetterOfIntentComponent } from './user-letter-of-intent/selected-letter-of-intent/selected-letter-of-intent.component';
 
-import { CreateOrganizationFullComponent } from '../organization/create-organization-full/create-organization-full.component';
-
 const routes = [
   {
     path: 'user',
     component: UserComponent,
-  },
-  {
-    path: 'create-organization',
-    component: CreateOrganizationFullComponent,
   },
 ];
 
