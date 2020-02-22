@@ -8,6 +8,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatButtonModule } from '@angular/material/button';
 
 import { FuseSharedModule } from '@fuse/shared.module';
 
@@ -60,6 +63,9 @@ const routes = [
     MatInputModule,
     MatIconModule,
     MatTableModule,
+    MatPaginatorModule,
+    MatProgressSpinnerModule,
+    MatButtonModule,
 
   ],
   providers: [
