@@ -5,7 +5,9 @@ import { TranslateModule } from '@ngx-translate/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTableModule } from '@angular/material/table';
 
 import { FuseSharedModule } from '@fuse/shared.module';
 
@@ -19,6 +21,10 @@ import { UserUpdateMainComponent } from './user-update-main/user-update-main.com
 import { UserUpdateComponent } from './user-update-main/user-update/user-update.component';
 import { ChangePasswordComponent } from './user-update-main/change-password/change-password.component';
 import { ChangeEmailComponent } from './user-update-main/change-email/change-email.component';
+import { UserOrganizationComponent } from './user-organization/user-organization.component';
+import { UserLetterOfIntentComponent } from './user-letter-of-intent/user-letter-of-intent.component';
+import { SelectedOrganizationComponent } from './user-organization/selected-organization/selected-organization.component';
+import { SelectedLetterOfIntentComponent } from './user-letter-of-intent/selected-letter-of-intent/selected-letter-of-intent.component';
 
 const routes = [
   {
@@ -34,6 +40,10 @@ const routes = [
     UserUpdateComponent,
     ChangePasswordComponent,
     ChangeEmailComponent,
+    UserOrganizationComponent,
+    UserLetterOfIntentComponent,
+    SelectedOrganizationComponent,
+    SelectedLetterOfIntentComponent,
 
   ],
   imports: [
@@ -48,6 +58,8 @@ const routes = [
     MatGridListModule,
     MatFormFieldModule,
     MatInputModule,
+    MatIconModule,
+    MatTableModule,
 
   ],
   providers: [
