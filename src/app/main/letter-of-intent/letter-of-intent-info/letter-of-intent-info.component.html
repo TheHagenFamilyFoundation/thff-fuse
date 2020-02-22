@@ -1,0 +1,126 @@
+<div align="center">
+    <h3>Letter of Intent Info</h3>
+  </div>
+  
+  <div *ngIf="!editing">
+    <button mat-raised-button (click)="edit()">Edit</button>
+  </div>
+  
+  <div *ngIf="editing">
+    <button *ngIf="CanSave" mat-raised-button (click)="save()">Save</button>
+    <button mat-raised-button (click)="cancel()">Cancel</button>
+  </div>
+  
+  <br>
+  <div *ngIf='!editing'>
+  <!-- should stay disabled   but now readonly-->
+    <div class="example-container">
+      <div>
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Project Title" value={{projectTitle}} readonly>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field class="full-width">
+          <textarea matInput cdkTextareaAutosize cdkAutosizeMinRows=1 cdkAutosizeMaxRows="50" placeholder="Purpose" value={{purpose}} readonly></textarea>
+          <mat-hint align="start">
+            2000 Characters Maximum - Current Count: {{purpose?.length}}
+          </mat-hint>
+        </mat-form-field>
+      </div>
+      <br>
+      <div>
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Project Start Date" value={{startDate}} readonly>
+        </mat-form-field>
+      </div>
+  
+      <div>
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Project End Date" value={{endDate}} readonly>
+        </mat-form-field>
+      </div>
+  
+      <div>
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Amount Requested" value="{{amountRequested | currency }}" readonly>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Total Project Cost" value="{{totalProjectCost | currency}}" readonly>
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+  
+  <div *ngIf='editing'>
+    <form [formGroup]="formLOI">
+      <div class="form-group">
+        <div>
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Project Title" formControlName="projectTitle" value={{projectTitle}} required
+              (keyup)="projectTitle$.next($event.target.value)">
+            <mat-error *ngIf="formLOI.get('projectTitle').hasError('required')">
+              Project Title is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field class="full-width">
+            <textarea matInput cdkTextareaAutosize cdkAutosizeMinRows=1 cdkAutosizeMaxRows="50" placeholder="Purpose" formControlName="purpose" maxlength="2000" value={{purpose}} required
+              (keyup)="purpose$.next($event.target.value)"></textarea>
+            <mat-hint align="start">{{purpose?.toString().length}} / 2000</mat-hint>
+            <mat-error *ngIf="formLOI.get('purpose').hasError('required')">
+              Purpose is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field class="full-width">
+            <input matInput [matDatepicker]="picker3" formControlName="projectStartDate" placeholder="Project Start Date"
+              [value]="projectStartDate.value" (dateInput)="projectStartDate$.next($event.target.value) "
+              (dateChange)="projectStartDate$.next($event.target.value) ">
+            <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+            <mat-datepicker #picker3></mat-datepicker>
+            <mat-error *ngIf="formLOI.get('projectStartDate').hasError('required')">
+              Project Start Date is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field class="full-width">
+            <input matInput [matDatepicker]="picker4" formControlName="projectEndDate" placeholder="Project End Date"
+              [value]="projectEndDate.value" (dateInput)="projectEndDate$.next($event.target.value) "
+              (dateChange)="projectEndDate$.next($event.target.value) ">
+            <mat-datepicker-toggle matSuffix [for]="picker4"></mat-datepicker-toggle>
+            <mat-datepicker #picker4></mat-datepicker>
+            <mat-error *ngIf="formLOI.get('projectEndDate').hasError('required')">
+              Project End Date is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field class="full-width">
+            <input matInput formControlName="amountRequested" placeholder="Amount Requested" currencyMask required
+              [(ngModel)]="amountRequested" (ngModelChange)="amountRequestedChange($event)">
+            <mat-error *ngIf="formLOI.get('amountRequested').hasError('required')">
+              Amount Requested is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field class="full-width">
+            <input matInput formControlName="totalProjectCost" placeholder="Total Project Cost" currencyMask required
+              [(ngModel)]="totalProjectCost" (ngModelChange)="totalProjectCostChange($event)">
+            <mat-error *ngIf="formLOI.get('totalProjectCost').hasError('required')">
+              Total Project Cost is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div *ngIf="ShowCostMessage">
+          {{costMessage}}
+        </div>
+      </div>
+    </form>
+  </div>

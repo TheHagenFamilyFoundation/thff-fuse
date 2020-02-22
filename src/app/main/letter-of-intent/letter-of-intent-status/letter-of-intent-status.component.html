@@ -1,0 +1,26 @@
+<div align="center">
+    <h3>Letter of Intent Status</h3>
+  </div>
+  <div>
+    <span>
+      Status: {{outputStatus}}
+    </span>
+  </div>
+  <div *ngIf="FullProposalPortalOpen">
+    <div *ngIf="!HasFullProposal">
+      <h4>Create A Full Proposal here</h4>
+      <button mat-raised-button (click)="createFP()">Create Full Proposal
+      </button>
+    </div>
+    <div *ngIf="HasFullProposal">
+      <div>
+        Link to Full Proposal:
+      </div>
+      <div>
+        <button mat-raised-button [routerLink]="[fpLink]">Full Proposal</button>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="!FullProposalPortalOpen">
+    Full Proposal Portal is closed.
+  </div>
