@@ -10,6 +10,7 @@ import { MatGridListModule } from '@angular/material';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatSelectModule } from '@angular/material/select';
 import { MatIconModule } from '@angular/material/icon';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { LetterOfIntentComponent } from './letter-of-intent.component';
 import { LetterOfIntentInfoComponent } from './letter-of-intent-info/letter-of-intent-info.component';
@@ -23,6 +24,10 @@ const routes = [
   {
     path: 'letter-of-intent',
     component: LetterOfIntentComponent,
+  },
+  {
+    path: 'create-letter-of-intent',
+    component: CreateLetterOfIntentFullComponent,
   },
 ];
 
@@ -49,6 +54,7 @@ const routes = [
     MatDatepickerModule,
     MatSelectModule,
     MatIconModule,
+    MatProgressSpinnerModule,
   ],
   exports: [
     LetterOfIntentComponent,
