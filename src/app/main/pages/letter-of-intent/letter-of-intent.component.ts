@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { GetLoiService } from '../../services/loi/get-loi.service';
-import { LOIStatusService } from '../../services/loi/loi-status.service';
+import { GetLoiService } from '../../../services/loi/get-loi.service';
+import { LOIStatusService } from '../../../services/loi/loi-status.service';
 
 @Component({
   selector: 'app-letter-of-intent',

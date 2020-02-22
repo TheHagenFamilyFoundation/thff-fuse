@@ -2,8 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { Router } from '@angular/router';
 
-import { LOIStatusService } from '../../../services/loi/loi-status.service';
-import { GetFullProposalService } from '../../../services/full-proposal/get-full-proposal.service';
+import { LOIStatusService } from '../../../../services/loi/loi-status.service';
+import { GetFullProposalService } from '../../../../services/full-proposal/get-full-proposal.service';
 
 @Component({
   selector: 'app-letter-of-intent-status',

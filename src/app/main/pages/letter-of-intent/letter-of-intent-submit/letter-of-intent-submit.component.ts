@@ -6,19 +6,19 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { LetterOfIntentSubmitCheckComponent } from '../letter-of-intent-submit-check/letter-of-intent-submit-check.component';
 
 // LOI
-import { SubmitLoiService } from '../../../services/loi/submit-loi.service';
-import { LOIStatusService } from '../../../services/loi/loi-status.service';
+import { SubmitLoiService } from '../../../../services/loi/submit-loi.service';
+import { LOIStatusService } from '../../../../services/loi/loi-status.service';
 
 // organization
-import { GetOrganizationService } from '../../../services/organization/get-organization.service';
+import { GetOrganizationService } from '../../../../services/organization/get-organization.service';
 
-import { EmailService } from '../../../services/user/email.service';
+import { EmailService } from '../../../../services/user/email.service';
 
-import { GetUserService } from '../../../services/user/get-user.service'; // used for getting organizations
+import { GetUserService } from '../../../../services/user/get-user.service'; // used for getting organizations
 
-import { Get501c3Service } from '../../../services/organization/501c3/get-501c3.service'; // query db and get from AWS
+import { Get501c3Service } from '../../../../services/organization/501c3/get-501c3.service'; // query db and get from AWS
 
-import { Doc501c3StatusService } from '../../../services/organization/501c3/doc501c3-status.service';
+import { Doc501c3StatusService } from '../../../../services/organization/501c3/doc501c3-status.service';
 
 @Component({
   selector: 'app-letter-of-intent-submit',
