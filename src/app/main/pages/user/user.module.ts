@@ -11,6 +11,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { FuseSharedModule } from '@fuse/shared.module';
 
@@ -29,10 +30,16 @@ import { UserLetterOfIntentComponent } from './user-letter-of-intent/user-letter
 import { SelectedOrganizationComponent } from './user-organization/selected-organization/selected-organization.component';
 import { SelectedLetterOfIntentComponent } from './user-letter-of-intent/selected-letter-of-intent/selected-letter-of-intent.component';
 
+import { CreateOrganizationFullComponent } from '../organization/create-organization-full/create-organization-full.component';
+
 const routes = [
   {
     path: 'user',
     component: UserComponent,
+  },
+  {
+    path: 'create-organization',
+    component: CreateOrganizationFullComponent,
   },
 ];
 
@@ -66,6 +73,7 @@ const routes = [
     MatPaginatorModule,
     MatProgressSpinnerModule,
     MatButtonModule,
+    MatDialogModule,
 
   ],
   providers: [
