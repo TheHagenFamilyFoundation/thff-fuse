@@ -9,10 +9,10 @@ import { Subject } from 'rxjs';
 
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 
-import { CreateLoiService } from '../../../services/loi/create-loi.service';
-import { GetUserService } from '../../../services/user/get-user.service'; // used for getting organizations
+import { CreateLoiService } from '../../../../services/loi/create-loi.service';
+import { GetUserService } from '../../../../services/user/get-user.service'; // used for getting organizations
 
-import { CreateLoiInfoService } from '../../../services/loi/loi-info/create-loi-info.service';
+import { CreateLoiInfoService } from '../../../../services/loi/loi-info/create-loi-info.service';
 
 @Component({
   selector: 'app-create-letter-of-intent-full',
