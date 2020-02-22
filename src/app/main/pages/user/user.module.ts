@@ -77,6 +77,9 @@ const routes = [
   exports: [
     UserComponent,
   ],
+  entryComponents: [
+    SelectedLetterOfIntentComponent,
+  ],
 })
 
 export class UserModule {
