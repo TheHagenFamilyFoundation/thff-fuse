@@ -24,6 +24,7 @@ import { FaqModule } from 'app/main/pages/faq/faq.module';
 import { KnowledgeBaseModule } from 'app/main/pages/knowledge-base/knowledge-base.module';
 import { UserModule } from 'app/main/pages/user/user.module';
 import { OrganizationModule } from 'app/main/pages/organization/organization.module';
+import { LetterOfIntentModule } from 'app/main/pages/letter-of-intent/letter-of-intent.module';
 
 @NgModule({
   imports: [
@@ -58,7 +59,7 @@ import { OrganizationModule } from 'app/main/pages/organization/organization.mod
 
     // Profile
     ProfileModule,
-    UserModule,
+    // UserModule,
 
     // Search
     SearchClassicModule,
@@ -71,6 +72,7 @@ import { OrganizationModule } from 'app/main/pages/organization/organization.mod
     KnowledgeBaseModule,
 
     OrganizationModule,
+    LetterOfIntentModule,
     UserModule,
 
   ],

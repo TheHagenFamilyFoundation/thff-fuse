@@ -55,5 +55,5 @@ const routes = [
   ],
 })
 
-export class SampleModule {
+export class LetterOfIntentModule {
 }

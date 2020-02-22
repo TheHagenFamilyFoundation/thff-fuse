@@ -9,7 +9,7 @@ import { GetUserService } from '../../../,,/../../services/user/get-user.service
 import { GetLoiService } from '../../../../services/loi/get-loi.service';
 import { InOrgService } from '../../../../services/user/in-org.service';
 
-import { CreateLetterOfIntentComponent } from '../../../letter-of-intent/create-letter-of-intent/create-letter-of-intent.component';
+import { CreateLetterOfIntentComponent } from '../../../pages/letter-of-intent/create-letter-of-intent/create-letter-of-intent.component';
 import { SelectedLetterOfIntentComponent } from './selected-letter-of-intent/selected-letter-of-intent.component';
 
 @Component({
@@ -173,7 +173,7 @@ export class UserLetterOfIntentComponent implements OnInit {
   createLOIFull() {
     // route to the full LOI
 
-    this.router.navigate(['/create-loi-full']);
+    this.router.navigate(['/pages/create-loi-full']);
   }
 
   openCreateLOIDialog(): void {
