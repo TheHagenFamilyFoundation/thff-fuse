@@ -22,7 +22,10 @@ const routes: Routes = [
     path: 'pages',
     loadChildren: './main/pages/pages.module#PagesModule',
   },
-
+  {
+    path: '**',
+    redirectTo: 'home',
+  },
 
 ];
 
