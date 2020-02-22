@@ -5,6 +5,8 @@ import { TranslateModule } from '@ngx-translate/core';
 import { FuseSharedModule } from '@fuse/shared.module';
 
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatInputModule } from '@angular/material/input';
 
 // Organization
 import { GetOrganizationService } from '../../../services/organization/get-organization.service';
@@ -36,6 +38,8 @@ const routes = [
     FuseSharedModule,
 
     MatFormFieldModule,
+    MatProgressSpinnerModule,
+    MatInputModule,
   ],
   providers: [
     CreateOrganizationService, GetOrganizationService,
