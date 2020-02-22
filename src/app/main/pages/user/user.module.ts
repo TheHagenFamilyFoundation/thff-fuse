@@ -80,7 +80,7 @@ const routes = [
     UserComponent,
   ],
   entryComponents: [
-    SelectedLetterOfIntentComponent,
+    SelectedLetterOfIntentComponent, SelectedOrganizationComponent,
   ],
 })
 
