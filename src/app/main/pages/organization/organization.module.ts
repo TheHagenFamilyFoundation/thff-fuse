@@ -7,6 +7,8 @@ import { FuseSharedModule } from '@fuse/shared.module';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatInputModule } from '@angular/material/input';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatCardModule } from '@angular/material/card';
 
 // Organization
 import { GetOrganizationService } from '../../../services/organization/get-organization.service';
@@ -20,6 +22,11 @@ import { CreateOrganizationFullComponent } from './create-organization-full/crea
 import { NgxCurrencyModule } from 'ngx-currency';
 
 import { PhoneMaskDirective } from '../../../directives/phone-mask.directive';
+import { OrganizationInfoComponent } from './organization-info/organization-info.component';
+import { OrganizationUsersComponent } from './organization-users/organization-users.component';
+import { OrganizationRequestsComponent } from './organization-requests/organization-requests.component';
+import { OrganizationDoc501c3Component } from './organization-doc501c3/organization-doc501c3.component';
+import { OrganizationFullProposalsComponent } from './organization-full-proposals/organization-full-proposals.component';
 
 const routes = [
   {
@@ -52,6 +59,16 @@ export const customCurrencyMaskConfig = {
     CreateOrganizationFullComponent,
 
     PhoneMaskDirective,
+
+    OrganizationInfoComponent,
+
+    OrganizationUsersComponent,
+
+    OrganizationRequestsComponent,
+
+    OrganizationDoc501c3Component,
+
+    OrganizationFullProposalsComponent,
   ],
   imports: [
     RouterModule.forChild(routes),
@@ -63,6 +80,8 @@ export const customCurrencyMaskConfig = {
     MatFormFieldModule,
     MatProgressSpinnerModule,
     MatInputModule,
+    MatGridListModule,
+    MatCardModule,
 
     NgxCurrencyModule.forRoot(customCurrencyMaskConfig),
   ],
