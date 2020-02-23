@@ -39,6 +39,8 @@ import { ContactModule } from 'app/main/contact/contact.module';
 import { GrantsAwardedModule } from 'app/main/grants-awarded/grants-awarded.module';
 
 import { AppRoutingModule } from './app-routing.module';
+
+import { NotFoundComponent } from './utilities/not-found/not-found.component';
 // import { SettingsComponent } from './main/settings/settings.component';
 
 // const appRoutes: Routes = [
@@ -51,6 +53,7 @@ import { AppRoutingModule } from './app-routing.module';
 @NgModule({
   declarations: [
     AppComponent,
+    NotFoundComponent,
     // PhoneMaskDirective,
     // SettingsComponent
   ],
