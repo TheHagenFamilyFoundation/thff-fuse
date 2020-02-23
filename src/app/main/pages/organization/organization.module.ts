@@ -7,8 +7,12 @@ import { FuseSharedModule } from '@fuse/shared.module';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
+import { MatTableModule } from '@angular/material/table';
+import { MatIconModule } from '@angular/material/icon';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 // Organization
 import { GetOrganizationService } from '../../../services/organization/get-organization.service';
@@ -27,6 +31,11 @@ import { OrganizationUsersComponent } from './organization-users/organization-us
 import { OrganizationRequestsComponent } from './organization-requests/organization-requests.component';
 import { OrganizationDoc501c3Component } from './organization-doc501c3/organization-doc501c3.component';
 import { OrganizationFullProposalsComponent } from './organization-full-proposals/organization-full-proposals.component';
+import { AddUsersComponent } from './organization-users/add-users/add-users.component';
+import { OrgSelectedLetterOfIntentComponent } from './org-selected-letter-of-intent/org-selected-letter-of-intent.component';
+import { OrgSelectedFullProposalComponent } from './org-selected-full-proposal/org-selected-full-proposal.component';
+
+import { DeleteDoc501c3CheckComponent } from './organization-doc501c3/delete-doc501c3-check/delete-doc501c3-check.component';
 
 const routes = [
   {
@@ -69,6 +78,14 @@ export const customCurrencyMaskConfig = {
     OrganizationDoc501c3Component,
 
     OrganizationFullProposalsComponent,
+
+    AddUsersComponent,
+
+    OrgSelectedLetterOfIntentComponent,
+
+    OrgSelectedFullProposalComponent,
+
+    DeleteDoc501c3CheckComponent,
   ],
   imports: [
     RouterModule.forChild(routes),
@@ -82,6 +99,10 @@ export const customCurrencyMaskConfig = {
     MatInputModule,
     MatGridListModule,
     MatCardModule,
+    MatTableModule,
+    MatIconModule,
+    MatPaginatorModule,
+    MatButtonModule,
 
     NgxCurrencyModule.forRoot(customCurrencyMaskConfig),
   ],
@@ -90,6 +111,9 @@ export const customCurrencyMaskConfig = {
   ],
   exports: [
     OrganizationComponent, PhoneMaskDirective,
+  ],
+  entryComponents: [
+    DeleteDoc501c3CheckComponent,
   ],
 })
 
