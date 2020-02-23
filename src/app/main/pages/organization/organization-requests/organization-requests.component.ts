@@ -96,10 +96,10 @@ export class OrganizationRequestsComponent implements OnInit {
   createLOIFull() {
     // route to the full LOI
 
-    this.router.navigate(['/create-loi-full']);
+    this.router.navigate(['/pages/create-letter-of-intent']);
   }
 
-
+  // old
   openCreateLOIDialog(): void {
     const dialogRef = this.dialog.open(CreateLetterOfIntentComponent, {
       width: '250px',
