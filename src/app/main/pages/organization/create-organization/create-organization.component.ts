@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { HttpClient } from '@angular/common/http';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 import { environment } from '../../../../../environments/environment';
 
@@ -13,9 +13,7 @@ import { CreateOrganizationService } from '../../../../services/organization/cre
 // debounce
 import { Subject } from 'rxjs';
 
-import {
-  map, takeUntil, tap, debounceTime, distinctUntilChanged,
-} from 'rxjs/operators';
+import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 
 @Component({
   selector: 'app-create-organization',

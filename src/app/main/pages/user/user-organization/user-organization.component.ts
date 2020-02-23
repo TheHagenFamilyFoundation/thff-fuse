@@ -138,12 +138,13 @@ export class UserOrganizationComponent implements OnInit {
 
   createOrganization() {
     console.log('create organization');
-    this.router.navigate(['/create-organization']);
+    this.router.navigate(['/pages/create-organization']);
 
     // modal
     // this.openCreateOrgDialog();
   }
 
+  // old
   openCreateOrgDialog(): void {
     const dialogRef = this.dialog.open(CreateOrganizationComponent, {
       width: '250px',
@@ -159,6 +160,7 @@ export class UserOrganizationComponent implements OnInit {
     });
   }
 
+  // this might be kept
   openSelectedOrgDialog(org): void {
     console.log('org.organizationID', org.organizationID);
 

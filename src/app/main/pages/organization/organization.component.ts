@@ -21,8 +21,8 @@ export class OrganizationComponent implements OnInit {
   org: any; // the Organization object
 
   // check basic row height
+  // TODO
   basicRowHeight = 450;
-
 
   /**
      * Constructor
@@ -36,6 +36,11 @@ export class OrganizationComponent implements OnInit {
     public getOrgService: GetOrganizationService,
   ) {
     this.fuseTranslationLoaderService.loadTranslations(english, turkish);
+
+    this.route.params.subscribe((params) => {
+      console.log(params);
+      this.orgID = params.id;
+    });
   }
 
   ngOnInit() {

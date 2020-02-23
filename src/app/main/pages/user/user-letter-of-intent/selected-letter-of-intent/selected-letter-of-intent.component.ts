@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./selected-letter-of-intent.component.scss'],
 })
 export class SelectedLetterOfIntentComponent implements OnInit {
-  loiLink = '/loi/'
+  loiLink = '/pages/letter-of-intent/'
 
   link: string;
 

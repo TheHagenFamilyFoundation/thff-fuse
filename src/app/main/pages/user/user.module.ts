@@ -11,6 +11,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { FuseSharedModule } from '@fuse/shared.module';
 
@@ -66,6 +67,7 @@ const routes = [
     MatPaginatorModule,
     MatProgressSpinnerModule,
     MatButtonModule,
+    MatDialogModule,
 
   ],
   providers: [
@@ -76,6 +78,9 @@ const routes = [
   ],
   exports: [
     UserComponent,
+  ],
+  entryComponents: [
+    SelectedLetterOfIntentComponent, SelectedOrganizationComponent,
   ],
 })
 
