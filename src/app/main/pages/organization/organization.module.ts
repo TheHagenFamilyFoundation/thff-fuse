@@ -23,8 +23,9 @@ import { PhoneMaskDirective } from '../../../directives/phone-mask.directive';
 
 const routes = [
   {
-    path: 'organization',
+    path: 'organization/:id',
     component: OrganizationComponent,
+    // canActivate: [AuthGuard],
   },
   {
     path: 'create-organization',
