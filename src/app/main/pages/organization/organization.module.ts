@@ -113,7 +113,9 @@ export const customCurrencyMaskConfig = {
     OrganizationComponent, PhoneMaskDirective,
   ],
   entryComponents: [
-    DeleteDoc501c3CheckComponent,
+    DeleteDoc501c3CheckComponent, AddUsersComponent,
+    OrgSelectedLetterOfIntentComponent,
+    OrgSelectedFullProposalComponent,
   ],
 })
 
