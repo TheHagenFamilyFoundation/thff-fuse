@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./selected-organization.component.scss'],
 })
 export class SelectedOrganizationComponent implements OnInit {
-  orgLink = '/organization/'
+  orgLink = '/pages/organization/'
 
   link: string;
 
