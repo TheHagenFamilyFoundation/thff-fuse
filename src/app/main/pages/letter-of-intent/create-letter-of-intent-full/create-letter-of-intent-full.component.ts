@@ -462,7 +462,7 @@ export class CreateLetterOfIntentFullComponent implements OnInit {
                 console.log('new this.loiInfo.id', this.loiInfo.id);
 
                 // route to user page
-                this.router.navigate(['/user']);
+                this.router.navigate(['/pages/user']);
               },
               (err) => {
                 console.log(err);
