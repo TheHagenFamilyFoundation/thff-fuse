@@ -25,5 +25,11 @@ export class DeleteDoc501c3CheckComponent implements OnInit {
 
   cancel() {
     console.log('cancel the delete');
+
+    const body = {
+      delete: false,
+    };
+
+    this.dialogRef.close(body);
   }
 }
