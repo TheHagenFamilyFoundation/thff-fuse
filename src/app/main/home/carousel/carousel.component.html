@@ -1,0 +1,20 @@
+<!-- carousel -->
+<div class="carousel">
+    <div class="image">
+        <app-carousel-image
+            [img]="slides[currentSlide].src"
+        ></app-carousel-image>
+    </div>
+    <!-- <div>
+        <app-carousel-caption
+            [caption]="slides[currentSlide].caption"
+        ></app-carousel-caption>
+    </div> -->
+    <!-- controls -->
+    <button class="control prev" (click)="onPreviousClick()">
+        <span class="arrow left"></span>
+    </button>
+    <button class="control next" (click)="onNextClick()">
+        <span class="arrow right"></span>
+    </button>
+</div>
