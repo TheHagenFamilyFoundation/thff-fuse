@@ -6,13 +6,13 @@
 //     flex: 1;
 // }
 
-.carousel {
-    position: relative;
-    height: 100%;
-    width: 100%;
-    overflow: hidden;
-    border-radius: 0.5em;
-}
+// .carousel {
+//     position: relative;
+//     height: 100%;
+//     width: 100%;
+//     overflow: hidden;
+//     border-radius: 0.5em;
+// }
 
 .slide {
     position: absolute;
@@ -82,9 +82,10 @@
     }
 }
 
-// .image {
-//     height: 400px;
-//     width: 900px;
-//     // object-fit: cover;
-//     // border-radius: 0.5em;
-//   }
+.image {
+    height: 400px;
+    width: 900px;
+    display:inline;
+    // object-fit: cover;
+    // border-radius: 0.5em;
+  }
