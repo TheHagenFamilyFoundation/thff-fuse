@@ -1,5 +1,12 @@
 .image {
     height: 400px;
     width: 900px;
-    display: block;
+    display: inline;
+    // position: relative;
+    object-fit: cover;
 }
+
+//not needed
+// .image:hover {
+//     transform: scale(1.025);
+// }
