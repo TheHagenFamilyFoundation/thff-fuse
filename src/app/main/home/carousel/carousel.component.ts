@@ -23,11 +23,12 @@ import {
 export class CarouselComponent {
   fullImagePath2 = '../assets/images/cv_busses1.JPG';
 
-  fullImagePath3 = '../assets/images/southern_shakespeare.png';
+  fullImagePath3 = '../assets/images/grant_review_timeline.png';
 
-  fullImagePath4 = '../assets/images/family.png';
+  fullImagePath4 = '../assets/images/southern_shakespeare.png';
 
-  fullImagePath5 = '../assets/images/grant_review_timeline.png';
+  fullImagePath5 = '../assets/images/family.png';
+
 
   public slides = [
     { src: this.fullImagePath2, caption: 'The Christus Victor pre-school children are happy with their new buses. View Grants Awarded Click Here' },
@@ -44,7 +45,7 @@ export class CarouselComponent {
   }
 
   startSlideShow() {
-    // setInterval(() => { this.onNextClick(); }, 5000);
+    setInterval(() => { this.onNextClick(); }, 5000);
   }
 
   onPreviousClick() {
