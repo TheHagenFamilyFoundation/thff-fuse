@@ -42,22 +42,21 @@
             </div>
         </div>
     </div>
-    <!-- </div> -->
-    <!-- TODO: move to own component-->
-    <!-- Slideshow -->
-    <div class="slideshow">
-        <div class="col-xs-12">
-            <slideshow
-                [height]="height"
-                [minHeight]="'525px'"
-                [autoPlay]="true"
-                [showArrows]="true"
-                [imageUrls]="imageUrlArray"
-                [lazyLoad]="imageUrlArray?.length > 1"
-                [autoPlayInterval]="10000"
-            ></slideshow>
+    <div align="center" class="some-page-wrapper">
+        <div class="row">
+            <div class="column">
+                <!-- <div class="blue-column"> -->
+                    <div class="desc" align="center">
+                        <app-carousel></app-carousel>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
+
+
+    <!-- <div align="center" class="carousel-container">
+        <app-carousel></app-carousel>
+    </div> -->
     <div align="center">
         <!-- Grants Since -->
         <div class="w3-padding-64 w3-container grants-since">
