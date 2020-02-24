@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 
+// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 // import { CountUpModule } from 'ngx-countup';
 
 import { MatGridListModule } from '@angular/material/grid-list';
@@ -25,6 +27,9 @@ import { HomeComponent } from './home.component';
 import { GrantsAwardedTotalComponent } from './grants-awarded-total/grants-awarded-total.component';
 import { GrantsSinceComponent } from './grants-since/grants-since.component';
 import { AboutStatesComponent } from './about-states/about-states.component';
+import { CarouselComponent } from './carousel/carousel.component';
+import { CarouselCaptionComponent } from './carousel/carousel-caption/carousel-caption.component';
+import { CarouselImageComponent } from './carousel/carousel-image/carousel-image.component';
 
 const routes = [
   {
@@ -39,6 +44,9 @@ const routes = [
     GrantsAwardedTotalComponent,
     GrantsSinceComponent,
     AboutStatesComponent,
+    CarouselComponent,
+    CarouselCaptionComponent,
+    CarouselImageComponent,
   ],
   imports: [
     RouterModule.forChild(routes),
@@ -54,7 +62,7 @@ const routes = [
     SlideshowModule,
 
     // CountUpModule,
-
+    // BrowserAnimationsModule,
   ],
   providers: [
     GetUserService, InOrgService, DirectorService,
