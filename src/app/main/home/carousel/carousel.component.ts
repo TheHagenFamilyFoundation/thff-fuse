@@ -31,10 +31,10 @@ export class CarouselComponent {
 
 
   public slides = [
-    { src: this.fullImagePath2, caption: 'The Christus Victor pre-school children are happy with their new buses. View Grants Awarded Click Here' },
-    { src: this.fullImagePath3, caption: 'Learn about our grant giving process and the requirements for submitting a grant request. Read More' },
-    { src: this.fullImagePath4, caption: 'Apply Now' },
-    { src: this.fullImagePath5, caption: 'The THFF Board of Directors contains two generations of family members. Learn more about us' },
+    { src: this.fullImagePath2, caption: { text: 'The Christus Victor pre-school children are happy with their new buses.', textLink: 'View Grants Awarded Click Here', link: '/grants-awarded' } },
+    { src: this.fullImagePath3, caption: { text: 'Learn about our grant giving process and the requirements for submitting a grant request.', textLink: 'Read More', link: '/application' } },
+    { src: this.fullImagePath4, caption: { text: '', textLink: 'Apply Now', link: '/application' } },
+    { src: this.fullImagePath5, caption: { text: 'The THFF Board of Directors contains two generations of family members.', textLink: 'Learn more about us', link: '/about' } },
   ];
 
   currentSlide = 0;
