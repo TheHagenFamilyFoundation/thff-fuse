@@ -8,9 +8,9 @@ describe('CarouselCaptionComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CarouselCaptionComponent ]
+      declarations: [CarouselCaptionComponent],
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
