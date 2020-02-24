@@ -107,11 +107,18 @@ p {
     flex-direction: row;
     flex-wrap: wrap;
     width: 100%;
-  }
-  
-  .column {
+}
+
+.column {
     display: flex;
     flex-direction: column;
     flex-basis: 100%;
     flex: 1;
-  }
+}
+
+.carousel-container {
+    display: block;
+    height: 500px;
+    width: 900px;
+    padding: 2em;
+}

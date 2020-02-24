@@ -55,6 +55,13 @@ export class HomeComponent implements OnInit {
 
   fullImagePath5 = '../assets/images/grant_review_timeline.png';
 
+  public slides = [
+    { src: this.fullImagePath2, caption: 'The Christus Victor pre-school children are happy with their new buses. View Grants Awarded Click Here' },
+    { src: this.fullImagePath3, caption: 'Learn about our grant giving process and the requirements for submitting a grant request. Read More' },
+    { src: this.fullImagePath4, caption: 'Apply Now' },
+    { src: this.fullImagePath5, caption: 'The THFF Board of Directors contains two generations of family members. Learn more about us' },
+  ];
+
   imageUrlArray: (string | InterfaceImage)[] = [
     {
       url: this.fullImagePath2,

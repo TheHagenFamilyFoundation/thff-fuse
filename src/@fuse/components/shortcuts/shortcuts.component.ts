@@ -23,10 +23,10 @@ export class FuseShortcutsComponent implements OnInit, AfterViewInit, OnDestroy
     @Input()
     navigation: any;
 
-    @ViewChild('searchInput', {static: false})
+    @ViewChild('searchInput')
     searchInputField;
 
-    @ViewChild('shortcuts', {static: false})
+    @ViewChild('shortcuts')
     shortcutsEl: ElementRef;
 
     // Private
@@ -84,24 +84,24 @@ export class FuseShortcutsComponent implements OnInit, AfterViewInit, OnDestroy
                     icon : 'today',
                     url  : '/apps/calendar'
                 },
-                // {
-                //     title: 'Mail',
-                //     type : 'item',
-                //     icon : 'email',
-                //     url  : '/apps/mail'
-                // },
-                // {
-                //     title: 'Contacts',
-                //     type : 'item',
-                //     icon : 'account_box',
-                //     url  : '/apps/contacts'
-                // },
-                // {
-                //     title: 'To-Do',
-                //     type : 'item',
-                //     icon : 'check_box',
-                //     url  : '/apps/todo'
-                // }
+                {
+                    title: 'Mail',
+                    type : 'item',
+                    icon : 'email',
+                    url  : '/apps/mail'
+                },
+                {
+                    title: 'Contacts',
+                    type : 'item',
+                    icon : 'account_box',
+                    url  : '/apps/contacts'
+                },
+                {
+                    title: 'To-Do',
+                    type : 'item',
+                    icon : 'check_box',
+                    url  : '/apps/todo'
+                }
             ];
         }
 
