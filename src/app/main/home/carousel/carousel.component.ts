@@ -29,7 +29,6 @@ export class CarouselComponent {
 
   fullImagePath5 = '../assets/images/family.png';
 
-
   public slides = [
     { src: this.fullImagePath2, caption: 'The Christus Victor pre-school children are happy with their new buses. View Grants Awarded Click Here' },
     { src: this.fullImagePath3, caption: 'Learn about our grant giving process and the requirements for submitting a grant request. Read More' },
