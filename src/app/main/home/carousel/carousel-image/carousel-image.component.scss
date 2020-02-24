@@ -1,7 +1,8 @@
 // .image {
-//     // height: 400px;
-//     // width: 900px;
-//     display: inline;
+//     height: 100px;
+//     width: 900px;
+
+//     // display: inline;
 //     // position: relative;
 //     // object-fit: cover;
 // }
@@ -10,3 +11,10 @@
 // .image:hover {
 //     transform: scale(1.025);
 // }
+
+img {
+    width: 900px;
+    height: 400px;
+    overflow: hidden;
+    // object-fit: cover;
+}
