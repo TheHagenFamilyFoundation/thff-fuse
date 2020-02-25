@@ -6,6 +6,7 @@ import { NgModule } from '@angular/core';
 
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 // used in about
 import { MatListModule } from '@angular/material/list';
 
@@ -56,6 +57,7 @@ const routes = [
     MatGridListModule,
     MatButtonModule,
     MatListModule,
+    MatIconModule,
 
     // CountUpModule,
     // BrowserAnimationsModule,
