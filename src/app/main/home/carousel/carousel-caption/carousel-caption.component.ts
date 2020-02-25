@@ -7,10 +7,24 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class CarouselCaptionComponent implements OnInit {
   @Input()
-  caption: string;
+  caption: any;
+
+  // caption
+  // text: string;
+
+  // textLink: string;
+
+  // link: string;
+
+  // @Input()
+  // link: string;
 
   constructor() { }
 
   ngOnInit(): void {
+
+    // this.text = this.caption.text;
+    // this.textLink = this.caption.
+
   }
 }
