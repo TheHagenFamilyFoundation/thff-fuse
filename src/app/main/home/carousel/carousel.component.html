@@ -5,16 +5,20 @@
             [img]="slides[currentSlide].src"
         ></app-carousel-image>
     </div>
+    <br />
     <div class="caption">
         <app-carousel-caption
             [caption]="slides[currentSlide].caption"
         ></app-carousel-caption>
     </div>
+    <br />
     <!-- controls -->
-    <!-- <button class="control prev" (click)="onPreviousClick()">
-        <span class="arrow left"></span>
+    <button mat-raised-button color="primary" (click)="onPreviousClick()">
+        <!-- <span class="arrow left"></span> -->
+        <mat-icon>keyboard_arrow_left</mat-icon>
     </button>
-    <button class="control next" (click)="onNextClick()">
-        <span class="arrow right"></span>
-    </button> -->
+    <button mat-raised-button color="primary" (click)="onNextClick()">
+        <!-- <span class="arrow right"></span> -->
+        <mat-icon>keyboard_arrow_right</mat-icon>
+    </button>
 </div>
