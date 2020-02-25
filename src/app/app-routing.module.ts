@@ -25,7 +25,7 @@ const routes: Routes = [
   { path: 'settings', redirectTo: 'settings' },
   {
     path: 'pages',
-    loadChildren: './main/pages/pages.module#PagesModule',
+    loadChildren: () => import('./main/pages/pages.module').then((m) => m.PagesModule),
   },
 
   {

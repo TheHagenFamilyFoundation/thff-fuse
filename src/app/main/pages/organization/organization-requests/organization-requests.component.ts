@@ -1,8 +1,10 @@
 import {
   Component, ViewChild, OnInit, Input,
 } from '@angular/core';
-import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
-import { MatDialog } from '@angular/material';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatDialog } from '@angular/material/dialog';
 
 import { CreateLetterOfIntentComponent } from '../../letter-of-intent/create-letter-of-intent/create-letter-of-intent.component';
 import { OrgSelectedLetterOfIntentComponent } from '../org-selected-letter-of-intent/org-selected-letter-of-intent.component';

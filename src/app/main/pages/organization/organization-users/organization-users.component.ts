@@ -1,8 +1,10 @@
 import {
   Component, ViewChild, OnInit, Input,
 } from '@angular/core';
-import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatDialog } from '@angular/material/dialog';
 import { AddUsersComponent } from './add-users/add-users.component';
 
 import { AddUserService } from '../../../../services/organization/add-user.service';
