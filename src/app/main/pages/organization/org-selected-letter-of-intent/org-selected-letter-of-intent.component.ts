@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./org-selected-letter-of-intent.component.scss'],
 })
 export class OrgSelectedLetterOfIntentComponent implements OnInit {
-  loiLink = '/loi/'
+  loiLink = '/pages/letter-of-intent/'
 
   link: string;
 
@@ -17,6 +17,7 @@ export class OrgSelectedLetterOfIntentComponent implements OnInit {
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     private router: Router,
+    public dialogRef: MatDialogRef<OrgSelectedLetterOfIntentComponent>,
   ) { }
 
   ngOnInit() {
@@ -32,5 +33,7 @@ export class OrgSelectedLetterOfIntentComponent implements OnInit {
 
   cancel() {
     console.log('cancel pressed');
+
+    this.dialogRef.close('true');
   }
 }
