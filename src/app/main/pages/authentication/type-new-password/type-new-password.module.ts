@@ -14,20 +14,15 @@ import { ValidUserNameService } from '../../../../services/user/valid-username.s
 import { ValidResetCodeService } from '../../../../services/user/valid-resetcode.service';
 import { SetNewPasswordService } from '../../../../services/user/set-new-password.service';
 
-import { ForgotPasswordComponent } from 'app/main/pages/authentication/forgot-password/forgot-password.component';
-// import { TypeNewPasswordComponent } from './type-new-password/type-new-password.component';
+import { TypeNewPasswordComponent } from 'app/main/pages/authentication/type-new-password/type-new-password.component';
 
 const routes = [
-  {
-    path: 'auth/forgot-password',
-    component: ForgotPasswordComponent,
-  },
-
+  { path: 'auth/type-new-password/:username/:resetCode', component: TypeNewPasswordComponent },
 ];
 
 @NgModule({
   declarations: [
-    ForgotPasswordComponent,
+    TypeNewPasswordComponent,
   ],
   imports: [
     RouterModule.forChild(routes),
@@ -48,5 +43,5 @@ const routes = [
     SetNewPasswordService,
   ],
 })
-export class ForgotPasswordModule {
+export class TypeNewPasswordModule {
 }

@@ -1,10 +1,13 @@
 import { NgModule } from '@angular/core';
 
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+
 import { LoginModule } from 'app/main/pages/authentication/login/login.module';
 import { Login2Module } from 'app/main/pages/authentication/login-2/login-2.module';
 import { RegisterModule } from 'app/main/pages/authentication/register/register.module';
 import { Register2Module } from 'app/main/pages/authentication/register-2/register-2.module';
 import { ForgotPasswordModule } from 'app/main/pages/authentication/forgot-password/forgot-password.module';
+import { TypeNewPasswordModule } from 'app/main/pages/authentication/type-new-password/type-new-password.module';
 import { ForgotPassword2Module } from 'app/main/pages/authentication/forgot-password-2/forgot-password-2.module';
 import { ResetPasswordModule } from 'app/main/pages/authentication/reset-password/reset-password.module';
 import { ResetPassword2Module } from 'app/main/pages/authentication/reset-password-2/reset-password-2.module';
@@ -34,6 +37,7 @@ import { LetterOfIntentModule } from 'app/main/pages/letter-of-intent/letter-of-
     RegisterModule,
     Register2Module,
     ForgotPasswordModule,
+    TypeNewPasswordModule,
     ForgotPassword2Module,
     ResetPasswordModule,
     ResetPassword2Module,
@@ -74,6 +78,8 @@ import { LetterOfIntentModule } from 'app/main/pages/letter-of-intent/letter-of-
     OrganizationModule,
     LetterOfIntentModule,
     UserModule,
+
+    MatSnackBarModule,
 
   ],
   declarations: [],
