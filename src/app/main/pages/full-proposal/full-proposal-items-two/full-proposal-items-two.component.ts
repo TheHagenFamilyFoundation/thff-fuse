@@ -13,11 +13,11 @@ import { RemoveFpItemService } from '../../../../services/full-proposal/remove-f
 import { EditFpItemService } from '../../../../services/full-proposal/edit-fp-item.service';
 
 @Component({
-  selector: 'app-full-proposal-items',
-  templateUrl: './full-proposal-items.component.html',
-  styleUrls: ['./full-proposal-items.component.scss'],
+  selector: 'app-full-proposal-items-two',
+  templateUrl: './full-proposal-items-two.component.html',
+  styleUrls: ['./full-proposal-items-two.component.scss'],
 })
-export class FullProposalItemsComponent implements OnInit {
+export class FullProposalItemsTwoComponent implements OnInit {
   displayedColumns = ['category', 'amount1', 'amount2', 'amount3', 'total', 'remove'];
 
   dataSource: any;
