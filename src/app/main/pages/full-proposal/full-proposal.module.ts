@@ -20,6 +20,7 @@ import { CreateFullProposalItemComponent } from './create-full-proposal-item/cre
 import { CreateFullProposalItemsComponent } from './create-full-proposal-items/create-full-proposal-items.component';
 import { DeleteFullProposalItemComponent } from './delete-full-proposal-item/delete-full-proposal-item.component';
 import { EditFullProposalItemComponent } from './edit-full-proposal-item/edit-full-proposal-item.component';
+import { FullProposalItemsTwoComponent } from './full-proposal-items-two/full-proposal-items-two.component';
 
 const routes = [
   // TODO
@@ -45,6 +46,7 @@ const routes = [
     CreateFullProposalItemsComponent,
     DeleteFullProposalItemComponent,
     EditFullProposalItemComponent,
+    FullProposalItemsTwoComponent,
   ],
   imports: [
     RouterModule.forChild(routes),
@@ -63,7 +65,10 @@ const routes = [
     FullProposalComponent,
   ],
   entryComponents: [
-    CreateFullProposalItemComponent, DeleteFullProposalItemComponent, EditFullProposalItemComponent,
+    CreateFullProposalItemComponent,
+    DeleteFullProposalItemComponent,
+    EditFullProposalItemComponent,
+    FullProposalItemsComponent,
   ],
 })
 
