@@ -504,7 +504,9 @@ export class CreateFullProposalComponent implements OnInit {
         (loi) => {
           console.log('loi', loi);
 
-          this.loi = loi[0];
+          this.loi[0] = loi;
+
+          // this.loi = loi[0];
         },
       );
   }
