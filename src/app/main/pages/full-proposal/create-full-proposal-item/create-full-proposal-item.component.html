@@ -20,7 +20,7 @@
         placeholder="Amount Requested From THFF "
         currencyMask
         [(ngModel)]="amountRequestedTHFF"
-        (ngModelChange)="amountRequestedTHFFChange($event)"
+        (ngModelChange)="amountRequestedTHFFChange()"
         required
     />
 </mat-form-field>
@@ -30,7 +30,7 @@
         placeholder="Amount Requested From Other Organizations, if any"
         currencyMask
         [(ngModel)]="amountRequested"
-        (ngModelChange)="amountRequestedChange($event)"
+        (ngModelChange)="amountRequestedChange()"
     />
 </mat-form-field>
 <mat-form-field class="full-width">
@@ -39,7 +39,7 @@
         placeholder="Amount Pending From Other Organizations, if any "
         currencyMask
         [(ngModel)]="amountPending"
-        (ngModelChange)="amountPendingChange($event)"
+        (ngModelChange)="amountPendingChange()"
     />
 </mat-form-field>
 <div>Total: {{ total | currency }}</div>
