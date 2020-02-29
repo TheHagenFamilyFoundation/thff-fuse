@@ -12,7 +12,6 @@ import { MatIconModule } from '@angular/material/icon';
 
 import { FullProposalComponent } from './full-proposal.component';
 import { CreateFullProposalComponent } from './create-full-proposal/create-full-proposal.component';
-import { FullProposalItemsComponent } from './full-proposal-items/full-proposal-items.component';
 import { FullProposalStatusComponent } from './full-proposal-status/full-proposal-status.component';
 import { FullProposalSubmitComponent } from './full-proposal-submit/full-proposal-submit.component';
 import { FullProposalSubmitCheckComponent } from './full-proposal-submit-check/full-proposal-submit-check.component';
@@ -38,7 +37,6 @@ const routes = [
   declarations: [
     FullProposalComponent,
     CreateFullProposalComponent,
-    FullProposalItemsComponent,
     FullProposalStatusComponent,
     FullProposalSubmitComponent,
     FullProposalSubmitCheckComponent,
@@ -68,7 +66,6 @@ const routes = [
     CreateFullProposalItemComponent,
     DeleteFullProposalItemComponent,
     EditFullProposalItemComponent,
-    FullProposalItemsComponent,
   ],
 })
 
