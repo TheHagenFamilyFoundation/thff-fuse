@@ -8,7 +8,7 @@ import {
 } from 'rxjs/operators';
 
 // components
-import { FullProposalItemsComponent } from './full-proposal-items/full-proposal-items.component';
+import { FullProposalItemsTwoComponent } from './full-proposal-items-two/full-proposal-items-two.component';
 
 // services
 import { GetFullProposalService } from '../../../services/full-proposal/get-full-proposal.service';
@@ -138,8 +138,8 @@ export class FullProposalComponent {
 
   message: any;
 
-  @ViewChild(FullProposalItemsComponent, { static: false })
-  private fpItemsComponent: FullProposalItemsComponent;
+  @ViewChild(FullProposalItemsTwoComponent, { static: false })
+  private fpItemsComponent: FullProposalItemsTwoComponent;
 
   constructor(private route: ActivatedRoute,
     public getFullProposalService: GetFullProposalService,
@@ -329,7 +329,8 @@ export class FullProposalComponent {
         (fp) => {
           console.log('fp', fp);
 
-          this.fp = fp[0];
+          this.fp[0] = fp;
+          // this.fp = fp[0];
           this.FPid = this.fp.id;
 
           this.setFields();
