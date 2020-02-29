@@ -61,6 +61,9 @@ const routes = [
   exports: [
     FullProposalComponent,
   ],
+  entryComponents: [
+    CreateFullProposalItemComponent, DeleteFullProposalItemComponent, EditFullProposalItemComponent,
+  ],
 })
 
 export class FullProposalModule {
