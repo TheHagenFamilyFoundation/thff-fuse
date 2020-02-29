@@ -28,6 +28,7 @@ import { KnowledgeBaseModule } from 'app/main/pages/knowledge-base/knowledge-bas
 import { UserModule } from 'app/main/pages/user/user.module';
 import { OrganizationModule } from 'app/main/pages/organization/organization.module';
 import { LetterOfIntentModule } from 'app/main/pages/letter-of-intent/letter-of-intent.module';
+import { FullProposalModule } from 'app/main/pages/full-proposal/full-proposal.module';
 
 @NgModule({
   imports: [
@@ -77,6 +78,7 @@ import { LetterOfIntentModule } from 'app/main/pages/letter-of-intent/letter-of-
 
     OrganizationModule,
     LetterOfIntentModule,
+    FullProposalModule,
     UserModule,
 
     MatSnackBarModule,
