@@ -22,6 +22,7 @@ import { DeleteFullProposalItemComponent } from './delete-full-proposal-item/del
 import { EditFullProposalItemComponent } from './edit-full-proposal-item/edit-full-proposal-item.component';
 
 const routes = [
+  // TODO
   {
     path: 'full-proposal',
     component: FullProposalComponent,
