@@ -1,35 +1,38 @@
-<div align="center">
-    <div>
-        <h3>View Full Proposals</h3>
+<div class="page-layout blank p-24" fusePerfectScrollbar align="center">
+    <div align="center">
+        <div>
+            <h3>View Full Proposals</h3>
+        </div>
+        <div *ngIf="!Loaded">
+            <mat-spinner></mat-spinner>
+        </div>
     </div>
-    <div *ngIf="!Loaded">
-        <mat-spinner></mat-spinner>
-    </div>
-</div>
-<div *ngIf="Loaded">
-    <div align="center" class="example-button-row">
-        <button
-            *ngIf="!Printable"
-            mat-raised-button
-            (click)="getPrintable(true)"
-        >
-            List
-        </button>
-        <button
-            *ngIf="Printable"
-            mat-raised-button
-            (click)="getPrintable(false)"
-        >
-            Table
-        </button>
-    </div>
-    <br />
-    <div *ngIf="!Printable">
-        <app-director-table-full-proposals
-            [fps]="fullproposals"
-        ></app-director-table-full-proposals>
-    </div>
-    <div *ngIf="Printable">
-        <app-director-fps-list [fps]="fullproposals"> </app-director-fps-list>
+    <div *ngIf="Loaded">
+        <div align="center" class="example-button-row">
+            <button
+                *ngIf="!Printable"
+                mat-raised-button
+                (click)="getPrintable(true)"
+            >
+                List
+            </button>
+            <button
+                *ngIf="Printable"
+                mat-raised-button
+                (click)="getPrintable(false)"
+            >
+                Table
+            </button>
+        </div>
+        <br />
+        <div *ngIf="!Printable">
+            <app-director-table-full-proposals
+                [fps]="fullproposals"
+            ></app-director-table-full-proposals>
+        </div>
+        <div *ngIf="Printable">
+            <app-director-fps-list [fps]="fullproposals">
+            </app-director-fps-list>
+        </div>
     </div>
 </div>
