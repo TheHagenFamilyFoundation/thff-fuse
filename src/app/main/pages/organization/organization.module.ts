@@ -4,6 +4,8 @@ import { TranslateModule } from '@ngx-translate/core';
 
 import { FuseSharedModule } from '@fuse/shared.module';
 
+import { AuthGuard } from '../../../auth/_guards/auth.guard';
+
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatInputModule } from '@angular/material/input';
@@ -42,7 +44,7 @@ const routes = [
   {
     path: 'organization/:id',
     component: OrganizationComponent,
-    // canActivate: [AuthGuard],
+    canActivate: [AuthGuard],
   },
   {
     path: 'create-organization',
