@@ -98,7 +98,7 @@ export class UserOrganizationComponent implements OnInit {
       this.checkOrganizations();
     } else {
       // logout
-      this.router.navigate(['/logout']);
+      this.router.navigate(['/pages/auth/logout']);
     }
   }// end of getUserName
 
