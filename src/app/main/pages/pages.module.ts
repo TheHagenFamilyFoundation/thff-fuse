@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatTableModule } from '@angular/material/table';
 
 import { LoginModule } from 'app/main/pages/authentication/login/login.module';
 import { Login2Module } from 'app/main/pages/authentication/login-2/login-2.module';
@@ -26,8 +27,10 @@ import { SearchModernModule } from 'app/main/pages/search/modern/search-modern.m
 import { FaqModule } from 'app/main/pages/faq/faq.module';
 import { KnowledgeBaseModule } from 'app/main/pages/knowledge-base/knowledge-base.module';
 import { UserModule } from 'app/main/pages/user/user.module';
+import { DirectorModule } from 'app/main/pages/director/director.module';
 import { OrganizationModule } from 'app/main/pages/organization/organization.module';
 import { LetterOfIntentModule } from 'app/main/pages/letter-of-intent/letter-of-intent.module';
+import { FullProposalModule } from 'app/main/pages/full-proposal/full-proposal.module';
 
 @NgModule({
   imports: [
@@ -77,9 +80,13 @@ import { LetterOfIntentModule } from 'app/main/pages/letter-of-intent/letter-of-
 
     OrganizationModule,
     LetterOfIntentModule,
+    FullProposalModule,
+
     UserModule,
+    DirectorModule,
 
     MatSnackBarModule,
+    MatTableModule,
 
   ],
   declarations: [],
