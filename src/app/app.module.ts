@@ -39,6 +39,8 @@ import { ApplicationModule } from 'app/main/application/application.module';
 import { ContactModule } from 'app/main/contact/contact.module';
 import { GrantsAwardedModule } from 'app/main/grants-awarded/grants-awarded.module';
 
+import { AdminModule } from 'app/main/admin/admin.module';
+
 import { AppRoutingModule } from './app-routing.module';
 
 import { NotFoundComponent } from './utilities/not-found/not-found.component';
@@ -93,6 +95,7 @@ import { NotFoundComponent } from './utilities/not-found/not-found.component';
     ApplicationModule,
     GrantsAwardedModule,
     ContactModule,
+    AdminModule,
   ],
   exports: [
     // PhoneMaskDirective

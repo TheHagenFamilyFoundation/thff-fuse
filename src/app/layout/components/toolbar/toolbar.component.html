@@ -51,6 +51,7 @@
                     mat-button
                     class="theme-options-button"
                     routerLink="/about"
+                    *ngIf="authService.isExpired()"
                 >
                     About Us
                 </button>
@@ -58,6 +59,7 @@
                     mat-button
                     class="theme-options-button"
                     routerLink="/application"
+                    *ngIf="authService.isExpired()"
                 >
                     Application Portal
                 </button>
@@ -65,9 +67,46 @@
                     mat-button
                     class="theme-options-button"
                     routerLink="/contact"
+                    *ngIf="authService.isExpired()"
                 >
                     Contact Us
                 </button>
+                <div *ngIf="!authService.isExpired()">
+                    <div *ngIf="!InOrganization">
+                        <button
+                            mat-button
+                            routerLink="pages/create-organization"
+                            fxHide="false"
+                        >
+                            Create Organization
+                        </button>
+                    </div>
+                    <div *ngIf="InOrganization">
+                        <button mat-button [matMenuTriggerFor]="orgMenu">
+                            Organizations
+                        </button>
+                        <mat-menu #orgMenu="matMenu">
+                            <button mat-menu-item (click)="viewOrgs()">
+                                View Organizations
+                            </button>
+                            <button mat-menu-item (click)="createOrg()">
+                                Create Organization
+                            </button>
+                        </mat-menu>
+                    </div>
+                </div>
+
+                <div
+                    *ngIf="
+                        !authService.isExpired() && directorService.isDirector()
+                    "
+                >
+                    <!-- <div *ngIf="IsDirector"> -->
+                    <button mat-button routerLink="/pages/director" fxHide="false">
+                        Directors
+                    </button>
+                    <!-- </div> -->
+                </div>
             </div>
         </div>
 

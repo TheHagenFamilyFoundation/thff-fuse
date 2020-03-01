@@ -21,8 +21,11 @@ const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
 
   { path: 'contact', redirectTo: 'contact' },
+
   { path: 'about', redirectTo: 'about' },
   { path: 'application', redirectTo: 'application' },
+
+  { path: 'admin', redirectTo: 'admin' },
 
   // TODO
   // { path: 'users', redirectTo: 'users', canActivate: [AuthGuard] },

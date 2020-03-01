@@ -22,11 +22,11 @@ export class SubmissionYearComponent implements OnInit {
     this.Active = false;
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.getSubmissionYears();
   }
 
-  getSubmissionYears() {
+  getSubmissionYears(): void {
     this.submissionYearService.getSubmissionYears().subscribe(
       (sys) => {
         console.log('get submission years', sys);
@@ -55,7 +55,7 @@ export class SubmissionYearComponent implements OnInit {
     );
   }
 
-  createSubmissionYear() {
+  createSubmissionYear(): void {
     console.log('createSubmissionYear');
 
     this.submissionYearService.createSubmissionYear()
@@ -78,7 +78,7 @@ export class SubmissionYearComponent implements OnInit {
     return year === currentYear;
   }
 
-  closeSubmissionYear() {
+  closeSubmissionYear(): void {
     console.log('closeSubmissionYear');
 
     this.submissionYearService.closeSubmissionYear(this.currentSY).subscribe(

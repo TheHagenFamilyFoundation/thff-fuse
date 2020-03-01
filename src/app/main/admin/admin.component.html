@@ -1,15 +1,12 @@
-<div align="center">
+<div class="page-layout blank p-24" fusePerfectScrollbar align="center">
     <h3>
-      Admin Page
+        Admin Page
     </h3>
-    <div>
-      <app-admin-full-proposal [user]="currentUser"></app-admin-full-proposal>
+    <div class="admin">
+        <app-admin-full-proposal [user]="currentUser"></app-admin-full-proposal>
     </div>
-    <br>
-    <div *ngIf="accessLevel == 4">
-      <app-submission-year></app-submission-year>
+    <br />
+    <div class="admin" *ngIf="accessLevel == 4">
+        <app-submission-year></app-submission-year>
     </div>
-  
-  
-  
-  </div>
+</div>

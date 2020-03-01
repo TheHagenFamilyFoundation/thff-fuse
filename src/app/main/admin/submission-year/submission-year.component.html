@@ -4,7 +4,7 @@
         <h3>Submission Years</h3>
         <div>
           <div *ngIf="!SubmissionYear">
-            <button class="bsize" mat-raised-button (click)="createSubmissionYear()">Create Submission Year</button>
+            <button mat-raised-button (click)="createSubmissionYear()">Create Submission Year</button>
           </div>
           <div *ngIf="SubmissionYear">
             <div>
@@ -13,7 +13,7 @@
             </div>
             <div>
               <div *ngIf="Active">
-                <button class="bsize" mat-raised-button (click)="closeSubmissionYear()">Close Submission Year</button>
+                <button mat-raised-button (click)="closeSubmissionYear()">Close Submission Year</button>
               </div>
             </div>
           </div>

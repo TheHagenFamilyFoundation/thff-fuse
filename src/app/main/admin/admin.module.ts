@@ -4,10 +4,11 @@ import { TranslateModule } from '@ngx-translate/core';
 
 import { FuseSharedModule } from '@fuse/shared.module';
 
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+
 // guards
 import { AuthGuard } from '../../auth/_guards/auth.guard';
-
-import { MatCardModule } from '@angular/material/card';
 
 import { AdminComponent } from './admin.component';
 import { AdminFullProposalComponent } from './admin-full-proposal/admin-full-proposal.component';
@@ -31,6 +32,7 @@ const routes = [
     FuseSharedModule,
 
     MatCardModule,
+    MatButtonModule,
 
   ],
   exports: [
@@ -38,5 +40,5 @@ const routes = [
   ],
 })
 
-export class SampleModule {
+export class AdminModule {
 }
