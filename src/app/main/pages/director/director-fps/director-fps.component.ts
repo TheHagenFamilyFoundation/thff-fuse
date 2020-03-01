@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
 import { GetFullProposalService } from '../../../../services/full-proposal/get-full-proposal.service';
-// import { FPStatusService } from '../../services/ful-proposal/fp-status.service';
-// import { DirectorSelectedFPComponent } from './director-selected-fp/director-selected-fp.component';
-
 
 @Component({
   selector: 'app-director-fps',
@@ -17,7 +14,8 @@ export class DirectorFpsComponent implements OnInit {
 
   fullproposals: any;
 
-  constructor(public getFullProposalService: GetFullProposalService,
+  constructor(
+    public getFullProposalService: GetFullProposalService,
     // private loiStatusService: LOIStatusService
   ) {
     this.Loaded = false;
