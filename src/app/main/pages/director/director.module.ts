@@ -18,6 +18,13 @@ import { DirectorFpsComponent } from './director-fps/director-fps.component';
 import { DirectorLoisComponent } from './director-lois/director-lois.component';
 import { DirectorOrganizationsComponent } from './director-organizations/director-organizations.component';
 import { DirectorMenuComponent } from './director-menu/director-menu.component';
+import { DirectorFpsListComponent } from './director-fps/director-fps-list/director-fps-list.component';
+import { DirectorTableFullProposalsComponent } from './director-fps/director-table-full-proposals/director-table-full-proposals.component';
+import { DirectorViewFPComponent } from './director-fps/director-view-fp/director-view-fp.component';
+
+// import { FullProposalItemsTwoComponent } from
+// '../full-proposal/full-proposal-items-two/full-proposal-items-two.component';
+import { DirectorSelectedFPComponent } from './director-fps/director-table-full-proposals/director-selected-fp/director-selected-fp.component';
 
 const routes = [
   // {
@@ -35,7 +42,18 @@ const routes = [
 
     DirectorOrganizationsComponent,
 
-    DirectorMenuComponent],
+    DirectorMenuComponent,
+
+    DirectorFpsListComponent,
+
+    DirectorTableFullProposalsComponent,
+
+    DirectorViewFPComponent,
+
+    // FullProposalItemsTwoComponent,
+
+    DirectorSelectedFPComponent,
+  ],
   imports: [
     RouterModule.forChild(routes),
 
