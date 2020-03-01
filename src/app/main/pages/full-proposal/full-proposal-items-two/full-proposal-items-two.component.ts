@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
+
 import { CreateFullProposalItemComponent } from '../create-full-proposal-item/create-full-proposal-item.component';
 import { DeleteFullProposalItemComponent } from '../delete-full-proposal-item/delete-full-proposal-item.component';
 import { EditFullProposalItemComponent } from '../edit-full-proposal-item/edit-full-proposal-item.component';
