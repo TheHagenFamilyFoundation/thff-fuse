@@ -22,8 +22,6 @@ import { DirectorFpsListComponent } from './director-fps/director-fps-list/direc
 import { DirectorTableFullProposalsComponent } from './director-fps/director-table-full-proposals/director-table-full-proposals.component';
 import { DirectorViewFPComponent } from './director-fps/director-view-fp/director-view-fp.component';
 
-// import { FullProposalItemsTwoComponent } from
-// '../full-proposal/full-proposal-items-two/full-proposal-items-two.component';
 import { DirectorSelectedFPComponent } from './director-fps/director-table-full-proposals/director-selected-fp/director-selected-fp.component';
 
 const routes = [
@@ -49,8 +47,6 @@ const routes = [
     DirectorTableFullProposalsComponent,
 
     DirectorViewFPComponent,
-
-    // FullProposalItemsTwoComponent,
 
     DirectorSelectedFPComponent,
   ],
