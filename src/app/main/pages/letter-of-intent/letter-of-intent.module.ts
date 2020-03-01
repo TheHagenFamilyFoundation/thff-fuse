@@ -4,6 +4,8 @@ import { TranslateModule } from '@ngx-translate/core';
 
 import { FuseSharedModule } from '@fuse/shared.module';
 
+import { AuthGuard } from '../../../auth/_guards/auth.guard';
+
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
@@ -42,11 +44,12 @@ const routes = [
   {
     path: 'letter-of-intent/:id',
     component: LetterOfIntentComponent,
-    // canActivate: [AuthGuard],
+    canActivate: [AuthGuard],
   },
   {
     path: 'create-letter-of-intent',
     component: CreateLetterOfIntentFullComponent,
+    canActivate: [AuthGuard],
   },
 ];
 
