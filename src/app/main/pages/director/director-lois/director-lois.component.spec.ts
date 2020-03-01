@@ -8,9 +8,9 @@ describe('DirectorLoisComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DirectorLoisComponent ]
+      declarations: [DirectorLoisComponent],
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
