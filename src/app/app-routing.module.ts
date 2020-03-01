@@ -1,6 +1,9 @@
 import { NgModule, InjectionToken } from '@angular/core';
 import { RouterModule, Routes, ActivatedRouteSnapshot } from '@angular/router';
 
+// guards
+// import { AuthGuard } from './auth/_guards/auth.guard';
+
 // Utility
 import { NotFoundComponent } from './utilities/not-found/not-found.component';
 
@@ -21,8 +24,9 @@ const routes: Routes = [
   { path: 'about', redirectTo: 'about' },
   { path: 'application', redirectTo: 'application' },
 
-  { path: 'users', redirectTo: 'users' },
-  { path: 'settings', redirectTo: 'settings' },
+  // TODO
+  // { path: 'users', redirectTo: 'users', canActivate: [AuthGuard] },
+  // { path: 'settings', redirectTo: 'settings' },
   {
     path: 'pages',
     loadChildren: () => import('./main/pages/pages.module').then((m) => m.PagesModule),
