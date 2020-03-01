@@ -232,7 +232,7 @@ export class DirectorLoisComponent implements OnInit {
     // setTimeout(() => { this.Loaded = true; }, 1000)
   }
 
-  toggleGet() {
+  toggleGet(): void {
     switch (this.currentFilter) {
       case 0:
         this.getLOIs();
@@ -254,7 +254,7 @@ export class DirectorLoisComponent implements OnInit {
     }
   }
 
-  setButtons(numButton) {
+  setButtons(numButton): void {
     // all to false
     this.AllLOI = false; // set to all initial
     this.PresYes = false;
