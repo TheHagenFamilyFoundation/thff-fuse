@@ -2,6 +2,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 
+// guards
+import { AuthGuard } from '../../../auth/_guards/auth.guard';
+
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -31,10 +34,7 @@ import { SelectedOrganizationComponent } from './user-organization/selected-orga
 import { SelectedLetterOfIntentComponent } from './user-letter-of-intent/selected-letter-of-intent/selected-letter-of-intent.component';
 
 const routes = [
-  {
-    path: 'user',
-    component: UserComponent,
-  },
+  { path: 'user', component: UserComponent, canActivate: [AuthGuard] },
 ];
 
 @NgModule({

@@ -15,9 +15,12 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatSliderModule } from '@angular/material/slider';
 
+import { FuseSharedModule } from '@fuse/shared.module';
+
 import { FullProposalModule } from '../full-proposal/full-proposal.module';
 
-import { FuseSharedModule } from '@fuse/shared.module';
+// guards
+import { AuthGuard } from '../../../auth/_guards/auth.guard';
 
 import { DirectorFpsComponent } from './director-fps/director-fps.component';
 import { DirectorLoisComponent } from './director-lois/director-lois.component';
@@ -46,14 +49,14 @@ import { DirectorOrgViewLetterOfIntentStatusComponent } from './director-organiz
 
 
 const routes = [
-//   { path: 'director', component: DirectorsMenuComponent, canActivate: [AuthGuard] },
-//   { path: 'director/organizations', component: DirectorOrganizationsComponent, canActivate: [AuthGuard] },
-//   { path: 'director/lois', component: DirectorLoisComponent, canActivate: [AuthGuard] },
-//   { path: 'director/fullproposals', component: DirectorFpsComponent, canActivate: [AuthGuard] },
-//   { path: 'director/users', component: DirectorsMenuComponent, canActivate: [AuthGuard] },
-//   { path: 'director-organization/:id', component: DirectorViewOrganizationComponent, canActivate: [AuthGuard] },
-//   { path: 'director-loi/:id', component: DirectorOrgViewLetterOfIntentComponent, canActivate: [AuthGuard] },
-//   { path: 'director-fp/:id', component: DirectorViewFPComponent, canActivate: [AuthGuard] },
+  { path: 'director', component: DirectorsMenuComponent, canActivate: [AuthGuard] },
+  { path: 'director/organizations', component: DirectorOrganizationsComponent, canActivate: [AuthGuard] },
+  { path: 'director/lois', component: DirectorLoisComponent, canActivate: [AuthGuard] },
+  { path: 'director/fullproposals', component: DirectorFpsComponent, canActivate: [AuthGuard] },
+  { path: 'director/users', component: DirectorsMenuComponent, canActivate: [AuthGuard] },
+  { path: 'director-organization/:id', component: DirectorViewOrganizationComponent, canActivate: [AuthGuard] },
+  { path: 'director-loi/:id', component: DirectorOrgViewLetterOfIntentComponent, canActivate: [AuthGuard] },
+  { path: 'director-fp/:id', component: DirectorViewFPComponent, canActivate: [AuthGuard] },
 ];
 
 @NgModule({

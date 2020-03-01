@@ -4,11 +4,14 @@ import { TranslateModule } from '@ngx-translate/core';
 
 import { FuseSharedModule } from '@fuse/shared.module';
 
+import { AuthGuard } from '../../../auth/_guards/auth.guard';
+
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
 
 import { FullProposalComponent } from './full-proposal.component';
 import { CreateFullProposalComponent } from './create-full-proposal/create-full-proposal.component';
@@ -27,10 +30,12 @@ const routes = [
     path: 'full-proposal',
     component: FullProposalComponent,
   },
-  { path: 'fp/:id', component: FullProposalComponent },
-  // , canActivate: [AuthGuard] },
-  { path: 'create-fp-full/:orgID/:loiID', component: CreateFullProposalComponent },
-  // , canActivate: [AuthGuard] },
+  { path: 'fp/:id', component: FullProposalComponent, canActivate: [AuthGuard] },
+  {
+    path: 'create-fp-full/:orgID/:loiID',
+    component: CreateFullProposalComponent,
+    canActivate: [AuthGuard],
+  },
 ];
 
 @NgModule({
@@ -58,6 +63,7 @@ const routes = [
     MatSelectModule,
     MatTableModule,
     MatIconModule,
+    MatInputModule,
   ],
   exports: [
     FullProposalComponent, FullProposalItemsTwoComponent,

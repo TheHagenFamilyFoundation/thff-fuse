@@ -1,5 +1,5 @@
 import {
-  Component, ViewChild, OnInit, Input,
+  Component, ViewChild, OnInit,
 } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
@@ -10,15 +10,15 @@ import { Router } from '@angular/router';
 import { GetUserService } from '../../../../services/user/get-user.service';
 import { InOrgService } from '../../../../services/user/in-org.service'; // organization cross components
 
-import { CreateOrganizationComponent } from '../../organization/create-organization/create-organization.component';
-import { SelectedOrganizationComponent } from './selected-organization/selected-organization.component';
+import { CreateOrganizationComponent } from '../create-organization/create-organization.component';
+import { SelectedOrganizationComponent } from '../../user/user-organization/selected-organization/selected-organization.component';
 
 @Component({
-  selector: 'app-user-organization',
-  templateUrl: './user-organization.component.html',
-  styleUrls: ['./user-organization.component.scss'],
+  selector: 'app-view-organizations',
+  templateUrl: './view-organizations.component.html',
+  styleUrls: ['./view-organizations.component.scss'],
 })
-export class UserOrganizationComponent implements OnInit {
+export class ViewOrganizationsComponent implements OnInit {
   // displayedColumns = ['id', 'name', 'progress', 'color'];
   displayedColumns = ['name', 'createdOn'];
 
@@ -26,7 +26,6 @@ export class UserOrganizationComponent implements OnInit {
 
   InOrganization = false;
 
-  @Input()
   user: any;
 
   userName: any; // string
@@ -38,8 +37,6 @@ export class UserOrganizationComponent implements OnInit {
 
   inOrgCheck: boolean;
 
-  Loaded: boolean;
-
   @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
 
   @ViewChild(MatSort, { static: false }) sort: MatSort;
@@ -50,8 +47,6 @@ export class UserOrganizationComponent implements OnInit {
     public dialog: MatDialog,
     private inOrg: InOrgService,
   ) {
-    this.Loaded = false;
-
     // // Create 100 organizations
     // const organizations: OrganizationData[] = [];
     // for (let i = 1; i <= 100; i++) { organizations.push(createNewOrganization(i)); }
@@ -62,8 +57,6 @@ export class UserOrganizationComponent implements OnInit {
 
   ngOnInit() {
     this.inOrg.currentInOrg.subscribe((message) => this.inOrgCheck = message);
-
-    this.userName = this.user.username;
 
     this.getUserName();
 
@@ -95,10 +88,11 @@ export class UserOrganizationComponent implements OnInit {
       this.userName = this.user.username;
 
       console.log('check organizations 1');
+
       this.checkOrganizations();
     } else {
       // logout
-      this.router.navigate(['/pages/auth/logout']);
+      this.router.navigate(['/logout']);
     }
   }// end of getUserName
 
@@ -113,7 +107,7 @@ export class UserOrganizationComponent implements OnInit {
 
           const organization = user[0].organizations;
 
-          if (organization && organization.length > 0) {
+          if (organization.length > 0) {
             this.InOrganization = true;
 
             console.log('organization', organization);
@@ -124,15 +118,11 @@ export class UserOrganizationComponent implements OnInit {
             this.dataSource.sort = this.sort;
 
             this.inOrg.changeMessage(true);
-
-            this.Loaded = true;
           } else {
             // no organizations
             console.log('not in any organizations');
 
             this.InOrganization = false;
-
-            this.Loaded = true;
           }
         },
       );
@@ -140,13 +130,12 @@ export class UserOrganizationComponent implements OnInit {
 
   createOrganization() {
     console.log('create organization');
-    this.router.navigate(['/pages/create-organization']);
+    this.router.navigate(['/create-organization']);
 
     // modal
     // this.openCreateOrgDialog();
   }
 
-  // old
   openCreateOrgDialog(): void {
     const dialogRef = this.dialog.open(CreateOrganizationComponent, {
       width: '250px',
@@ -162,7 +151,6 @@ export class UserOrganizationComponent implements OnInit {
     });
   }
 
-  // this might be kept
   openSelectedOrgDialog(org): void {
     console.log('org.organizationID', org.organizationID);
 
@@ -188,8 +176,8 @@ export class UserOrganizationComponent implements OnInit {
   }
 }// end of component
 
-// // old
-// /** Builds and returns a new Organization. */
+// old
+/** Builds and returns a new Organization. */
 // function createNewOrganization(id: number): OrganizationData {
 //   const name = `${NAMES[Math.round(Math.random() * (NAMES.length - 1))]} ${
 //     NAMES[Math.round(Math.random() * (NAMES.length - 1))].charAt(0)}.`;
@@ -202,8 +190,8 @@ export class UserOrganizationComponent implements OnInit {
 //   };
 // }
 
-// // old
-// /** Constants used to fill up our data base. */
+// old
+/** Constants used to fill up our data base. */
 // const COLORS = ['maroon', 'red', 'orange', 'yellow', 'olive', 'green', 'purple',
 //   'fuchsia', 'lime', 'teal', 'aqua', 'blue', 'navy', 'black', 'gray'];
 // const NAMES = ['Maia', 'Asher', 'Olivia', 'Atticus', 'Amelia', 'Jack',

@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 // debounce
 import { Subject } from 'rxjs';
@@ -142,6 +142,7 @@ export class FullProposalComponent {
   private fpItemsComponent: FullProposalItemsTwoComponent;
 
   constructor(private route: ActivatedRoute,
+    private router: Router,
     public getFullProposalService: GetFullProposalService,
     public updateFullProposalService: UpdateFullProposalService) {
     this.route.params.subscribe((params) => {
@@ -329,11 +330,15 @@ export class FullProposalComponent {
         (fp) => {
           console.log('fp', fp);
 
-          this.fp[0] = fp;
-          // this.fp = fp[0];
-          this.FPid = this.fp.id;
+          if (this.fp) {
+            this.fp[0] = fp;
+            // this.fp = fp[0];
+            this.FPid = this.fp.id;
 
-          this.setFields();
+            this.setFields();
+          } else {
+            this.router.navigate(['/pages/user']);
+          }
         },
       );
   }

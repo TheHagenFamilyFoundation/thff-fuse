@@ -1,16 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { Router } from '@angular/router';
 
-import { AuthService } from '../../../../auth/auth.service';
-import { DirectorService } from '../../../../services/user/director.service';
+import { AuthService } from '../../auth/auth.service';
+import { DirectorService } from '../../services/user/director.service';
+
+// utility
+import { CreateFieldOpenFpService } from '../../services/full-proposal/utility/create-field-open-fp.service';
 
 @Component({
-  selector: 'directors-menu',
-  templateUrl: './directors-menu.component.html',
-  styleUrls: ['./directors-menu.component.scss'],
+  selector: 'app-admin',
+  templateUrl: './admin.component.html',
+  styleUrls: ['./admin.component.scss'],
 })
-export class DirectorsMenuComponent {
+export class AdminComponent implements OnInit {
   currentUser: any;
 
   accessLevel: number;
@@ -24,6 +27,7 @@ export class DirectorsMenuComponent {
     public authService: AuthService,
     public router: Router,
     public directorService: DirectorService,
+    public createFieldOpenFpService: CreateFieldOpenFpService,
   ) {
     // check if authenticated
     if (!this.authService.isExpired()) {
@@ -44,14 +48,14 @@ export class DirectorsMenuComponent {
 
         //   this.directorService.changeMessage(this.IsDirector)
 
-        this.router.navigate(['/pages/auth/logout']);
+        this.router.navigate(['/logout']);
       }
     } else {
       // logout
-      this.router.navigate(['/pages/auth/logout']);
+      this.router.navigate(['/logout']);
     }
   }
 
-  // ngOnInit() {
-  // }
+  ngOnInit() {
+  }
 }
