@@ -21,7 +21,7 @@ import { FuseSharedModule } from '@fuse/shared.module';
 import { DirectorFpsComponent } from './director-fps/director-fps.component';
 import { DirectorLoisComponent } from './director-lois/director-lois.component';
 import { DirectorOrganizationsComponent } from './director-organizations/director-organizations.component';
-import { DirectorMenuComponent } from './director-menu/director-menu.component';
+import { DirectorsMenuComponent } from './directors-menu/directors-menu.component';
 import { DirectorFpsListComponent } from './director-fps/director-fps-list/director-fps-list.component';
 import { DirectorTableFullProposalsComponent } from './director-fps/director-table-full-proposals/director-table-full-proposals.component';
 import { DirectorViewFPComponent } from './director-fps/director-view-fp/director-view-fp.component';
@@ -49,7 +49,7 @@ const routes = [
 
     DirectorOrganizationsComponent,
 
-    DirectorMenuComponent,
+    DirectorsMenuComponent,
 
     DirectorFpsListComponent,
 
