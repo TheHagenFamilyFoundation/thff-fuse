@@ -13,7 +13,11 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 
+
+import { FullProposalModule } from '../full-proposal/full-proposal.module';
+
 import { FuseSharedModule } from '@fuse/shared.module';
+
 import { DirectorFpsComponent } from './director-fps/director-fps.component';
 import { DirectorLoisComponent } from './director-lois/director-lois.component';
 import { DirectorOrganizationsComponent } from './director-organizations/director-organizations.component';
@@ -23,6 +27,7 @@ import { DirectorTableFullProposalsComponent } from './director-fps/director-tab
 import { DirectorViewFPComponent } from './director-fps/director-view-fp/director-view-fp.component';
 
 import { DirectorSelectedFPComponent } from './director-fps/director-table-full-proposals/director-selected-fp/director-selected-fp.component';
+
 
 const routes = [
   // {
@@ -68,6 +73,8 @@ const routes = [
     MatProgressSpinnerModule,
     MatButtonModule,
     MatDialogModule,
+
+    FullProposalModule,
 
   ],
   providers: [
