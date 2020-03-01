@@ -8,9 +8,9 @@ describe('DirectorFpsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DirectorFpsComponent ]
+      declarations: [DirectorFpsComponent],
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
