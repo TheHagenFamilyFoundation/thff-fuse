@@ -12,6 +12,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatDividerModule } from '@angular/material/divider';
 
 
 import { FullProposalModule } from '../full-proposal/full-proposal.module';
@@ -27,6 +28,8 @@ import { DirectorTableFullProposalsComponent } from './director-fps/director-tab
 import { DirectorViewFPComponent } from './director-fps/director-view-fp/director-view-fp.component';
 
 import { DirectorSelectedFPComponent } from './director-fps/director-table-full-proposals/director-selected-fp/director-selected-fp.component';
+import { DirectorSelectedLoiComponent } from './director-lois/director-selected-loi/director-selected-loi.component';
+import { LoiListComponent } from './director-lois/loi-list/loi-list.component';
 
 
 const routes = [
@@ -58,6 +61,10 @@ const routes = [
     DirectorViewFPComponent,
 
     DirectorSelectedFPComponent,
+
+    DirectorSelectedLoiComponent,
+
+    LoiListComponent,
   ],
   imports: [
     RouterModule.forChild(routes),
@@ -77,6 +84,7 @@ const routes = [
     MatProgressSpinnerModule,
     MatButtonModule,
     MatDialogModule,
+    MatDividerModule,
 
     FullProposalModule,
 
