@@ -1,0 +1,36 @@
+.loi-basic {
+    width: 800px
+}
+
+.loi-info {
+    width: 800px
+}
+
+.loi-status {
+    width: 800px
+}
+
+
+.textbox {
+    display: flex;
+    justify-content: space-between;
+}
+
+.alignleft {
+    float: left;
+    width:33.33333%;
+    text-align:left;
+ }
+
+.aligncenter {
+    float: left;
+    width:33.33333%;
+    text-align:center;
+}
+
+.alignright {
+   float: left;
+   width:33.33333%;
+   text-align:right;
+   /* padding: 100px; */
+}
