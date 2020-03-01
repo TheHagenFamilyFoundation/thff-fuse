@@ -30,10 +30,14 @@ import { DirectorSelectedFPComponent } from './director-fps/director-table-full-
 
 
 const routes = [
-  // {
-  //   path: 'user',
-  //   component: UserComponent,
-  // },
+  // { path: 'director', component: DirectorsMenuComponent, canActivate: [AuthGuard] },
+  // { path: 'director/organizations', component: DirectorOrganizationsComponent, canActivate: [AuthGuard] },
+  // { path: 'director/lois', component: DirectorLoisComponent, canActivate: [AuthGuard] },
+  // { path: 'director/fullproposals', component: DirectorFpsComponent, canActivate: [AuthGuard] },
+  // { path: 'director/users', component: DirectorsMenuComponent, canActivate: [AuthGuard] },
+  // { path: 'director-organization/:id', component: DirectorViewOrganizationComponent, canActivate: [AuthGuard] },
+  // { path: 'director-loi/:id', component: DirectorOrgViewLetterOfIntentComponent, canActivate: [AuthGuard] },
+  // { path: 'director-fp/:id', component: DirectorViewFPComponent, canActivate: [AuthGuard] },
 ];
 
 @NgModule({
