@@ -44,11 +44,11 @@ export class DirectorsMenuComponent {
 
         //   this.directorService.changeMessage(this.IsDirector)
 
-        this.router.navigate(['/logout']);
+        this.router.navigate(['/pages/auth/logout']);
       }
     } else {
       // logout
-      this.router.navigate(['/logout']);
+      this.router.navigate(['/pages/auth/logout']);
     }
   }
 
