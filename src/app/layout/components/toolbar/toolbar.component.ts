@@ -1,6 +1,7 @@
 import {
   Component, OnDestroy, OnInit, ViewEncapsulation,
 } from '@angular/core';
+import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { TranslateService } from '@ngx-translate/core';
@@ -11,7 +12,13 @@ import { FuseSidebarService } from '@fuse/components/sidebar/sidebar.service';
 
 import { navigation } from 'app/navigation/navigation';
 
+import { MatDialog } from '@angular/material/dialog';
+
 import { AuthService } from '../../../auth/auth.service';
+import { DirectorService } from '../../../services/user/director.service';
+
+import { GetUserService } from '../../../services/user/get-user.service'; // used for getting organizations
+import { InOrgService } from '../../../services/user/in-org.service';
 
 @Component({
   selector: 'toolbar',
@@ -65,6 +72,11 @@ export class ToolbarComponent implements OnInit, OnDestroy {
         private fuseSidebarService: FuseSidebarService,
         private translateService: TranslateService,
         public authService: AuthService,
+        public directorService: DirectorService,
+        private getUserService: GetUserService,
+        private inOrg: InOrgService,
+        private router: Router,
+        public dialog: MatDialog,
     ) {
       this.LoggedIn = false;
 
@@ -138,6 +150,69 @@ export class ToolbarComponent implements OnInit, OnDestroy {
       this.selectedLanguage = _.find(this.languages, {
         id: this.translateService.currentLang,
       });
+
+      this.inOrg.currentInOrg.subscribe((message) => {
+        this.inOrgCheck = message;
+
+        console.log('inOrgCheck change', this.inOrgCheck);
+        if (this.inOrgCheck) {
+          console.log('in org');
+          this.InOrganization = true;
+        } else {
+          this.InOrganization = false;
+        }
+      });
+
+      // this.directorService.currentIsDirector.subscribe(message => {
+
+      //   this.IsDirector = message;
+
+      //   // console.log('isdirector change', this.accessLevel)
+
+      //   // if (this.accessLevel > 1) {
+
+      //   //   console.log('isDirector')
+
+      //   //   this.IsDirector = true;
+      //   // }
+      //   // else {
+      //   //   this.IsDirector = false;
+      //   // }
+
+
+      // })
+
+      console.log('expired', this.authService.isExpired());
+
+      if (!this.authService.isExpired()) {
+        console.log('currentUser');
+        console.log(localStorage.getItem('currentUser'));
+
+        if (localStorage.getItem('currentUser')) {
+          this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+
+          console.log(this.currentUser.username);
+          this.userName = this.currentUser.username;
+          this.accessLevel = this.currentUser.accessLevel;
+
+          console.log('this.accessLevel', this.accessLevel);
+
+          if (this.accessLevel > 1) {
+            this.IsDirector = true;
+
+            // this.directorService.changeMessage(this.IsDirector)
+          } else {
+            this.IsDirector = false;
+
+            // this.directorService.changeMessage(this.IsDirector)
+          }
+
+          this.getOrganizations();
+        }
+      }
+
+
+      console.log('end of ngoninit');
 
       this.checkLoggedIn();
     }
@@ -216,5 +291,71 @@ export class ToolbarComponent implements OnInit, OnDestroy {
 
       // Use the selected language for translations
       this.translateService.use(lang.id);
+    }
+
+    // check if user is in an organization
+    getOrganizations() {
+      console.log('get organizations');
+
+      this.getUserService.getUserbyUsername(this.userName)
+        .subscribe(
+          (user) => {
+            console.log('user', user);
+
+            if (user.length > 0) {
+              if (user[0].organizations.length > 0) {
+                this.organizations = user[0].organizations;
+
+                console.log('this.organizations', this.organizations);
+
+                this.InOrganization = true;
+
+                this.inOrg.changeMessage(true);
+              } else {
+                console.log('not in any organizations');
+
+                this.InOrganization = false;
+
+                this.inOrg.changeMessage(false);
+              }
+            } else {
+              console.log('no user');
+            }
+          },
+        );
+    }// end of getOrganizations
+
+    // createOrg() {
+
+    //   console.log('clicked on createOrg');
+
+    //   this.openCreateOrgDialog();
+
+    // }
+
+    createOrg() {
+      console.log('create organization');
+      this.router.navigate(['/pages/create-organization']);
+
+      // modal
+      // this.openCreateOrgDialog();
+    }
+
+    // openCreateOrgDialog(): void {
+    //   const dialogRef = this.dialog.open(CreateOrganizationHeaderComponent, {
+    //     width: '250px',
+    //     data: {},
+    //   });
+
+    //   dialogRef.afterClosed().subscribe((result) => {
+    //     console.log('The dialog was closed'); // debug
+    //     // console.log('result', result); //debug
+    //   });
+    // }
+
+    viewOrgs() {
+      console.log('clicked on view Orgs');
+
+      this.router.navigate(['/pages/view-organizations']);
     }
 }
