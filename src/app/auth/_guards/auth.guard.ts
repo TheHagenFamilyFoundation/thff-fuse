@@ -23,8 +23,10 @@ export class AuthGuard implements CanActivate {
       duration: 3000,
     });
 
+    console.log('not authenticated');
+
     // not logged in so redirect to login page
-    this.router.navigate(['/login'], { queryParams: { returnUrl: state.url } });
+    this.router.navigate(['/pages/auth/login'], { queryParams: { returnUrl: state.url } });
     return false;
   }
 }
