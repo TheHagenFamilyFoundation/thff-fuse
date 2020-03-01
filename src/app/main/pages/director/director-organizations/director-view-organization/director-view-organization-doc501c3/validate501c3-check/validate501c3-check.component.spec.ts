@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DirectorsMenuComponent } from './directors-menu.component';
+import { Validate501c3CheckComponent } from './validate501c3-check.component';
 
-describe('DirectorsMenuComponent', () => {
-  let component: DirectorsMenuComponent;
-  let fixture: ComponentFixture<DirectorsMenuComponent>;
+describe('Validate501c3CheckComponent', () => {
+  let component: Validate501c3CheckComponent;
+  let fixture: ComponentFixture<Validate501c3CheckComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [DirectorsMenuComponent],
+      declarations: [Validate501c3CheckComponent],
     })
       .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DirectorsMenuComponent);
+    fixture = TestBed.createComponent(Validate501c3CheckComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -13,7 +13,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatDividerModule } from '@angular/material/divider';
-
+import { MatSliderModule } from '@angular/material/slider';
 
 import { FullProposalModule } from '../full-proposal/full-proposal.module';
 
@@ -30,17 +30,30 @@ import { DirectorViewFPComponent } from './director-fps/director-view-fp/directo
 import { DirectorSelectedFPComponent } from './director-fps/director-table-full-proposals/director-selected-fp/director-selected-fp.component';
 import { DirectorSelectedLoiComponent } from './director-lois/director-selected-loi/director-selected-loi.component';
 import { LoiListComponent } from './director-lois/loi-list/loi-list.component';
+import { DirectorSelectedOrganizationComponent } from './director-organizations/director-selected-organization/director-selected-organization.component';
+import { DirectorViewOrganizationComponent } from './director-organizations/director-view-organization/director-view-organization.component';
+import { DirectorViewOrganizationDoc501c3Component } from './director-organizations/director-view-organization/director-view-organization-doc501c3/director-view-organization-doc501c3.component';
+import { DirectorViewOrganizationInfoComponent } from './director-organizations/director-view-organization/director-view-organization-info/director-view-organization-info.component';
+import { DirectorViewOrganizationLoisComponent } from './director-organizations/director-view-organization/director-view-organization-lois/director-view-organization-lois.component';
+import { Validate501c3CheckComponent } from './director-organizations/director-view-organization/director-view-organization-doc501c3/validate501c3-check/validate501c3-check.component';
+import { DirectorOrgSelectedLetterOfIntentComponent } from './director-organizations/director-view-organization-lois/director-org-selected-letter-of-intent/director-org-selected-letter-of-intent.component';
+import { DirectorOrgViewLetterOfIntentComponent } from './director-organizations/director-view-organization-lois/director-org-view-letter-of-intent/director-org-view-letter-of-intent.component';
+import { DirectorOpenFullProposalComponent } from './director-organizations/director-view-organization-lois/director-org-view-letter-of-intent/director-open-full-proposal/director-open-full-proposal.component';
+import { DirectorOrgLoiPresidentVotingComponent } from './director-organizations/director-view-organization-lois/director-org-view-letter-of-intent/director-org-loi-president-voting/director-org-loi-president-voting.component';
+import { DirectorOrgLoiVotingComponent } from './director-organizations/director-view-organization-lois/director-org-view-letter-of-intent/director-org-loi-voting/director-org-loi-voting.component';
+import { DirectorOrgViewLetterOfIntentInfoComponent } from './director-organizations/director-view-organization-lois/director-org-view-letter-of-intent/director-org-view-letter-of-intent-info/director-org-view-letter-of-intent-info.component';
+import { DirectorOrgViewLetterOfIntentStatusComponent } from './director-organizations/director-view-organization-lois/director-org-view-letter-of-intent/director-org-view-letter-of-intent-status/director-org-view-letter-of-intent-status.component';
 
 
 const routes = [
-  // { path: 'director', component: DirectorsMenuComponent, canActivate: [AuthGuard] },
-  // { path: 'director/organizations', component: DirectorOrganizationsComponent, canActivate: [AuthGuard] },
-  // { path: 'director/lois', component: DirectorLoisComponent, canActivate: [AuthGuard] },
-  // { path: 'director/fullproposals', component: DirectorFpsComponent, canActivate: [AuthGuard] },
-  // { path: 'director/users', component: DirectorsMenuComponent, canActivate: [AuthGuard] },
-  // { path: 'director-organization/:id', component: DirectorViewOrganizationComponent, canActivate: [AuthGuard] },
-  // { path: 'director-loi/:id', component: DirectorOrgViewLetterOfIntentComponent, canActivate: [AuthGuard] },
-  // { path: 'director-fp/:id', component: DirectorViewFPComponent, canActivate: [AuthGuard] },
+//   { path: 'director', component: DirectorsMenuComponent, canActivate: [AuthGuard] },
+//   { path: 'director/organizations', component: DirectorOrganizationsComponent, canActivate: [AuthGuard] },
+//   { path: 'director/lois', component: DirectorLoisComponent, canActivate: [AuthGuard] },
+//   { path: 'director/fullproposals', component: DirectorFpsComponent, canActivate: [AuthGuard] },
+//   { path: 'director/users', component: DirectorsMenuComponent, canActivate: [AuthGuard] },
+//   { path: 'director-organization/:id', component: DirectorViewOrganizationComponent, canActivate: [AuthGuard] },
+//   { path: 'director-loi/:id', component: DirectorOrgViewLetterOfIntentComponent, canActivate: [AuthGuard] },
+//   { path: 'director-fp/:id', component: DirectorViewFPComponent, canActivate: [AuthGuard] },
 ];
 
 @NgModule({
@@ -65,6 +78,32 @@ const routes = [
     DirectorSelectedLoiComponent,
 
     LoiListComponent,
+
+    DirectorSelectedOrganizationComponent,
+
+    DirectorViewOrganizationComponent,
+
+    DirectorViewOrganizationDoc501c3Component,
+
+    DirectorViewOrganizationInfoComponent,
+
+    DirectorViewOrganizationLoisComponent,
+
+    Validate501c3CheckComponent,
+
+    DirectorOrgSelectedLetterOfIntentComponent,
+
+    DirectorOrgViewLetterOfIntentComponent,
+
+    DirectorOpenFullProposalComponent,
+
+    DirectorOrgLoiPresidentVotingComponent,
+
+    DirectorOrgLoiVotingComponent,
+
+    DirectorOrgViewLetterOfIntentInfoComponent,
+
+    DirectorOrgViewLetterOfIntentStatusComponent,
   ],
   imports: [
     RouterModule.forChild(routes),
@@ -85,6 +124,7 @@ const routes = [
     MatButtonModule,
     MatDialogModule,
     MatDividerModule,
+    MatSliderModule,
 
     FullProposalModule,
 
