@@ -40,6 +40,8 @@ import { OrgSelectedFullProposalComponent } from './org-selected-full-proposal/o
 
 import { DeleteDoc501c3CheckComponent } from './organization-doc501c3/delete-doc501c3-check/delete-doc501c3-check.component';
 
+import { ViewOrganizationsComponent } from './view-organizations/view-organizations.component';
+
 const routes = [
   {
     path: 'organization/:id',
@@ -49,7 +51,9 @@ const routes = [
   {
     path: 'create-organization',
     component: CreateOrganizationFullComponent,
+    canActivate: [AuthGuard],
   },
+  { path: 'view-organizations', component: ViewOrganizationsComponent, canActivate: [AuthGuard] },
 ];
 
 export const customCurrencyMaskConfig = {
@@ -89,6 +93,8 @@ export const customCurrencyMaskConfig = {
     OrgSelectedFullProposalComponent,
 
     DeleteDoc501c3CheckComponent,
+
+    ViewOrganizationsComponent,
   ],
   imports: [
     RouterModule.forChild(routes),
