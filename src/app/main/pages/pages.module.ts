@@ -32,8 +32,6 @@ import { OrganizationModule } from 'app/main/pages/organization/organization.mod
 import { LetterOfIntentModule } from 'app/main/pages/letter-of-intent/letter-of-intent.module';
 import { FullProposalModule } from 'app/main/pages/full-proposal/full-proposal.module';
 
-import { FullProposalItemsTwoComponent } from './full-proposal/full-proposal-items-two/full-proposal-items-two.component';
-
 @NgModule({
   imports: [
     // Authentication
@@ -91,7 +89,7 @@ import { FullProposalItemsTwoComponent } from './full-proposal/full-proposal-ite
     MatTableModule,
 
   ],
-  declarations: [FullProposalItemsTwoComponent],
+  declarations: [],
 })
 export class PagesModule {
 
