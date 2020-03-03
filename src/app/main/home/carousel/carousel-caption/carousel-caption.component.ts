@@ -19,7 +19,7 @@ export class CarouselCaptionComponent implements OnInit {
   // @Input()
   // link: string;
 
-  constructor() { }
+  // constructor() { }
 
   ngOnInit(): void {
 

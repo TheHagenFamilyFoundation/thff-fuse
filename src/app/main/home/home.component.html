@@ -1,21 +1,44 @@
-<div class="page-layout blank p-24" fusePerfectScrollbar>
+<div class="page-layout blank" fusePerfectScrollbar>
     <!-- TODO -->
     <!-- <div>{{ env }} - {{ API }} - {{ InOrganization }} - {{ accessLevel }}</div> -->
-    <!-- header -->
-    <!-- <div>
-        <h1 class="w3-margin w3-jumbo">WELCOME</h1>
-         <h2>{{ "SAMPLE.HELLO" | translate }}</h2> -->
-    <!-- <p class="w3-xlarge">The Hagen Family Foundation</p> -->
-    <!-- </div> -->
-    <!-- <div class="description">
-        <p class="w3-padding-32">
-            The Hagen Family Foundation provides financial grants to
-            not-for-profit organizations in the areas of the arts, education,
-            environment, religion, and social services.
-        </p>
-    </div> -->
+    <div class="parent w3-padding-16">
+        <div align="center" class="left">
+            <img [src]="fullImagePath" width="200px" height="200px" />
+        </div>
+        <div align="center" class="right">
+            <p>
+                The Hagen Family Foundation provides financial grants to
+                not-for-profit organizations in the areas of the arts,
+                education, environment, religion, and social services.
+            </p>
+        </div>
+    </div>
 
-    <div align="center" class="some-page-wrapper">
+    <!-- <div class="w3-padding-16">
+        <div class="row">
+            <div class="column">
+                <div class="blue-column">
+                    <div class="desc" align="center">
+                        <img
+                            [src]="fullImagePath"
+                            width="200px"
+                            height="200px"
+                        />
+                    </div>
+                </div>
+                <div class="blue-column">
+                    <div class="desc" align="center">
+                        <p>
+                            The Hagen Family Foundation provides financial
+                            grants to not-for-profit organizations in the areas
+                            of the arts, education, environment, religion, and
+                            social services.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+    <!-- <div align="center" class="w3-padding-16">
         <div class="row">
             <div class="column">
                 <div class="blue-column">
@@ -41,8 +64,8 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div align="center" class="some-page-wrapper">
+    </div> -->
+    <div align="center">
         <div class="row">
             <div class="column">
                 <div class="blue-column">
@@ -55,7 +78,7 @@
     </div>
     <div align="center">
         <!-- Grants Since -->
-        <div class="w3-padding-64 w3-container grants-since">
+        <div class="w3-padding-32 w3-container grants-since">
             <div class="w3-content">
                 <div>
                     <app-grants-since></app-grants-since>
@@ -64,7 +87,7 @@
         </div>
 
         <!-- Grant Aggregate Data -->
-        <div class="w3-row-padding w3-padding-64 w3-container grants-awarded">
+        <div class="w3-row-padding w3-padding-32 w3-container grants-awarded">
             <div class="w3-content">
                 <div>
                     <app-grants-awarded-total></app-grants-awarded-total>
@@ -73,7 +96,7 @@
         </div>
         <div
             id="about"
-            class="w3-row-padding w3-padding-64 w3-container about-states"
+            class="w3-row-padding w3-padding-32 w3-container about-states"
         >
             <div class="w3-content">
                 <div>
@@ -83,3 +106,4 @@
         </div>
     </div>
 </div>
+<!-- </div> -->

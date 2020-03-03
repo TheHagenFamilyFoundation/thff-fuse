@@ -24,6 +24,7 @@ const routes: Routes = [
 
   { path: 'about', redirectTo: 'about' },
   { path: 'application', redirectTo: 'application' },
+  { path: 'grants-awarded', redirectTo: 'grants-awarded' },
 
   { path: 'admin', redirectTo: 'admin' },
 
