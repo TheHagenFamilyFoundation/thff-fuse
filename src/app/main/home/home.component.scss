@@ -24,10 +24,10 @@
 // .w3-row-padding > .w3-col {
 //     padding: 0 8px;
 // }
-// .w3-padding-16 {
-//     padding-top: 16px !important;
-//     padding-bottom: 16px !important;
-// }
+.w3-padding-16 {
+    padding-top: 16px !important;
+    padding-bottom: 16px !important;
+}
 // .w3-padding-24 {
 //     padding-top: 24px !important;
 //     padding-bottom: 24px !important;
@@ -121,4 +121,14 @@ p {
     height: 500px;
     width: 900px;
     padding: 2em;
+}
+
+.parent {
+    display: flex;
+    align-items: center;
+    max-width: 1000px;
+}
+
+.parent > div {
+    flex: 1;
 }
