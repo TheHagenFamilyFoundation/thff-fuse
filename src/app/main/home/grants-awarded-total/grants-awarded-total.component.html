@@ -2,11 +2,11 @@
     <mat-grid-list cols="2" rowHeight="2:1">
         <mat-grid-tile>
             <!-- <p> -->
-            <div>
+            <div align="center">
                 <!-- <p [countUp]="grantCount"></p> -->
                 <!-- <p>{{ grantCount }}</p> -->
                 <p>
-                    {{ grantCount }} <br />
+                    <span style="font-size:32px">{{ grantCount }}</span> <br />
                     Grants Awarded
                 </p>
             </div>
@@ -14,7 +14,7 @@
         <mat-grid-tile>
             <p>
                 <!-- add back 4.2 for decimals-->
-                {{ grantTotal | currency: "USD":"symbol":"1.0-2" }} Million
+                <span style="font-size:32px">{{ grantTotal | currency: "USD":"symbol":"1.0-2" }} Million </span>
                 <br />
                 Total Funds Awarded
             </p>
