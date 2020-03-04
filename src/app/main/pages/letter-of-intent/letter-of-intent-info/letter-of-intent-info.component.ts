@@ -235,7 +235,7 @@ export class LetterOfIntentInfoComponent implements OnInit {
         (loiInfo) => {
           if (loiInfo.length > 0) {
             console.log('loiInfo', loiInfo);
-            this.loiInfo = loiInfo[0];
+            [this.loiInfo] = loiInfo;
 
             console.log('this.loiInfo.id', this.loiInfo.id);
 
