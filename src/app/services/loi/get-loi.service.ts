@@ -6,93 +6,77 @@ import { environment } from '../../../environments/environment';
 import { AuthService } from '../../auth/auth.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class GetLoiService {
-
   API_URL: string;
 
-  constructor(private http: HttpClient, private authService: AuthService, ) {
-
+  constructor(private http: HttpClient, private authService: AuthService) {
     if (!environment.production) {
       this.API_URL = environment.API_URL;
-    }
-    else {
+    } else {
       this.API_URL = this.authService.getBackendURL();
-      console.log('this.API_URL', this.API_URL)
+      console.log('this.API_URL', this.API_URL);
     }
 
-    console.log('this.API_URL', this.API_URL)
-
+    console.log('this.API_URL', this.API_URL);
   }
 
   getLOIbyID(loiID: string): Observable<any> {
-
-    let urlString = this.API_URL + "/loi?loiID=" + loiID;
+    const urlString = `${this.API_URL}/loi?loiID=${loiID}`;
 
     return this.http.get(urlString);
   }
 
-  //retrieves the LOIs that this user has created
+  // retrieves the LOIs that this user has created
   getLOIbyuserID(userID: string): Observable<any> {
-
-    let urlString = this.API_URL + "/loi?userid=" + userID;
+    const urlString = `${this.API_URL}/loi?userid=${userID}`;
 
     return this.http.get(urlString);
   }
 
-  //retrieves the LOIs of an org
+  // retrieves the LOIs of an org
   getLOIbyorgID(orgID: string): Observable<any> {
-
-    let urlString = this.API_URL + "/loi?org=" + orgID;
+    const urlString = `${this.API_URL}/loi?org=${orgID}`;
 
     return this.http.get(urlString);
   }
 
   getAllLOIs(): Observable<any> {
+    const urlString = `${this.API_URL}/getLOIs`;
 
-    let urlString = this.API_URL + "/getLOIs";
-
-    console.log('urlString', urlString)
+    console.log('urlString', urlString);
     return this.http.get(urlString);
-
   }
 
 
   getRankedLOIs(): Observable<any> {
+    const urlString = `${this.API_URL}/getRankedLOIs`;
 
-    let urlString = this.API_URL + "/getRankedLOIs";
-
-    console.log('urlString', urlString)
+    console.log('urlString', urlString);
     return this.http.get(urlString);
-
   }
 
   getPresVotes(data: any): Observable<any> {
+    console.log('getPresVotes - data', data);
 
-    console.log('getPresVotes - data', data)
-
-    let urlString = this.API_URL + "/presVotes";
+    let urlString = `${this.API_URL}/presVotes`;
 
     if (data) {
-      urlString += '?vote=' + data
+      urlString += `?vote=${data}`;
     }
 
-    console.log('getPresVotes - urlString', urlString)
+    console.log('getPresVotes - urlString', urlString);
 
     return this.http.get(urlString);
-
   }
 
-  //get pending votes for user
+  // get pending votes for user
   getPendingVotes(data: any): Observable<any> {
+    const urlString = `${this.API_URL}/pendingVotes?user=${data}`;
 
-    let urlString = this.API_URL + "/pendingVotes?user=" + data;
-
-    console.log('getPendingVotes - urlString', urlString)
+    console.log('getPendingVotes - urlString', urlString);
 
     return this.http.get(urlString);
-
   }
-
 }
