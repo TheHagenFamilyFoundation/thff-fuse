@@ -478,8 +478,7 @@ export class OrganizationInfoComponent implements OnInit {
 
   edit() {
     console.log('edit pressed');
-    console.log('form', this.formOrganization);
-    console.log('this.legalName', this.legalName);
+
     this.formOrganization.setValue({
       legalName: this.legalName,
       yearFounded: this.yearFounded,
@@ -494,7 +493,6 @@ export class OrganizationInfoComponent implements OnInit {
       contactPersonTitle: this.contactPersonTitle,
       contactPerson: this.contactPerson,
     });
-
 
     this.faxFormControl.setValue(this.fax);
     this.emailFormControl.setValue(this.email);
