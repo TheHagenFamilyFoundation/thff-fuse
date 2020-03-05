@@ -104,7 +104,7 @@ export class LetterOfIntentStatusComponent implements OnInit {
           this.HasFullProposal = true;
 
           // create the fp link - first one
-          this.fpLink = `/fp/${fps[0].fpID}`;
+          this.fpLink = `/pages/fp/${fps[0].fpID}`;
         } else {
           this.HasFullProposal = false;
         }
