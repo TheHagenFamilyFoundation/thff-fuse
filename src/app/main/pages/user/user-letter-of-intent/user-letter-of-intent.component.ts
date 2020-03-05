@@ -84,7 +84,7 @@ export class UserLetterOfIntentComponent implements OnInit {
     this.currentYear = today.getFullYear();
   }
 
-  applyFilter(filterValue: string) {
+  applyFilter(filterValue: string): void {
     let filteredValue = filterValue.trim(); // Remove whitespace
     filteredValue = filteredValue.toLowerCase(); // Datasource defaults to lowercase matches
     this.dataSource.filter = filteredValue;
