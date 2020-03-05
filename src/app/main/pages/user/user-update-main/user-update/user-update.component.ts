@@ -149,9 +149,8 @@ export class UserUpdateComponent implements OnInit {
   firstNameChange() {
     console.log('firstName change');
 
-    if (this.firstName !== '') {
+    if (this.newFirstName) {
       this.ValidFirstName = true;
-
       this.verifyInput();
     } else {
       this.CanUpdateName = false;
@@ -161,7 +160,7 @@ export class UserUpdateComponent implements OnInit {
   lastNameChange() {
     console.log('lastName change');
 
-    if (this.lastName !== '') {
+    if (this.newLastName) {
       this.ValidLastName = true;
 
       this.verifyInput();
