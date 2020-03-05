@@ -3,51 +3,51 @@ import { BehaviorSubject } from 'rxjs';
 
 @Injectable()
 export class LOIStatusService {
+  private statusSource = new BehaviorSubject('created');
 
-  private statusSource = new BehaviorSubject('created'); //default to the first status
+  // default to the first status
   currentStatus = this.statusSource.asObservable();
 
   constructor() { }
 
-  changeStatus(status: string) {
-    this.statusSource.next(status)
+  changeStatus(status: string): void {
+    this.statusSource.next(status);
   }
 
   getStatus(s: number): string {
-
-    console.log('getting status')
+    console.log('getting status');
 
     let status: string;
 
-    //values: 
-    //1-created
-    //2- submitted
-    //3-under review //where people are looking at it
+    // values:
+    // 1-created
+    // 2- submitted
+    // 3-under review //where people are looking at it
     // 4-reviewed //done reviewing - we'll release the full proposal
     // 5-declined //not for second round
     // 6-need some indicator for second round - show the full proposal link
 
     switch (s) {
       case 1:
-        status = 'Created'
+        status = 'Created';
         break;
       case 2:
-        status = 'Submitted'
+        status = 'Submitted';
         break;
       case 3:
-        status = 'Under Review'
+        status = 'Under Review';
         break;
       case 4:
-        status = 'Reviewed'
+        status = 'Reviewed';
         break;
       case 5:
-        status = 'Declined'
+        status = 'Not Selected';
         break;
       case 6:
-        status = 'Second Round'
+        status = 'Second Round';
         break;
       case 7:
-        status = 'Funded'
+        status = 'Funded';
         break;
 
       default:
@@ -55,7 +55,5 @@ export class LOIStatusService {
     }
 
     return status;
-
   }
-
 }

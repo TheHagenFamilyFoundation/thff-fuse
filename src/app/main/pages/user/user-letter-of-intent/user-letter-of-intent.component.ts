@@ -26,6 +26,8 @@ export class UserLetterOfIntentComponent implements OnInit {
 
   HasLOIs = false;
 
+  currentYear: number;
+
   // has LOIs
   InOrganization = false; // if user is in org
 
@@ -77,9 +79,12 @@ export class UserLetterOfIntentComponent implements OnInit {
     this.userID = this.user.id;
 
     this.getUser();
+
+    const today = new Date();
+    this.currentYear = today.getFullYear();
   }
 
-  applyFilter(filterValue: string) {
+  applyFilter(filterValue: string): void {
     let filteredValue = filterValue.trim(); // Remove whitespace
     filteredValue = filteredValue.toLowerCase(); // Datasource defaults to lowercase matches
     this.dataSource.filter = filteredValue;

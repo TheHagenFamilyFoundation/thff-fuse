@@ -103,7 +103,7 @@ export class DirectorViewFPComponent implements OnInit {
         (fp) => {
           console.log('fp', fp);
 
-          this.fp[0] = fp;
+          [this.fp] = fp;
           this.FPid = this.fp.id;
 
           this.setFields();

@@ -364,7 +364,7 @@ export class OrganizationInfoComponent implements OnInit {
         (orgInfo) => {
           if (orgInfo.length > 0) {
             console.log('orgInfo', orgInfo);
-            this.orgInfo = orgInfo[0];
+            [this.orgInfo] = orgInfo;
 
             console.log('this.orgInfo.id', this.orgInfo.id);
 
@@ -413,6 +413,7 @@ export class OrganizationInfoComponent implements OnInit {
 
       if (this.orgInfo.legalName) {
         this.legalName = this.orgInfo.legalName;
+        // this.formOrganization.get('legalName').value = this.legalName;
       }
 
       if (this.orgInfo.yearFounded) {
@@ -478,6 +479,29 @@ export class OrganizationInfoComponent implements OnInit {
   edit() {
     console.log('edit pressed');
 
+    this.formOrganization.setValue({
+      legalName: this.legalName,
+      yearFounded: this.yearFounded,
+      currentOperatingBudget: this.currentOperatingBudget,
+      director: this.director,
+      phone: this.phone,
+
+    });
+
+    this.formContactPerson.setValue({
+      contactPersonPhoneNumber: this.contactPersonPhoneNumber,
+      contactPersonTitle: this.contactPersonTitle,
+      contactPerson: this.contactPerson,
+    });
+
+    this.faxFormControl.setValue(this.fax);
+    this.emailFormControl.setValue(this.email);
+    this.addressFormControl.setValue(this.address);
+    this.cityFormControl.setValue(this.city);
+    this.stateFormControl.setValue(this.state);
+    this.zipFormControl.setValue(this.zip);
+
+    // this.formOrganization.get;
     this.editing = true;
   }
 

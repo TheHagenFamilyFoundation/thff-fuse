@@ -145,6 +145,8 @@ export class FullProposalComponent {
     private router: Router,
     public getFullProposalService: GetFullProposalService,
     public updateFullProposalService: UpdateFullProposalService) {
+    console.log('full proposal');
+
     this.route.params.subscribe((params) => {
       console.log(params);
       this.fpID = params.id;
@@ -330,13 +332,13 @@ export class FullProposalComponent {
         (fp) => {
           console.log('fp', fp);
 
-          if (this.fp) {
-            this.fp[0] = fp;
-            // this.fp = fp[0];
+          if (fp) {
+            [this.fp] = fp;
             this.FPid = this.fp.id;
 
             this.setFields();
           } else {
+            console.log('reroute to user');
             this.router.navigate(['/pages/user']);
           }
         },

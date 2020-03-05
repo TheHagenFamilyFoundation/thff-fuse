@@ -235,7 +235,7 @@ export class LetterOfIntentInfoComponent implements OnInit {
         (loiInfo) => {
           if (loiInfo.length > 0) {
             console.log('loiInfo', loiInfo);
-            this.loiInfo = loiInfo[0];
+            [this.loiInfo] = loiInfo;
 
             console.log('this.loiInfo.id', this.loiInfo.id);
 
@@ -342,6 +342,30 @@ export class LetterOfIntentInfoComponent implements OnInit {
 
   edit() {
     console.log('edit pressed');
+
+    console.log('projectTitle', this.projectTitle);
+    console.log('purpose', this.purpose);
+    console.log('projectStartDate', this.projectStartDate);
+    console.log('projectEndDate', this.projectEndDate);
+    console.log('amountRequested', this.amountRequested);
+    console.log('totalProjectCost', this.totalProjectCost);
+
+    this.formLOI.setValue({
+      projectTitle: this.projectTitle,
+      purpose: this.purpose,
+      projectStartDate: this.projectStartDate.value,
+      projectEndDate: this.projectEndDate.value,
+      amountRequested: this.amountRequested,
+      totalProjectCost: this.totalProjectCost,
+    });
+
+
+    console.log('this.projectStartDate', this.projectStartDate);
+    console.log('this.projectEndDate', this.projectEndDate);
+
+    //
+    // this.startDate = this.projectStartDate.value;
+    // this.startDate = this.getFormattedDate(this.startDate);
 
     this.editing = true;
   }

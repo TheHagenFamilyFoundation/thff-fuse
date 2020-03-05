@@ -95,7 +95,7 @@ export class DirectorViewOrganizationInfoComponent implements OnInit {
         (orgInfo) => {
           if (orgInfo.length > 0) {
             console.log('orgInfo', orgInfo);
-            this.orgInfo[0] = orgInfo;
+            [this.orgInfo] = orgInfo;
 
             console.log('this.orgInfo.id', this.orgInfo.id);
 

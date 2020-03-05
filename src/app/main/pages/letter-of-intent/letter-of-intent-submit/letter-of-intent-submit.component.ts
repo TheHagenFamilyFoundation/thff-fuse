@@ -1,3 +1,4 @@
+/* eslint-disable no-return-assign */
 import { Component, OnInit, Input } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 
@@ -126,7 +127,7 @@ export class LetterOfIntentSubmitComponent implements OnInit {
         (org) => {
           console.log('org', org);
 
-          this.org = org[0];
+          [this.org] = org;
 
           if (org[0].info[0].validOrgInfo) {
             this.HasOrgInfo = true;
