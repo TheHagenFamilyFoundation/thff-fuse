@@ -61,7 +61,13 @@ export class OrganizationRequestsComponent implements OnInit {
   ngOnInit() {
     console.log('this.org', this.org);
     console.log('this.org.lois', this.org.lois);
+
     this.lois = this.org.lois;
+
+    // remove the previous LOIs
+    const today = new Date();
+    const currentYear = today.getFullYear();
+    this.yearLOIs(currentYear);
 
     this.dataSource = new MatTableDataSource(this.lois);
     this.dataSource.paginator = this.paginator;
@@ -121,7 +127,7 @@ export class OrganizationRequestsComponent implements OnInit {
     this.getLoiService.getLOIbyorgID(this.orgID)
       .subscribe(
         (loi) => {
-          console.log('loi', loi);
+          console.log('getLOIs - new loi', loi);
 
           if (loi) {
             if (loi.length > 0) {
@@ -180,5 +186,23 @@ export class OrganizationRequestsComponent implements OnInit {
   // takes in a status s that is a number
   configureStatus(s: number): string {
     return this.loiStatusService.getStatus(s);
+  }
+
+  // TODO
+  // pass in year
+  yearLOIs(year: number) {
+    const yearLOIlist = [];
+
+    this.lois.forEach((loi) => {
+      const newDate = new Date(loi.createdAt);
+      // console.log('newDate.year', newDate.getFullYear());
+      // console.log('loi - createdAt', typeof loi.createdAt);
+
+      if (newDate.getFullYear() >= year) {
+        yearLOIlist.push(loi);
+      }
+    });
+
+    this.lois = yearLOIlist;
   }
 }
