@@ -38,6 +38,8 @@ export class OrganizationRequestsComponent implements OnInit {
   // string - letter of intent name
   description: any;
 
+  currentYear: number;
+
   // displayedColumns = ['id', 'name', 'progress', 'color'];
   displayedColumns = ['name', 'createdAt', 'submitted', 'status'];
 
@@ -66,8 +68,8 @@ export class OrganizationRequestsComponent implements OnInit {
 
     // remove the previous LOIs
     const today = new Date();
-    const currentYear = today.getFullYear();
-    this.yearLOIs(currentYear);
+    this.currentYear = today.getFullYear();
+    this.yearLOIs(this.currentYear);
 
     this.dataSource = new MatTableDataSource(this.lois);
     this.dataSource.paginator = this.paginator;
