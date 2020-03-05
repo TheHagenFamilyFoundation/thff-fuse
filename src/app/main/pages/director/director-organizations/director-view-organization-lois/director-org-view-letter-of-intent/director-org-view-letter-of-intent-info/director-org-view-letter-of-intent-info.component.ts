@@ -109,7 +109,7 @@ export class DirectorOrgViewLetterOfIntentInfoComponent implements OnInit, OnCha
           console.log('loiInfo', loiInfo);
 
           if (loiInfo.length > 0) {
-            this.loiInfo[0] = loiInfo;
+            [this.loiInfo] = loiInfo;
 
             console.log('this.loiInfo.id', this.loiInfo.id);
 

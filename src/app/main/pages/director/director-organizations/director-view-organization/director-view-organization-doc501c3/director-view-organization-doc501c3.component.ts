@@ -78,7 +78,7 @@ export class DirectorViewOrganizationDoc501c3Component implements OnInit {
         (org) => {
           console.log('org', org);
 
-          this.org[0] = org;
+          [this.org] = org;
 
           this.organizationID = this.org.id;
 
@@ -88,7 +88,7 @@ export class DirectorViewOrganizationDoc501c3Component implements OnInit {
             console.log('has 501c3');
             this.HasUpload501c3 = true;
 
-            this.doc501c3[0] = this.org.doc501c3;
+            [this.doc501c3] = this.org.doc501c3;
             this.status = this.doc501c3.status;
 
             // set status
