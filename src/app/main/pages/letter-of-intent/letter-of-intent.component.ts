@@ -48,7 +48,7 @@ export class LetterOfIntentComponent implements OnInit {
         (loi) => {
           console.log('loi', loi);
 
-          this.loi = loi[0];
+          [this.loi] = loi;
 
           this.setStatus();
         },
