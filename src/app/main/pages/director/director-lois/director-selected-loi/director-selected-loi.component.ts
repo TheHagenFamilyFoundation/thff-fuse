@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./director-selected-loi.component.scss'],
 })
 export class DirectorSelectedLoiComponent implements OnInit {
-  loiLink = '/director-loi/'
+  loiLink = '/pages/director-loi/'
 
   link: string;
 

@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./director-selected-fp.component.scss'],
 })
 export class DirectorSelectedFPComponent implements OnInit {
-  fpLink = '/director-fp/'
+  fpLink = '/pages/director-fp/'
 
   link: string;
 

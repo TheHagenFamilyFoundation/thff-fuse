@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./org-selected-full-proposal.component.scss'],
 })
 export class OrgSelectedFullProposalComponent implements OnInit {
-  fpLink = '/fp/'
+  fpLink = '/pages/fp/'
 
   link: string;
 
