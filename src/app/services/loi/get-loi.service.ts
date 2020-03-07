@@ -22,6 +22,7 @@ export class GetLoiService {
     console.log('this.API_URL', this.API_URL);
   }
 
+  // model loi
   getLOIbyID(loiID: string): Observable<any> {
     const urlString = `${this.API_URL}/loi?loiID=${loiID}`;
 
@@ -41,6 +42,7 @@ export class GetLoiService {
 
     return this.http.get(urlString);
   }
+  /** */
 
   getAllLOIs(): Observable<any> {
     const urlString = `${this.API_URL}/getLOIs`;
