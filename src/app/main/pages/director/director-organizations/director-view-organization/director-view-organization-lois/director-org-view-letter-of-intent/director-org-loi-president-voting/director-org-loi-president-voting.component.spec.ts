@@ -8,9 +8,9 @@ describe('DirectorOrgLoiPresidentVotingComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [DirectorOrgLoiPresidentVotingComponent],
+      declarations: [ DirectorOrgLoiPresidentVotingComponent ]
     })
-      .compileComponents();
+    .compileComponents();
   }));
 
   beforeEach(() => {

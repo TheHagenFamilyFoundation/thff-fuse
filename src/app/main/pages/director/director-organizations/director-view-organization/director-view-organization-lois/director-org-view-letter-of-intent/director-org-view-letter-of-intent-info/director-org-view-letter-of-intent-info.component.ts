@@ -4,12 +4,12 @@ import {
 import { FormControl } from '@angular/forms';
 
 // services
-import { GetLoiInfoService } from '../../../../../../../services/loi/loi-info/get-loi-info.service';
+import { GetLoiInfoService } from '../../../../../../../../services/loi/loi-info/get-loi-info.service';
 
 @Component({
   selector: 'app-director-org-view-letter-of-intent-info',
   templateUrl: './director-org-view-letter-of-intent-info.component.html',
-  styleUrls: ['./director-org-view-letter-of-intent-info.component.scss'],
+  styleUrls: ['./director-org-view-letter-of-intent-info.component.css'],
 })
 export class DirectorOrgViewLetterOfIntentInfoComponent implements OnInit, OnChanges {
   @Input()
@@ -109,7 +109,7 @@ export class DirectorOrgViewLetterOfIntentInfoComponent implements OnInit, OnCha
           console.log('loiInfo', loiInfo);
 
           if (loiInfo.length > 0) {
-            [this.loiInfo] = loiInfo;
+            this.loiInfo = loiInfo[0];
 
             console.log('this.loiInfo.id', this.loiInfo.id);
 

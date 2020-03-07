@@ -141,7 +141,7 @@ export class OrganizationDoc501c3Component implements OnInit {
           console.log('result', result);
 
           if (result.body) {
-            console.log('result has body');
+            console.log('result has body', result.body);
 
             const body = {
               url: result.body.files[0].extra.Location,
@@ -247,7 +247,7 @@ export class OrganizationDoc501c3Component implements OnInit {
                       (result2) => {
                         console.log('result2', result2);
 
-                        if (result.body) {
+                        if (result2.body) {
                           console.log('result has body');
                         }
 
@@ -314,7 +314,7 @@ export class OrganizationDoc501c3Component implements OnInit {
     this.get501c3Service.get501c3(this.orgID)
       .subscribe(
         (result) => {
-          console.log('result', result);
+          console.log('get501c3 - result', result);
 
           // route to the s3 image url
           const { url } = result;

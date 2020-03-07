@@ -2,12 +2,12 @@ import {
   Component, OnInit, Input, SimpleChange,
 } from '@angular/core';
 
-import { PresVotingService } from '../../../../../../../services/voting/pres-voting.service';
+import { PresVotingService } from '../../../../../../../../services/voting/pres-voting.service';
 
 @Component({
   selector: 'app-director-org-loi-president-voting',
   templateUrl: './director-org-loi-president-voting.component.html',
-  styleUrls: ['./director-org-loi-president-voting.component.scss'],
+  styleUrls: ['./director-org-loi-president-voting.component.css'],
 })
 export class DirectorOrgLoiPresidentVotingComponent implements OnInit {
   @Input()

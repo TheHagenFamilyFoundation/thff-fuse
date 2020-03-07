@@ -1,11 +1,11 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { OpenLoiFpService } from '../../../../../../../services/full-proposal/open-loi-fp.service';
+import { OpenLoiFpService } from '../../../../../../../../services/full-proposal/open-loi-fp.service';
 
 @Component({
   selector: 'app-director-open-full-proposal',
   templateUrl: './director-open-full-proposal.component.html',
-  styleUrls: ['./director-open-full-proposal.component.scss'],
+  styleUrls: ['./director-open-full-proposal.component.css'],
 })
 export class DirectorOpenFullProposalComponent implements OnInit {
   @Input()

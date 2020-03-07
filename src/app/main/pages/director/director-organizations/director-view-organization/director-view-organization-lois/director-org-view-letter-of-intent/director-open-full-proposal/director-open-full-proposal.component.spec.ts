@@ -8,9 +8,9 @@ describe('DirectorOpenFullProposalComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [DirectorOpenFullProposalComponent],
+      declarations: [ DirectorOpenFullProposalComponent ]
     })
-      .compileComponents();
+    .compileComponents();
   }));
 
   beforeEach(() => {

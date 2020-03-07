@@ -2,12 +2,12 @@ import {
   Component, OnInit, Input, OnChanges, SimpleChange,
 } from '@angular/core';
 
-import { LOIStatusService } from '../../../../../../../services/loi/loi-status.service';
+import { LOIStatusService } from '../../../../../../../../services/loi/loi-status.service';
 
 @Component({
   selector: 'app-director-org-view-letter-of-intent-status',
   templateUrl: './director-org-view-letter-of-intent-status.component.html',
-  styleUrls: ['./director-org-view-letter-of-intent-status.component.scss'],
+  styleUrls: ['./director-org-view-letter-of-intent-status.component.css'],
 })
 export class DirectorOrgViewLetterOfIntentStatusComponent implements OnInit, OnChanges {
   @Input()

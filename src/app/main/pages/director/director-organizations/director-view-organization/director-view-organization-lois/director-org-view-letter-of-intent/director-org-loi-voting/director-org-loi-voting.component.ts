@@ -4,12 +4,12 @@ import {
 
 import { coerceNumberProperty } from '@angular/cdk/coercion';
 
-import { DirectorVotingService } from '../../../../../../../services/voting/director-voting.service';
+import { DirectorVotingService } from '../../../../../../../../services/voting/director-voting.service';
 
 @Component({
   selector: 'app-director-org-loi-voting',
   templateUrl: './director-org-loi-voting.component.html',
-  styleUrls: ['./director-org-loi-voting.component.scss'],
+  styleUrls: ['./director-org-loi-voting.component.css'],
 })
 export class DirectorOrgLoiVotingComponent implements OnInit {
   @Input()

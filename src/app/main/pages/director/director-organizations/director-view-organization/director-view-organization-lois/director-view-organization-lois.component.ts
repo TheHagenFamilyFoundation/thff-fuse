@@ -2,10 +2,11 @@ import {
   Component, ViewChild, OnInit, AfterViewInit, Input,
 } from '@angular/core';
 
+import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatDialog } from '@angular/material/dialog';
-import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+
 
 // services
 import { GetLoiService } from '../../../../../../services/loi/get-loi.service';
@@ -17,7 +18,7 @@ import { DirectorOrgSelectedLetterOfIntentComponent } from './director-org-selec
 @Component({
   selector: 'app-director-view-organization-lois',
   templateUrl: './director-view-organization-lois.component.html',
-  styleUrls: ['./director-view-organization-lois.component.scss'],
+  styleUrls: ['./director-view-organization-lois.component.css'],
 })
 export class DirectorViewOrganizationLoisComponent implements OnInit, AfterViewInit {
   lois: any;

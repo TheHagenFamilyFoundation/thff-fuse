@@ -6,7 +6,7 @@ import { GetOrganizationService } from '../../../../../services/organization/get
 @Component({
   selector: 'app-director-view-organization',
   templateUrl: './director-view-organization.component.html',
-  styleUrls: ['./director-view-organization.component.scss'],
+  styleUrls: ['./director-view-organization.component.css'],
 })
 export class DirectorViewOrganizationComponent implements OnInit {
   org: any;
@@ -44,7 +44,7 @@ export class DirectorViewOrganizationComponent implements OnInit {
         (org) => {
           console.log('org', org);
 
-          this.org = org[0];
+          [this.org] = org; // should pull the last
           this.orgName = this.org.name;
 
           this.organizationID = this.org.id;

@@ -5,7 +5,7 @@ import { GetOrganizationInfoService } from '../../../../../../services/organizat
 @Component({
   selector: 'app-director-view-organization-info',
   templateUrl: './director-view-organization-info.component.html',
-  styleUrls: ['./director-view-organization-info.component.scss'],
+  styleUrls: ['./director-view-organization-info.component.css'],
 })
 export class DirectorViewOrganizationInfoComponent implements OnInit {
   @Input()
@@ -95,7 +95,7 @@ export class DirectorViewOrganizationInfoComponent implements OnInit {
         (orgInfo) => {
           if (orgInfo.length > 0) {
             console.log('orgInfo', orgInfo);
-            [this.orgInfo] = orgInfo;
+            this.orgInfo = orgInfo[0];
 
             console.log('this.orgInfo.id', this.orgInfo.id);
 

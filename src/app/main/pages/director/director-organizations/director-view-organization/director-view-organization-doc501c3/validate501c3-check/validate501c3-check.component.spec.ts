@@ -8,9 +8,9 @@ describe('Validate501c3CheckComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [Validate501c3CheckComponent],
+      declarations: [ Validate501c3CheckComponent ]
     })
-      .compileComponents();
+    .compileComponents();
   }));
 
   beforeEach(() => {

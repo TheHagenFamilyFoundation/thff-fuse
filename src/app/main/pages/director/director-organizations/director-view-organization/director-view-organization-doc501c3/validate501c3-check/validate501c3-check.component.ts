@@ -1,15 +1,16 @@
-import { Component, Inject } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-validate501c3-check',
   templateUrl: './validate501c3-check.component.html',
-  styleUrls: ['./validate501c3-check.component.scss'],
+  styleUrls: ['./validate501c3-check.component.css'],
 })
-export class Validate501c3CheckComponent {
+export class Validate501c3CheckComponent implements OnInit {
   constructor(public dialogRef: MatDialogRef<Validate501c3CheckComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any) {
-    console.log('Validate501c3-check constructor');
+    @Inject(MAT_DIALOG_DATA) public data: any) { }
+
+  ngOnInit() {
   }
 
   valid() {
