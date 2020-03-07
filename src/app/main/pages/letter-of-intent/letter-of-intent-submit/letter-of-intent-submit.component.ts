@@ -42,7 +42,7 @@ export class LetterOfIntentSubmitComponent implements OnInit {
 
   CanSubmit: boolean;
 
-  loiLink = '/loi/'
+  loiLink = '/pages/letter-of-intent/'
 
   link: string;
 
