@@ -1,70 +1,70 @@
 <div align="center">
-    <h3>Organization Information</h3>
-  </div>
-  <div class="example-container">
+  <h3>Organization Information</h3>
+</div>
+<div class="example-container">
+  <mat-form-field>
+    <input matInput placeholder="Legal Name" value={{legalName}} readonly>
+  </mat-form-field>
+
+  <div>
     <mat-form-field>
-      <input matInput placeholder="Legal Name" value={{legalName}} readonly>
-    </mat-form-field>
-  
-    <div>
-      <mat-form-field>
-        <input matInput placeholder="Year Founded" value={{yearFounded}} readonly>
-      </mat-form-field>
-      <mat-form-field>
-        <input matInput placeholder="Current Operating Budget" value="{{currentOperatingBudget | currency}}" readonly>
-      </mat-form-field>
-    </div>
-    <mat-form-field>
-      <input matInput placeholder="Executive Director" value={{director}} readonly>
+      <input matInput placeholder="Year Founded" value={{yearFounded}} readonly>
     </mat-form-field>
     <mat-form-field>
-      <input matInput placeholder="Phone Number" value={{phone}} readonly>
-    </mat-form-field>
-    <div>
-      Contact Person
-      <p>
-        <mat-form-field>
-          <input matInput placeholder="Contact Person" value={{contactPerson}} readonly>
-        </mat-form-field>
-        <mat-form-field>
-          <input matInput placeholder="Title" value={{contactPersonTitle}} readonly>
-        </mat-form-field>
-        <mat-form-field>
-          <input matInput placeholder="Phone Number" value={{contactPersonPhoneNumber}} readonly>
-        </mat-form-field>
-      </p>
-    </div>
-    <mat-form-field>
-      <input matInput placeholder="Email" value={{email}} readonly>
-    </mat-form-field>
-    <mat-form-field>
-      <textarea matInput placeholder="Address" value={{address}} readonly></textarea>
-      <mat-hint align="start">
-        <strong>Principal/Administrative Office</strong>
-      </mat-hint>
-    </mat-form-field>
-  
-    <table class="example-full-width" cellspacing="0">
-      <tr>
-        <td>
-          <mat-form-field class="example-full-width">
-            <input matInput placeholder="City" value={{city}} readonly>
-          </mat-form-field>
-        </td>
-        <td>
-          <mat-form-field class="example-full-width">
-            <input matInput placeholder="State" value={{state}} readonly>
-          </mat-form-field>
-        </td>
-        <td>
-          <mat-form-field class="example-full-width">
-            <input matInput placeholder="Zip" value={{zip}} readonly>
-          </mat-form-field>
-        </td>
-      </tr>
-    </table>
-  
-    <mat-form-field>
-      <input matInput placeholder="Fax" value={{fax}} readonly>
+      <input matInput placeholder="Current Operating Budget" value="{{currentOperatingBudget | currency}}" readonly>
     </mat-form-field>
   </div>
+  <mat-form-field>
+    <input matInput placeholder="Executive Director" value={{director}} readonly>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Phone Number" value={{phone}} readonly>
+  </mat-form-field>
+  <div>
+    Contact Person
+    <p>
+      <mat-form-field>
+        <input matInput placeholder="Contact Person" value={{contactPerson}} readonly>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Title" value={{contactPersonTitle}} readonly>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Phone Number" value={{contactPersonPhoneNumber}} readonly>
+      </mat-form-field>
+    </p>
+  </div>
+  <mat-form-field>
+    <input matInput placeholder="Email" value={{email}} readonly>
+  </mat-form-field>
+  <mat-form-field>
+    <textarea matInput placeholder="Address" value={{address}} readonly></textarea>
+    <mat-hint align="start">
+      <strong>Principal/Administrative Office</strong>
+    </mat-hint>
+  </mat-form-field>
+
+  <table class="example-full-width" cellspacing="0">
+    <tr>
+      <td>
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="City" value={{city}} readonly>
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="State" value={{state}} readonly>
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Zip" value={{zip}} readonly>
+        </mat-form-field>
+      </td>
+    </tr>
+  </table>
+
+  <mat-form-field>
+    <input matInput placeholder="Fax" value={{fax}} readonly>
+  </mat-form-field>
+</div>

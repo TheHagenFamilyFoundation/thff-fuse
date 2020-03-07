@@ -2,15 +2,15 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DirectorViewOrganizationComponent } from './director-view-organization.component';
 
-describe('DirectorViewOrganizationComponent', () => {
+describe('DirectorViewOrganizationsComponent', () => {
   let component: DirectorViewOrganizationComponent;
   let fixture: ComponentFixture<DirectorViewOrganizationComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DirectorViewOrganizationComponent ]
+      declarations: [DirectorViewOrganizationComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

@@ -20,7 +20,7 @@ import { GetUserService } from '../../../../../../services/user/get-user.service
 @Component({
   selector: 'app-director-view-organization-doc501c3',
   templateUrl: './director-view-organization-doc501c3.component.html',
-  styleUrls: ['./director-view-organization-doc501c3.component.scss'],
+  styleUrls: ['./director-view-organization-doc501c3.component.css'],
 })
 export class DirectorViewOrganizationDoc501c3Component implements OnInit {
   @Input()
@@ -54,7 +54,7 @@ export class DirectorViewOrganizationDoc501c3Component implements OnInit {
     private emailService: EmailService,
     private getUserService: GetUserService,
   ) {
-    console.log('director-view-organization-doc501c3');
+    console.log('Director view organizaiton doc501c3 component');
   }
 
   ngOnInit() {
@@ -78,7 +78,7 @@ export class DirectorViewOrganizationDoc501c3Component implements OnInit {
         (org) => {
           console.log('org', org);
 
-          [this.org] = org;
+          this.org = org[0];
 
           this.organizationID = this.org.id;
 
@@ -88,7 +88,7 @@ export class DirectorViewOrganizationDoc501c3Component implements OnInit {
             console.log('has 501c3');
             this.HasUpload501c3 = true;
 
-            [this.doc501c3] = this.org.doc501c3;
+            this.doc501c3 = this.org.doc501c3[0];
             this.status = this.doc501c3.status;
 
             // set status
@@ -120,10 +120,10 @@ export class DirectorViewOrganizationDoc501c3Component implements OnInit {
   }
 
   checkValidate501c3() {
-    this.openSelectedOrgDialog();
+    this.openSelectedOrgDialog(this.doc501c3);
   }
 
-  openSelectedOrgDialog(): void {
+  openSelectedOrgDialog(doc501c3): void {
     console.log('doc501c3', this.doc501c3);
 
     const dialogRef = this.dialog.open(Validate501c3CheckComponent, {
