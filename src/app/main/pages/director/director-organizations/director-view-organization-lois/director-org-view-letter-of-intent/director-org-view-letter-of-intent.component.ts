@@ -40,11 +40,11 @@ export class DirectorOrgViewLetterOfIntentComponent implements OnInit {
 
   Last: boolean;
 
-  loiLink = 'director-loi/'
+  loiLink = '/pages/director-loi/'
 
   link: string;
 
-  dirOrgLink = 'director-organization/'
+  dirOrgLink = '/pages/director-organization/'
 
   nextLOILink: string;
 
