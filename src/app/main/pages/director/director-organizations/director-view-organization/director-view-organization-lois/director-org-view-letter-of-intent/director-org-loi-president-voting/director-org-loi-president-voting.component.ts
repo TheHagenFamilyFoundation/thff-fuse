@@ -2,7 +2,7 @@ import {
   Component, OnInit, Input, SimpleChange,
 } from '@angular/core';
 
-import { PresVotingService } from '../../../../../../services/voting/pres-voting.service';
+import { PresVotingService } from '../../../../../../../../services/voting/pres-voting.service';
 
 @Component({
   selector: 'app-director-org-loi-president-voting',
