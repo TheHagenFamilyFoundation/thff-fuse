@@ -53,7 +53,13 @@ export class HomeComponent implements OnInit {
 
   fullImagePath4 = '../assets/images/family.png';
 
-  fullImagePath5 = '../assets/images/grant_review_timeline.png';
+  // fullImagePath5 = '../assets/images/grant_review_timeline.png';
+
+
+  // fullImagePath4 = '../assets/images/grant_review_timeline.png'; // april 15th
+
+  fullImagePath5 = '../assets/images/timeline_april_30.jpg'; // april 30th
+
 
   public slides = [
     { src: this.fullImagePath2, caption: 'The Christus Victor pre-school children are happy with their new buses. View Grants Awarded Click Here' },
