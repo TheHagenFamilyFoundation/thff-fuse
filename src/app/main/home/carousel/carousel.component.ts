@@ -23,7 +23,9 @@ import {
 export class CarouselComponent {
   fullImagePath2 = '../assets/images/cv_busses1.JPG';
 
-  fullImagePath3 = '../assets/images/grant_review_timeline.png';
+  // fullImagePath3 = '../assets/images/grant_review_timeline.png'; // april 15th
+
+  fullImagePath3 = '../assets/images/timeline_april_30.jpg'; // april 30th
 
   fullImagePath4 = '../assets/images/southern_shakespeare.png';
 
