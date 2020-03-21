@@ -3,17 +3,49 @@
         <div fxFlex="1 0 auto" fxLayout="row" fxLayoutAlign="start center">
             <!-- Left Side Debug -->
             <!--- Hamburger -->
-            <!-- <div *ngIf="!authService.isExpired()"> -->
-            <button
-                mat-icon-button
-                class="navbar-toggle-button"
-                *ngIf="!hiddenNavbar && !rightNavbar"
-                (click)="toggleSidebarOpen('navbar')"
-                fxHide.gt-md
-            >
-                <mat-icon class="secondary-text">menu</mat-icon>
-            </button>
+            <div *ngIf="!authService.isExpired()">
+                <button
+                    mat-icon-button
+                    class="navbar-toggle-button"
+                    *ngIf="!hiddenNavbar && !rightNavbar"
+                    (click)="toggleSidebarOpen('navbar')"
+                    fxHide.gt-md
+                >
+                    <mat-icon class="secondary-text">menu</mat-icon>
+                </button>
+            </div>
+            <div *ngIf="authService.isExpired()">
+                <button mat-button [matMenuTriggerFor]="menu">
+                    <mat-icon class="secondary-text">menu</mat-icon>
+                </button>
+                <mat-menu #menu="matMenu">
+                    <button mat-menu-item routerLink="/pages/auth/login">
+                        Login
+                    </button>
+                    <button
+                        mat-menu-item
+                        routerLink="/about"
+                        *ngIf="authService.isExpired()"
+                    >
+                        About Us
+                    </button>
 
+                    <button
+                        mat-menu-item
+                        routerLink="/application"
+                        *ngIf="authService.isExpired()"
+                    >
+                        Application Portal
+                    </button>
+                    <button
+                        mat-menu-item
+                        routerLink="/contact"
+                        *ngIf="authService.isExpired()"
+                    >
+                        Contact Us
+                    </button>
+                </mat-menu>
+            </div>
             <div
                 class="toolbar-separator"
                 *ngIf="!hiddenNavbar && !rightNavbar"
@@ -102,7 +134,11 @@
                     "
                 >
                     <!-- <div *ngIf="IsDirector"> -->
-                    <button mat-button routerLink="/pages/director" fxHide="false">
+                    <button
+                        mat-button
+                        routerLink="/pages/director"
+                        fxHide="false"
+                    >
                         Directors
                     </button>
                     <!-- </div> -->
