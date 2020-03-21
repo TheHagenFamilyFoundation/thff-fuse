@@ -15,7 +15,7 @@
                 </button>
             </div>
             <div *ngIf="authService.isExpired()">
-                <button mat-button [matMenuTriggerFor]="menu">
+                <button mat-button [matMenuTriggerFor]="menu" fxHide.gt-md>
                     <mat-icon class="secondary-text">menu</mat-icon>
                 </button>
                 <mat-menu #menu="matMenu">
