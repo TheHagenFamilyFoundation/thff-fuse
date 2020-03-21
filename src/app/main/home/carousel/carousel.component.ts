@@ -42,21 +42,20 @@ export class CarouselComponent {
   currentSlide = 0;
 
   constructor() {
-    console.log('carousel component');
     this.startSlideShow();
   }
 
-  startSlideShow() {
+  startSlideShow(): void {
     setInterval(() => { this.onNextClick(); }, 5000);
   }
 
-  onPreviousClick() {
+  onPreviousClick(): void {
     const previous = this.currentSlide - 1;
     this.currentSlide = previous < 0 ? this.slides.length - 1 : previous;
     // console.log('previous clicked, new current slide is: ', this.currentSlide);
   }
 
-  onNextClick() {
+  onNextClick(): void {
     const next = this.currentSlide + 1;
     this.currentSlide = next === this.slides.length ? 0 : next;
     // console.log('next clicked, new current slide is: ', this.currentSlide);
