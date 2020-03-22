@@ -16,6 +16,8 @@ export class AuthService {
     jwtHelper = new JwtHelperService();
 
     constructor(private http: HttpClient, private router: Router) {
+      console.log('auth service constructor');
+      console.log('auth service - environment', environment);
       if (!environment.production) {
         this.API_URL = environment.API_URL;
       } else {
