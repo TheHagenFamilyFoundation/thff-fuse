@@ -7,41 +7,35 @@ import { AuthService } from '../../auth/auth.service';
 
 @Injectable()
 export class CreateOrganizationService {
-
   API_URL: string;
 
   results;
+
   body;
 
-  constructor(private http: HttpClient, private authService: AuthService, ) {
-
+  constructor(private http: HttpClient, private authService: AuthService) {
     if (!environment.production) {
       this.API_URL = environment.API_URL;
-    }
-    else {
+    } else {
       this.API_URL = this.authService.getBackendURL();
-      console.log('this.API_URL', this.API_URL)
+      console.log('CreateOrganizationService - this.API_URL', this.API_URL);
     }
 
-    console.log('this.API_URL', this.API_URL)
-
+    console.log('CreateOrganizationService - this.API_URL', this.API_URL);
   }
 
   createOrganization(body): Observable<any> {
-
     console.log('createOrganization');
 
-    let urlString = this.API_URL + '/organization';
+    const urlString = `${this.API_URL}/organization`;
 
     this.body = body;
 
     console.log(this.body);
     console.log(urlString);
 
-    //send to api
+    // send to api
 
-    return this.http.post(urlString, this.body)
-
+    return this.http.post(urlString, this.body);
   }
-
 }

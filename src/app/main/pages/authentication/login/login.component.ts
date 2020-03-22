@@ -68,7 +68,7 @@ export class LoginComponent implements OnInit {
 
       this.getBackendURL();
 
-      console.log('this.API_URL', this.API_URL);
+      console.log('LoginComponent - this.API_URL', this.API_URL);
     }
 
     // --------------------------------------------------------------------------------------------

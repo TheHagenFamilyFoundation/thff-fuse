@@ -6,34 +6,25 @@ import { environment } from '../../../environments/environment';
 import { AuthService } from '../../auth/auth.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class DirectorVotingService {
-
   API_URL: string;
 
-  constructor(private http: HttpClient, private authService: AuthService, ) {
-
+  constructor(private http: HttpClient, private authService: AuthService) {
     if (!environment.production) {
       this.API_URL = environment.API_URL;
-    }
-    else {
+    } else {
       this.API_URL = this.authService.getBackendURL();
-      console.log('this.API_URL', this.API_URL)
+      console.log('DirectorVotingService - this.API_URL', this.API_URL);
     }
 
-    console.log('this.API_URL', this.API_URL)
-
+    console.log('DirectorVotingService - this.API_URL', this.API_URL);
   }
 
   vote(data: any): Observable<any> {
-
-    let urlString = this.API_URL + "/vote";
+    const urlString = `${this.API_URL}/vote`;
 
     return this.http.post(urlString, data);
-
   }
-
-
-
 }

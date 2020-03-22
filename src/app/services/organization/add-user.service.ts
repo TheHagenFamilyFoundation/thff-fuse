@@ -6,35 +6,29 @@ import { environment } from '../../../environments/environment';
 import { AuthService } from '../../auth/auth.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AddUserService {
-
   API_URL: string;
 
   data: any;
 
-  constructor(private http: HttpClient, private authService: AuthService, ) {
-
+  constructor(private http: HttpClient, private authService: AuthService) {
     if (!environment.production) {
       this.API_URL = environment.API_URL;
-    }
-    else {
+    } else {
       this.API_URL = this.authService.getBackendURL();
-      console.log('this.API_URL', this.API_URL)
+      console.log('AddUserService - this.API_URL', this.API_URL);
     }
 
-    console.log('this.API_URL', this.API_URL)
-
+    console.log('AddUserService - this.API_URL', this.API_URL);
   }
 
   addUser(users): Observable<any> {
+    const data = users;
 
-    let data = users;
+    console.log('data', data);
 
-    console.log('data', data)
-
-    return this.http.post(this.API_URL + '/addUser', data)
+    return this.http.post(`${this.API_URL}/addUser`, data);
   }
-
 }

@@ -6,55 +6,45 @@ import { environment } from '../../../environments/environment';
 import { AuthService } from '../../auth/auth.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class GetFullProposalService {
-
   API_URL: string;
 
-  constructor(private http: HttpClient, private authService: AuthService, ) {
-
+  constructor(private http: HttpClient, private authService: AuthService) {
     if (!environment.production) {
       this.API_URL = environment.API_URL;
-    }
-    else {
+    } else {
       this.API_URL = this.authService.getBackendURL();
-      console.log('this.API_URL', this.API_URL)
+      console.log('GetFullProposalService - this.API_URL', this.API_URL);
     }
 
-    console.log('this.API_URL', this.API_URL)
-
+    console.log('GetFullProposalService - this.API_URL', this.API_URL);
   }
 
   getFullProposalByID(fpID: string): Observable<any> {
-
-    let urlString = this.API_URL + "/fullproposal?fpID=" + fpID;
+    const urlString = `${this.API_URL}/fullproposal?fpID=${fpID}`;
 
     return this.http.get(urlString);
   }
 
   getFullProposalsByOrgID(orgID: string): Observable<any> {
-
-    let urlString = this.API_URL + "/fullproposal?organization=" + orgID;
+    const urlString = `${this.API_URL}/fullproposal?organization=${orgID}`;
 
     return this.http.get(urlString);
   }
 
   getFullProposalsByLOIID(loi: any): Observable<any> {
-
-    let urlString = this.API_URL + "/fullproposal?loi=" + loi.id;
+    const urlString = `${this.API_URL}/fullproposal?loi=${loi.id}`;
 
     return this.http.get(urlString);
   }
 
-  //get all full proposals - used for directors
+  // get all full proposals - used for directors
   getAllFPs(): Observable<any> {
+    const urlString = `${this.API_URL}/fullproposal`;
 
-    let urlString = this.API_URL + "/fullproposal";
-
-    console.log('urlString', urlString)
+    console.log('urlString', urlString);
     return this.http.get(urlString);
-
   }
-
 }

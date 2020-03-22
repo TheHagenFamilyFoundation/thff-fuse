@@ -7,42 +7,33 @@ import { AuthService } from '../../auth/auth.service';
 
 @Injectable()
 export class SetNewPasswordService {
-
   API_URL: string;
 
-  constructor(private http: HttpClient, private authService: AuthService, ) {
-
+  constructor(private http: HttpClient, private authService: AuthService) {
     if (!environment.production) {
       this.API_URL = environment.API_URL;
-    }
-    else {
+    } else {
       this.API_URL = this.authService.getBackendURL();
-      console.log('this.API_URL', this.API_URL)
+      console.log('SetNewPasswordService - this.API_URL', this.API_URL);
     }
 
-    console.log('this.API_URL', this.API_URL)
-
+    console.log('SetNewPasswordService - this.API_URL', this.API_URL);
   }
 
   setNewPassword(data): Observable<any> {
-
     if (!environment.production) {
       this.API_URL = environment.API_URL;
-    }
-    else {
-
+    } else {
       this.authService.initializeBackendURL();
 
       this.API_URL = this.authService.getBackendURL();
-      console.log('this.API_URL', this.API_URL)
+      console.log('SetNewPasswordService - this.API_URL', this.API_URL);
 
       this.authService.clearBackendURL();
-
     }
 
-    //console.log(data);
-    //data is the user current, new, and confirm passwords
-    return this.http.put(this.API_URL + '/setNewPassword', data)
+    // console.log(data);
+    // data is the user current, new, and confirm passwords
+    return this.http.put(`${this.API_URL}/setNewPassword`, data);
   }
-
 }
