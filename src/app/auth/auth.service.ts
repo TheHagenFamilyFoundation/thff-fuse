@@ -19,6 +19,7 @@ export class AuthService {
       console.log('auth service constructor');
       console.log('auth service - environment', environment);
       if (!environment.production) {
+        console.log('production env', environment.production);
         this.API_URL = environment.API_URL;
       } else {
         this.API_URL = this.getBackendURL();
