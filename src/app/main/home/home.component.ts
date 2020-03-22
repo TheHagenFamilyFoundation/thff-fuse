@@ -181,7 +181,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     console.log('ngOnInit');
-
+    this.getBackendURL();
     if (!this.authService.isExpired()) {
       console.log('currentUser');
       console.log(localStorage.getItem('currentUser'));
