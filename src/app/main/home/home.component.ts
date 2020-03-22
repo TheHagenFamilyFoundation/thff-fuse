@@ -242,6 +242,7 @@ export class HomeComponent implements OnInit {
   }// end of getOrganizations
 
   getBackendURL() {
+    console.log('environment', environment);
     if (environment.production) {
       this.authService.initializeBackendURL().subscribe(
         (backendUrl) => {
