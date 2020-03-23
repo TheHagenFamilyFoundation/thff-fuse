@@ -77,6 +77,15 @@ export class GrantApiService {
   public getGrantsTotal(): Observable<any> {
     console.log('getGrantsTotal');
     console.log('getGrantsTotal - this.API_URL', this.API_URL);
+
+    if (!environment.production) {
+      this.API_URL = environment.API_URL;
+    } else {
+      this.API_URL = this.authService.getBackendURL();
+      console.log('GrantApiService - this.API_URL', this.API_URL);
+    }
+
+
     const urlString = `${this.API_URL}/grants/total`;
 
     return this.http.get(urlString);
@@ -85,6 +94,14 @@ export class GrantApiService {
   public getGrantsCount(): Observable<any> {
     console.log('getGrantsCount');
     console.log('getGrantsCount - this.API_URL', this.API_URL);
+
+    if (!environment.production) {
+      this.API_URL = environment.API_URL;
+    } else {
+      this.API_URL = this.authService.getBackendURL();
+      console.log('GrantApiService - this.API_URL', this.API_URL);
+    }
+
     const urlString = `${this.API_URL}/grants/count`;
 
     return this.http.get(urlString);
