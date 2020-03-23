@@ -19,6 +19,7 @@ export class GrantsAwardedTotalComponent implements OnInit {
 
   constructor(private grantService: GrantService,
     private authService: AuthService) {
+    // console.log('initialize the ba')
     this.getBackendURL();
     this.getGrantsTotal();
     this.getGrantsCount();
@@ -61,12 +62,12 @@ export class GrantsAwardedTotalComponent implements OnInit {
   }
 
   getBackendURL() {
-    console.log('environment', environment);
+    console.log('GrantsAwardedTotalComponent - environment', environment);
     if (environment.production) {
-      console.log('environment is production');
+      console.log('GrantsAwardedTotalComponent - environment is production');
       this.authService.initializeBackendURL().subscribe(
         (backendUrl) => {
-          console.log('backendUrl', backendUrl.url);
+          console.log('GrantsAwardedTotalComponent - backendUrl', backendUrl.url);
 
           if (backendUrl) {
             sessionStorage.setItem('backend_url', backendUrl.url);
