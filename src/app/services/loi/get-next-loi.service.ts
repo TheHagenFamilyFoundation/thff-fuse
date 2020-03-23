@@ -6,33 +6,27 @@ import { environment } from '../../../environments/environment';
 import { AuthService } from '../../auth/auth.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class GetNextLoiService {
-
   API_URL: string;
 
-  constructor(private http: HttpClient, private authService: AuthService, ) {
-
+  constructor(private http: HttpClient, private authService: AuthService) {
     if (!environment.production) {
       this.API_URL = environment.API_URL;
-    }
-    else {
+    } else {
       this.API_URL = this.authService.getBackendURL();
-      console.log('this.API_URL', this.API_URL)
+      console.log('GetNextLoiService - this.API_URL', this.API_URL);
     }
 
-    console.log('this.API_URL', this.API_URL)
-
+    console.log('GetNextLoiService - this.API_URL', this.API_URL);
   }
 
   getNextLOI(data: any): Observable<any> {
+    const urlString = `${this.API_URL}/nextLOI?ts=${data.createdAt}&user=${data.user}&filter=${data.filter}`;
 
-    let urlString = this.API_URL + "/nextLOI?ts=" + data.createdAt + '&user=' + data.user + '&filter=' + data.filter;
-    
-    console.log('urlString', urlString)
+    console.log('urlString', urlString);
 
     return this.http.get(urlString);
   }
-
 }

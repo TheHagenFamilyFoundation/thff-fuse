@@ -16,14 +16,17 @@ export class AuthService {
     jwtHelper = new JwtHelperService();
 
     constructor(private http: HttpClient, private router: Router) {
+      console.log('auth service constructor');
+      console.log('auth service - environment', environment);
       if (!environment.production) {
+        console.log('production env', environment.production);
         this.API_URL = environment.API_URL;
       } else {
         this.API_URL = this.getBackendURL();
-        console.log('this.API_URL', this.API_URL);
+        console.log('auth-service - this.API_URL', this.API_URL);
       }
 
-      console.log('this.API_URL', this.API_URL);
+      console.log('auth-service - this.API_URL', this.API_URL);
     }
 
     // login(data,csrf)
@@ -89,7 +92,7 @@ export class AuthService {
       return sessionStorage.getItem('backend_url');
     }
 
-    clearBackendURL() {
+    clearBackendURL(): void {
       sessionStorage.removeItem('backend_url');
     }
 }

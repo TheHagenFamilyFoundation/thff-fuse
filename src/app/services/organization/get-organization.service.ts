@@ -7,51 +7,41 @@ import { AuthService } from '../../auth/auth.service';
 
 @Injectable()
 export class GetOrganizationService {
-
   API_URL: string;
 
-  constructor(private http: HttpClient, private authService: AuthService, ) {
-
+  constructor(private http: HttpClient, private authService: AuthService) {
     if (!environment.production) {
       this.API_URL = environment.API_URL;
-    }
-    else {
+    } else {
       this.API_URL = this.authService.getBackendURL();
-      console.log('this.API_URL', this.API_URL)
+      console.log('GetOrganizationService - this.API_URL', this.API_URL);
     }
 
-    console.log('this.API_URL', this.API_URL)
-
+    console.log('GetOrganizationService - this.API_URL', this.API_URL);
   }
 
-  //get Organization by director
+  // get Organization by director
   getOrgbyDirector(username: string): Observable<any> {
-
-    let urlString = this.API_URL + "/organization?director=" + username;
+    const urlString = `${this.API_URL}/organization?director=${username}`;
 
     return this.http.get(urlString);
   }
 
   getOrgbyName(name: string): Observable<any> {
-
-    let urlString = this.API_URL + "/organization?name=" + name;
+    const urlString = `${this.API_URL}/organization?name=${name}`;
 
     return this.http.get(urlString);
   }
 
   getOrgbyID(orgID: string): Observable<any> {
-
-    let urlString = this.API_URL + "/organization?organizationID=" + orgID;
+    const urlString = `${this.API_URL}/organization?organizationID=${orgID}`;
 
     return this.http.get(urlString);
   }
 
   getAllOrgs(): Observable<any> {
-
-    let urlString = this.API_URL + "/organization?limit=500";
+    const urlString = `${this.API_URL}/organization?limit=500`;
 
     return this.http.get(urlString);
-
   }
-
 }

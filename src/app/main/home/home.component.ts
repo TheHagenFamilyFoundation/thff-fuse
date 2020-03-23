@@ -27,6 +27,8 @@ export class HomeComponent implements OnInit {
 
   API: any;
 
+  LoadedAPI: boolean;
+
   currentUser: any;
 
   userName: string;
@@ -123,7 +125,7 @@ export class HomeComponent implements OnInit {
     console.log('Home Constructor');
 
     this.getBackendURL();
-
+    this.LoadedAPI = false;
     this.inOrg.currentInOrg.subscribe((message) => {
       this.inOrgCheck = message;
 
@@ -147,6 +149,7 @@ export class HomeComponent implements OnInit {
     // if not production get the localhost from the environment file
     if (!environment.production) {
       this.API = environment.API_URL;
+      this.LoadedAPI = true;
     }
     // else it doesn't need to be set
 
@@ -181,7 +184,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     console.log('ngOnInit');
-
+    this.getBackendURL();
     if (!this.authService.isExpired()) {
       console.log('currentUser');
       console.log(localStorage.getItem('currentUser'));
@@ -242,7 +245,9 @@ export class HomeComponent implements OnInit {
   }// end of getOrganizations
 
   getBackendURL() {
+    console.log('HomeComponent - environment', environment);
     if (environment.production) {
+      console.log('environment is production');
       this.authService.initializeBackendURL().subscribe(
         (backendUrl) => {
           console.log('backendUrl', backendUrl.url);
@@ -255,6 +260,7 @@ export class HomeComponent implements OnInit {
           }
 
           this.API = backendUrl.url;
+          this.LoadedAPI = true;
         },
       );
     }

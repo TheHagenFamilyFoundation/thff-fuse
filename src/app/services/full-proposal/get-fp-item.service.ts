@@ -6,42 +6,35 @@ import { environment } from '../../../environments/environment';
 import { AuthService } from '../../auth/auth.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class GetFpItemService {
-
   API_URL: string;
 
-  constructor(private http: HttpClient, private authService: AuthService, ) {
-
+  constructor(private http: HttpClient, private authService: AuthService) {
     if (!environment.production) {
       this.API_URL = environment.API_URL;
-    }
-    else {
+    } else {
       this.API_URL = this.authService.getBackendURL();
-      console.log('this.API_URL', this.API_URL)
+      console.log('GetFpItemService - this.API_URL', this.API_URL);
     }
 
-    console.log('this.API_URL', this.API_URL)
-
+    console.log('GetFpItemService - this.API_URL', this.API_URL);
   }
 
-  //not used
+  // not used
   getFullProposalItemByID(fpItemID: string): Observable<any> {
-
-    let urlString = this.API_URL + "/fullproposalitem?fpItemID=" + fpItemID;
+    const urlString = `${this.API_URL}/fullproposalitem?fpItemID=${fpItemID}`;
 
     return this.http.get(urlString);
   }
 
-  //mongo id
+  // mongo id
   getFullProposalItemsByFPID(fp: string): Observable<any> {
+    const urlString = `${this.API_URL}/fullproposalitem?fp=${fp}`;
 
-    let urlString = this.API_URL + "/fullproposalitem?fp=" + fp;
-
-    console.log('getFullProposalItemsByFPID - urlString', urlString)
+    console.log('getFullProposalItemsByFPID - urlString', urlString);
 
     return this.http.get(urlString);
   }
-
 }

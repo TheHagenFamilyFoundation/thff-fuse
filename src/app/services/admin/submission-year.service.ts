@@ -18,10 +18,10 @@ export class SubmissionYearService {
       this.API_URL = environment.API_URL;
     } else {
       this.API_URL = this.authService.getBackendURL();
-      console.log('this.API_URL', this.API_URL);
+      console.log('SubmissionYearService - this.API_URL', this.API_URL);
     }
 
-    console.log('this.API_URL', this.API_URL);
+    console.log('SubmissionYearService - this.API_URL', this.API_URL);
   }
 
   createFieldopenFp(): Observable<any> {

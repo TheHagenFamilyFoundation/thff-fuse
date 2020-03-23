@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
+import { AuthService } from '../../../auth/auth.service';
 import { GrantService } from '../../../services/grants/grant.service';
+
+import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'app-grants-awarded-total',
@@ -12,14 +15,22 @@ export class GrantsAwardedTotalComponent implements OnInit {
 
   grantCount: number;
 
-  constructor(private grantService: GrantService) {
-    this.getGrantsTotal();
-    this.getGrantsCount();
+  API: string;
+
+  constructor(private grantService: GrantService,
+    private authService: AuthService) {
+    // console.log('initialize the ba')
+    this.getBackendURL().then(() => {
+      this.getGrantsTotal();
+      this.getGrantsCount();
+    });
   }
 
-  ngOnInit() {
-    this.getGrantsTotal();
-    this.getGrantsCount();
+  ngOnInit(): void {
+    this.getBackendURL().then(() => {
+      this.getGrantsTotal();
+      this.getGrantsCount();
+    });
   }
 
   // gets Grants Total
@@ -50,5 +61,29 @@ export class GrantsAwardedTotalComponent implements OnInit {
           this.grantCount = gc.grantCount;
         },
       );
+  }
+
+  getBackendURL() {
+    return new Promise((resolve) => {
+      console.log('GrantsAwardedTotalComponent - environment', environment);
+      if (environment.production) {
+        console.log('GrantsAwardedTotalComponent - environment is production');
+        this.authService.initializeBackendURL().subscribe(
+          (backendUrl) => {
+            console.log('GrantsAwardedTotalComponent - backendUrl', backendUrl.url);
+
+            if (backendUrl) {
+              sessionStorage.setItem('backend_url', backendUrl.url);
+            } else {
+              console.log('Can´t find the backend URL, using a failover value');
+              sessionStorage.setItem('backend_url', 'https://failover-url.com');
+            }
+
+            this.API = backendUrl.url;
+          },
+        );
+      }
+      resolve();
+    });
   }
 }

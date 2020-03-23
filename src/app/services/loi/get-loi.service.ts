@@ -16,10 +16,10 @@ export class GetLoiService {
       this.API_URL = environment.API_URL;
     } else {
       this.API_URL = this.authService.getBackendURL();
-      console.log('this.API_URL', this.API_URL);
+      console.log('GetLoiService - this.API_URL', this.API_URL);
     }
 
-    console.log('this.API_URL', this.API_URL);
+    console.log('GetLoiService - this.API_URL', this.API_URL);
   }
 
   // model loi
