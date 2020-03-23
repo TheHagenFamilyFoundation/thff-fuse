@@ -19,11 +19,13 @@ export class GrantsAwardedTotalComponent implements OnInit {
 
   constructor(private grantService: GrantService,
     private authService: AuthService) {
+    this.getBackendURL();
     this.getGrantsTotal();
     this.getGrantsCount();
   }
 
   ngOnInit(): void {
+    this.getBackendURL();
     this.getGrantsTotal();
     this.getGrantsCount();
   }
