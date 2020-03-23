@@ -17,7 +17,7 @@ export class GrantsAwardedTotalComponent implements OnInit {
     this.getGrantsCount();
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.getGrantsTotal();
     this.getGrantsCount();
   }
