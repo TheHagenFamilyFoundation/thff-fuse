@@ -27,6 +27,8 @@ export class HomeComponent implements OnInit {
 
   API: any;
 
+  LoadedAPI: boolean;
+
   currentUser: any;
 
   userName: string;
@@ -123,7 +125,7 @@ export class HomeComponent implements OnInit {
     console.log('Home Constructor');
 
     this.getBackendURL();
-
+    this.LoadedAPI = false;
     this.inOrg.currentInOrg.subscribe((message) => {
       this.inOrgCheck = message;
 
@@ -147,6 +149,7 @@ export class HomeComponent implements OnInit {
     // if not production get the localhost from the environment file
     if (!environment.production) {
       this.API = environment.API_URL;
+      this.LoadedAPI = true;
     }
     // else it doesn't need to be set
 
@@ -257,6 +260,7 @@ export class HomeComponent implements OnInit {
           }
 
           this.API = backendUrl.url;
+          this.LoadedAPI = true;
         },
       );
     }
