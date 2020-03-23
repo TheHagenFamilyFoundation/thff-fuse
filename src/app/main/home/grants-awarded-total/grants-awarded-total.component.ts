@@ -20,15 +20,17 @@ export class GrantsAwardedTotalComponent implements OnInit {
   constructor(private grantService: GrantService,
     private authService: AuthService) {
     // console.log('initialize the ba')
-    this.getBackendURL();
-    this.getGrantsTotal();
-    this.getGrantsCount();
+    this.getBackendURL().then(() => {
+      this.getGrantsTotal();
+      this.getGrantsCount();
+    });
   }
 
   ngOnInit(): void {
-    this.getBackendURL();
-    this.getGrantsTotal();
-    this.getGrantsCount();
+    this.getBackendURL().then(() => {
+      this.getGrantsTotal();
+      this.getGrantsCount();
+    });
   }
 
   // gets Grants Total
@@ -61,24 +63,27 @@ export class GrantsAwardedTotalComponent implements OnInit {
       );
   }
 
-  getBackendURL(): void {
-    console.log('GrantsAwardedTotalComponent - environment', environment);
-    if (environment.production) {
-      console.log('GrantsAwardedTotalComponent - environment is production');
-      this.authService.initializeBackendURL().subscribe(
-        (backendUrl) => {
-          console.log('GrantsAwardedTotalComponent - backendUrl', backendUrl.url);
+  getBackendURL() {
+    return new Promise((resolve) => {
+      console.log('GrantsAwardedTotalComponent - environment', environment);
+      if (environment.production) {
+        console.log('GrantsAwardedTotalComponent - environment is production');
+        this.authService.initializeBackendURL().subscribe(
+          (backendUrl) => {
+            console.log('GrantsAwardedTotalComponent - backendUrl', backendUrl.url);
 
-          if (backendUrl) {
-            sessionStorage.setItem('backend_url', backendUrl.url);
-          } else {
-            console.log('Can´t find the backend URL, using a failover value');
-            sessionStorage.setItem('backend_url', 'https://failover-url.com');
-          }
+            if (backendUrl) {
+              sessionStorage.setItem('backend_url', backendUrl.url);
+            } else {
+              console.log('Can´t find the backend URL, using a failover value');
+              sessionStorage.setItem('backend_url', 'https://failover-url.com');
+            }
 
-          this.API = backendUrl.url;
-        },
-      );
-    }
+            this.API = backendUrl.url;
+          },
+        );
+      }
+      resolve();
+    });
   }
 }
