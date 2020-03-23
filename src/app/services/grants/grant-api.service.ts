@@ -24,7 +24,7 @@ export class GrantApiService {
 
   public getAllGrants(): Observable<any> {
     console.log('getAllGrants');
-
+    console.log('getAllGrants - this.API_URL', this.API_URL);
     const urlString = `${this.API_URL}/grant?limit=0`;
 
     return this.http.get(urlString);
@@ -32,6 +32,7 @@ export class GrantApiService {
 
   public getGrantsByYear(year: number): Observable<any> {
     console.log('getGrantsByYear');
+    console.log('getGrantsByYear - this.API_URL', this.API_URL);
 
     const urlString = `${this.API_URL}/grant?where={\"Year\":${year}}`;
 

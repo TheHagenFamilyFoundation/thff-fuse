@@ -33,7 +33,6 @@ export class GrantsAwardedTotalComponent implements OnInit {
 
   // gets Grants Total
   getGrantsTotal(): void {
-    console.log('getGrantsTotal');
     this.grantService
       .getGrantsTotal()
       .subscribe(
@@ -50,7 +49,6 @@ export class GrantsAwardedTotalComponent implements OnInit {
 
   // get Grants Count
   getGrantsCount(): void {
-    console.log('getGrantsCount');
     this.grantService
       .getGrantsCount()
       .subscribe(
