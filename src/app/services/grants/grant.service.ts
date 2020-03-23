@@ -31,6 +31,7 @@ export class GrantService {
   }
 
   getGrantsByYear(year: number): Observable<Grant[]> {
+    console.log('grants service - getGrantsByYear');
     return this.grantapi.getGrantsByYear(year);
   }
 
