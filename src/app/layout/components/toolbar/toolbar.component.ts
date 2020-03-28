@@ -267,6 +267,9 @@ export class ToolbarComponent implements OnInit, OnDestroy {
      * @param key
      */
     toggleSidebarOpen(key): void {
+      // TODO: toggle sidebar
+      console.log('toggleSidebarOpen ');
+      console.log('this.fuseSidebarService ', this.fuseSidebarService);
       this.fuseSidebarService.getSidebar(key).toggleOpen();
     }
 
