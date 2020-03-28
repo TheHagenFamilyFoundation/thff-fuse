@@ -38,6 +38,8 @@ export class LetterOfIntentSubmitComponent implements OnInit {
 
   user: any;
 
+  Submitted: boolean; // form submission
+
   LOISubmitted: boolean;
 
   CanSubmit: boolean;
@@ -196,7 +198,7 @@ export class LetterOfIntentSubmitComponent implements OnInit {
 
   submit() {
     console.log('submitting lOI');
-
+    this.Submitted = true;
     this.submitLoiService.submitLOI(this.loiID)
       .subscribe(
         (loi) => {
@@ -205,7 +207,7 @@ export class LetterOfIntentSubmitComponent implements OnInit {
           console.log('this.link', this.link);
 
           this.LOISubmitted = true;
-
+          this.Submitted = false;
           // send email
           // get the logged in user
           this.user = JSON.parse(localStorage.getItem('currentUser'));
