@@ -103,7 +103,7 @@ export class DirectorOrgViewLetterOfIntentComponent implements OnInit {
         (loi) => {
           console.log('loi', loi);
 
-          this.loi = loi[0];
+          [this.loi] = loi;
           this.createdAt = this.loi.createdAt;
 
           this.organization = loi[0].organization;
