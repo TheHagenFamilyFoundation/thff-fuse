@@ -96,15 +96,20 @@
                     >
                         Passwords must match
                     </mat-error>
-                </mat-form-field>
 
+                </mat-form-field>
+                <mat-error *ngIf="ShowErrorMessage">
+                    {{errorMessage}}
+                </mat-error>
                 <!-- <div class="terms" fxLayout="row" fxLayoutAlign="center center">
                     <mat-checkbox name="terms" aria-label="I read and accept" required>
                         <span>I read and accept</span>
                     </mat-checkbox>
                     <a href="#">terms and conditions</a>
                 </div> -->
-
+                <!-- <div>
+                    {{errorMessage}}
+                </div> -->
                 <button
                 *ngIf="!Submitted"
                     mat-raised-button
