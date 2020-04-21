@@ -376,7 +376,9 @@
 
     <div align="center">
         <div *ngIf="ShowErrorMessage">
+            <mat-error>
             {{ errorMessage }}
+        </mat-error>
         </div>
         <br />
         <div *ngIf="CanCreateOrg && !Submitted">
