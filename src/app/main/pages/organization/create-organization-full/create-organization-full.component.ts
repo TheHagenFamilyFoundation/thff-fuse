@@ -529,7 +529,7 @@ export class CreateOrganizationFullComponent implements OnInit {
           this.Submitted = false;
 
           this.ShowErrorMessage = true;
-          this.errorMessage = err;
+          this.errorMessage = err.error.message;
 
           setTimeout(() => {
             this.clearErrorMessage();
