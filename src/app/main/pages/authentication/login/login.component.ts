@@ -69,6 +69,11 @@ export class LoginComponent implements OnInit {
       this.getBackendURL();
 
       console.log('LoginComponent - this.API_URL', this.API_URL);
+
+      // redirect to home if already logged in
+      if (this.authService.currentUserValue) {
+        this.router.navigate(['/']);
+      }
     }
 
     // --------------------------------------------------------------------------------------------
@@ -97,6 +102,11 @@ export class LoginComponent implements OnInit {
 
       console.log(`email = ${email}`);
       console.log(`password = ${password}`);
+
+      // stop here if form is invalid
+      if (this.loginForm.invalid) {
+        return;
+      }
 
       // this.CSRF = this.getCSRFTokenService.getCSRF()
       //   .subscribe(
