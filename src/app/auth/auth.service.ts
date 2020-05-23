@@ -3,17 +3,23 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { map } from 'rxjs/operators';
 
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 import { environment } from '../../environments/environment';
 
 import { JwtHelperService } from '@auth0/angular-jwt';
+
+import { User } from '../_models/user';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
     API_URL: string;
 
     jwtHelper = new JwtHelperService();
+
+    private currentUserSubject: BehaviorSubject<User>;
+
+    public currentUser: Observable<User>;
 
     constructor(private http: HttpClient, private router: Router) {
       console.log('auth service constructor');
@@ -27,6 +33,13 @@ export class AuthService {
       }
 
       console.log('auth-service - this.API_URL', this.API_URL);
+
+      this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
+      this.currentUser = this.currentUserSubject.asObservable();
+    }
+
+    public get currentUserValue(): User {
+      return this.currentUserSubject.value;
     }
 
     // login(data,csrf)
@@ -45,19 +58,12 @@ export class AuthService {
 
       return this.http.put<any>(`${this.API_URL}/login`, data)
         .pipe(map((result) => {
+          // result = user
           console.log('result', result);
-
-          // new
-          // sends the result to the login component which thens add to localStorage
-
-          // old
-          // login successful if there's a jwt token in the response
-          // if (result && result.token) {
-          // store user details and jwt token in local storage to keep user logged in
-          // between page refreshes
-          //     localStorage.setItem('currentUser', JSON.stringify(result.user));
-          // }
-
+          // store user details and jwt token in local storage to keep
+          // user logged in between page refreshes
+          localStorage.setItem('currentUser', JSON.stringify(result));
+          this.currentUserSubject.next(result);
           return result;
         }));
     }
@@ -68,7 +74,7 @@ export class AuthService {
       // Remove tokens and profile and update login status subject
       localStorage.removeItem('token');
       localStorage.removeItem('currentUser');
-
+      this.currentUserSubject.next(null);
       this.router.navigate(['/home']);
     }
 
