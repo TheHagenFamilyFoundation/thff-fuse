@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // import { RouterModule, Routes } from '@angular/router';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
@@ -24,6 +24,9 @@ import { fuseConfig } from 'app/fuse-config';
 
 // Directives
 // import { PhoneMaskDirective } from './directives/phone-mask.directive';
+
+import { ErrorInterceptor } from './auth/error.interceptor';
+import { JwtInterceptor } from './auth/jwt.interceptor';
 
 import { AppComponent } from 'app/app.component';
 import { LayoutModule } from 'app/layout/layout.module';
@@ -99,6 +102,10 @@ import { NotFoundComponent } from './utilities/not-found/not-found.component';
   ],
   exports: [
     // PhoneMaskDirective
+  ],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
   ],
   bootstrap: [AppComponent],
 })
