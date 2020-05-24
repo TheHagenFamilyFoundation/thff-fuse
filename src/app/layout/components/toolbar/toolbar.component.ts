@@ -128,6 +128,10 @@ export class ToolbarComponent implements OnInit, OnDestroy {
       this.unsubscribeAll = new Subject();
 
       // this.checkLoggedIn();
+      this.authService.currentUser.subscribe((x) => {
+        console.log('toolbar - constructor - x', x);
+        this.currentUser = x;
+      });
     }
 
     // --------------------------------------------------------------------------------------------
@@ -162,7 +166,10 @@ export class ToolbarComponent implements OnInit, OnDestroy {
           this.InOrganization = false;
         }
       });
-
+      this.authService.currentUser.subscribe((x) => {
+        console.log('toolbar - ngOnInit - x', x);
+        this.currentUser = x;
+      });
       // this.directorService.currentIsDirector.subscribe(message => {
 
       //   this.IsDirector = message;
