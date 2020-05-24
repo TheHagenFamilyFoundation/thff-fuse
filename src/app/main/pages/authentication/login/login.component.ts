@@ -158,8 +158,7 @@ export class LoginComponent implements OnInit {
                   localStorage.getItem('currentUser')}`,
               );
 
-              // quick debug
-              // this.router.navigate(['/pages/user']);
+              this.router.navigate(['/pages/user']);
             } else {
               this.message = data.message;
               this.ShowMessage = true;
