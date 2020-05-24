@@ -16,26 +16,22 @@
     <div class="infowidth">
         <mat-grid-list cols="2" [rowHeight]="basicRowHeight">
             <mat-grid-tile>
-                <mat-card class="loiswidth">
-                    <mat-card-content>
-                        <div *ngIf="org">
-                            <app-director-view-organization-lois
-                                [org]="org"
-                            ></app-director-view-organization-lois>
-                        </div>
-                    </mat-card-content>
-                </mat-card>
+                <div class="loiswidth">
+                    <div *ngIf="org">
+                        <app-director-view-organization-lois
+                            [org]="org"
+                        ></app-director-view-organization-lois>
+                    </div>
+                </div>
             </mat-grid-tile>
             <mat-grid-tile>
-                <mat-card class="doc501c3width">
-                    <mat-card-content>
-                        <div *ngIf="org">
-                            <app-director-view-organization-doc501c3
-                                [org]="org"
-                            ></app-director-view-organization-doc501c3>
-                        </div>
-                    </mat-card-content>
-                </mat-card>
+                <div class="doc501c3width">
+                    <div *ngIf="org">
+                        <app-director-view-organization-doc501c3
+                            [org]="org"
+                        ></app-director-view-organization-doc501c3>
+                    </div>
+                </div>
             </mat-grid-tile>
         </mat-grid-list>
     </div>
