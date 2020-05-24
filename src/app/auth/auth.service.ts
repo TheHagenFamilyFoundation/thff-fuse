@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { map } from 'rxjs/operators';
 
+import { wait } from '../utilities/wait';
+
 import { BehaviorSubject, Observable } from 'rxjs';
 
 import { environment } from '../../environments/environment';
@@ -64,6 +66,7 @@ export class AuthService {
           // user logged in between page refreshes
           localStorage.setItem('currentUser', JSON.stringify(result));
           this.currentUserSubject.next(result);
+          wait(1000);
           return result;
         }));
     }
