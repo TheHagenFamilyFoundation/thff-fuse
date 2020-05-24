@@ -144,17 +144,17 @@ export class LoginComponent implements OnInit {
             console.log('user', user);
 
             if (user) {
-              console.log('this.results.user = ', user);
+              // console.log('this.results.user = ', user);
 
-              localStorage.setItem('token', data.token);
-              localStorage.setItem(
-                'currentUser',
-                JSON.stringify(user),
-              );
+              // localStorage.setItem('token', data.token);
+              // localStorage.setItem(
+              //   'currentUser',
+              //   JSON.stringify(user),
+              // );
 
-              console.log(`token = ${localStorage.getItem('token')}`);
+              // console.log(`token = ${localStorage.getItem('token')}`);
               console.log(
-                `currentUser = ${
+                `login component - currentUser = ${
                   localStorage.getItem('currentUser')}`,
               );
 
