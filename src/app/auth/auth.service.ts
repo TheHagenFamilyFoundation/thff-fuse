@@ -61,12 +61,13 @@ export class AuthService {
       return this.http.put<any>(`${this.API_URL}/login`, data)
         .pipe(map((result) => {
           // result = user
-          console.log('result', result);
+          console.log('authService - login - result', result);
           // store user details and jwt token in local storage to keep
           // user logged in between page refreshes
           localStorage.setItem('currentUser', JSON.stringify(result));
           this.currentUserSubject.next(result);
           wait(1000);
+          console.log(`Current User ${localStorage.getItem('currentUser')}`);
           return result;
         }));
     }
