@@ -95,6 +95,11 @@ export class RegisterComponent implements OnInit, OnDestroy {
 
       // Set the private defaults
       this.unsubscribeAll = new Subject();
+
+      // redirect to home if already logged in
+      if (this.authService.currentUserValue) {
+        this.router.navigate(['/']);
+      }
     }
 
     // --------------------------------------------------------------------------------------------
