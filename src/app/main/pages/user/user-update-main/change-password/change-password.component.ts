@@ -94,8 +94,7 @@ export class ChangePasswordComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log('this.user');
-    console.log(this.user);
+    console.log('change-password - this.user', this.user);
   }
 
   changePassword(): void {
