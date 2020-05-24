@@ -47,11 +47,12 @@ export class AdminComponent implements OnInit {
         this.IsDirector = false;
 
         //   this.directorService.changeMessage(this.IsDirector)
-
+        console.log('admin - kick out user');
         this.router.navigate(['/logout']);
       }
     } else {
       // logout
+      console.log('admin - kick out user');
       this.router.navigate(['/logout']);
     }
   }

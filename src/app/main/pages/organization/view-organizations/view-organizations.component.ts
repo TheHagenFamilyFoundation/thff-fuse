@@ -92,6 +92,7 @@ export class ViewOrganizationsComponent implements OnInit {
       this.checkOrganizations();
     } else {
       // logout
+      console.log('view org - kickout user');
       this.router.navigate(['/logout']);
     }
   }// end of getUserName
