@@ -6,39 +6,37 @@
         <h4>Viewing Organization: {{ orgName }}</h4>
     </div>
 
-    <mat-grid-list cols="2" [rowHeight]="basicRowHeight">
-        <mat-grid-tile [rowspan]="2">
-            <mat-card>
-                <mat-card-content>
-                    <div *ngIf="org">
-                        <app-director-view-organization-info
-                            [org]="org"
-                        ></app-director-view-organization-info>
-                    </div>
-                </mat-card-content>
-            </mat-card>
-        </mat-grid-tile>
-        <mat-grid-tile>
-            <mat-card class="loiswidth">
-                <mat-card-content>
-                    <div *ngIf="org">
-                        <app-director-view-organization-lois
-                            [org]="org"
-                        ></app-director-view-organization-lois>
-                    </div>
-                </mat-card-content>
-            </mat-card>
-        </mat-grid-tile>
-        <mat-grid-tile>
-            <mat-card class="doc501c3width">
-                <mat-card-content>
-                    <div *ngIf="org">
-                        <app-director-view-organization-doc501c3
-                            [org]="org"
-                        ></app-director-view-organization-doc501c3>
-                    </div>
-                </mat-card-content>
-            </mat-card>
-        </mat-grid-tile>
-    </mat-grid-list>
+    <div class="infowidth">
+        <div *ngIf="org">
+            <app-director-view-organization-info
+                [org]="org"
+            ></app-director-view-organization-info>
+        </div>
+    </div>
+    <div class="infowidth">
+        <mat-grid-list cols="2" [rowHeight]="basicRowHeight">
+            <mat-grid-tile>
+                <mat-card class="loiswidth">
+                    <mat-card-content>
+                        <div *ngIf="org">
+                            <app-director-view-organization-lois
+                                [org]="org"
+                            ></app-director-view-organization-lois>
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <mat-card class="doc501c3width">
+                    <mat-card-content>
+                        <div *ngIf="org">
+                            <app-director-view-organization-doc501c3
+                                [org]="org"
+                            ></app-director-view-organization-doc501c3>
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </div>
 </div>
