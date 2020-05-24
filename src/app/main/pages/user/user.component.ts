@@ -34,15 +34,16 @@ export class UserComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log('inside user component ng oninit');
     if (!localStorage.getItem('currentUser')) {
+      console.log('user component no currentUser - navigate to login');
       // not logged in so redirect to login page
       this.router.navigate(['/login']);
     }
 
     this.user = JSON.parse(localStorage.getItem('currentUser'));
 
-    console.log('User - this.user');
-    console.log(this.user);
+    console.log('User component - user =', this.user);
 
     this.inOrg.currentInOrg.subscribe((message) => this.inOrgCheck = message);
   }
