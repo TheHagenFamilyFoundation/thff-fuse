@@ -98,6 +98,7 @@ export class UserOrganizationComponent implements OnInit {
       this.checkOrganizations();
     } else {
       // logout
+      console.log('user-org - kick out user');
       this.router.navigate(['/pages/auth/logout']);
     }
   }// end of getUserName
