@@ -176,7 +176,46 @@ export class RegisterComponent implements OnInit, OnDestroy {
                 () => {
                   console.log('now login', data);
 
-                  this.router.navigate(['/pages/user']);
+                  const loginData = {
+                    email: this.body.email,
+                    password: this.body.password,
+                  };
+
+                  // this.router.navigate(['/pages/user']);
+                  this.authService.login(loginData)
+                    // .login(body, null) // , this.csrfToken)
+                    .subscribe(
+                      (data) => {
+                        console.log('data', data);
+                        const { user } = data;
+                        console.log('user', user);
+
+                        if (user) {
+                          console.log('this.results.user = ', user);
+
+                          localStorage.setItem('token', data.token);
+                          localStorage.setItem(
+                            'currentUser',
+                            JSON.stringify(user),
+                          );
+
+                          console.log(`token = ${localStorage.getItem('token')}`);
+                          console.log(
+                            `currentUser = ${
+                              localStorage.getItem('currentUser')}`,
+                          );
+
+                          this.router.navigate(['/pages/user']);
+                        } else {
+                          console.log('we do not have a user?');
+                          this.router.navigate(['/home']);
+                        }
+                      },
+                      (error) => {
+                        console.log('error', error);
+                        this.router.navigate(['/home']);
+                      },
+                    );
                 },
                 (err) => console.log(err),
               );

@@ -1,33 +1,37 @@
-<div align="center">
-    <h3>501c3</h3>
-</div>
+<mat-card>
+    <div align="center">
+        <h3>501c3</h3>
+    </div>
 
-<mat-grid-list cols="2" [rowHeight]="basicRowHeight">
-    <mat-grid-tile>
-        <div *ngIf="!HasUpload501c3">
-            No 501c3 uploaded.
-        </div>
-        <div *ngIf="HasUpload501c3">
-            <button mat-raised-button (click)="get501c3()">View 501c3</button>
-        </div>
-    </mat-grid-tile>
-    <mat-grid-tile>
-        <div>
-            <h4>Status</h4>
-            <div>{{ outputStatus }}</div>
-        </div>
-    </mat-grid-tile>
-    <mat-grid-tile [colspan]="2">
-        <div>
-            <h4>Validate</h4>
+    <mat-grid-list cols="2" [rowHeight]="basicRowHeight">
+        <mat-grid-tile>
+            <div *ngIf="!HasUpload501c3">
+                No 501c3 uploaded.
+            </div>
             <div *ngIf="HasUpload501c3">
-                <button mat-raised-button (click)="checkValidate501c3()">
-                    Validate
+                <button mat-raised-button (click)="get501c3()">
+                    View 501c3
                 </button>
             </div>
-            <div *ngIf="!HasUpload501c3">
-                No 501c3 uploaded to validate.
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <div>
+                <h4>Status</h4>
+                <div>{{ outputStatus }}</div>
             </div>
-        </div>
-    </mat-grid-tile>
-</mat-grid-list>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="2">
+            <div>
+                <h4>Validate</h4>
+                <div *ngIf="HasUpload501c3">
+                    <button mat-raised-button (click)="checkValidate501c3()">
+                        Validate
+                    </button>
+                </div>
+                <div *ngIf="!HasUpload501c3">
+                    No 501c3 uploaded to validate.
+                </div>
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+</mat-card>
