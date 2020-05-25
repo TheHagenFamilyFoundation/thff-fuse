@@ -110,7 +110,7 @@ export class UserOrganizationComponent implements OnInit {
     this.getUserService.getUserbyUsername(this.userName)
       .subscribe(
         (user) => {
-          console.log('user', user);
+          console.log('user-organization - checkOrganizations - user', user);
 
           const organization = user[0].organizations;
 
