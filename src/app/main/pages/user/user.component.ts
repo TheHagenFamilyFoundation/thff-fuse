@@ -45,6 +45,6 @@ export class UserComponent implements OnInit {
 
     console.log('User component - user =', this.user);
 
-    this.inOrg.currentInOrg.subscribe((message) => this.inOrgCheck = message);
+    // this.inOrg.currentInOrg.subscribe((message) => this.inOrgCheck = message);
   }
 }
