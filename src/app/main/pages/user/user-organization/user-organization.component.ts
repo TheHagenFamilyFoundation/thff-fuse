@@ -61,7 +61,7 @@ export class UserOrganizationComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.inOrg.currentInOrg.subscribe((message) => this.inOrgCheck = message);
+    // this.inOrg.currentInOrg.subscribe((message) => this.inOrgCheck = message);
 
     this.userName = this.user.username;
 
