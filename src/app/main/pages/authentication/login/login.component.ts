@@ -159,6 +159,7 @@ export class LoginComponent implements OnInit {
               );
 
               console.log('login component - navigating user to user page');
+              // TODO wait
               this.router.navigate(['/pages/user']);
             } else {
               this.message = data.message;

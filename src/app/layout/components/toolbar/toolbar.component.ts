@@ -131,6 +131,7 @@ export class ToolbarComponent implements OnInit, OnDestroy {
       this.authService.currentUser.subscribe((x) => {
         console.log('toolbar - constructor - x', x);
         this.currentUser = x;
+        this.checkLoggedIn();
       });
     }
 
@@ -170,24 +171,6 @@ export class ToolbarComponent implements OnInit, OnDestroy {
         console.log('toolbar - ngOnInit - x', x);
         this.currentUser = x;
       });
-      // this.directorService.currentIsDirector.subscribe(message => {
-
-      //   this.IsDirector = message;
-
-      //   // console.log('isdirector change', this.accessLevel)
-
-      //   // if (this.accessLevel > 1) {
-
-      //   //   console.log('isDirector')
-
-      //   //   this.IsDirector = true;
-      //   // }
-      //   // else {
-      //   //   this.IsDirector = false;
-      //   // }
-
-
-      // })
 
       console.log('expired', this.authService.isExpired());
 
@@ -197,7 +180,7 @@ export class ToolbarComponent implements OnInit, OnDestroy {
         if (localStorage.getItem('currentUser')) {
           this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
 
-          console.log('toolbar - ', this.currentUser);
+          console.log('toolbar - user', this.currentUser);
           // console.log('toolbar - ', this.currentUser);
           this.userName = this.currentUser.username;
           this.accessLevel = this.currentUser.accessLevel;
@@ -228,7 +211,7 @@ export class ToolbarComponent implements OnInit, OnDestroy {
       console.log('toolbar - checkLoggedIn');
 
       if (!this.authService.isExpired()) {
-        console.log('currentUser', localStorage.getItem('currentUser'));
+        console.log('toolbar - checkLoggedIn - currentUser', localStorage.getItem('currentUser'));
 
         if (localStorage.getItem('currentUser')) {
           this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
@@ -247,8 +230,8 @@ export class ToolbarComponent implements OnInit, OnDestroy {
           // this.directorService.changeMessage(this.IsDirector)
           }
 
-          // TODO
-        // this.getOrganizations();
+
+          this.getOrganizations();
         }
 
         this.LoggedIn = true;
