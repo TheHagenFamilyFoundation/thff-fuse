@@ -35,6 +35,7 @@ export class UserComponent implements OnInit {
 
   ngOnInit() {
     console.log('inside user component ng oninit');
+
     if (!localStorage.getItem('currentUser')) {
       console.log('user component no currentUser - navigate to login');
       // not logged in so redirect to login page
