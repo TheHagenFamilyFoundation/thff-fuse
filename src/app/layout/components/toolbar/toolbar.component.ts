@@ -192,13 +192,13 @@ export class ToolbarComponent implements OnInit, OnDestroy {
       console.log('expired', this.authService.isExpired());
 
       if (!this.authService.isExpired()) {
-        console.log('toolbar - currentUser');
-        console.log(localStorage.getItem('currentUser'));
+        console.log('toolbar - currentUser', localStorage.getItem('currentUser'));
 
         if (localStorage.getItem('currentUser')) {
           this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
 
-          console.log('toolbar - ', this.currentUser.username);
+          console.log('toolbar - ', this.currentUser);
+          // console.log('toolbar - ', this.currentUser);
           this.userName = this.currentUser.username;
           this.accessLevel = this.currentUser.accessLevel;
 
@@ -228,8 +228,7 @@ export class ToolbarComponent implements OnInit, OnDestroy {
       console.log('toolbar - checkLoggedIn');
 
       if (!this.authService.isExpired()) {
-        console.log('currentUser');
-        console.log(localStorage.getItem('currentUser'));
+        console.log('currentUser', localStorage.getItem('currentUser'));
 
         if (localStorage.getItem('currentUser')) {
           this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
