@@ -29,6 +29,9 @@ export class UserOrganizationComponent implements OnInit {
   @Input()
   user: any;
 
+  @Input()
+  organizations: any;
+
   userName: any; // string
 
   orgName: any;
@@ -61,15 +64,22 @@ export class UserOrganizationComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.inOrg.currentInOrg.subscribe((message) => this.inOrgCheck = message);
+    this.inOrg.currentInOrg.subscribe((message) => { this.inOrgCheck = message; });
 
     console.log('user-organization - setting username', this.user);
     this.userName = this.user.username;
     console.log('user-organization - username', this.userName);
     // this.getUserName();
 
+    if (!this.user) {
+      console.log('user-org - kick out user');
+      this.router.navigate(['/pages/auth/logout']);
+    }
+
+    this.dataSource = new MatTableDataSource([]);
+
     // console.log('user-organizaiton - check organizations 2');
-    // this.checkOrganizations();
+    this.checkOrganizations();
   }
 
   /**
@@ -77,7 +87,6 @@ export class UserOrganizationComponent implements OnInit {
    * be able to query its view for the initialized paginator and sort.
    */
   // ngAfterViewInit() {
-
 
   //   this.dataSource.paginator = this.paginator;
   //   this.dataSource.sort = this.sort;
@@ -89,25 +98,23 @@ export class UserOrganizationComponent implements OnInit {
     this.dataSource.filter = filteredValue;
   }
 
-  // getUserName() {
-  //   if (localStorage.getItem('currentUser')) {
-  //     // logged in so return true
-  //     this.user = JSON.parse(localStorage.getItem('currentUser'));
-  //     this.userName = this.user.username;
+  getUser() {
+    console.log('user LOI - getUser');
 
-  //     console.log('check organizations 1');
-  //     this.checkOrganizations();
-  //   } else {
-  //     // logout
-  //     console.log('user-org - kick out user');
-  //     this.router.navigate(['/pages/auth/logout']);
-  //   }
-  // }// end of getUserName
+    console.log('user LOI - currentUser', localStorage.getItem('currentUser'));
+
+    this.getUserService.getUserbyUsername(this.userName)
+      .subscribe(() => {
+        // pass in the user to the check functions
+        this.checkOrganizations();
+      });
+  }
 
   // checks if user is in any organizations
   checkOrganizations() {
     console.log('user-organizaiton - check organizations');
 
+    // will return the organizations
     this.getUserService.getUserbyUsername(this.userName)
       .subscribe(
         (user) => {
@@ -118,12 +125,16 @@ export class UserOrganizationComponent implements OnInit {
           if (organization && organization.length > 0) {
             this.InOrganization = true;
 
-            console.log('organization', organization);
+            console.log('user-organizations - organization list ', organization);
 
             this.dataSource = new MatTableDataSource(organization);
 
+            console.log('debug - user-organizations - organization list ', this.dataSource);
+
             this.dataSource.paginator = this.paginator;
             this.dataSource.sort = this.sort;
+
+            console.log('after dataSource paginator - user-organizations - organization list ', this.dataSource);
 
             this.inOrg.changeMessage(true);
 
