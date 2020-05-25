@@ -67,8 +67,8 @@ export class UserOrganizationComponent implements OnInit {
 
     // this.getUserName();
 
-    console.log('check organizations 2');
-    this.checkOrganizations();
+    console.log('user-organizaiton - check organizations 2');
+    // this.checkOrganizations();
   }
 
   /**
@@ -105,7 +105,7 @@ export class UserOrganizationComponent implements OnInit {
 
   // checks if user is in any organizations
   checkOrganizations() {
-    console.log('check organizations');
+    console.log('user-organizaiton - check organizations');
 
     this.getUserService.getUserbyUsername(this.userName)
       .subscribe(
