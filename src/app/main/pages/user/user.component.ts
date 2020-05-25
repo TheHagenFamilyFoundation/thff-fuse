@@ -6,7 +6,11 @@ import { FuseTranslationLoaderService } from '@fuse/services/translation-loader.
 import { locale as english } from './i18n/en';
 import { locale as turkish } from './i18n/tr';
 
+
+import { AuthService } from '../../../auth/auth.service';
+
 import { InOrgService } from '../../../services/user/in-org.service';
+import { GetUserService } from '../../../services/user/get-user.service';
 
 @Component({
   selector: 'user',
@@ -17,7 +21,15 @@ export class UserComponent implements OnInit {
   // check basic row height
   basicRowHeight = 500;
 
-  user;
+  currentUser: any;
+
+  user: any;
+
+  userName: string;
+
+  organizations: any;
+
+  lois: any;
 
   inOrgCheck: boolean;
 
@@ -29,12 +41,27 @@ export class UserComponent implements OnInit {
   constructor(
         private fuseTranslationLoaderService: FuseTranslationLoaderService,
         private router: Router, private inOrg: InOrgService,
+        private authService: AuthService,
+        private getUserService: GetUserService,
   ) {
     this.fuseTranslationLoaderService.loadTranslations(english, turkish);
+
+    this.authService.currentUser.subscribe((x) => {
+      console.log('home - constructor - x', x);
+      this.currentUser = x;
+      if (this.currentUser && this.currentUser.user) {
+        this.user = this.currentUser.user;
+        this.userName = this.user.username;
+      } else {
+        console.error('user component - no user');
+      }
+    });
   }
 
   ngOnInit() {
     console.log('inside user component ng oninit');
+
+    console.log('currentUser - ', localStorage.getItem('currentUser'));
 
     if (!localStorage.getItem('currentUser')) {
       console.log('user component no currentUser - navigate to login');
@@ -42,10 +69,55 @@ export class UserComponent implements OnInit {
       this.router.navigate(['/login']);
     }
 
-    this.user = JSON.parse(localStorage.getItem('currentUser'));
 
-    console.log('User component - user =', this.user);
+    this.getUser();
 
-    // this.inOrg.currentInOrg.subscribe((message) => this.inOrgCheck = message);
+    console.log('User component - user =', this.currentUser);
+
+    this.inOrg.currentInOrg.subscribe((message) => { this.inOrgCheck = message; });
   }
+
+  getUser() {
+    console.log('user - getUser');
+
+    console.log('user component', localStorage.getItem('currentUser'));
+
+    this.getUserService.getUserbyUsername(this.userName)
+      .subscribe((user) => {
+        // pass in the user to the check functions
+        console.log('user component - get full user ', user);
+        this.organizations = user[0].organizations;
+        this.lois = user[0].lois;
+      });
+  }
+
+  getLOIs() {
+    console.log('getLOIs');
+
+    this.getLoiService.getLOIbyuserID(this.userID)
+      .subscribe(
+        (loi) => {
+          console.log('loi', loi);
+
+          if (loi && loi.length > 0) {
+            this.HasLOIs = true;
+            this.dataSource = new MatTableDataSource(loi);
+
+            console.log('user-LOIs - loi list ', this.dataSource);
+
+            this.dataSource.paginator = this.paginator;
+            this.dataSource.sort = this.sort;
+
+            console.log('after pag and sort - user-LOIs - loi list ', this.dataSource);
+          } else {
+            // no lois
+            console.log('does not have any LOIs');
+
+            this.HasLOIs = false;
+          }
+
+          this.Loaded = true;
+        },
+      );
+  }// end of checkLOIs
 }

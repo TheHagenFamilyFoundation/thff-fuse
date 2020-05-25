@@ -84,7 +84,7 @@ export class ViewOrganizationsComponent implements OnInit {
   getUserName() {
     if (localStorage.getItem('currentUser')) {
       // logged in so return true
-      this.user = JSON.parse(localStorage.getItem('currentUser'));
+      this.user = JSON.parse(localStorage.getItem('currentUser')).user;
       this.userName = this.user.username;
 
       console.log('check organizations 1');

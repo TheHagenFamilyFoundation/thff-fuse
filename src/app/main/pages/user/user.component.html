@@ -5,17 +5,17 @@
         <mat-grid-list cols="2" [rowHeight]="basicRowHeight">
             <mat-grid-tile>
                 <mat-card>
-                    <app-user-organization
-                        [user]="user"
+                    <app-user-organization *ngIf="organizations"
+                        [user]="user" [organizations]="organizations"
                     ></app-user-organization>
                 </mat-card>
             </mat-grid-tile>
             <mat-grid-tile>
                 <mat-card>
                     <mat-card-content>
-                        <!-- <app-user-letter-of-intent
-                            [user]="user"
-                        ></app-user-letter-of-intent> -->
+                        <app-user-letter-of-intent
+                            [user]="user" 
+                        ></app-user-letter-of-intent>
                     </mat-card-content>
                 </mat-card>
             </mat-grid-tile>

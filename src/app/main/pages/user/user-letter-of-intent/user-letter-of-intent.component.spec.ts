@@ -8,9 +8,9 @@ describe('UserLetterOfIntentComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ UserLetterOfIntentComponent ]
+      declarations: [UserLetterOfIntentComponent],
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

@@ -45,6 +45,8 @@ export class ToolbarComponent implements OnInit, OnDestroy {
 
     currentUser: any;
 
+    user: any;
+
     userName: string;
 
     accessLevel: number;
@@ -131,6 +133,12 @@ export class ToolbarComponent implements OnInit, OnDestroy {
       this.authService.currentUser.subscribe((x) => {
         console.log('toolbar - constructor - x', x);
         this.currentUser = x;
+        if (this.currentUser && this.currentUser.user) {
+          this.user = this.currentUser.user;
+        } else {
+          console.error('toolbar component - no user');
+        }
+
         this.checkLoggedIn();
       });
     }
@@ -167,6 +175,8 @@ export class ToolbarComponent implements OnInit, OnDestroy {
           this.InOrganization = false;
         }
       });
+
+      // TODO
       // this.authService.currentUser.subscribe((x) => {
       //   console.log('toolbar - ngOnInit - x', x);
       //   this.currentUser = x;
@@ -180,10 +190,10 @@ export class ToolbarComponent implements OnInit, OnDestroy {
         if (localStorage.getItem('currentUser')) {
           this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
 
-          console.log('toolbar - user', this.currentUser);
+          console.log('toolbar - user', this.user);
           // console.log('toolbar - ', this.currentUser);
-          this.userName = this.currentUser.username;
-          this.accessLevel = this.currentUser.accessLevel;
+          this.userName = this.user.username;
+          this.accessLevel = this.user.accessLevel;
 
           console.log('toolbar - this.accessLevel', this.accessLevel);
 
@@ -214,11 +224,15 @@ export class ToolbarComponent implements OnInit, OnDestroy {
         console.log('toolbar - checkLoggedIn - currentUser', localStorage.getItem('currentUser'));
 
         if (localStorage.getItem('currentUser')) {
-          this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
-
-          console.log('toolbar - username ', this.currentUser.username);
-          this.userName = this.currentUser.username;
-          this.accessLevel = this.currentUser.accessLevel;
+          this.currentUser = JSON.parse(localStorage.getItem('currentUser')); // contains token
+          if (this.currentUser && this.currentUser.user) {
+            this.user = this.currentUser.user;
+          } else {
+            console.error('toolbar component - no user');
+          }
+          console.log('toolbar - username ', this.user.username);
+          this.userName = this.user.username;
+          this.accessLevel = this.user.accessLevel;
 
           if (this.accessLevel > 1) {
             this.IsDirector = true;

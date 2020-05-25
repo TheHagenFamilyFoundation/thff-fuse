@@ -421,7 +421,7 @@ export class CreateOrganizationFullComponent implements OnInit {
   getUserName() {
     if (localStorage.getItem('currentUser')) {
       // logged in so return true
-      this.user = JSON.parse(localStorage.getItem('currentUser'));
+      this.user = JSON.parse(localStorage.getItem('currentUser')).user;
       this.userName = this.user.username;
       this.userId = this.user.id;
       this.userEmail = this.user.email;
