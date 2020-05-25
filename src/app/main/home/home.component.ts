@@ -156,8 +156,7 @@ export class HomeComponent implements OnInit {
     console.log('this.authService.isExpired()', this.authService.isExpired());
 
     if (!this.authService.isExpired()) {
-      console.log('currentUser');
-      console.log(localStorage.getItem('currentUser'));
+      console.log('currentUser', localStorage.getItem('currentUser'));
 
       if (localStorage.getItem('currentUser')) {
         this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
@@ -192,7 +191,7 @@ export class HomeComponent implements OnInit {
       if (localStorage.getItem('currentUser')) {
         this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
 
-        console.log(this.currentUser.username);
+        console.log('home - currentUser', this.currentUser.username);
         this.userName = this.currentUser.username;
         this.accessLevel = this.currentUser.accessLevel;
 
@@ -214,7 +213,7 @@ export class HomeComponent implements OnInit {
 
   // check if user is in an organization
   getOrganizations() {
-    console.log('get organizations');
+    console.log('home - get organizations');
 
     this.getUserService.getUserbyUsername(this.userName)
       .subscribe(

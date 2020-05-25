@@ -247,6 +247,7 @@ export class ToolbarComponent implements OnInit, OnDestroy {
           // this.directorService.changeMessage(this.IsDirector)
           }
 
+          // TODO
         // this.getOrganizations();
         }
 

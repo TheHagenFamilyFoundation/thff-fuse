@@ -91,6 +91,10 @@ export class UserLetterOfIntentComponent implements OnInit {
   }
 
   getUser() {
+    console.log('user LOI - getUser');
+
+    console.log('user LOI - currentUser', localStorage.getItem('currentUser'));
+
     this.getUserService.getUserbyUsername(this.userName)
       .subscribe((user) => {
         // pass in the user to the check functions
