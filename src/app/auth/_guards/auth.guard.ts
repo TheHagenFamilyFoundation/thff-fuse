@@ -1,20 +1,25 @@
+/* eslint-disable no-empty-function */
+/* eslint-disable no-useless-constructor */
 /* eslint-disable no-unused-vars */
+
 import { Injectable } from '@angular/core';
 import {
   Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot,
 } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
+import { AuthService } from '../auth.service';
+
 @Injectable({ providedIn: 'root' })
 export class AuthGuard implements CanActivate {
-  constructor(private router: Router, public snackBar: MatSnackBar) {
-    console.log('help - auth guard');
+  constructor(private router: Router, public snackBar: MatSnackBar, private authService: AuthService) {
   }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     console.log('this is the canActivate function');
 
-    if (localStorage.getItem('currentUser')) {
+    const currentUser = this.authService.currentUserValue;
+    if (currentUser) {
       // logged in so return true
       return true;
     }
