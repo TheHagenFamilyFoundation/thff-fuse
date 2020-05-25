@@ -31,6 +31,8 @@ export class HomeComponent implements OnInit {
 
   currentUser: any;
 
+  user: any;
+
   userName: string;
 
   accessLevel: number; // debug
@@ -138,11 +140,15 @@ export class HomeComponent implements OnInit {
       }
     });
 
-    // this.directorService.currentIsDirector.subscribe(message => {
-
-    //   this.IsDirector = message;
-
-    // })
+    this.authService.currentUser.subscribe((x) => {
+      console.log('home - constructor - x', x);
+      this.currentUser = x;
+      if (this.currentUser && this.currentUser.user) {
+        this.user = this.currentUser.user;
+      } else {
+        console.error('home component - no user');
+      }
+    });
 
     this.env = environment.envName;
 
@@ -160,10 +166,15 @@ export class HomeComponent implements OnInit {
 
       if (localStorage.getItem('currentUser')) {
         this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+        if (this.currentUser && this.currentUser.user) {
+          this.user = this.currentUser.user;
+        } else {
+          console.error('home component - no user');
+        }
 
-        console.log(this.currentUser.username);
-        this.userName = this.currentUser.username;
-        this.accessLevel = this.currentUser.accessLevel;
+        console.log('home component - username - ', this.user.username);
+        this.userName = this.user.username;
+        this.accessLevel = this.user.accessLevel;
 
         if (this.accessLevel > 1) {
           this.IsDirector = true;
@@ -185,15 +196,19 @@ export class HomeComponent implements OnInit {
     console.log('ngOnInit');
     this.getBackendURL();
     if (!this.authService.isExpired()) {
-      console.log('currentUser');
-      console.log(localStorage.getItem('currentUser'));
+      console.log('home component - ngonInit - currentUser', localStorage.getItem('currentUser'));
 
       if (localStorage.getItem('currentUser')) {
         this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+        if (this.currentUser && this.currentUser.user) {
+          this.user = this.currentUser.user;
+        } else {
+          console.error('home component - no user');
+        }
 
-        console.log('home - currentUser', this.currentUser.username);
-        this.userName = this.currentUser.username;
-        this.accessLevel = this.currentUser.accessLevel;
+        console.log('home - currentUser username', this.user.username);
+        this.userName = this.user.username;
+        this.accessLevel = this.user.accessLevel;
 
         if (this.accessLevel > 1) {
           this.IsDirector = true;

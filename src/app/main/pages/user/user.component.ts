@@ -8,6 +8,8 @@ import { locale as turkish } from './i18n/tr';
 
 import { InOrgService } from '../../../services/user/in-org.service';
 
+import { AuthService } from '../../../auth/auth.service';
+
 @Component({
   selector: 'user',
   templateUrl: './user.component.html',
@@ -17,7 +19,9 @@ export class UserComponent implements OnInit {
   // check basic row height
   basicRowHeight = 500;
 
-  user;
+  currentUser: any;
+
+  user: any;
 
   inOrgCheck: boolean;
 
@@ -29,22 +33,35 @@ export class UserComponent implements OnInit {
   constructor(
         private fuseTranslationLoaderService: FuseTranslationLoaderService,
         private router: Router, private inOrg: InOrgService,
+        private authService: AuthService,
   ) {
     this.fuseTranslationLoaderService.loadTranslations(english, turkish);
+
+    this.authService.currentUser.subscribe((x) => {
+      console.log('home - constructor - x', x);
+      this.currentUser = x;
+      if (this.currentUser && this.currentUser.user) {
+        this.user = this.currentUser.user;
+      } else {
+        console.error('user component - no user');
+      }
+    });
   }
 
   ngOnInit() {
     console.log('inside user component ng oninit');
 
-    if (!localStorage.getItem('currentUser')) {
-      console.log('user component no currentUser - navigate to login');
-      // not logged in so redirect to login page
-      this.router.navigate(['/login']);
-    }
+    console.log('currentUser - ', localStorage.getItem('currentUser'));
 
-    this.user = JSON.parse(localStorage.getItem('currentUser'));
+    // if (!localStorage.getItem('currentUser')) {
+    //   console.log('user component no currentUser - navigate to login');
+    //   // not logged in so redirect to login page
+    //   this.router.navigate(['/login']);
+    // }
 
-    console.log('User component - user =', this.user);
+    // this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+
+    console.log('User component - user =', this.currentUser);
 
     // this.inOrg.currentInOrg.subscribe((message) => this.inOrgCheck = message);
   }
