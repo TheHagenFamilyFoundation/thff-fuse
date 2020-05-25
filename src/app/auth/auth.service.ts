@@ -69,7 +69,7 @@ export class AuthService {
           this.currentUserSubject.next(result);
           // TODO
           wait(1000);
-          console.log(`Current User ${localStorage.getItem('currentUser')}`);
+          console.log(`AUTH - Current User ${localStorage.getItem('currentUser')}`);
           return result;
         }));
     }
