@@ -90,34 +90,4 @@ export class UserComponent implements OnInit {
         this.lois = user[0].lois;
       });
   }
-
-  getLOIs() {
-    console.log('getLOIs');
-
-    this.getLoiService.getLOIbyuserID(this.userID)
-      .subscribe(
-        (loi) => {
-          console.log('loi', loi);
-
-          if (loi && loi.length > 0) {
-            this.HasLOIs = true;
-            this.dataSource = new MatTableDataSource(loi);
-
-            console.log('user-LOIs - loi list ', this.dataSource);
-
-            this.dataSource.paginator = this.paginator;
-            this.dataSource.sort = this.sort;
-
-            console.log('after pag and sort - user-LOIs - loi list ', this.dataSource);
-          } else {
-            // no lois
-            console.log('does not have any LOIs');
-
-            this.HasLOIs = false;
-          }
-
-          this.Loaded = true;
-        },
-      );
-  }// end of checkLOIs
 }
