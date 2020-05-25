@@ -68,7 +68,7 @@ export class UserOrganizationComponent implements OnInit {
     // this.getUserName();
 
     console.log('check organizations 2');
-    this.checkOrganizations();
+    // this.checkOrganizations();
   }
 
   /**
