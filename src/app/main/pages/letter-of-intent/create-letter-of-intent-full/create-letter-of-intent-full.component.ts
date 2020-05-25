@@ -306,14 +306,14 @@ export class CreateLetterOfIntentFullComponent implements OnInit {
   getUserName() {
     if (localStorage.getItem('currentUser')) {
       // logged in so return true
-      this.user = JSON.parse(localStorage.getItem('currentUser'));
+      this.user = JSON.parse(localStorage.getItem('currentUser')).user;
       this.userName = this.user.username;
       this.userId = this.user.id;
     }
   }// end of getUserName
 
   getOrganizations() {
-    console.log('get organizations');
+    console.log('create loi full - get organizations', this.userName);
 
     this.getUserService.getUserbyUsername(this.userName)
       .subscribe(

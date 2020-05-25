@@ -2,14 +2,14 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class DirectorService {
-
-  //private isDirector = new BehaviorSubject(false); //initialize to false
-  //currentIsDirector = this.isDirector.asObservable();
+  // private isDirector = new BehaviorSubject(false); //initialize to false
+  // currentIsDirector = this.isDirector.asObservable();
 
   currentUser: any;
+
   accessLevel: number;
 
   constructor() { }
@@ -19,25 +19,18 @@ export class DirectorService {
   // }
 
   isDirector() {
-
     if (localStorage.getItem('currentUser')) {
-
-      this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+      this.currentUser = JSON.parse(localStorage.getItem('currentUser')).user;
 
       this.accessLevel = this.currentUser.accessLevel;
 
       if (this.accessLevel >= 2) {
         return true;
       }
-      else {
-        return false;
-      }
 
-    }
-    else {
       return false;
     }
 
+    return false;
   }
-
 }
