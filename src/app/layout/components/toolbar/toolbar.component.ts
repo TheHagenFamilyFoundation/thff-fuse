@@ -167,10 +167,10 @@ export class ToolbarComponent implements OnInit, OnDestroy {
           this.InOrganization = false;
         }
       });
-      this.authService.currentUser.subscribe((x) => {
-        console.log('toolbar - ngOnInit - x', x);
-        this.currentUser = x;
-      });
+      // this.authService.currentUser.subscribe((x) => {
+      //   console.log('toolbar - ngOnInit - x', x);
+      //   this.currentUser = x;
+      // });
 
       console.log('expired', this.authService.isExpired());
 
@@ -216,7 +216,7 @@ export class ToolbarComponent implements OnInit, OnDestroy {
         if (localStorage.getItem('currentUser')) {
           this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
 
-          console.log(this.currentUser.username);
+          console.log('toolbar - username ', this.currentUser.username);
           this.userName = this.currentUser.username;
           this.accessLevel = this.currentUser.accessLevel;
 
@@ -231,6 +231,7 @@ export class ToolbarComponent implements OnInit, OnDestroy {
           }
 
 
+          // TODO
           this.getOrganizations();
         }
 
@@ -288,7 +289,7 @@ export class ToolbarComponent implements OnInit, OnDestroy {
 
     // check if user is in an organization
     getOrganizations() {
-      console.log('get organizations');
+      console.log('toolbar - get organizations', this.userName);
 
       this.getUserService.getUserbyUsername(this.userName)
         .subscribe(
