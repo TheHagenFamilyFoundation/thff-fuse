@@ -24,7 +24,17 @@ export class JwtInterceptor implements HttpInterceptor {
 
     console.log('jwt-interceptor - isLoggedIn', isLoggedIn);
     console.log('environment', environment);
-    const isApiUrl = request.url.startsWith(localStorage.getItem('backend_url'));
+    console.log('sessionStorage.getItem(backend_url)', sessionStorage.getItem('backend_url'));
+
+    let isApiUrl = false;
+
+    if (environment.production) {
+      isApiUrl = request.url.startsWith(sessionStorage.getItem('backend_url'));
+    } else {
+      // local
+      isApiUrl = request.url.startsWith(environment.API_URL);
+    }
+
     console.log('jwt-interceptor - isApiUrl', isApiUrl);
 
     if (isLoggedIn && isApiUrl) {
