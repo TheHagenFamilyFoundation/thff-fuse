@@ -88,6 +88,8 @@ export class LoginComponent implements OnInit {
         email: ['', [Validators.required, Validators.email]],
         password: ['', Validators.required],
       });
+
+      console.log('backend URL sessionStorage.getItem(backend_url)', sessionStorage.getItem('backend_url'));
     }
 
     onSubmit(): void {

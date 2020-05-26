@@ -4,7 +4,7 @@
 
 console.log(
   'environment.ts environment = ',
-  localStorage.getItem('backend_url'),
+  sessionStorage.getItem('backend_url'),
 );
 
 const environment = {
