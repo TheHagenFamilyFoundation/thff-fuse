@@ -29,31 +29,27 @@ export class AdminComponent implements OnInit {
     public directorService: DirectorService,
     public createFieldOpenFpService: CreateFieldOpenFpService,
   ) {
-    // check if authenticated
-    if (!this.authService.isExpired()) {
-      console.log('currentUser');
-      console.log(localStorage.getItem('currentUser'));
-      // console.log(localStorage.getItem('currentUser.username'));
-      this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    console.log('authService currentUserValue', authService.currentUserValue);
 
-      // check if they have access
+    if (this.authService.currentUserValue) {
+      console.log('authService currentUserValue', authService.currentUserValue);
+
+      this.currentUser = this.authService.currentUserValue.user;
+      console.log('authService currentUser', authService.currentUserValue.user);
       this.accessLevel = this.currentUser.accessLevel;
+
+      console.log('isAdmin');
 
       if (this.accessLevel > 1) {
         this.IsDirector = true;
-
-        //   this.directorService.changeMessage(this.IsDirector)
       } else {
         this.IsDirector = false;
 
-        //   this.directorService.changeMessage(this.IsDirector)
-        console.log('admin - kick out user');
-        this.router.navigate(['/logout']);
+        this.router.navigate(['/pages/auth/logout']);
       }
     } else {
       // logout
-      console.log('admin - kick out user');
-      this.router.navigate(['/logout']);
+      this.router.navigate(['/pages/auth/logout']);
     }
   }
 
