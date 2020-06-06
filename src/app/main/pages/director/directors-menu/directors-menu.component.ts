@@ -25,24 +25,21 @@ export class DirectorsMenuComponent {
     public router: Router,
     public directorService: DirectorService,
   ) {
-    // check if authenticated
-    if (!this.authService.isExpired()) {
-      console.log('currentUser');
-      console.log(localStorage.getItem('currentUser'));
-      // console.log(localStorage.getItem('currentUser.username'));
-      this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    console.log('authService currentUserValue', authService.currentUserValue);
 
-      // check if they have access
+    if (this.authService.currentUserValue) {
+      console.log('authService currentUserValue', authService.currentUserValue);
+
+      this.currentUser = this.authService.currentUserValue.user;
+      console.log('authService currentUser', authService.currentUserValue.user);
       this.accessLevel = this.currentUser.accessLevel;
+
+      console.log('isDirector');
 
       if (this.accessLevel > 1) {
         this.IsDirector = true;
-
-        //   this.directorService.changeMessage(this.IsDirector)
       } else {
         this.IsDirector = false;
-
-        //   this.directorService.changeMessage(this.IsDirector)
 
         this.router.navigate(['/pages/auth/logout']);
       }
@@ -51,7 +48,4 @@ export class DirectorsMenuComponent {
       this.router.navigate(['/pages/auth/logout']);
     }
   }
-
-  // ngOnInit() {
-  // }
 }
