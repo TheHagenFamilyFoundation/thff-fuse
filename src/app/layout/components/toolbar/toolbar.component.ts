@@ -361,4 +361,11 @@ export class ToolbarComponent implements OnInit, OnDestroy {
 
       this.router.navigate(['/pages/view-organizations']);
     }
+
+    // testing route to directors page
+    routeToDirectorsPage() {
+      console.log('clicked on go to directors');
+
+      this.router.navigate(['/pages/directors']);
+    }
 }
