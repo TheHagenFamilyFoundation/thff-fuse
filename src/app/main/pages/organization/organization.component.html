@@ -1,6 +1,7 @@
 <div class="page-layout blank p-24" fusePerfectScrollbar align="center">
     <!-- <div class="org-width"> -->
-        <h2 align="center">Organization Page - {{ org?.name }}</h2>
+    <h2 align="center">Organization Page - {{ org?.name }}</h2>
+    <div class="org-width">
         <mat-grid-list cols="2" [rowHeight]="basicRowHeight">
             <mat-grid-tile [rowspan]="2">
                 <mat-card>
@@ -59,4 +60,5 @@
             </mat-grid-tile>
         </mat-grid-list>
     </div>
+</div>
 <!-- </div> -->
