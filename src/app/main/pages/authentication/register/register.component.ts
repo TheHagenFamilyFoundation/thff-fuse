@@ -228,7 +228,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
             console.log('error', error);
             this.Submitted = false;
             this.ShowErrorMessage = true;
-            this.errorMessage = error.error.message;
+            this.errorMessage = error;
 
             setTimeout(() => {
               this.clearErrorMessage();
