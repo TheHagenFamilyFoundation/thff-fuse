@@ -21,6 +21,8 @@ import {
 })
 
 export class CarouselComponent {
+  fullImagePath1 = '../assets/images/grant_cycle_round2_2020_teal.png';
+
   fullImagePath2 = '../assets/images/cv_busses1.JPG';
 
   // fullImagePath3 = '../assets/images/grant_review_timeline.png'; // april 15th
@@ -33,6 +35,7 @@ export class CarouselComponent {
 
 
   public slides = [
+    { src: this.fullImagePath1 },
     { src: this.fullImagePath2, caption: { text: 'The Christus Victor pre-school children are happy with their new buses.', textLink: 'Click Here To See Previously Awarded Grants.', link: '/grants-awarded' } },
     { src: this.fullImagePath3, caption: { text: 'Learn about our grant giving process and the requirements for submitting a grant request.', textLink: 'Click Here To Read More.', link: '/application' } },
     { src: this.fullImagePath4, caption: { text: 'The Southern Shakespeare Company\'s Bardlings performing with new sound equipment!', textLink: 'Click Here To Apply Now.', link: '/application' } },
