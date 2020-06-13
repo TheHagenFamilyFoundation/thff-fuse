@@ -71,8 +71,13 @@ export class LoginComponent implements OnInit {
       console.log('LoginComponent - this.API_URL', this.API_URL);
 
       // redirect to home if already logged in
-      if (this.authService.currentUserValue) {
+      if (this.authService.currentUserValue && !this.authService.isExpired()) {
         this.router.navigate(['/']);
+      } else {
+        // clear token and currentUser
+        // Remove tokens and profile and update login status subject
+        localStorage.removeItem('token');
+        localStorage.removeItem('currentUser');
       }
     }
 

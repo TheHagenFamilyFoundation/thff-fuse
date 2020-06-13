@@ -16,6 +16,11 @@ export class JwtInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     console.log('adding jwt');
 
+    if (this.authService.isExpired()) {
+      console.log('TOKEN EXPIRED');
+      return next.handle(request);
+    }
+    console.log('progressing forward');
     // add auth header with jwt if user is logged in and request is to the api url
     const currentUser = this.authService.currentUserValue;
     console.log('jwt-interceptor - currentUser', currentUser);

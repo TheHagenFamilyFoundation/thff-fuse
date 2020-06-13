@@ -35,7 +35,7 @@ export class CarouselComponent {
 
 
   public slides = [
-    { src: this.fullImagePath1 },
+    { src: this.fullImagePath1, caption: { text: '', textLink: '', link: '' } },
     { src: this.fullImagePath2, caption: { text: 'The Christus Victor pre-school children are happy with their new buses.', textLink: 'Click Here To See Previously Awarded Grants.', link: '/grants-awarded' } },
     { src: this.fullImagePath3, caption: { text: 'Learn about our grant giving process and the requirements for submitting a grant request.', textLink: 'Click Here To Read More.', link: '/application' } },
     { src: this.fullImagePath4, caption: { text: 'The Southern Shakespeare Company\'s Bardlings performing with new sound equipment!', textLink: 'Click Here To Apply Now.', link: '/application' } },
