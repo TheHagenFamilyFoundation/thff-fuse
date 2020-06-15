@@ -58,7 +58,7 @@ export class OrganizationFullProposalsComponent implements OnInit {
 
     console.log('2 - this.paginator', this.paginator);
 
-    // this.getFPs();
+    this.getFPs();
   }
 
   // get full proposals
