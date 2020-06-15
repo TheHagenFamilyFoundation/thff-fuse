@@ -384,7 +384,9 @@ export class CreateFullProposalComponent implements OnInit {
           console.log('fp Created');
           // route to full proposal
           // route to loi page
-          this.router.navigate([`/fp/${this.fpID}`]);
+          const fpLink = `/pages/fp/${this.fpID}`;
+          console.log('routing to ', fpLink);
+          this.router.navigate([fpLink]);
         },
         (err) => console.log(err),
       );
