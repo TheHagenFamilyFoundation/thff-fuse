@@ -91,7 +91,7 @@ export class LetterOfIntentStatusComponent implements OnInit {
   createFP() {
     console.log('create full proposal');
 
-    this.router.navigate(['/create-fp-full/', this.orgID, this.loiID]);
+    this.router.navigate(['/pages/create-fp-full/', this.orgID, this.loiID]);
   }
 
   checkFullProposal() {
