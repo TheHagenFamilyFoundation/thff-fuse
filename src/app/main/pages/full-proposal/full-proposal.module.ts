@@ -13,6 +13,9 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { MatDialogModule } from '@angular/material/dialog';
+
+import { NgxCurrencyModule } from 'ngx-currency';
 
 import { FullProposalComponent } from './full-proposal.component';
 import { CreateFullProposalComponent } from './create-full-proposal/create-full-proposal.component';
@@ -38,6 +41,18 @@ const routes = [
     canActivate: [AuthGuard],
   },
 ];
+
+export const customCurrencyMaskConfig = {
+  align: 'right',
+  allowNegative: false,
+  allowZero: true,
+  decimal: '.',
+  precision: 2,
+  prefix: '$',
+  suffix: '',
+  thousands: ',',
+  nullable: false,
+};
 
 @NgModule({
   declarations: [
@@ -66,6 +81,10 @@ const routes = [
     MatIconModule,
     MatInputModule,
     MatButtonModule,
+    MatDialogModule,
+
+    NgxCurrencyModule.forRoot(customCurrencyMaskConfig),
+
   ],
   exports: [
     FullProposalComponent, FullProposalItemsTwoComponent,
