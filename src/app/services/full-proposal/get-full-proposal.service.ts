@@ -42,7 +42,14 @@ export class GetFullProposalService {
 
   // get all full proposals - used for directors
   getAllFPs(): Observable<any> {
-    const urlString = `${this.API_URL}/fullproposal`;
+    let urlString = `${this.API_URL}/fullproposal`;
+
+    const today = new Date();
+    const currentYear = today.getFullYear();
+
+    // add the currentYear to the url query params
+
+    urlString += `?year=${currentYear}`;
 
     console.log('urlString', urlString);
     return this.http.get(urlString);
