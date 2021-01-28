@@ -21,7 +21,6 @@ export class DirectorService {
   isDirector() {
     if (localStorage.getItem('currentUser')) {
       this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
-      console.log('checking if user accessLevel', this.currentUser);
       this.accessLevel = this.currentUser.user.accessLevel;
 
       if (this.accessLevel >= 2) {
