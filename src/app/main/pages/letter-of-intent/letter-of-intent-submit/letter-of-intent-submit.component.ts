@@ -210,8 +210,8 @@ export class LetterOfIntentSubmitComponent implements OnInit {
           this.Submitted = false;
           // send email
           // get the logged in user
-          this.user = JSON.parse(localStorage.getItem('currentUser'));
-
+          this.user = JSON.parse(localStorage.getItem('currentUser')).user;
+          console.log('submitting lOI', this.user);
           this.getUserService.getDirectors()
             .subscribe(
               (directors) => {
