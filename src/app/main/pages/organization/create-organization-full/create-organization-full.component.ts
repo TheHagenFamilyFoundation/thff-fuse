@@ -524,12 +524,12 @@ export class CreateOrganizationFullComponent implements OnInit {
             );
         },
         (err) => {
-          console.log(err);
+          console.log('new error', err);
 
           this.Submitted = false;
 
           this.ShowErrorMessage = true;
-          this.errorMessage = err.error.message;
+          this.errorMessage = err;
 
           setTimeout(() => {
             this.clearErrorMessage();
