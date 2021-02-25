@@ -2,11 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { GetOrganizationService } from '../../../services/organization/get-organization.service';
+import { AuthService } from '../../../auth/auth.service';
 
 import { FuseTranslationLoaderService } from '@fuse/services/translation-loader.service';
 
 import { locale as english } from './i18n/en';
 import { locale as turkish } from './i18n/tr';
+
+import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'organization',
@@ -34,6 +37,7 @@ export class OrganizationComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     public getOrgService: GetOrganizationService,
+    public authService: AuthService,
   ) {
     this.fuseTranslationLoaderService.loadTranslations(english, turkish);
 
@@ -64,5 +68,27 @@ export class OrganizationComponent implements OnInit {
           this.organizationID = this.org.id;
         },
       );
+  }
+
+  getBackendURL() {
+    console.log('organization - environment', environment);
+    if (environment.production) {
+      console.log('environment is production');
+      this.authService.initializeBackendURL().subscribe(
+        (backendUrl) => {
+          console.log('backendUrl', backendUrl.url);
+
+          if (backendUrl) {
+            sessionStorage.setItem('backend_url', backendUrl.url);
+          } else {
+            console.log('Can´t find the backend URL, using a failover value');
+            sessionStorage.setItem('backend_url', 'https://failover-url.com');
+          }
+
+          // this.API = backendUrl.url;
+          // this.LoadedAPI = true;
+        },
+      );
+    }
   }
 }
