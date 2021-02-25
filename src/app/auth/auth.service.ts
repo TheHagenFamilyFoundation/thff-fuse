@@ -26,14 +26,13 @@ export class AuthService {
     constructor(private http: HttpClient, private router: Router) {
       console.log('auth service constructor');
       console.log('auth service - environment', environment);
-      this.initializeBackendURL();
-      if (!environment.production) {
-        console.log('production env', environment.production);
-        this.API_URL = environment.API_URL;
-      } else {
-        this.API_URL = this.getBackendURL();
-        console.log('auth-service - this.API_URL', this.API_URL);
-      }
+      // if (!environment.production) {
+      console.log('production env', environment.production);
+      this.API_URL = environment.API_URL;
+      // } else {
+      // this.API_URL = environ/.
+      // console.log('auth-service - this.API_URL', this.API_URL);
+      // }
 
       console.log('auth-service - this.API_URL', this.API_URL);
 
@@ -94,6 +93,7 @@ export class AuthService {
     }
 
     initializeBackendURL(): Observable<any> {
+      console.log('initialize backend url');
       if (environment.production === true) {
         console.log('getting backend URL', `${window.location.origin}/backend`);
 
