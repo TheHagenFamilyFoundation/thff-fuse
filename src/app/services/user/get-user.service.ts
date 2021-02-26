@@ -16,12 +16,12 @@ export class GetUserService {
   }
 
   getBackendURL() {
-    if (!environment.production) {
-      this.API_URL = environment.API_URL;
-    } else {
-      this.API_URL = this.authService.getBackendURL();
-      console.log('GetUserService - this.API_URL', this.API_URL);
-    }
+    // if (!environment.production) {
+    this.API_URL = environment.API_URL;
+    // } else {
+    // this.API_URL = this.authService.getBackendURL();
+    console.log('GetUserService - this.API_URL', this.API_URL);
+    // }
   }
 
   // maybe make a getUser by ID
