@@ -21,6 +21,12 @@ export class RemoveFpItemService {
       console.log('RemoveFpItemService - this.API_URL', this.API_URL);
     }
 
+    if (!this.API_URL.endsWith('/')) {
+      // this.API_URL = this.API_URL;
+    // } else {
+      this.API_URL += '/';
+    }
+
     console.log('RemoveFpItemService - this.API_URL', this.API_URL);
   }
 
@@ -29,6 +35,6 @@ export class RemoveFpItemService {
 
     console.log('data', data);
 
-    return this.http.delete(`${this.API_URL}/fullproposalitem/${data.id}`);
+    return this.http.delete(`${this.API_URL}fullproposalitem/${data.id}`);
   }
 }

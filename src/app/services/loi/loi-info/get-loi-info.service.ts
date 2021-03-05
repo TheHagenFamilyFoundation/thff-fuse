@@ -23,19 +23,25 @@ export class GetLoiInfoService {
       console.log('GetLoiInfoService - this.API_URL', this.API_URL);
     }
 
+    if (!this.API_URL.endsWith('/')) {
+      // this.API_URL = this.API_URL;
+    // } else {
+      this.API_URL += '/';
+    }
+
     console.log('GetLoiInfoService - this.API_URL', this.API_URL);
   }
 
   getLoiInfobyLoiID(loiID: string): Observable<any> {
     console.log('getLoiInfobyLoiID', loiID);
 
-    const urlString = `${this.API_URL}/loiInfo?loi=${loiID}`;
+    const urlString = `${this.API_URL}loiInfo?loi=${loiID}`;
 
     return this.http.get(urlString);
   }
 
   getOrgInfobyID(loiInfoID: string): Observable<any> {
-    const urlString = `${this.API_URL}/loiInfo?loiInfoID=${loiInfoID}`;
+    const urlString = `${this.API_URL}loiInfo?loiInfoID=${loiInfoID}`;
 
     return this.http.get(urlString);
   }

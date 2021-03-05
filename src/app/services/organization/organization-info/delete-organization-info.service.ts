@@ -23,13 +23,19 @@ export class DeleteOrganizationInfoService {
       console.log('DeleteOrganizationInfoService - this.API_URL', this.API_URL);
     }
 
+    if (!this.API_URL.endsWith('/')) {
+      // this.API_URL = this.API_URL;
+    // } else {
+      this.API_URL += '/';
+    }
+
     console.log('DeleteOrganizationInfoService - this.API_URL', this.API_URL);
   }
 
   deleteOrgInfobyOrgInfoID(orgInfoID: string): Observable<any> {
     console.log('deleteOrgInfobyOrgID');
 
-    const urlString = `${this.API_URL}/organizationInfo/${orgInfoID}`;
+    const urlString = `${this.API_URL}organizationInfo/${orgInfoID}`;
 
     return this.http.delete(urlString);
   }

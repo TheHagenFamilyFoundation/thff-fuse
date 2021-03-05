@@ -17,10 +17,16 @@ export class UpdateUserService {
       console.log('UpdateUserService - this.API_URL', this.API_URL);
     }
 
+    if (!this.API_URL.endsWith('/')) {
+      // this.API_URL = this.API_URL;
+    // } else {
+      this.API_URL += '/';
+    }
+
     console.log('UpdateUserService - this.API_URL', this.API_URL);
   }
 
   updateName(data) {
-    return this.http.put(`${this.API_URL}/updateName`, data);
+    return this.http.put(`${this.API_URL}updateName`, data);
   }
 }

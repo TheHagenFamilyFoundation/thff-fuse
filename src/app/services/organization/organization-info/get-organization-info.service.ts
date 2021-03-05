@@ -23,19 +23,25 @@ export class GetOrganizationInfoService {
       console.log('GetOrganizationInfoService - this.API_URL', this.API_URL);
     }
 
+    if (!this.API_URL.endsWith('/')) {
+      // this.API_URL = this.API_URL;
+    // } else {
+      this.API_URL += '/';
+    }
+
     console.log('GetOrganizationInfoService - this.API_URL', this.API_URL);
   }
 
   getOrgInfobyOrgID(orgID: string): Observable<any> {
     console.log('getOrgInfobyOrgID');
 
-    const urlString = `${this.API_URL}/organizationInfo?organization=${orgID}`;
+    const urlString = `${this.API_URL}organizationInfo?organization=${orgID}`;
 
     return this.http.get(urlString);
   }
 
   getOrgInfobyID(orgInfoID: string): Observable<any> {
-    const urlString = `${this.API_URL}/organizationInfo?organizationID=${orgInfoID}`;
+    const urlString = `${this.API_URL}organizationInfo?organizationID=${orgInfoID}`;
 
     return this.http.get(urlString);
   }

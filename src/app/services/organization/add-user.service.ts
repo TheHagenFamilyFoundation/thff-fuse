@@ -21,6 +21,12 @@ export class AddUserService {
       console.log('AddUserService - this.API_URL', this.API_URL);
     }
 
+    if (!this.API_URL.endsWith('/')) {
+      // this.API_URL = this.API_URL;
+    // } else {
+      this.API_URL += '/';
+    }
+
     console.log('AddUserService - this.API_URL', this.API_URL);
   }
 
@@ -29,6 +35,6 @@ export class AddUserService {
 
     console.log('data', data);
 
-    return this.http.post(`${this.API_URL}/addUser`, data);
+    return this.http.post(`${this.API_URL}addUser`, data);
   }
 }

@@ -23,13 +23,19 @@ export class CreateOrganizationInfoService {
       console.log('CreateOrganizationInfoService - this.API_URL', this.API_URL);
     }
 
+    if (!this.API_URL.endsWith('/')) {
+      // this.API_URL = this.API_URL;
+    // } else {
+      this.API_URL += '/';
+    }
+
     console.log('CreateOrganizationInfoService - this.API_URL', this.API_URL);
   }
 
   createOrganizationInfo(body): Observable<any> {
     console.log('createOrganizationInfo');
 
-    const urlString = `${this.API_URL}/organizationInfo`;
+    const urlString = `${this.API_URL}organizationInfo`;
 
     this.body = body;
 

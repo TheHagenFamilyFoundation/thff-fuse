@@ -19,12 +19,18 @@ export class GrantApiService {
       console.log('GrantApiService - this.API_URL', this.API_URL);
     }
 
+    if (!this.API_URL.endsWith('/')) {
+      // this.API_URL = this.API_URL;
+    // } else {
+      this.API_URL += '/';
+    }
+
     console.log('GrantApiService - this.API_URL', this.API_URL);
   }
 
   public getAllGrants(): Observable<any> {
     console.log('getAllGrants');
-    const urlString = `${this.API_URL}/grant?limit=0`;
+    const urlString = `${this.API_URL}grant?limit=0`;
 
     return this.http.get(urlString);
   }// getAllGrants
@@ -32,7 +38,7 @@ export class GrantApiService {
   public getGrantsByYear(year: number): Observable<any> {
     console.log('getGrantsByYear');
 
-    const urlString = `${this.API_URL}/grant?where={\"Year\":${year}}`;
+    const urlString = `${this.API_URL}grant?where={\"Year\":${year}}`;
 
     console.log(urlString);
 
@@ -85,8 +91,13 @@ export class GrantApiService {
       console.log('GrantApiService - this.API_URL', this.API_URL);
     }
 
+    if (!this.API_URL.endsWith('/')) {
+      // this.API_URL = this.API_URL;
+    // } else {
+      this.API_URL += '/';
+    }
 
-    const urlString = `${this.API_URL}/grants/total`;
+    const urlString = `${this.API_URL}grants/total`;
 
     return this.http.get(urlString);
   }// getAllGrants
@@ -102,7 +113,13 @@ export class GrantApiService {
       console.log('GrantApiService - this.API_URL', this.API_URL);
     }
 
-    const urlString = `${this.API_URL}/grants/count`;
+    const urlString = `${this.API_URL}grants/count`;
+
+    if (!this.API_URL.endsWith('/')) {
+      // this.API_URL = this.API_URL;
+    // } else {
+      this.API_URL += '/';
+    }
 
     return this.http.get(urlString);
   }// getAllGrants

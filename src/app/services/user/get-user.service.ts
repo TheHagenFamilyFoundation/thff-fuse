@@ -20,6 +20,13 @@ export class GetUserService {
     this.API_URL = environment.API_URL;
     // } else {
     // this.API_URL = this.authService.getBackendURL();
+
+    if (!this.API_URL.endsWith('/')) {
+      // this.API_URL = this.API_URL;
+    // } else {
+      this.API_URL += '/';
+    }
+
     console.log('GetUserService - this.API_URL', this.API_URL);
     // }
   }
@@ -28,7 +35,7 @@ export class GetUserService {
   getUserbyUsername(username: string): Observable<any> {
     this.getBackendURL();
 
-    const urlString = `${this.API_URL}/user?username=${username}`;
+    const urlString = `${this.API_URL}user?username=${username}`;
 
     return this.http.get(urlString);
   }
@@ -36,7 +43,7 @@ export class GetUserService {
   getUserbyEmail(email: string): Observable<any> {
     this.getBackendURL();
 
-    const urlString = `${this.API_URL}/user?email=${email}`;
+    const urlString = `${this.API_URL}user?email=${email}`;
 
     return this.http.get(urlString);
   }
@@ -44,7 +51,7 @@ export class GetUserService {
   getUserbyID(userID: string): Observable<any> {
     this.getBackendURL();
 
-    const urlString = `${this.API_URL}/user?id=${userID}`;
+    const urlString = `${this.API_URL}user?id=${userID}`;
 
     return this.http.get(urlString);
   }
@@ -52,7 +59,7 @@ export class GetUserService {
   getUsersCount(body: any): Observable<any> {
     this.getBackendURL();
 
-    let urlString = `${this.API_URL}/users/count`;
+    let urlString = `${this.API_URL}users/count`;
 
     if (body.org) {
       urlString += `?org=${body.org}`; // mongo id
@@ -64,7 +71,7 @@ export class GetUserService {
   getAllUsers(paging: any): Observable<any> {
     this.getBackendURL();
 
-    let urlString = `${this.API_URL}/user`;
+    let urlString = `${this.API_URL}user`;
 
     // console.log('paging limit', paging.limit)
     // console.log('paging skip', paging.skip)
@@ -85,7 +92,7 @@ export class GetUserService {
   getDirectors(): Observable<any> {
     this.getBackendURL();
 
-    const urlString = `${this.API_URL}/directors`;
+    const urlString = `${this.API_URL}directors`;
 
     return this.http.get(urlString);
   }
@@ -93,7 +100,7 @@ export class GetUserService {
   getOrgUsers(orgID: string): Observable<any> {
     this.getBackendURL();
 
-    const urlString = `${this.API_URL}/orgUsers/${orgID}`;
+    const urlString = `${this.API_URL}orgUsers/${orgID}`;
 
     return this.http.get(urlString);
   }

@@ -19,11 +19,17 @@ export class PresVotingService {
       console.log('PresVotingService - this.API_URL', this.API_URL);
     }
 
+    if (!this.API_URL.endsWith('/')) {
+      // this.API_URL = this.API_URL;
+    // } else {
+      this.API_URL += '/';
+    }
+
     console.log('PresVotingService - this.API_URL', this.API_URL);
   }
 
   vote(data: any): Observable<any> {
-    const urlString = `${this.API_URL}/vote`;
+    const urlString = `${this.API_URL}vote`;
 
     return this.http.post(urlString, data);
   }

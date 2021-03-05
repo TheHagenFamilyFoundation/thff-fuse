@@ -23,13 +23,19 @@ export class Delete501c3Service {
       console.log('Delete501c3Service - this.API_URL', this.API_URL);
     }
 
+    if (!this.API_URL.endsWith('/')) {
+      // this.API_URL = this.API_URL;
+    // } else {
+      this.API_URL += '/';
+    }
+
     console.log('Delete501c3Service - this.API_URL', this.API_URL);
   }
 
   delete501c3byOrgID(orgID: string): Observable<any> {
     console.log('delete501c3byOrgID');
 
-    const urlString = `${this.API_URL}/delete501c3/${orgID}`;
+    const urlString = `${this.API_URL}delete501c3/${orgID}`;
 
     return this.http.delete(urlString);
   }

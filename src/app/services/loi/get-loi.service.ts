@@ -19,33 +19,39 @@ export class GetLoiService {
       console.log('GetLoiService - this.API_URL', this.API_URL);
     }
 
+    if (!this.API_URL.endsWith('/')) {
+      // this.API_URL = this.API_URL;
+    // } else {
+      this.API_URL += '/';
+    }
+
     console.log('GetLoiService - this.API_URL', this.API_URL);
   }
 
   // model loi
   getLOIbyID(loiID: string): Observable<any> {
-    const urlString = `${this.API_URL}/loi?loiID=${loiID}`;
+    const urlString = `${this.API_URL}loi?loiID=${loiID}`;
 
     return this.http.get(urlString);
   }
 
   // retrieves the LOIs that this user has created
   getLOIbyuserID(userID: string): Observable<any> {
-    const urlString = `${this.API_URL}/loi?userid=${userID}`;
+    const urlString = `${this.API_URL}loi?userid=${userID}`;
 
     return this.http.get(urlString);
   }
 
   // retrieves the LOIs of an org
   getLOIbyorgID(orgID: string): Observable<any> {
-    const urlString = `${this.API_URL}/loi?org=${orgID}`;
+    const urlString = `${this.API_URL}loi?org=${orgID}`;
 
     return this.http.get(urlString);
   }
   /** */
 
   getAllLOIs(): Observable<any> {
-    const urlString = `${this.API_URL}/getLOIs`;
+    const urlString = `${this.API_URL}getLOIs`;
 
     console.log('urlString', urlString);
     return this.http.get(urlString);
@@ -53,7 +59,7 @@ export class GetLoiService {
 
 
   getRankedLOIs(): Observable<any> {
-    const urlString = `${this.API_URL}/getRankedLOIs`;
+    const urlString = `${this.API_URL}getRankedLOIs`;
 
     console.log('urlString', urlString);
     return this.http.get(urlString);
@@ -62,7 +68,7 @@ export class GetLoiService {
   getPresVotes(data: any): Observable<any> {
     console.log('getPresVotes - data', data);
 
-    let urlString = `${this.API_URL}/presVotes`;
+    let urlString = `${this.API_URL}presVotes`;
 
     if (data) {
       urlString += `?vote=${data}`;
@@ -75,7 +81,7 @@ export class GetLoiService {
 
   // get pending votes for user
   getPendingVotes(data: any): Observable<any> {
-    const urlString = `${this.API_URL}/pendingVotes?user=${data}`;
+    const urlString = `${this.API_URL}pendingVotes?user=${data}`;
 
     console.log('getPendingVotes - urlString', urlString);
 

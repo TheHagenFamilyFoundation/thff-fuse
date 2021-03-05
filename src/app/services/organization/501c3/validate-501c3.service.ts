@@ -25,10 +25,16 @@ export class Validate501c3Service {
       console.log('Validate501c3Service - this.API_URL', this.API_URL);
     }
 
+    if (!this.API_URL.endsWith('/')) {
+      // this.API_URL = this.API_URL;
+    // } else {
+      this.API_URL += '/';
+    }
+
     console.log('Validate501c3Service - this.API_URL', this.API_URL);
   }
 
   validate501c3(data): Observable<any> {
-    return this.http.put(`${this.API_URL}/validate501c3`, data);
+    return this.http.put(`${this.API_URL}validate501c3`, data);
   }
 }
