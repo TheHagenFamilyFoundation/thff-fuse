@@ -17,10 +17,16 @@ export class ChangePasswordService {
       console.log('ChangePasswordService - this.API_URL', this.API_URL);
     }
 
+    if (!this.API_URL.endsWith('/')) {
+      // this.API_URL = this.API_URL;
+    // } else {
+      this.API_URL += '/';
+    }
+
     console.log('ChangePasswordService - this.API_URL', this.API_URL);
   }
 
   changePassword(data): Observable<any> {
-    return this.http.put(`${this.API_URL}/changePassword`, data);
+    return this.http.put(`${this.API_URL}changePassword`, data);
   }
 }

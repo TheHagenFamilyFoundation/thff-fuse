@@ -16,9 +16,15 @@ export class SubmissionYearService {
   constructor(private http: HttpClient, private authService: AuthService) {
     if (!environment.production) {
       this.API_URL = environment.API_URL;
-    } else {
+      // } else {
       this.API_URL = this.authService.getBackendURL();
       console.log('SubmissionYearService - this.API_URL', this.API_URL);
+    }
+
+    if (!this.API_URL.endsWith('/')) {
+      // this.API_URL = this.API_URL;
+    // } else {
+      this.API_URL += '/';
     }
 
     console.log('SubmissionYearService - this.API_URL', this.API_URL);
@@ -30,7 +36,7 @@ export class SubmissionYearService {
 
     console.log('data', data);
 
-    return this.http.post(`${this.API_URL}/createFieldopenFp`, data);
+    return this.http.post(`${this.API_URL}createFieldopenFp`, data);
   }
 
   createSubmissionYear(): Observable<any> {
@@ -43,22 +49,22 @@ export class SubmissionYearService {
 
     console.log('data', data);
 
-    return this.http.post(`${this.API_URL}/submissionyear`, data);
+    return this.http.post(`${this.API_URL}submissionyear`, data);
   }
 
   getSubmissionYear(id): Observable<any> {
-    return this.http.get(`${this.API_URL}/submissionyear/${id}`);
+    return this.http.get(`${this.API_URL}submissionyear/${id}`);
   }
 
   // get all submission years
   getSubmissionYears(): Observable<any> {
-    return this.http.get(`${this.API_URL}/submissionyear`);
+    return this.http.get(`${this.API_URL}submissionyear`);
   }
 
   // pass in the submission year id
   closeSubmissionYear(data): Observable<any> {
     console.log('closeSubmissionYear - data', data);
 
-    return this.http.post(`${this.API_URL}/closeSubmissionYear`, data);
+    return this.http.post(`${this.API_URL}closeSubmissionYear`, data);
   }
 }

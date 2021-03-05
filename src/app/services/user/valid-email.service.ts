@@ -17,11 +17,17 @@ export class ValidEmailService {
       console.log('ValidEmailService - this.API_URL', this.API_URL);
     }
 
+    if (!this.API_URL.endsWith('/')) {
+      // this.API_URL = this.API_URL;
+    // } else {
+      this.API_URL += '/';
+    }
+
     console.log('ValidEmailService - this.API_URL', this.API_URL);
   }
 
   checkValidEmail(email: string): Observable<any> {
-    const urlString = `${this.API_URL}/EmailExists?email=${email}`;
+    const urlString = `${this.API_URL}EmailExists?email=${email}`;
 
     return this.http.get(urlString);
   }

@@ -25,6 +25,12 @@ export class Upload501c3Service {
       console.log('Upload501c3Service - this.API_URL', this.API_URL);
     }
 
+    if (!this.API_URL.endsWith('/')) {
+      // this.API_URL = this.API_URL;
+    // } else {
+      this.API_URL += '/';
+    }
+
     console.log('Upload501c3Service - this.API_URL', this.API_URL);
   }
 
@@ -32,7 +38,7 @@ export class Upload501c3Service {
   upload501c3(file: File, orgID: string): Observable<any> {
     console.log('upload501c3');
 
-    const urlString = `${this.API_URL}/upload501c3`;
+    const urlString = `${this.API_URL}upload501c3`;
 
     const formData = new FormData();
     formData.append('avatar', file);

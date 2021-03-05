@@ -17,11 +17,17 @@ export class ValidResetCodeService {
       console.log('ValidResetCodeService - this.API_URL', this.API_URL);
     }
 
+    if (!this.API_URL.endsWith('/')) {
+      // this.API_URL = this.API_URL;
+    // } else {
+      this.API_URL += '/';
+    }
+
     console.log('ValidResetCodeService - this.API_URL', this.API_URL);
   }
 
   checkValidResetCode(resetCode: string): Observable<any> {
-    const urlString = `${this.API_URL}/ResetCodeCheck?resetCode=${resetCode}`;
+    const urlString = `${this.API_URL}ResetCodeCheck?resetCode=${resetCode}`;
 
     return this.http.get(urlString);
   }

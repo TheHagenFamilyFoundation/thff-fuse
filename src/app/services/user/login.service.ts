@@ -17,6 +17,12 @@ export class LoginService {
       console.log('LoginService - this.API_URL', this.API_URL);
     }
 
+    if (!this.API_URL.endsWith('/')) {
+      // this.API_URL = this.API_URL;
+    // } else {
+      this.API_URL += '/';
+    }
+
     console.log('LoginService - this.API_URL', this.API_URL);
   }
 
@@ -31,9 +37,9 @@ export class LoginService {
         }),
       };
 
-      return this.http.put(`${this.API_URL}/login`, data, httpOptions);
+      return this.http.put(`${this.API_URL}login`, data, httpOptions);
     }
 
-    return this.http.put(`${this.API_URL}/login`, data);
+    return this.http.put(`${this.API_URL}login`, data);
   }
 }

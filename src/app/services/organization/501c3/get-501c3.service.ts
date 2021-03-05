@@ -19,11 +19,17 @@ export class Get501c3Service {
       console.log('Get501c3Service - this.API_URL', this.API_URL);
     }
 
+    if (!this.API_URL.endsWith('/')) {
+      // this.API_URL = this.API_URL;
+    // } else {
+      this.API_URL += '/';
+    }
+
     console.log('Get501c3Service - this.API_URL', this.API_URL);
   }
 
   get501c3(orgID: string): Observable<any> {
-    const urlString = `${this.API_URL}/get501c3/${orgID}`;
+    const urlString = `${this.API_URL}get501c3/${orgID}`;
 
     console.log('urlString', urlString);
 
@@ -31,7 +37,7 @@ export class Get501c3Service {
   }
 
   get501c3Info(orgID: string): Observable<any> {
-    const urlString = `${this.API_URL}/org501c3?orgID=${orgID}`;
+    const urlString = `${this.API_URL}org501c3?orgID=${orgID}`;
 
     console.log('urlString', urlString);
 

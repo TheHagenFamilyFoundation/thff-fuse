@@ -19,11 +19,17 @@ export class GetPrevLoiService {
       console.log('GetPrevLoiService - this.API_URL', this.API_URL);
     }
 
+    if (!this.API_URL.endsWith('/')) {
+      // this.API_URL = this.API_URL;
+    // } else {
+      this.API_URL += '/';
+    }
+
     console.log('GetPrevLoiService - this.API_URL', this.API_URL);
   }
 
   getPrevLOI(data: any): Observable<any> {
-    const urlString = `${this.API_URL}/prevLOI?ts=${data.createdAt}&user=${data.user}&filter=${data.filter}`;
+    const urlString = `${this.API_URL}prevLOI?ts=${data.createdAt}&user=${data.user}&filter=${data.filter}`;
 
     return this.http.get(urlString);
   }

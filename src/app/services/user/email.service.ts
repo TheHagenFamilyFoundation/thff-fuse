@@ -18,54 +18,60 @@ export class EmailService {
       console.log('EmailService - this.API_URL', this.API_URL);
     }
 
+    if (!this.API_URL.endsWith('/')) {
+      // this.API_URL = this.API_URL;
+    // } else {
+      this.API_URL += '/';
+    }
+
     console.log('EmailService - this.API_URL', this.API_URL);
   }
 
   // debug
   sendEmail(data) {
-    return this.http.post(`${this.API_URL}/email/`, data);
+    return this.http.post(`${this.API_URL}email/`, data);
     // .map(res => res.json())
     // .catch(this._errorHandler);
   }
 
   // Register User - Created User
   sendRegisterUserEmail(data) {
-    return this.http.post(`${this.API_URL}/sendRegisterUserEmail`, data);
+    return this.http.post(`${this.API_URL}sendRegisterUserEmail`, data);
   }
 
   // Register Organization - Created Organization
   sendRegisterOrganizationEmail(data) {
-    return this.http.post(`${this.API_URL}/sendRegisterOrgEmail`, data);
+    return this.http.post(`${this.API_URL}sendRegisterOrgEmail`, data);
   }
 
   // sends the confirmation email - can be from the type new password component
   // and also from the within the user page
   sendResetPasswordConfirmationEmail(data) {
-    return this.http.post(`${this.API_URL}/sendResetPasswordConfirmationEmail`, data);
+    return this.http.post(`${this.API_URL}sendResetPasswordConfirmationEmail`, data);
   }
 
   sendResetPasswordEmail(data) {
-    return this.http.post(`${this.API_URL}/sendResetPasswordEmail`, data);
+    return this.http.post(`${this.API_URL}sendResetPasswordEmail`, data);
   }
 
   sendUserEmailChangeEmail(data) {
-    return this.http.post(`${this.API_URL}/sendUserEmailChangeEmail`, data);
+    return this.http.post(`${this.API_URL}sendUserEmailChangeEmail`, data);
   }
 
   sendUserNameEmail(data) {
-    return this.http.post(`${this.API_URL}/sendUserNameEmail`, data);
+    return this.http.post(`${this.API_URL}sendUserNameEmail`, data);
   }
 
   sendUser501c3Status(data) {
-    return this.http.post(`${this.API_URL}/send501c3Status`, data);
+    return this.http.post(`${this.API_URL}send501c3Status`, data);
   }
 
   sendValidate501c3(data) {
-    return this.http.post(`${this.API_URL}/sendValidate501c3`, data);
+    return this.http.post(`${this.API_URL}sendValidate501c3`, data);
   }
 
   sendViewLOI(data) {
-    return this.http.post(`${this.API_URL}/sendViewLOI`, data);
+    return this.http.post(`${this.API_URL}sendViewLOI`, data);
   }
 
   private _errorHandler(error: Response) {

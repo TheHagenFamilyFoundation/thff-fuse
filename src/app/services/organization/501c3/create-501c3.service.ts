@@ -25,13 +25,19 @@ export class Create501c3Service {
       console.log('Create501c3Service - this.API_URL', this.API_URL);
     }
 
+    if (!this.API_URL.endsWith('/')) {
+      // this.API_URL = this.API_URL;
+    // } else {
+      this.API_URL += '/';
+    }
+
     console.log('Create501c3Service - this.API_URL', this.API_URL);
   }
 
   create501c3(body): Observable<any> {
     console.log('createOrganization');
 
-    const urlString = `${this.API_URL}/org501c3`;
+    const urlString = `${this.API_URL}org501c3`;
 
     this.body = body;
 

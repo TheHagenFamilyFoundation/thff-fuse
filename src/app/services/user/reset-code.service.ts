@@ -17,6 +17,12 @@ export class ResetCodeService {
       console.log('ResetCodeService - this.API_URL', this.API_URL);
     }
 
+    if (!this.API_URL.endsWith('/')) {
+      // this.API_URL = this.API_URL;
+    // } else {
+      this.API_URL += '/';
+    }
+
     console.log('ResetCodeService - this.API_URL', this.API_URL);
   }
 
@@ -24,6 +30,6 @@ export class ResetCodeService {
     console.log('createResetCode', data);
 
     // data is the user email
-    return this.http.put(`${this.API_URL}/CreateResetCode`, data);
+    return this.http.put(`${this.API_URL}CreateResetCode`, data);
   }
 }

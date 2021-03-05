@@ -23,13 +23,19 @@ export class DeleteLoiInfoService {
       console.log('DeleteLoiInfoService - this.API_URL', this.API_URL);
     }
 
+    if (!this.API_URL.endsWith('/')) {
+      // this.API_URL = this.API_URL;
+    // } else {
+      this.API_URL += '/';
+    }
+
     console.log('DeleteLoiInfoService - this.API_URL', this.API_URL);
   }
 
   deleteLoiInfobyLoiInfoID(loiInfoID: string): Observable<any> {
     console.log('deleteLoiInfobyLoiID');
 
-    const urlString = `${this.API_URL}/loiInfo/${loiInfoID}`;
+    const urlString = `${this.API_URL}loiInfo/${loiInfoID}`;
 
     return this.http.delete(urlString);
   }

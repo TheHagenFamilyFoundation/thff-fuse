@@ -23,13 +23,19 @@ export class CreateLoiService {
       console.log('CreateLoiService - this.API_URL', this.API_URL);
     }
 
+    if (!this.API_URL.endsWith('/')) {
+      // this.API_URL = this.API_URL;
+    // } else {
+      this.API_URL += '/';
+    }
+
     console.log('CreateLoiService - this.API_URL', this.API_URL);
   }
 
   createLOI(body): Observable<any> {
     console.log('createLOI');
 
-    const urlString = `${this.API_URL}/loi`;
+    const urlString = `${this.API_URL}loi`;
 
     this.body = body;
 
