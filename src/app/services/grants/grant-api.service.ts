@@ -113,13 +113,13 @@ export class GrantApiService {
       console.log('GrantApiService - this.API_URL', this.API_URL);
     }
 
-    const urlString = `${this.API_URL}grants/count`;
-
     if (!this.API_URL.endsWith('/')) {
       // this.API_URL = this.API_URL;
     // } else {
       this.API_URL += '/';
     }
+
+    const urlString = `${this.API_URL}grants/count`;
 
     return this.http.get(urlString);
   }// getAllGrants
