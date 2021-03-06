@@ -12,12 +12,12 @@ export class ValidUserNameService {
   BackendURL: any;
 
   constructor(private http: HttpClient, private authService: AuthService) {
-    if (!environment.production) {
-      this.API_URL = environment.API_URL;
-    } else {
-      this.API_URL = this.authService.getBackendURL();
-      console.log('ValidUserNameService - this.API_URL', this.API_URL);
-    }
+    // if (!environment.production) {
+    this.API_URL = environment.API_URL;
+    // } else {
+    //   this.API_URL = this.authService.getBackendURL();
+    console.log('ValidUserNameService - this.API_URL', this.API_URL);
+    // }
 
     if (!this.API_URL.endsWith('/')) {
       // this.API_URL = this.API_URL;
@@ -83,7 +83,7 @@ export class ValidUserNameService {
       // } else {
         this.API_URL += '/';
       }
-      
+
       const urlString = `${this.API_URL}UserNameExists?username=${username}`;
 
       console.log('urlString', urlString);
