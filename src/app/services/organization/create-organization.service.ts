@@ -33,6 +33,12 @@ export class CreateOrganizationService {
   createOrganization(body): Observable<any> {
     console.log('createOrganization');
 
+    if (!this.API_URL.endsWith('/')) {
+      // this.API_URL = this.API_URL;
+    // } else {
+      this.API_URL += '/';
+    }
+
     const urlString = `${this.API_URL}organization`;
 
     this.body = body;
