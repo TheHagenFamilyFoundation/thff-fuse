@@ -28,15 +28,15 @@ export class SetNewPasswordService {
 
   setNewPassword(data): Observable<any> {
     // if (!environment.production) {
-      this.API_URL = environment.API_URL;
+    this.API_URL = environment.API_URL;
     // } else {
-      // this.authService.initializeBackendURL();
+    // this.authService.initializeBackendURL();
 
-      // this.API_URL = this.authService.getBackendURL();
-      console.log('SetNewPasswordService - this.API_URL', this.API_URL);
+    // this.API_URL = this.authService.getBackendURL();
+    console.log('SetNewPasswordService - this.API_URL', this.API_URL);
 
-      // this.authService.clearBackendURL();
-    }
+    // this.authService.clearBackendURL();
+    // }
 
     // console.log(data);
     // data is the user current, new, and confirm passwords
