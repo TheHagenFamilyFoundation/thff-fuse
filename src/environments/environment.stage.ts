@@ -5,7 +5,7 @@ console.log(`environment.prod.ts - url = ${localStorage.getItem('backend_url')}`
 const environment = {
   production: true,
   envName: 'stage',
-  API_URL: 'https://hagenfoundationbackend.herokuapp.com//',
+  API_URL: 'https://hagenfoundationbackend.herokuapp.com/',
   hmr: false,
 };
 
