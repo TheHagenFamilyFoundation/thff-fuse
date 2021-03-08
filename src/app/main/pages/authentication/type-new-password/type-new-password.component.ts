@@ -197,27 +197,27 @@ export class TypeNewPasswordComponent implements OnInit {
               duration: 5000,
             });
 
-            this.getUserService.getUserbyUsername(this.userName)
-              .subscribe(
-                (user) => {
-                  console.log(user);
-                  console.log(user[0].email);
-                  console.log('sending email for reset password confirmation email')
-                  this.email = user[0].email;
+            // this.getUserService.getUserbyUsername(this.userName)
+            //   .subscribe(
+            //     (user) => {
+            //       console.log(user);
+            //       console.log(user[0].email);
+            //       console.log('sending email for reset password confirmation email')
+            //       this.email = user[0].email;
 
-                  this.emailService.sendResetPasswordConfirmationEmail({
-                    from: 'Mailgun Sandbox <postmaster@sandboxXXXXXXXXXXXXXXXXXXXXX.mailgun.org>',
-                    to: this.email,
-                    name: this.userName,
-                    text: message,
-                  })
-                    .subscribe(
-                      // () => { },
-                      (err) => console.log(err),
-                    );
-                },
-                (err) => console.log(err),
-              );
+            //       this.emailService.sendResetPasswordConfirmationEmail({
+            //         from: 'Mailgun Sandbox <postmaster@sandboxXXXXXXXXXXXXXXXXXXXXX.mailgun.org>',
+            //         to: this.email,
+            //         name: this.userName,
+            //         text: message,
+            //       })
+            //         .subscribe(
+            //           // () => { },
+            //           (err) => console.log(err),
+            //         );
+            //     },
+            //     (err) => console.log(err),
+            //   );
 
             this.router.navigate(['/pages/auth/login']);
           } else {
