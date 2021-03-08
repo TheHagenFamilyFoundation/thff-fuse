@@ -202,6 +202,7 @@ export class TypeNewPasswordComponent implements OnInit {
                 (user) => {
                   console.log(user);
                   console.log(user[0].email);
+                  console.log('sending email for reset password confirmation email')
                   this.email = user[0].email;
 
                   this.emailService.sendResetPasswordConfirmationEmail({
