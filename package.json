@@ -17,7 +17,7 @@
         "e2e": "ng e2e",
         "bundle-report": "webpack-bundle-analyzer dist/stats.json",
         "heroku-postbuild": "echo Skip build on Heroku",
-        "postinstall": "ng build --aot --prod"
+        "postinstall": "node post-install.js"
     },
     "private": true,
     "dependencies": {
