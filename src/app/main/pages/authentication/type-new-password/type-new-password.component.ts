@@ -194,7 +194,7 @@ export class TypeNewPasswordComponent implements OnInit {
 
           if (reset) {
             const snackBarRef = this.snackBar.open(message, 'OK', {
-              duration: 3000,
+              duration: 5000,
             });
 
             this.getUserService.getUserbyUsername(this.userName)
