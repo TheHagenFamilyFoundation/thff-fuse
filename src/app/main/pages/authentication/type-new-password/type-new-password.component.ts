@@ -186,7 +186,7 @@ export class TypeNewPasswordComponent implements OnInit {
           const { message } = data;
 
           if (message) {
-            console.log(`message: ${message}`);
+            console.log(`reset return - message: ${message}`);
             this.ShowMessage = true;
 
             this.message = message;
