@@ -218,7 +218,7 @@ export class TypeNewPasswordComponent implements OnInit {
                 (err) => console.log(err),
               );
 
-            this.router.navigate(['/login']);
+            this.router.navigate(['/pages/auth/login']);
           } else {
             // error message
 
