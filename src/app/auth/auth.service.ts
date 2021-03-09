@@ -117,7 +117,7 @@ export class AuthService {
     // }
 
     initializeBackendURL(): Observable<any> {
-      console.log('initialize backend url');
+      console.log('auth-service - initialize backend url');
       if (environment.production === true) {
         console.log('getting backend URL', `${window.location.origin}/backend`);
 
