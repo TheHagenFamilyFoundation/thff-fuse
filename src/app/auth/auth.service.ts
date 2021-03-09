@@ -129,9 +129,9 @@ export class AuthService {
       return this.jwtHelper.isTokenExpired(this.tokenGetter());
     }
 
-    setBackendURL(): Observable<any> {
+    // setBackendURL(): Observable<any> {
 
-    }
+    // }
 
     initializeBackendURL(): Observable<any> {
       console.log('initialize backend url');
