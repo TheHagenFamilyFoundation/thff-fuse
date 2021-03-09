@@ -39,23 +39,6 @@ export class AuthService {
         this.API_URL = this.getBackendURL();
       }
 
-      if (!this.API_URL) {
-        this.initializeBackendURL().subscribe(
-          (backendUrl) => {
-            console.log('type new password - backendUrl', backendUrl.url);
-
-            if (backendUrl) {
-              sessionStorage.setItem('backend_url', backendUrl.url);
-            } else {
-              console.log('Can´t find the backend URL, using a failover value');
-              sessionStorage.setItem('backend_url', 'https://failover-url.com');
-            }
-
-            this.API_URL = backendUrl.url;
-          },
-        );
-      }
-
       console.log('auth-service - this.API_URL', this.API_URL);
 
       if (!this.API_URL.endsWith('/')) {
