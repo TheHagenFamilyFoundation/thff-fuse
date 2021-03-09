@@ -11,12 +11,12 @@ export class EmailService {
   API_URL: string;
 
   constructor(private http: HttpClient, private authService: AuthService) {
-    // if (!environment.production) {
-    this.API_URL = environment.API_URL;
-    // } else {
-    // this.API_URL = this.authService.getBackendURL();
-    console.log('EmailService - this.API_URL', this.API_URL);
-    // }
+    if (!environment.production) {
+      this.API_URL = environment.API_URL;
+    } else {
+      this.API_URL = this.authService.getBackendURL();
+      console.log('EmailService - this.API_URL', this.API_URL);
+    }
 
     if (!this.API_URL.endsWith('/')) {
       // this.API_URL = this.API_URL;

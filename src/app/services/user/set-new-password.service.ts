@@ -10,12 +10,12 @@ export class SetNewPasswordService {
   API_URL: string;
 
   constructor(private http: HttpClient, private authService: AuthService) {
-    // if (!environment.production) {
-    this.API_URL = environment.API_URL;
-    // } else {
-    // this.API_URL = this.authService.getBackendURL();
-    // console.log('SetNewPasswordService - this.API_URL', this.API_URL);
-    // }
+    if (!environment.production) {
+      this.API_URL = environment.API_URL;
+    } else {
+      this.API_URL = this.authService.getBackendURL();
+      console.log('SetNewPasswordService - this.API_URL', this.API_URL);
+    }
 
     if (!this.API_URL.endsWith('/')) {
       // this.API_URL = this.API_URL;
@@ -27,16 +27,12 @@ export class SetNewPasswordService {
   }
 
   setNewPassword(data): Observable<any> {
-    // if (!environment.production) {
-    this.API_URL = environment.API_URL;
-    // } else {
-    // this.authService.initializeBackendURL();
-
-    // this.API_URL = this.authService.getBackendURL();
-    console.log('SetNewPasswordService - this.API_URL', this.API_URL);
-
-    // this.authService.clearBackendURL();
-    // }
+    if (!environment.production) {
+      this.API_URL = environment.API_URL;
+    } else {
+      this.API_URL = this.authService.getBackendURL();
+      console.log('set new password - this.API_URL', this.API_URL);
+    }
 
     // console.log(data);
     // data is the user current, new, and confirm passwords

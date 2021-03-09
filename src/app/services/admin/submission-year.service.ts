@@ -16,7 +16,7 @@ export class SubmissionYearService {
   constructor(private http: HttpClient, private authService: AuthService) {
     if (!environment.production) {
       this.API_URL = environment.API_URL;
-      // } else {
+    } else {
       this.API_URL = this.authService.getBackendURL();
       console.log('SubmissionYearService - this.API_URL', this.API_URL);
     }

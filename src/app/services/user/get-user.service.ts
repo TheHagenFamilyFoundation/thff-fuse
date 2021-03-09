@@ -16,11 +16,11 @@ export class GetUserService {
   }
 
   getBackendURL() {
-    // if (!environment.production) {
-    this.API_URL = environment.API_URL;
-    // } else {
-    // this.API_URL = this.authService.getBackendURL();
-
+    if (!environment.production) {
+      this.API_URL = environment.API_URL;
+    } else {
+      this.API_URL = this.authService.getBackendURL();
+    }
     if (!this.API_URL.endsWith('/')) {
       // this.API_URL = this.API_URL;
     // } else {
