@@ -30,7 +30,7 @@ export class GetCSRFTokenService {
   }
 
   getCSRF(): Observable<any> {
-    const urlString = `${this.API_URL}/csrfToken`;
+    const urlString = `${this.API_URL}csrfToken`;
 
     return this.http.get(urlString);
   }

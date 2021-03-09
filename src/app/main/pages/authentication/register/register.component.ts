@@ -91,6 +91,10 @@ export class RegisterComponent implements OnInit, OnDestroy {
         console.log('RegisterComponent - this.API_URL', this.API_URL);
       }
 
+      if (!this.API_URL.endsWith('/')) {
+        this.API_URL += '/';
+      }
+
       console.log('RegisterComponent - this.API_URL', this.API_URL);
 
       // Set the private defaults
@@ -131,7 +135,11 @@ export class RegisterComponent implements OnInit, OnDestroy {
 
       this.Submitted = true;
 
-      const urlString = `${this.API_URL}/user`;
+      if (!this.API_URL.endsWith('/')) {
+        this.API_URL += '/';
+      }
+
+      const urlString = `${this.API_URL}user`;
       const { username } = this.registerForm.value;
       const { email } = this.registerForm.value;
       const { password } = this.registerForm.value;
