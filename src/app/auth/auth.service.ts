@@ -39,7 +39,7 @@ export class AuthService {
         this.API_URL = this.getBackendURL();
       }
 
-      if (this.API_URL === '') {
+      if (!this.API_URL) {
         this.initializeBackendURL().subscribe(
           (backendUrl) => {
             console.log('type new password - backendUrl', backendUrl.url);
