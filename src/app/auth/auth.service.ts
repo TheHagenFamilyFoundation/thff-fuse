@@ -31,7 +31,7 @@ export class AuthService {
     constructor(private http: HttpClient, private router: Router) {
       console.log('auth service constructor');
       console.log('auth service - environment', environment);
-
+      this.initializeBackendURL();
       if (!environment.production) {
         console.log('production env', environment.production);
         this.API_URL = environment.API_URL;
