@@ -231,6 +231,8 @@ export class TypeNewPasswordComponent implements OnInit {
   }// end of setNewPassword
 
   getBackendURL() {
+    console.log('type new password getBackendURL');
+
     if (environment.production) {
       this.authService.initializeBackendURL().subscribe(
         (backendUrl) => {
