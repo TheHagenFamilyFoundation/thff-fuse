@@ -69,6 +69,10 @@ export class LoginComponent implements OnInit {
         console.log('LoginComponent - this.API_URL', this.API_URL);
       }
 
+      if (!this.API_URL.endsWith('/')) {
+        this.API_URL += '/';
+      }
+
       console.log('LoginComponent - this.API_URL', this.API_URL);
 
       // redirect to home if already logged in
@@ -127,7 +131,7 @@ export class LoginComponent implements OnInit {
       // }
 
       // login url
-      const urlString = `${this.API_URL}/login`;
+      const urlString = `${this.API_URL}login`;
 
       const body = {
         email,
