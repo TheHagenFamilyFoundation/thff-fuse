@@ -74,7 +74,7 @@ export class AuthService {
 
       console.log('login - this.API_URL', this.API_URL);
 
-      return this.http.put<any>(`${this.API_URL}/login`, data)
+      return this.http.put<any>(`${this.API_URL}login`, data)
         .pipe(map((result) => {
           // result = user
           console.log('authService - login - result', result);
