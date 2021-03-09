@@ -12,6 +12,7 @@ import { environment } from '../../environments/environment';
 import { JwtHelperService } from '@auth0/angular-jwt';
 
 import { User } from '../_models/user';
+import { Environment } from '../_models/environment';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
@@ -23,16 +24,19 @@ export class AuthService {
 
     public currentUser: Observable<User>;
 
+    private environmentSubject: BehaviorSubject<Environment>;
+
+    public apiURL: Observable<Environment>;
+
     constructor(private http: HttpClient, private router: Router) {
       console.log('auth service constructor');
       console.log('auth service - environment', environment);
+
       if (!environment.production) {
         console.log('production env', environment.production);
-
-        const backend = this.initializeBackendURL();
-        this.API_URL = backend.url;
-      } else {
         this.API_URL = environment.API_URL;
+      } else {
+        this.API_URL = this.getBackendURL();
       }
 
       console.log('auth-service - this.API_URL', this.API_URL);
@@ -43,9 +47,16 @@ export class AuthService {
 
       this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
       this.currentUser = this.currentUserSubject.asObservable();
+
+      this.environmentSubject = new BehaviorSubject<Environment>(JSON.parse(localStorage.getItem('backend_url')));
+      this.apiURL = this.environmentSubject.asObservable();
     }
 
     public get currentUserValue(): any {
+      return this.currentUserSubject.value;
+    }
+
+    public get envURL(): any {
       return this.currentUserSubject.value;
     }
 
