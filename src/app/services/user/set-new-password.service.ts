@@ -17,6 +17,12 @@ export class SetNewPasswordService {
       console.log('SetNewPasswordService - this.API_URL', this.API_URL);
     }
 
+    if (!this.API_URL.endsWith('/')) {
+      // this.API_URL = this.API_URL;
+    // } else {
+      this.API_URL += '/';
+    }
+
     console.log('SetNewPasswordService - this.API_URL', this.API_URL);
   }
 
@@ -24,16 +30,12 @@ export class SetNewPasswordService {
     if (!environment.production) {
       this.API_URL = environment.API_URL;
     } else {
-      this.authService.initializeBackendURL();
-
       this.API_URL = this.authService.getBackendURL();
-      console.log('SetNewPasswordService - this.API_URL', this.API_URL);
-
-      this.authService.clearBackendURL();
+      console.log('set new password - this.API_URL', this.API_URL);
     }
 
     // console.log(data);
     // data is the user current, new, and confirm passwords
-    return this.http.put(`${this.API_URL}/setNewPassword`, data);
+    return this.http.put(`${this.API_URL}setNewPassword`, data);
   }
 }

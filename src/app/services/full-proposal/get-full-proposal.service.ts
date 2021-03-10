@@ -19,30 +19,36 @@ export class GetFullProposalService {
       console.log('GetFullProposalService - this.API_URL', this.API_URL);
     }
 
+    if (!this.API_URL.endsWith('/')) {
+      // this.API_URL = this.API_URL;
+    // } else {
+      this.API_URL += '/';
+    }
+
     console.log('GetFullProposalService - this.API_URL', this.API_URL);
   }
 
   getFullProposalByID(fpID: string): Observable<any> {
-    const urlString = `${this.API_URL}/fullproposal?fpID=${fpID}`;
+    const urlString = `${this.API_URL}fullproposal?fpID=${fpID}`;
 
     return this.http.get(urlString);
   }
 
   getFullProposalsByOrgID(orgID: string): Observable<any> {
-    const urlString = `${this.API_URL}/fullproposal?organization=${orgID}`;
+    const urlString = `${this.API_URL}fullproposal?organization=${orgID}`;
 
     return this.http.get(urlString);
   }
 
   getFullProposalsByLOIID(loi: any): Observable<any> {
-    const urlString = `${this.API_URL}/fullproposal?loi=${loi.id}`;
+    const urlString = `${this.API_URL}fullproposal?loi=${loi.id}`;
 
     return this.http.get(urlString);
   }
 
   // get all full proposals - used for directors
   getAllFPs(): Observable<any> {
-    let urlString = `${this.API_URL}/fullproposal`;
+    let urlString = `${this.API_URL}fullproposal`;
 
     const today = new Date();
     const currentYear = today.getFullYear();

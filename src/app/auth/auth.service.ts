@@ -26,6 +26,7 @@ export class AuthService {
     constructor(private http: HttpClient, private router: Router) {
       console.log('auth service constructor');
       console.log('auth service - environment', environment);
+      this.initializeBackendURL();
       if (!environment.production) {
         console.log('production env', environment.production);
         this.API_URL = environment.API_URL;
@@ -62,7 +63,7 @@ export class AuthService {
 
       console.log('login - this.API_URL', this.API_URL);
 
-      return this.http.put<any>(`${this.API_URL}/login`, data)
+      return this.http.put<any>(`${this.API_URL}login`, data)
         .pipe(map((result) => {
           // result = user
           console.log('authService - login - result', result);

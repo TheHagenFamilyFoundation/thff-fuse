@@ -19,11 +19,17 @@ export class GetNextLoiService {
       console.log('GetNextLoiService - this.API_URL', this.API_URL);
     }
 
+    if (!this.API_URL.endsWith('/')) {
+      // this.API_URL = this.API_URL;
+    // } else {
+      this.API_URL += '/';
+    }
+
     console.log('GetNextLoiService - this.API_URL', this.API_URL);
   }
 
   getNextLOI(data: any): Observable<any> {
-    const urlString = `${this.API_URL}/nextLOI?ts=${data.createdAt}&user=${data.user}&filter=${data.filter}`;
+    const urlString = `${this.API_URL}nextLOI?ts=${data.createdAt}&user=${data.user}&filter=${data.filter}`;
 
     console.log('urlString', urlString);
 

@@ -21,6 +21,12 @@ export class NotifyRejectService {
       console.log('NotifyRejectService - this.API_URL', this.API_URL);
     }
 
+    if (!this.API_URL.endsWith('/')) {
+      // this.API_URL = this.API_URL;
+    // } else {
+      this.API_URL += '/';
+    }
+
     console.log('NotifyRejectService - this.API_URL', this.API_URL);
   }
 
@@ -30,6 +36,6 @@ export class NotifyRejectService {
 
     console.log('data', data);
 
-    return this.http.post(`${this.API_URL}/notifyReject`, data);
+    return this.http.post(`${this.API_URL}notifyReject`, data);
   }
 }

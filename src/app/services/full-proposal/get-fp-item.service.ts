@@ -19,19 +19,25 @@ export class GetFpItemService {
       console.log('GetFpItemService - this.API_URL', this.API_URL);
     }
 
+    if (!this.API_URL.endsWith('/')) {
+      // this.API_URL = this.API_URL;
+    // } else {
+      this.API_URL += '/';
+    }
+
     console.log('GetFpItemService - this.API_URL', this.API_URL);
   }
 
   // not used
   getFullProposalItemByID(fpItemID: string): Observable<any> {
-    const urlString = `${this.API_URL}/fullproposalitem?fpItemID=${fpItemID}`;
+    const urlString = `${this.API_URL}fullproposalitem?fpItemID=${fpItemID}`;
 
     return this.http.get(urlString);
   }
 
   // mongo id
   getFullProposalItemsByFPID(fp: string): Observable<any> {
-    const urlString = `${this.API_URL}/fullproposalitem?fp=${fp}`;
+    const urlString = `${this.API_URL}fullproposalitem?fp=${fp}`;
 
     console.log('getFullProposalItemsByFPID - urlString', urlString);
 

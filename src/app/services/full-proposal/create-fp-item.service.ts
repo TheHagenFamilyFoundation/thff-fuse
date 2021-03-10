@@ -21,6 +21,12 @@ export class CreateFpItemService {
       console.log('CreateFpItemService - this.API_URL', this.API_URL);
     }
 
+    if (!this.API_URL.endsWith('/')) {
+      // this.API_URL = this.API_URL;
+    // } else {
+      this.API_URL += '/';
+    }
+
     console.log('CreateFpItemService - this.API_URL', this.API_URL);
   }
 
@@ -29,7 +35,7 @@ export class CreateFpItemService {
 
     console.log('data', data);
 
-    return this.http.post(`${this.API_URL}/fullproposalitem`, data);
+    return this.http.post(`${this.API_URL}fullproposalitem`, data);
   }
 
   createFPItems(fpItems): Observable<any> {
@@ -39,6 +45,6 @@ export class CreateFpItemService {
 
     console.log('data', data);
 
-    return this.http.post(`${this.API_URL}/fpItems`, data);
+    return this.http.post(`${this.API_URL}fpItems`, data);
   }
 }

@@ -186,7 +186,7 @@ export class TypeNewPasswordComponent implements OnInit {
           const { message } = data;
 
           if (message) {
-            console.log(`message: ${message}`);
+            console.log(`reset return - message: ${message}`);
             this.ShowMessage = true;
 
             this.message = message;
@@ -194,31 +194,32 @@ export class TypeNewPasswordComponent implements OnInit {
 
           if (reset) {
             const snackBarRef = this.snackBar.open(message, 'OK', {
-              duration: 3000,
+              duration: 5000,
             });
 
-            this.getUserService.getUserbyUsername(this.userName)
-              .subscribe(
-                (user) => {
-                  console.log(user);
-                  console.log(user[0].email);
-                  this.email = user[0].email;
+            // this.getUserService.getUserbyUsername(this.userName)
+            //   .subscribe(
+            //     (user) => {
+            //       console.log(user);
+            //       console.log(user[0].email);
+            //       console.log('sending email for reset password confirmation email')
+            //       this.email = user[0].email;
 
-                  this.emailService.sendResetPasswordConfirmationEmail({
-                    from: 'Mailgun Sandbox <postmaster@sandboxXXXXXXXXXXXXXXXXXXXXX.mailgun.org>',
-                    to: this.email,
-                    name: this.userName,
-                    text: message,
-                  })
-                    .subscribe(
-                      // () => { },
-                      (err) => console.log(err),
-                    );
-                },
-                (err) => console.log(err),
-              );
+            //       this.emailService.sendResetPasswordConfirmationEmail({
+            //         from: 'Mailgun Sandbox <postmaster@sandboxXXXXXXXXXXXXXXXXXXXXX.mailgun.org>',
+            //         to: this.email,
+            //         name: this.userName,
+            //         text: message,
+            //       })
+            //         .subscribe(
+            //           // () => { },
+            //           (err) => console.log(err),
+            //         );
+            //     },
+            //     (err) => console.log(err),
+            //   );
 
-            this.router.navigate(['/login']);
+            this.router.navigate(['/pages/auth/login']);
           } else {
             // error message
 
@@ -230,10 +231,12 @@ export class TypeNewPasswordComponent implements OnInit {
   }// end of setNewPassword
 
   getBackendURL() {
+    console.log('type new password getBackendURL');
+
     if (environment.production) {
       this.authService.initializeBackendURL().subscribe(
         (backendUrl) => {
-          console.log('backendUrl', backendUrl.url);
+          console.log('type new password - backendUrl', backendUrl.url);
 
           if (backendUrl) {
             sessionStorage.setItem('backend_url', backendUrl.url);

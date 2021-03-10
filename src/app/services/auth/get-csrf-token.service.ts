@@ -20,11 +20,17 @@ export class GetCSRFTokenService {
       console.log('GetCSRFTokenService - this.API_URL', this.API_URL);
     }
 
+    if (!this.API_URL.endsWith('/')) {
+      // this.API_URL = this.API_URL;
+    // } else {
+      this.API_URL += '/';
+    }
+
     console.log('GetCSRFTokenService - this.API_URL', this.API_URL);
   }
 
   getCSRF(): Observable<any> {
-    const urlString = `${this.API_URL}/csrfToken`;
+    const urlString = `${this.API_URL}csrfToken`;
 
     return this.http.get(urlString);
   }

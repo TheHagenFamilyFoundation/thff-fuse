@@ -64,9 +64,14 @@ export class LoginComponent implements OnInit {
 
       if (!environment.production) {
         this.API_URL = environment.API_URL;
+      } else {
+        this.API_URL = this.authService.getBackendURL();
+        console.log('LoginComponent - this.API_URL', this.API_URL);
       }
 
-      this.getBackendURL();
+      if (!this.API_URL.endsWith('/')) {
+        this.API_URL += '/';
+      }
 
       console.log('LoginComponent - this.API_URL', this.API_URL);
 
@@ -126,7 +131,7 @@ export class LoginComponent implements OnInit {
       // }
 
       // login url
-      const urlString = `${this.API_URL}/login`;
+      const urlString = `${this.API_URL}login`;
 
       const body = {
         email,

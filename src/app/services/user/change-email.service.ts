@@ -17,10 +17,16 @@ export class ChangeEmailService {
       console.log('ChangeEmailService - this.API_URL', this.API_URL);
     }
 
+    if (!this.API_URL.endsWith('/')) {
+      // this.API_URL = this.API_URL;
+    // } else {
+      this.API_URL += '/';
+    }
+
     console.log('ChangeEmailService - this.API_URL', this.API_URL);
   }
 
   changeEmail(data) {
-    return this.http.put(`${this.API_URL}/changeEmail`, data);
+    return this.http.put(`${this.API_URL}changeEmail`, data);
   }
 }

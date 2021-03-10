@@ -14,7 +14,13 @@ export class GetOrganizationService {
       this.API_URL = environment.API_URL;
     } else {
       this.API_URL = this.authService.getBackendURL();
-      console.log('GetOrganizationService - this.API_URL', this.API_URL);
+      console.log('get org service - this.API_URL', this.API_URL);
+    }
+
+    if (!this.API_URL.endsWith('/')) {
+      // this.API_URL = this.API_URL;
+    // } else {
+      this.API_URL += '/';
     }
 
     console.log('GetOrganizationService - this.API_URL', this.API_URL);
@@ -22,25 +28,25 @@ export class GetOrganizationService {
 
   // get Organization by director
   getOrgbyDirector(username: string): Observable<any> {
-    const urlString = `${this.API_URL}/organization?director=${username}`;
+    const urlString = `${this.API_URL}organization?director=${username}`;
 
     return this.http.get(urlString);
   }
 
   getOrgbyName(name: string): Observable<any> {
-    const urlString = `${this.API_URL}/organization?name=${name}`;
+    const urlString = `${this.API_URL}organization?name=${name}`;
 
     return this.http.get(urlString);
   }
 
   getOrgbyID(orgID: string): Observable<any> {
-    const urlString = `${this.API_URL}/organization?organizationID=${orgID}`;
+    const urlString = `${this.API_URL}organization?organizationID=${orgID}`;
 
     return this.http.get(urlString);
   }
 
   getAllOrgs(): Observable<any> {
-    const urlString = `${this.API_URL}/organization?limit=500`;
+    const urlString = `${this.API_URL}organization?limit=500`;
 
     return this.http.get(urlString);
   }

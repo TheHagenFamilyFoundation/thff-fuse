@@ -131,7 +131,7 @@ export class ViewOrganizationsComponent implements OnInit {
 
   createOrganization() {
     console.log('create organization');
-    this.router.navigate(['/create-organization']);
+    this.router.navigate(['pages/create-organization']);
 
     // modal
     // this.openCreateOrgDialog();

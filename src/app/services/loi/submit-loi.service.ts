@@ -19,12 +19,18 @@ export class SubmitLoiService {
       console.log('SubmitLoiService - this.API_URL', this.API_URL);
     }
 
+    if (!this.API_URL.endsWith('/')) {
+      // this.API_URL = this.API_URL;
+    // } else {
+      this.API_URL += '/';
+    }
+
     console.log('SubmitLoiService - this.API_URL', this.API_URL);
   }
 
   submitLOI(loiID: string): Observable<any> {
     console.log('loiID', loiID);
 
-    return this.http.get(`${this.API_URL}/submitLOI/${loiID}`);
+    return this.http.get(`${this.API_URL}submitLOI/${loiID}`);
   }
 }

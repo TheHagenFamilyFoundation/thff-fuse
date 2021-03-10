@@ -21,12 +21,18 @@ export class EditFpItemService {
       console.log('EditFpItemService - this.API_URL', this.API_URL);
     }
 
+    if (!this.API_URL.endsWith('/')) {
+      // this.API_URL = this.API_URL;
+    // } else {
+      this.API_URL += '/';
+    }
+
     console.log('EditFpItemService - this.API_URL', this.API_URL);
   }
 
   editFPItem(body): Observable<any> {
     console.log('body', body);
 
-    return this.http.patch(`${this.API_URL}/fullproposalitem/${body.id}`, body);
+    return this.http.patch(`${this.API_URL}fullproposalitem/${body.id}`, body);
   }
 }
