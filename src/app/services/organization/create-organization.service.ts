@@ -21,24 +21,18 @@ export class CreateOrganizationService {
       console.log('CreateOrganizationService - this.API_URL', this.API_URL);
     }
 
-    if (!this.API_URL.endsWith('/')) {
-      // this.API_URL = this.API_URL;
-    // } else {
+    if (!this.API_URL && !this.API_URL.endsWith('/')) {
       this.API_URL += '/';
     }
-
     console.log('CreateOrganizationService - this.API_URL', this.API_URL);
   }
 
   createOrganization(body): Observable<any> {
     console.log('createOrganization');
 
-    if (!this.API_URL.endsWith('/')) {
-      // this.API_URL = this.API_URL;
-    // } else {
+    if (!this.API_URL && !this.API_URL.endsWith('/')) {
       this.API_URL += '/';
     }
-
     const urlString = `${this.API_URL}organization`;
 
     this.body = body;

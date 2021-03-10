@@ -21,9 +21,7 @@ export class RemoveFpItemService {
       console.log('RemoveFpItemService - this.API_URL', this.API_URL);
     }
 
-    if (!this.API_URL.endsWith('/')) {
-      // this.API_URL = this.API_URL;
-    // } else {
+    if (!this.API_URL && !this.API_URL.endsWith('/')) {
       this.API_URL += '/';
     }
 

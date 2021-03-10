@@ -21,12 +21,9 @@ export class GetUserService {
     } else {
       this.API_URL = this.authService.getBackendURL();
     }
-    if (!this.API_URL.endsWith('/')) {
-      // this.API_URL = this.API_URL;
-    // } else {
+    if (!this.API_URL && !this.API_URL.endsWith('/')) {
       this.API_URL += '/';
     }
-
     console.log('GetUserService - this.API_URL', this.API_URL);
     // }
   }

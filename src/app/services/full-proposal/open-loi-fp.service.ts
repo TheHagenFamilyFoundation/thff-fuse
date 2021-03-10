@@ -21,7 +21,7 @@ export class OpenLoiFpService {
       console.log('OpenLoiFpService - this.API_URL', this.API_URL);
     }
 
-    if (!this.API_URL.endsWith('/')) {
+    if (!this.API_URL && !this.API_URL.endsWith('/')) {
       this.API_URL += '/';
     }
 
