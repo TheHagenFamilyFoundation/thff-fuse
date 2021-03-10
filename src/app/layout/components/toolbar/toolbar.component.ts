@@ -133,8 +133,8 @@ export class ToolbarComponent implements OnInit, OnDestroy {
       this.authService.currentUser.subscribe((x) => {
         console.log('toolbar - constructor - x', x);
         this.currentUser = x;
-        if (this.currentUser && this.currentUser.user) {
-          this.user = this.currentUser.user;
+        if (this.currentUser && this.currentUser) {
+          this.user = this.currentUser;
         } else {
           console.error('toolbar component - no user');
         }
