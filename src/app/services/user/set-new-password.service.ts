@@ -17,9 +17,7 @@ export class SetNewPasswordService {
       console.log('SetNewPasswordService - this.API_URL', this.API_URL);
     }
 
-    if (!this.API_URL.endsWith('/')) {
-      // this.API_URL = this.API_URL;
-    // } else {
+    if (!this.API_URL && !this.API_URL.endsWith('/')) {
       this.API_URL += '/';
     }
 

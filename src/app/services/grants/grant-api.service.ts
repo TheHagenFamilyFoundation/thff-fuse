@@ -19,9 +19,7 @@ export class GrantApiService {
       console.log('GrantApiService - this.API_URL', this.API_URL);
     }
 
-    if (!this.API_URL.endsWith('/')) {
-      // this.API_URL = this.API_URL;
-    // } else {
+    if (!this.API_URL && !this.API_URL.endsWith('/')) {
       this.API_URL += '/';
     }
 
@@ -30,9 +28,7 @@ export class GrantApiService {
 
   public getAllGrants(): Observable<any> {
     console.log('getAllGrants');
-    if (!this.API_URL.endsWith('/')) {
-      // this.API_URL = this.API_URL;
-    // } else {
+    if (!this.API_URL && !this.API_URL.endsWith('/')) {
       this.API_URL += '/';
     }
 
@@ -44,9 +40,7 @@ export class GrantApiService {
   public getGrantsByYear(year: number): Observable<any> {
     console.log('getGrantsByYear');
 
-    if (!this.API_URL.endsWith('/')) {
-      // this.API_URL = this.API_URL;
-    // } else {
+    if (!this.API_URL && !this.API_URL.endsWith('/')) {
       this.API_URL += '/';
     }
 
@@ -103,12 +97,9 @@ export class GrantApiService {
       console.log('GrantApiService - this.API_URL', this.API_URL);
     }
 
-    if (!this.API_URL.endsWith('/')) {
-      // this.API_URL = this.API_URL;
-    // } else {
+    if (!this.API_URL && !this.API_URL.endsWith('/')) {
       this.API_URL += '/';
     }
-
     const urlString = `${this.API_URL}grants/total`;
 
     return this.http.get(urlString);
@@ -125,9 +116,7 @@ export class GrantApiService {
       console.log('GrantApiService - this.API_URL', this.API_URL);
     }
 
-    if (!this.API_URL.endsWith('/')) {
-      // this.API_URL = this.API_URL;
-    // } else {
+    if (!this.API_URL && !this.API_URL.endsWith('/')) {
       this.API_URL += '/';
     }
 

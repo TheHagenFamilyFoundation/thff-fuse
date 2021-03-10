@@ -19,9 +19,7 @@ export class ValidUserNameService {
       console.log('ValidUserNameService - this.API_URL', this.API_URL);
     }
 
-    if (!this.API_URL.endsWith('/')) {
-      // this.API_URL = this.API_URL;
-    // } else {
+    if (!this.API_URL && !this.API_URL.endsWith('/')) {
       this.API_URL += '/';
     }
 
@@ -66,12 +64,9 @@ export class ValidUserNameService {
 
           this.API_URL = backendUrl.url;
 
-          if (!this.API_URL.endsWith('/')) {
-            // this.API_URL = this.API_URL;
-          // } else {
+          if (!this.API_URL && !this.API_URL.endsWith('/')) {
             this.API_URL += '/';
           }
-
           const urlString = `${this.API_URL}UserNameExists?username=${username}`;
 
           console.log('urlString', urlString);
@@ -83,9 +78,7 @@ export class ValidUserNameService {
       this.API_URL = this.authService.getBackendURL();
       console.log('ValidUserNameService - this.API_URL', this.API_URL);
 
-      if (!this.API_URL.endsWith('/')) {
-        // this.API_URL = this.API_URL;
-      // } else {
+      if (!this.API_URL && !this.API_URL.endsWith('/')) {
         this.API_URL += '/';
       }
 
