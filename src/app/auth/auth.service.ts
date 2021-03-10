@@ -34,6 +34,10 @@ export class AuthService {
         console.log('auth-service - this.API_URL', this.API_URL);
       }
 
+      if (!this.API_URL && !this.API_URL.endsWith('/')) {
+        this.API_URL += '/';
+      }
+
       console.log('auth-service - this.API_URL', this.API_URL);
 
       this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
