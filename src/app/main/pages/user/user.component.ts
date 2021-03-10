@@ -47,7 +47,7 @@ export class UserComponent implements OnInit {
     this.fuseTranslationLoaderService.loadTranslations(english, turkish);
 
     this.authService.currentUser.subscribe((x) => {
-      console.log('home - constructor - x', x);
+      console.log('user component - constructor - x', x);
       this.currentUser = x;
       if (this.currentUser && this.currentUser.user) {
         this.user = this.currentUser.user;
@@ -61,14 +61,13 @@ export class UserComponent implements OnInit {
   ngOnInit() {
     console.log('inside user component ng oninit');
 
-    console.log('currentUser - ', localStorage.getItem('currentUser'));
+    console.log('user component - currentUser - ', localStorage.getItem('currentUser'));
 
     if (!localStorage.getItem('currentUser')) {
       console.log('user component no currentUser - navigate to login');
       // not logged in so redirect to login page
       this.router.navigate(['/login']);
     }
-
 
     this.getUser();
 
