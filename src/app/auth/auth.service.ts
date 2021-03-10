@@ -12,7 +12,6 @@ import { environment } from '../../environments/environment';
 import { JwtHelperService } from '@auth0/angular-jwt';
 
 import { User } from '../_models/user';
-import { Environment } from '../_models/environment';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
@@ -24,10 +23,6 @@ export class AuthService {
 
     public currentUser: Observable<User>;
 
-    private environmentSubject: BehaviorSubject<Environment>;
-
-    public apiURL: Observable<Environment>;
-
     constructor(private http: HttpClient, private router: Router) {
       console.log('auth service constructor');
       console.log('auth service - environment', environment);
@@ -37,26 +32,20 @@ export class AuthService {
         this.API_URL = environment.API_URL;
       } else {
         this.API_URL = this.getBackendURL();
+        console.log('auth-service - this.API_URL', this.API_URL);
       }
-
-      console.log('auth-service - this.API_URL', this.API_URL);
 
       if (!this.API_URL && !this.API_URL.endsWith('/')) {
         this.API_URL += '/';
       }
 
+      console.log('auth-service - this.API_URL', this.API_URL);
+
       this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
       this.currentUser = this.currentUserSubject.asObservable();
-
-      // this.environmentSubject = new BehaviorSubject<Environment>(JSON.parse(localStorage.getItem('backend_url')));
-      // this.apiURL = this.environmentSubject.asObservable();
     }
 
     public get currentUserValue(): any {
-      return this.currentUserSubject.value;
-    }
-
-    public get envURL(): any {
       return this.currentUserSubject.value;
     }
 
@@ -70,10 +59,6 @@ export class AuthService {
         this.API_URL = this.getBackendURL();
 
         console.log('auth service - this.API_URL', this.API_URL);
-      }
-
-      if (!this.API_URL && !this.API_URL.endsWith('/')) {
-        this.API_URL += '/';
       }
 
       console.log('login - this.API_URL', this.API_URL);
@@ -112,12 +97,7 @@ export class AuthService {
       return this.jwtHelper.isTokenExpired(this.tokenGetter());
     }
 
-    // setBackendURL(): Observable<any> {
-
-    // }
-
     initializeBackendURL(): Observable<any> {
-      console.log('auth-service - initialize backend url');
       if (environment.production === true) {
         console.log('getting backend URL', `${window.location.origin}/backend`);
 
