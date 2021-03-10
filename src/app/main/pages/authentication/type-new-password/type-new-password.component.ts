@@ -194,29 +194,29 @@ export class TypeNewPasswordComponent implements OnInit {
 
           if (reset) {
             const snackBarRef = this.snackBar.open(message, 'OK', {
-              duration: 3000,
+              duration: 5000,
             });
 
-            this.getUserService.getUserbyUsername(this.userName)
-              .subscribe(
-                (user) => {
-                  console.log(user);
-                  console.log(user[0].email);
-                  this.email = user[0].email;
+            // this.getUserService.getUserbyUsername(this.userName)
+            //   .subscribe(
+            //     (user) => {
+            //       console.log(user);
+            //       console.log(user[0].email);
+            //       this.email = user[0].email;
 
-                  this.emailService.sendResetPasswordConfirmationEmail({
-                    from: 'Mailgun Sandbox <postmaster@sandboxXXXXXXXXXXXXXXXXXXXXX.mailgun.org>',
-                    to: this.email,
-                    name: this.userName,
-                    text: message,
-                  })
-                    .subscribe(
-                      // () => { },
-                      (err) => console.log(err),
-                    );
-                },
-                (err) => console.log(err),
-              );
+            //       this.emailService.sendResetPasswordConfirmationEmail({
+            //         from: 'Mailgun Sandbox <postmaster@sandboxXXXXXXXXXXXXXXXXXXXXX.mailgun.org>',
+            //         to: this.email,
+            //         name: this.userName,
+            //         text: message,
+            //       })
+            //         .subscribe(
+            //           // () => { },
+            //           (err) => console.log(err),
+            //         );
+            //     },
+            //     (err) => console.log(err),
+            //   );
 
             this.router.navigate(['/login']);
           } else {
