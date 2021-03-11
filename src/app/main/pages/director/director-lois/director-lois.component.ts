@@ -63,7 +63,7 @@ export class DirectorLoisComponent implements OnInit {
   ngOnInit() {
     this.getLOIs();
 
-    this.user = JSON.parse(localStorage.getItem('currentUser'));
+    this.user = JSON.parse(localStorage.getItem('currentUser')).user;
     this.userID = this.user.id;
   }
 

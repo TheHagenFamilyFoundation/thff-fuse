@@ -31,6 +31,8 @@ export class ChangeEmailComponent implements OnInit {
 
   updatedUser: any;
 
+  currentUserObj: any;
+
   ValidChangeEmail: any;
 
   CanChangeEmail = false;
@@ -86,11 +88,14 @@ export class ChangeEmailComponent implements OnInit {
 
           this.CanChangeEmail = false;
 
-          this.updatedUser = JSON.parse(localStorage.getItem('currentUser'));
+          this.currentUserObj = JSON.parse(localStorage.getItem('currentUser'));
+
+          this.updatedUser = this.currentUserObj.user;
 
           this.updatedUser.email = this.email;
+          this.currentUserObj.user = this.updatedUser;
           localStorage.removeItem('currentUser');
-          localStorage.setItem('currentUser', JSON.stringify(this.updatedUser));
+          localStorage.setItem('currentUser', JSON.stringify(this.currentUserObj));
 
           if (this.results.change) {
             console.log('success');

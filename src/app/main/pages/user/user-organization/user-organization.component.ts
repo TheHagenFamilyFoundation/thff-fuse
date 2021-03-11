@@ -101,7 +101,7 @@ export class UserOrganizationComponent implements OnInit {
   getUser() {
     console.log('user LOI - getUser');
 
-    console.log('user LOI - currentUser', localStorage.getItem('currentUser'));
+    console.log('user LOI - currentUser', JSON.parse(localStorage.getItem('currentUser')).user);
 
     this.getUserService.getUserbyUsername(this.userName)
       .subscribe(() => {

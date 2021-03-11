@@ -20,6 +20,8 @@ export class UserUpdateComponent implements OnInit {
 
   updatedUser: any;
 
+  currentUserObj: any;
+
   newFirstName$ = new Subject<string>();
 
   newLastName$ = new Subject<string>();
@@ -105,7 +107,8 @@ export class UserUpdateComponent implements OnInit {
 
           this.CanUpdateName = false;
 
-          this.updatedUser = JSON.parse(localStorage.getItem('currentUser'));
+          this.currentUserObj = JSON.parse(localStorage.getItem('currentUser'));
+          this.updatedUser = this.currentUserObj.user;
 
           this.updatedUser.firstName = this.newFirstName;
           this.updatedUser.lastName = this.newLastName;
@@ -113,8 +116,9 @@ export class UserUpdateComponent implements OnInit {
           this.firstName = this.newFirstName;
           this.lastName = this.newLastName;
 
+          this.currentUserObj.user = this.updatedUser;
           localStorage.removeItem('currentUser');
-          localStorage.setItem('currentUser', JSON.stringify(this.updatedUser));
+          localStorage.setItem('currentUser', JSON.stringify(this.currentUserObj));
 
           this.newFirstName = '';
           this.newLastName = '';
