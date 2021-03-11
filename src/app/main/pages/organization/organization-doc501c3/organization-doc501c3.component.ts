@@ -160,7 +160,7 @@ export class OrganizationDoc501c3Component implements OnInit {
                   }
 
                   // get the logged in user
-                  this.user = JSON.parse(localStorage.getItem('currentUser'));
+                  this.user = JSON.parse(localStorage.getItem('currentUser')).user;
 
                   this.getUserService.getDirectors()
                     .subscribe(
@@ -252,7 +252,7 @@ export class OrganizationDoc501c3Component implements OnInit {
                         }
 
                         // get the logged in user
-                        this.user = JSON.parse(localStorage.getItem('currentUser'));
+                        this.user = JSON.parse(localStorage.getItem('currentUser')).user;
 
                         this.getUserService.getDirectors()
                           .subscribe(

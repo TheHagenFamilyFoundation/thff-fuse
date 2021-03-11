@@ -83,7 +83,7 @@ export class DirectorOrgViewLetterOfIntentComponent implements OnInit {
     // this.First = true; //debug
     this.Last = false;
 
-    this.user = JSON.parse(localStorage.getItem('currentUser'));
+    this.user = JSON.parse(localStorage.getItem('currentUser')).user;
     this.userID = this.user.id;
   }
 

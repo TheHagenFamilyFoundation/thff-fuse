@@ -60,7 +60,7 @@ export class DirectorOrgLoiVotingComponent implements OnInit {
   constructor(public directorVotingService: DirectorVotingService) { }
 
   ngOnInit() {
-    this.user = JSON.parse(localStorage.getItem('currentUser'));
+    this.user = JSON.parse(localStorage.getItem('currentUser')).user;
     this.userID = this.user.id;
 
     if (this.loi.votes.length > 0) {

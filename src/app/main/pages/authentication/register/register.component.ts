@@ -41,7 +41,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
 
     data;
 
-    results: any;
+    result: any;
 
     userName;
 
@@ -157,13 +157,13 @@ export class RegisterComponent implements OnInit, OnDestroy {
       this.http.post(urlString, this.body)
         .subscribe(
           (data) => {
-            this.results = data;
+            this.result = data;
 
-            localStorage.setItem('token', this.results.token);
-            localStorage.setItem('currentUser', JSON.stringify(this.results.user));
+            localStorage.setItem('token', this.result.token);
+            localStorage.setItem('currentUser', JSON.stringify(this.result));
 
-            console.log(`token = ${localStorage.getItem('token')}`);
-            console.log(`currentUser = ${localStorage.getItem('currentUser')}`);
+            console.log(`register - token = ${localStorage.getItem('token')}`);
+            console.log(`register - currentUser = ${localStorage.getItem('currentUser')}`);
             console.log(`this.userName = ${username}`);
             console.log(`this.email = ${email}`);
 
@@ -191,17 +191,17 @@ export class RegisterComponent implements OnInit, OnDestroy {
                     // .login(body, null) // , this.csrfToken)
                     .subscribe(
                       (data) => {
-                        console.log('data', data);
+                        console.log('register - data', data);
                         const { user } = data;
-                        console.log('user', user);
+                        console.log('register - user', user);
 
                         if (user) {
-                          console.log('this.results.user = ', user);
+                          console.log('this.result.user = ', user);
 
                           localStorage.setItem('token', data.token);
                           localStorage.setItem(
                             'currentUser',
-                            JSON.stringify(user),
+                            JSON.stringify(data),
                           );
 
                           console.log(`token = ${localStorage.getItem('token')}`);

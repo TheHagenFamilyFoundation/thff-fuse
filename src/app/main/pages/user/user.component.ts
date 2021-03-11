@@ -61,7 +61,7 @@ export class UserComponent implements OnInit {
   ngOnInit() {
     console.log('inside user component ng oninit');
 
-    console.log('user component - currentUser - ', localStorage.getItem('currentUser'));
+    console.log('user component - currentUser - ', JSON.parse(localStorage.getItem('currentUser')).user);
 
     if (!localStorage.getItem('currentUser')) {
       console.log('user component no currentUser - navigate to login');
@@ -79,7 +79,7 @@ export class UserComponent implements OnInit {
   getUser() {
     console.log('user - getUser');
 
-    console.log('user component', localStorage.getItem('currentUser'));
+    console.log('user component - currentUser - ', JSON.parse(localStorage.getItem('currentUser')).user);
 
     this.getUserService.getUserbyUsername(this.userName)
       .subscribe((user) => {
