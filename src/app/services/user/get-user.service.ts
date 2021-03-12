@@ -46,6 +46,8 @@ export class GetUserService {
 
     const urlString = `${this.API_URL}/user?id=${userID}`;
 
+    console.log('getUserbyID url - ', urlString);
+
     return this.http.get(urlString);
   }
 
