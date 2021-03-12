@@ -112,7 +112,7 @@ export class UserOrganizationComponent implements OnInit {
 
   // checks if user is in any organizations
   checkOrganizations() {
-    console.log('user-organizaiton - check organizations');
+    console.log('user-organizaiton - check organizations', this.user.id);
 
     // will return the organizations
     this.getUserService.getUserbyID(this.user.id)
