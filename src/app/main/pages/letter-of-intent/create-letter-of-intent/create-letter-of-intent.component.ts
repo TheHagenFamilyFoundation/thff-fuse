@@ -188,7 +188,7 @@ export class CreateLetterOfIntentComponent implements OnInit {
   getOrganizations() {
     console.log('get organizations');
 
-    this.getUserService.getUserbyUsername(this.userName)
+    this.getUserService.getUserbyID(this.user.id)
       .subscribe(
         (user) => {
           console.log('user', user);

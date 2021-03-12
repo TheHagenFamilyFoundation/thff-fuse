@@ -103,7 +103,7 @@ export class UserOrganizationComponent implements OnInit {
 
     console.log('user LOI - currentUser', JSON.parse(localStorage.getItem('currentUser')).user);
 
-    this.getUserService.getUserbyUsername(this.userName)
+    this.getUserService.getUserbyID(this.user.id)
       .subscribe(() => {
         // pass in the user to the check functions
         this.checkOrganizations();
@@ -115,7 +115,7 @@ export class UserOrganizationComponent implements OnInit {
     console.log('user-organizaiton - check organizations');
 
     // will return the organizations
-    this.getUserService.getUserbyUsername(this.userName)
+    this.getUserService.getUserbyID(this.user.id)
       .subscribe(
         (user) => {
           console.log('user-organization - checkOrganizations - user', user);

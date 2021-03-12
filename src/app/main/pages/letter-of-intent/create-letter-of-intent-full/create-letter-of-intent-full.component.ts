@@ -315,7 +315,7 @@ export class CreateLetterOfIntentFullComponent implements OnInit {
   getOrganizations() {
     console.log('create loi full - get organizations', this.userName);
 
-    this.getUserService.getUserbyUsername(this.userName)
+    this.getUserService.getUserbyID(this.user.id)
       .subscribe(
         (user) => {
           console.log('user', user);

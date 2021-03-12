@@ -101,7 +101,7 @@ export class ViewOrganizationsComponent implements OnInit {
   checkOrganizations() {
     console.log('check organizations');
 
-    this.getUserService.getUserbyUsername(this.userName)
+    this.getUserService.getUserbyID(this.user.id)
       .subscribe(
         (user) => {
           console.log('user', user);
