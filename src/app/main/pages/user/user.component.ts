@@ -81,6 +81,8 @@ export class UserComponent implements OnInit {
 
     console.log('user component - currentUser - ', JSON.parse(localStorage.getItem('currentUser')).user);
 
+    console.log('this.userName',this.userName)
+
     this.getUserService.getUserbyUsername(this.userName)
       .subscribe((user) => {
         // pass in the user to the check functions
