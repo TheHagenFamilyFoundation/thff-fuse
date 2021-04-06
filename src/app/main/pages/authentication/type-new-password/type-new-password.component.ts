@@ -138,13 +138,10 @@ export class TypeNewPasswordComponent implements OnInit {
 
     this.sub = this.route.params.subscribe((params) => {
       this.resetCode = params.resetCode; // (+) converts string 'id' to a number
-      this.userName = params.username;
+      // this.userName = params.username;
 
       console.log('this.resetCode');
       console.log(this.resetCode);
-
-      console.log('this.userName');
-      console.log(this.userName);
 
       console.log('type new password');
 
@@ -230,6 +227,8 @@ export class TypeNewPasswordComponent implements OnInit {
   }// end of setNewPassword
 
   getBackendURL() {
+    console.log('typenewpassword - getBackgroundURL');
+
     if (environment.production) {
       this.authService.initializeBackendURL().subscribe(
         (backendUrl) => {
@@ -244,7 +243,7 @@ export class TypeNewPasswordComponent implements OnInit {
 
           this.API_URL = backendUrl.url;
 
-          this.checkUserName();
+          this.checkResetCode();
         },
       );
     }
@@ -282,6 +281,7 @@ export class TypeNewPasswordComponent implements OnInit {
           // debug
           console.log(data);
           console.log('data');
+          this.userName = data.user.userName;
 
           const { message } = data;
 
