@@ -163,6 +163,7 @@ export class TypeNewPasswordComponent implements OnInit {
 
   setNewPassword(): void {
     console.log('set New Password');
+    console.log('typenewpassword - username', this.userName);
 
     const payload = {
       np: this.typeNewPasswordForm.get('newPassword').value,
@@ -249,6 +250,7 @@ export class TypeNewPasswordComponent implements OnInit {
     }
   }
 
+  // old
   checkUserName(): void {
     console.log('checkUserName');
 
