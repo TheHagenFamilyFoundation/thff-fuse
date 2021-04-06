@@ -282,7 +282,7 @@ export class TypeNewPasswordComponent implements OnInit {
         (data) => {
           // debug
           console.log('typenewpassword - checkresetcode - data', data);
-          this.userName = data.user.userName;
+          this.userName = data.user.username;
 
           const { message } = data;
 
