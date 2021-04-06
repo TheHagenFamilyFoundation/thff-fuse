@@ -17,7 +17,7 @@ import { SetNewPasswordService } from '../../../../services/user/set-new-passwor
 import { TypeNewPasswordComponent } from 'app/main/pages/authentication/type-new-password/type-new-password.component';
 
 const routes = [
-  { path: 'auth/type-new-password/:username/:resetCode', component: TypeNewPasswordComponent },
+  { path: 'auth/type-new-password/:resetCode', component: TypeNewPasswordComponent },
 ];
 
 @NgModule({
