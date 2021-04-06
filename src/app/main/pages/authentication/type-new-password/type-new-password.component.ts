@@ -275,14 +275,13 @@ export class TypeNewPasswordComponent implements OnInit {
   // also checks the time and the resetPassword field if true or false
   // false implying that the user already reset the password
   checkResetCode(): void {
-    console.log('checkResetCode');
+    console.log('checkResetCode', this.resetCode);
 
     this.ValidResetCode = this.validResetCodeService.checkValidResetCode(this.resetCode)
       .subscribe(
         (data) => {
           // debug
-          console.log(data);
-          console.log('data');
+          console.log('typenewpassword - checkresetcode - data', data);
           this.userName = data.user.userName;
 
           const { message } = data;
