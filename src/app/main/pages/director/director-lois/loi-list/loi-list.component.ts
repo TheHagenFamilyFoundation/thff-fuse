@@ -1,7 +1,7 @@
 /* eslint-disable new-cap */
 import { Component, OnInit, Input } from '@angular/core';
 
-import * as jsPDF from 'jspdf';
+import jspdf from 'jspdf';
 // import html2canvas from 'html2canvas'; //no longer using this
 
 @Component({
@@ -31,7 +31,7 @@ export class LoiListComponent implements OnInit {
 
     this.Loading = true;
 
-    const pdf = new jsPDF('p', 'mm', 'a4');
+    const pdf = new jspdf('p', 'mm', 'a4');
 
     // this is the title
     // pdf.setFontSize(40) //maybe
