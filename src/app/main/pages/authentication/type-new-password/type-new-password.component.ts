@@ -131,6 +131,8 @@ export class TypeNewPasswordComponent implements OnInit {
    * On init
    */
   ngOnInit(): void {
+    this.getBackendURL();
+
     this.typeNewPasswordForm = this.formBuilder.group({
       newPassword: ['', [Validators.required]],
       confirmPassword: ['', [Validators.required]],
