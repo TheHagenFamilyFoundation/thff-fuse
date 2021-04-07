@@ -264,7 +264,7 @@ export class HomeComponent implements OnInit {
       console.log('environment is production');
       this.authService.initializeBackendURL().subscribe(
         (backendUrl) => {
-          console.log('backendUrl', backendUrl.url);
+          console.log('home component - backendUrl', backendUrl.url);
 
           if (backendUrl) {
             sessionStorage.setItem('backend_url', backendUrl.url);

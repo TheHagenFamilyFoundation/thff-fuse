@@ -118,6 +118,10 @@ export class TypeNewPasswordComponent implements OnInit {
     } else {
       this.API_URL = this.authService.getBackendURL();
       console.log('TypeNewPasswordComponent - this.API_URL', this.API_URL);
+      // if (!this.API_URL) {
+      //   this.authService.initializeBackendURL();
+      //   this.API_URL = this.authService.getBackendURL();
+      // }
     }
 
     console.log('TypeNewPasswordComponent - this.API_URL', this.API_URL);
@@ -131,6 +135,8 @@ export class TypeNewPasswordComponent implements OnInit {
    * On init
    */
   ngOnInit(): void {
+    console.log('typenewpassword ngoninit');
+
     this.getBackendURL();
 
     this.typeNewPasswordForm = this.formBuilder.group({
@@ -242,7 +248,7 @@ export class TypeNewPasswordComponent implements OnInit {
     if (environment.production) {
       this.authService.initializeBackendURL().subscribe(
         (backendUrl) => {
-          console.log('backendUrl', backendUrl.url);
+          console.log('typenewpassword component - backendUrl', backendUrl.url);
 
           if (backendUrl) {
             sessionStorage.setItem('backend_url', backendUrl.url);
