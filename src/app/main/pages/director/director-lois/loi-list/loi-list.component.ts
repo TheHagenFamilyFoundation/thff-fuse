@@ -36,7 +36,7 @@ export class LoiListComponent implements OnInit {
     // this is the title
     // pdf.setFontSize(40) //maybe
     pdf.setFontSize(12);
-    pdf.text(75, 10, 'List of Letter of Intents');
+    pdf.text('List of Letter of Intents', 75, 10);
 
     console.log('this.lois.length', this.lois.length);
     for (let i = 0; i < this.lois.length; i += 1) {
@@ -52,32 +52,32 @@ export class LoiListComponent implements OnInit {
       }
 
       // Output
-      pdf.text(75, vertical + shift, `LOI - ${i + 1} - ${loiDoc}`); // id
+      pdf.text(`LOI - ${i + 1} - ${loiDoc}`, 75, vertical + shift); // id
       vertical += 10;
-      pdf.text(75, vertical + shift, `LOI Name - ${this.lois[i].name}`); // id
+      pdf.text(`LOI Name - ${this.lois[i].name}`, 75, vertical + shift); // id
       vertical += 10;
 
       // LOI Info
       if (this.lois[i].info && this.lois[i].info.length > 0) {
-        pdf.text(75, vertical + shift, `Project Title - ${this.lois[i].info[0].projectTitle}`); // projectTitle
+        pdf.text(`Project Title - ${this.lois[i].info[0].projectTitle}`, 75, vertical + shift); // projectTitle
 
         /* Purpose */
         vertical += 10;
-        pdf.text(15, vertical + shift, 'Purpose'); // purpose
+        pdf.text('Purpose', 15, vertical + shift); // purpose
         const splitTitle = pdf.splitTextToSize(this.lois[i].info[0].purpose, 150);
-        pdf.text(35, vertical + shift, splitTitle);
+        pdf.text(splitTitle, 35, vertical + shift);
 
         vertical += 150;
-        pdf.text(75, vertical + shift, `Project Start Date - ${this.lois[i].info[0].projectStartDate}`); // start date
+        pdf.text(`Project Start Date - ${this.lois[i].info[0].projectStartDate}`, 75, vertical + shift); // start date
         vertical += 10;
-        pdf.text(75, vertical + shift, `Project End Date - ${this.lois[i].info[0].projectEndDate}`); // end date
+        pdf.text(`Project End Date - ${this.lois[i].info[0].projectEndDate}`, 75, vertical + shift); // end date
         vertical += 10;
-        pdf.text(75, vertical + shift, `Amount Requested - $${this.lois[i].info[0].amountRequested}`); // amount requested
+        pdf.text(`Amount Requested - $${this.lois[i].info[0].amountRequested}`, 75, vertical + shift); // amount requested
         vertical += 10;
-        pdf.text(75, vertical + shift, `Total Project Cost - $${this.lois[i].info[0].totalProjectCost}`); // total project cost
+        pdf.text(`Total Project Cost - $${this.lois[i].info[0].totalProjectCost}`, 75, vertical + shift); // total project cost
       } else {
         // output no info
-        pdf.text(75, vertical + shift, 'No Info'); // no info
+        pdf.text('No Info', 75, vertical + shift); // no info
       }
 
       if (i < this.lois.length - 1) {
