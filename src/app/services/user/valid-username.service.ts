@@ -44,7 +44,7 @@ export class ValidUserNameService {
 
       this.BackendURL.subscribe(
         (backendUrl) => {
-          console.log('backendUrl', backendUrl.url);
+          console.log('valid username service - backendUrl', backendUrl.url);
 
           if (backendUrl) {
             sessionStorage.setItem('backend_url', backendUrl.url);

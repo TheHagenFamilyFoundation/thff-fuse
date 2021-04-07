@@ -196,8 +196,7 @@ export class LoginComponent implements OnInit {
         this.API_URL = environment.API_URL;
 
         this.authService.initializeBackendURL().subscribe((backendUrl) => {
-          console.log('backendUrl', backendUrl);
-          console.log('backendUrl', backendUrl.url);
+          console.log('login component - backendUrl', backendUrl.url);
 
           if (backendUrl) {
             sessionStorage.setItem('backend_url', backendUrl.url);
