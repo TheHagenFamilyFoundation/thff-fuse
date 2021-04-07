@@ -1,7 +1,7 @@
 /* eslint-disable new-cap */
 import { Component, Input } from '@angular/core';
 
-import * as jsPDF from 'jspdf';
+import jspdf from 'jspdf';
 
 @Component({
   selector: 'app-director-fps-list',
@@ -80,7 +80,7 @@ export class DirectorFpsListComponent {
 
     this.Loading = true;
 
-    const pdf = new jsPDF('p', 'pt', 'a4'); // new jsPDF('p', 'pt', [ 595.28,  841.89])
+    const pdf = new jspdf('p', 'pt', 'a4'); // new jsPDF('p', 'pt', [ 595.28,  841.89])
     // const promises = [];
 
     // First Page
