@@ -149,6 +149,13 @@ export class TypeNewPasswordComponent implements OnInit {
 
       this.getBackendURL();
 
+      if (!environment.production) {
+        this.API_URL = environment.API_URL;
+      } else {
+        this.API_URL = this.authService.getBackendURL();
+        console.log('TypeNewPasswordComponent - this.API_URL', this.API_URL);
+      }
+
       console.log('TypeNewPasswordComponent - this.API_URL', this.API_URL);
 
 
