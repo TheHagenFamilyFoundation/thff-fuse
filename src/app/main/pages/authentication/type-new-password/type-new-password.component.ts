@@ -180,10 +180,11 @@ export class TypeNewPasswordComponent implements OnInit {
     console.log('set New Password');
     console.log('typenewpassword - username', this.userName);
 
+    // pass the new password and reset code
     const payload = {
       np: this.typeNewPasswordForm.get('newPassword').value,
       conp: this.typeNewPasswordForm.get('confirmPassword').value,
-      un: this.userName,
+      rc: this.resetCode,
     };
 
     let reset = false;
@@ -209,27 +210,6 @@ export class TypeNewPasswordComponent implements OnInit {
             const snackBarRef = this.snackBar.open(message, 'OK', {
               duration: 5000,
             });
-
-            // this.getUserService.getUserbyUsername(this.userName)
-            //   .subscribe(
-            //     (user) => {
-            //       console.log(user);
-            //       console.log(user[0].email);
-            //       this.email = user[0].email;
-
-            //       this.emailService.sendResetPasswordConfirmationEmail({
-            //         from: 'Mailgun Sandbox <postmaster@sandboxXXXXXXXXXXXXXXXXXXXXX.mailgun.org>',
-            //         to: this.email,
-            //         name: this.userName,
-            //         text: message,
-            //       })
-            //         .subscribe(
-            //           // () => { },
-            //           (err) => console.log(err),
-            //         );
-            //     },
-            //     (err) => console.log(err),
-            //   );
 
             this.router.navigate(['pages/auth/login']);
           } else {
@@ -259,7 +239,7 @@ export class TypeNewPasswordComponent implements OnInit {
 
           this.API_URL = backendUrl.url;
 
-          this.checkResetCode();
+          // this.checkResetCode();
         },
       );
     }
@@ -289,6 +269,7 @@ export class TypeNewPasswordComponent implements OnInit {
 
   // also checks the time and the resetPassword field if true or false
   // false implying that the user already reset the password
+  // old
   checkResetCode(): void {
     console.log('checkResetCode', this.resetCode);
 
