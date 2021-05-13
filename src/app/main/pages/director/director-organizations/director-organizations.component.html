@@ -1,6 +1,18 @@
 <div class="page-layout blank p-24" fusePerfectScrollbar align="center">
     <h3>View Organizations</h3>
 
+    <div class="filter">
+        <mat-form-field>
+            <mat-label>Filter</mat-label>
+            <input
+                matInput
+                (keyup)="applyFilter($event)"
+                placeholder="Ex. Organization Name"
+                #input
+            />
+        </mat-form-field>
+    </div>
+
     <div class="table">
         <div class="example-container mat-elevation-z8 toc">
             <mat-table [dataSource]="dataSource" matSort>

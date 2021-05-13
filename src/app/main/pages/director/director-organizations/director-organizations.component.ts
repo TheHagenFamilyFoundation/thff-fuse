@@ -57,10 +57,9 @@ export class DirectorOrganizationsComponent implements OnInit {
       );
   }
 
-  applyFilter(filterValue: string) {
-    let filteredValue = filterValue.trim(); // Remove whitespace
-    filteredValue = filteredValue.toLowerCase(); // Datasource defaults to lowercase matches
-    this.dataSource.filter = filteredValue;
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
   onRowClicked(row) {
