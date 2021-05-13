@@ -46,16 +46,17 @@
         </button>
     </div>
     <br />
-
-    <mat-form-field>
-        <mat-label>Filter</mat-label>
-        <input
-            matInput
-            (keyup)="applyFilter($event)"
-            placeholder="Ex. Organization Name"
-            #input
-        />
-    </mat-form-field>
+    <div *ngIf="!Printable">
+        <mat-form-field>
+            <mat-label>Filter</mat-label>
+            <input
+                matInput
+                (keyup)="applyFilter($event)"
+                placeholder="Ex. Organization Name"
+                #input
+            />
+        </mat-form-field>
+    </div>
     <!-- create separate component for this -->
     <div *ngIf="!Printable">
         <div class="example-container mat-elevation-z8 toc">
