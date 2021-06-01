@@ -40,7 +40,7 @@ export class DirectorOrgLoiPresidentVotingComponent implements OnInit {
       this.checkPresVote(this.loi.votes);
     }
 
-    this.user = JSON.parse(localStorage.getItem('currentUser'));
+    this.user = JSON.parse(localStorage.getItem('currentUser')).user;
     this.userID = this.user.id;
 
     console.log('president voting - this.user', this.user);
