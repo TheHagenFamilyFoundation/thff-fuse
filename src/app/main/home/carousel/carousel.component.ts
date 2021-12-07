@@ -49,7 +49,7 @@ export class CarouselComponent {
   }
 
   startSlideShow(): void {
-    setInterval(() => { this.onNextClick(); }, 5000);
+    setInterval(() => { this.onNextClick(); }, 10000);
   }
 
   onPreviousClick(): void {
