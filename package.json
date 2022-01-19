@@ -1,7 +1,10 @@
 {
-    "name": "fuse",
-    "version": "9.0.0",
-    "license": "https://themeforest.net/licenses/terms/regular",
+    "name": "@fuse/starter",
+    "version": "14.1.1",
+    "description": "Fuse - Angular Admin Template and Starter Project",
+    "author": "https://themeforest.net/user/srcn",
+    "license": "https://themeforest.net/licenses/standard",
+    "private": true,
     "scripts": {
         "ng": "ng",
         "start": "node server.js",
@@ -19,7 +22,6 @@
         "heroku-postbuild": "echo Skip build on Heroku",
         "postinstall": "ng build --aot --prod"
     },
-    "private": true,
     "dependencies": {
         "@agm/core": "1.1.0",
         "@angular/animations": "9.0.0",

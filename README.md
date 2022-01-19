@@ -1,12 +1,6 @@
-# Fuse - Angular
+# Fuse - Admin template and Starter project for Angular
 
-Material Design Admin Template with Angular 8 and Angular Material
-
-## The Community
-
-Share your ideas, discuss Fuse and help each other.
-
-[Click here](http://fusetheme.com/community) to see our Community page.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli)
 
 ## Development server
 
@@ -18,7 +12,7 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
 ## Running unit tests
 
@@ -26,9 +20,8 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 ## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Run `ng e2e` to execute the end-to-end tests via a platform of your choice.  To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
 ## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
-
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
