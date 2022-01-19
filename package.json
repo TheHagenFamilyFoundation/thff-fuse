@@ -104,8 +104,8 @@
         "webpack-bundle-analyzer": "3.6.0"
     },
     "engines": {
-        "node": "10.15.0",
-        "npm": "6.13.4"
+        "node": "16.13.2",
+        "npm": "8.1.2"
     },
     "heroku-run-build-script": true
 }

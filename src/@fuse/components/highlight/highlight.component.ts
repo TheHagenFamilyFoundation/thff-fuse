@@ -1,45 +1,36 @@
-import { Component, ContentChild, ElementRef, Input, OnDestroy, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
-import * as Prism from 'prismjs/prism';
-import '@fuse/components/highlight/prism-languages';
+import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, EmbeddedViewRef, Input, OnChanges, Renderer2, SecurityContext, SimpleChanges, TemplateRef, ViewChild, ViewContainerRef, ViewEncapsulation } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
+import { FuseHighlightService } from '@fuse/components/highlight/highlight.service';
 
 @Component({
-    selector : 'fuse-highlight',
-    template : '',
-    styleUrls: ['./highlight.component.scss']
+    selector       : 'textarea[fuse-highlight]',
+    templateUrl    : './highlight.component.html',
+    styleUrls      : ['./highlight.component.scss'],
+    encapsulation  : ViewEncapsulation.None,
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    exportAs       : 'fuseHighlight'
 })
-export class FuseHighlightComponent implements OnInit, OnDestroy
+export class FuseHighlightComponent implements OnChanges, AfterViewInit
 {
-    // Source
-    @ContentChild('source', {static: true})
-    source: ElementRef;
+    @Input() code: string;
+    @Input() lang: string;
+    @ViewChild(TemplateRef) templateRef: TemplateRef<any>;
 
-    // Lang
-    @Input('lang')
-    lang: string;
-
-    // Path
-    @Input('path')
-    path: string;
-
-    // Private
-    private _unsubscribeAll: Subject<any>;
+    highlightedCode: string;
+    private _viewRef: EmbeddedViewRef<any>;
 
     /**
      * Constructor
-     *
-     * @param {ElementRef} _elementRef
-     * @param {HttpClient} _httpClient
      */
     constructor(
+        private _changeDetectorRef: ChangeDetectorRef,
+        private _domSanitizer: DomSanitizer,
         private _elementRef: ElementRef,
-        private _httpClient: HttpClient
+        private _renderer2: Renderer2,
+        private _fuseHighlightService: FuseHighlightService,
+        private _viewContainerRef: ViewContainerRef
     )
     {
-        // Set the private defaults
-        this._unsubscribeAll = new Subject();
     }
 
     // -----------------------------------------------------------------------------------------------------
@@ -47,103 +38,95 @@ export class FuseHighlightComponent implements OnInit, OnDestroy
     // -----------------------------------------------------------------------------------------------------
 
     /**
-     * On init
+     * On changes
+     *
+     * @param changes
      */
-    ngOnInit(): void
+    ngOnChanges(changes: SimpleChanges): void
     {
-        // If there is no language defined, return...
+        // Code & Lang
+        if ( 'code' in changes || 'lang' in changes )
+        {
+            // Return if the viewContainerRef is not available
+            if ( !this._viewContainerRef.length )
+            {
+                return;
+            }
+
+            // Highlight and insert the code
+            this._highlightAndInsert();
+        }
+    }
+
+    /**
+     * After view init
+     */
+    ngAfterViewInit(): void
+    {
+        // Return if there is no language set
         if ( !this.lang )
         {
             return;
         }
 
-        // If the path is defined...
-        if ( this.path )
+        // If there is no code input, get the code from
+        // the textarea
+        if ( !this.code )
         {
-            // Get the source
-            this._httpClient.get(this.path, {responseType: 'text'})
-                .pipe(takeUntil(this._unsubscribeAll))
-                .subscribe((response) => {
-
-                    // Highlight it
-                    this.highlight(response);
-                });
+            // Get the code
+            this.code = this._elementRef.nativeElement.value;
         }
 
-        // If the path is not defined and the source element exists...
-        if ( !this.path && this.source )
-        {
-            // Highlight it
-            this.highlight(this.source.nativeElement.value);
-        }
-    }
-
-    /**
-     * On destroy
-     */
-    ngOnDestroy(): void
-    {
-        // Unsubscribe from all subscriptions
-        this._unsubscribeAll.next();
-        this._unsubscribeAll.complete();
+        // Highlight and insert
+        this._highlightAndInsert();
     }
 
     // -----------------------------------------------------------------------------------------------------
-    // @ Public methods
+    // @ Private methods
     // -----------------------------------------------------------------------------------------------------
 
     /**
-     * Highlight the given source code
+     * Highlight and insert the highlighted code
      *
-     * @param sourceCode
+     * @private
      */
-    highlight(sourceCode): void
+    private _highlightAndInsert(): void
     {
-        // Split the source into lines
-        const sourceLines = sourceCode.split('\n');
-
-        // Remove the first and the last line of the source
-        // code if they are blank lines. This way, the html
-        // can be formatted properly while using fuse-highlight
-        // component
-        if ( !sourceLines[0].trim() )
+        // Return if the template reference is not available
+        if ( !this.templateRef )
         {
-            sourceLines.shift();
+            return;
         }
 
-        if ( !sourceLines[sourceLines.length - 1].trim() )
+        // Return if the code or language is not defined
+        if ( !this.code || !this.lang )
         {
-            sourceLines.pop();
+            return;
         }
 
-        // Find the first non-whitespace char index in
-        // the first line of the source code
-        const indexOfFirstChar = sourceLines[0].search(/\S|$/);
+        // Destroy the component if there is already one
+        if ( this._viewRef )
+        {
+            this._viewRef.destroy();
+            this._viewRef = null;
+        }
 
-        // Generate the trimmed source
-        let source = '';
+        // Highlight and sanitize the code just in case
+        this.highlightedCode = this._domSanitizer.sanitize(SecurityContext.HTML, this._fuseHighlightService.highlight(this.code, this.lang));
 
-        // Iterate through all the lines
-        sourceLines.forEach((line, index) => {
+        // Return if the highlighted code is null
+        if ( this.highlightedCode === null )
+        {
+            return;
+        }
 
-            // Trim the beginning white space depending on the index
-            // and concat the source code
-            source = source + line.substr(indexOfFirstChar, line.length);
-
-            // If it's not the last line...
-            if ( index !== sourceLines.length - 1 )
-            {
-                // Add a line break at the end
-                source = source + '\n';
-            }
+        // Render and insert the template
+        this._viewRef = this._viewContainerRef.createEmbeddedView(this.templateRef, {
+            highlightedCode: this.highlightedCode,
+            lang           : this.lang
         });
 
-        // Generate the highlighted code
-        const highlightedCode = Prism.highlight(source, Prism.languages[this.lang]);
-
-        // Replace the innerHTML of the component with the highlighted code
-        this._elementRef.nativeElement.innerHTML =
-            '<pre><code class="highlight language-' + this.lang + '">' + highlightedCode + '</code></pre>';
+        // Detect the changes
+        this._viewRef.detectChanges();
     }
 }
-
