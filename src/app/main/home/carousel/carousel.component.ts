@@ -27,7 +27,7 @@ export class CarouselComponent {
 
   // fullImagePath3 = '../assets/images/grant_review_timeline.png'; // april 15th
 
-  fullImagePath3 = '../assets/images/grant_review_timeline_july1.jpg'; // april 30th
+  fullImagePath3 = '../assets/images/Grant_Review_Timeline_new.jpg'; // new for 2022
 
   fullImagePath4 = '../assets/images/southern_shakespeare.png';
 
