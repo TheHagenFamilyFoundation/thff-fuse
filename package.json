@@ -65,7 +65,7 @@
         "ngx-currency": "2.2.2",
         "path": "0.12.7",
         "perfect-scrollbar": "1.4.0",
-        "prismjs": "1.25.0",
+        "prismjs": "1.27.0",
         "rxjs": "6.5.4",
         "tslib": "1.10.0",
         "typescript": "3.7.5",
